@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF27A815-6B21-49D7-9D78-6F8E51E9F6C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>DiaBase.My.MyApplication</StartupObject>
+    <RootNamespace>DiaBase</RootNamespace>
+    <AssemblyName>DiaBase</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>DiaBase.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>DiaBase.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoLogger.vb" />
+    <Compile Include="DatabaseManagmentFunctions.vb" />
+    <Compile Include="ErrorHandlerForm.Designer.vb">
+      <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorHandlerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExitApplication.Designer.vb">
+      <DependentUpon>ExitApplication.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExitApplication.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalVars.vb" />
+    <Compile Include="Help.Designer.vb">
+      <DependentUpon>Help.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Help.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemAdd.Designer.vb">
+      <DependentUpon>ItemAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ItemAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemEdit.Designer.vb">
+      <DependentUpon>ItemEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppClasses.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="DatabaseManager.Designer.vb">
+      <DependentUpon>DatabaseManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.vb" />
+    <Compile Include="Settings.Designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TradeList.vb" />
+    <Compile Include="UserInput.Designer.vb">
+      <DependentUpon>UserInput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInput.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ErrorHandlerForm.resx">
+      <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExitApplication.resx">
+      <DependentUpon>ExitApplication.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemAdd.resx">
+      <DependentUpon>ItemAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemEdit.resx">
+      <DependentUpon>ItemEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseManager.resx">
+      <DependentUpon>DatabaseManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInput.resx">
+      <DependentUpon>UserInput.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DiabloFont1.ttf" />
+    <None Include="Resources\ImageBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D2Data.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gem.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menubar.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\D2BACKGROUNDPIC.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigDLaugh.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d2Dong.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BigSettings.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ButtonBackground.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CrossGraphic.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Baalfadeout.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
