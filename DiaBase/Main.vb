@@ -1140,6 +1140,20 @@ Public Class Main
 
     Private Sub BuildMuleListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuildMuleListToolStripMenuItem.Click
 
+
+        For index = 0 To ItemObjects.Count - 1
+            Dim temp = ItemObjects(index).ItemRealm & " / " & ItemObjects(index).MuleAccount & " / " & ItemObjects(index).MulePass
+
+            If TradeListRICHTEXTBOX.Text.Contains(temp) = True Then Continue For
+
+            TradeListRICHTEXTBOX.AppendText(temp & vbCrLf)
+
+        Next
+
+        DupesList()
+        Return
+
+
         'Set Routine Working Vars
         Dim CountItems As Integer = 0
         Dim CollatedString As String = Nothing
@@ -1160,7 +1174,7 @@ Public Class Main
             CountItems = CountItems + 1
         Next
 
-
+        Me.UserLISTBOX.Items.Add("Items checked" & CountItems)
 
 
 
@@ -1176,5 +1190,10 @@ Public Class Main
 
     End Sub
 
-
+    Private Sub LoadMuleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadMuleToolStripMenuItem.Click
+        Dim Iindex = AllItemsLISTBOX.SelectedIndex
+        If Iindex = -1 Then Return
+        WriteLoaderFile(Iindex)
+        'loadD2(Iindex)
+    End Sub
 End Class

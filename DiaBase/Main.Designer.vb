@@ -37,6 +37,7 @@ Partial Class Main
         Me.RebuildDefaultDBaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetSetAllItemsToNonLadderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuildMuleListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadMuleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearTradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSearchListToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -225,7 +226,7 @@ Partial Class Main
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksToolStripMenuItem, Me.ToolStripMenuItem4, Me.ToolStripSeparator7, Me.SettingsToolStripMenuItem1, Me.RebuildDefaultDBaseToolStripMenuItem, Me.ResetSetAllItemsToNonLadderToolStripMenuItem, Me.BuildMuleListToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksToolStripMenuItem, Me.ToolStripMenuItem4, Me.ToolStripSeparator7, Me.SettingsToolStripMenuItem1, Me.RebuildDefaultDBaseToolStripMenuItem, Me.ResetSetAllItemsToNonLadderToolStripMenuItem, Me.BuildMuleListToolStripMenuItem, Me.LoadMuleToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
@@ -273,6 +274,12 @@ Partial Class Main
         Me.BuildMuleListToolStripMenuItem.Name = "BuildMuleListToolStripMenuItem"
         Me.BuildMuleListToolStripMenuItem.Size = New System.Drawing.Size(264, 22)
         Me.BuildMuleListToolStripMenuItem.Text = "Build Mule Acc List (In USER List)"
+        '
+        'LoadMuleToolStripMenuItem
+        '
+        Me.LoadMuleToolStripMenuItem.Name = "LoadMuleToolStripMenuItem"
+        Me.LoadMuleToolStripMenuItem.Size = New System.Drawing.Size(264, 22)
+        Me.LoadMuleToolStripMenuItem.Text = "Load Mule"
         '
         'ClearTradeListToolStripMenuItem
         '
@@ -1024,10 +1031,10 @@ Partial Class Main
         Me.ItemStatsRICHTEXTBOX.CausesValidation = False
         Me.ItemStatsRICHTEXTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemStatsRICHTEXTBOX.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 242)
+        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 255)
         Me.ItemStatsRICHTEXTBOX.Name = "ItemStatsRICHTEXTBOX"
         Me.ItemStatsRICHTEXTBOX.ReadOnly = True
-        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 437)
+        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 424)
         Me.ItemStatsRICHTEXTBOX.TabIndex = 277
         Me.ItemStatsRICHTEXTBOX.Text = ""
         '
@@ -1722,4 +1729,5 @@ Partial Class Main
     Friend WithEvents MuleRealmLABEL As Label
     Friend WithEvents DatabaseFileNameTEXTBOX As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents LoadMuleToolStripMenuItem As ToolStripMenuItem
 End Class
