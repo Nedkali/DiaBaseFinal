@@ -55,6 +55,9 @@ Partial Class Settings
         Me.SettingsImportDelayLABEL = New System.Windows.Forms.Label()
         Me.DatabaseVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
         Me.EtalPathVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.AutoLogingDelayNUMERICUPDOWN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -301,7 +304,7 @@ Partial Class Settings
         Me.SettingsSaveBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsSaveBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsSaveBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(324, 238)
+        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(375, 264)
         Me.SettingsSaveBUTTON.Name = "SettingsSaveBUTTON"
         Me.SettingsSaveBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsSaveBUTTON.TabIndex = 892
@@ -343,7 +346,7 @@ Partial Class Settings
         Me.SettingsCancelBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsCancelBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsCancelBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(405, 238)
+        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(375, 306)
         Me.SettingsCancelBUTTON.Name = "SettingsCancelBUTTON"
         Me.SettingsCancelBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsCancelBUTTON.TabIndex = 889
@@ -396,14 +399,47 @@ Partial Class Settings
         Me.EtalPathVerifyFailPICTUREBOX.TabIndex = 917
         Me.EtalPathVerifyFailPICTUREBOX.TabStop = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(40, 291)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(140, 20)
+        Me.TextBox1.TabIndex = 918
+        Me.TextBox1.Text = "26/4/2015"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label1.Location = New System.Drawing.Point(186, 294)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(84, 13)
+        Me.Label1.TabIndex = 919
+        Me.Label1.Text = "Last Reset Date"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Black
+        Me.Label3.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label3.Location = New System.Drawing.Point(56, 275)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(53, 13)
+        Me.Label3.TabIndex = 920
+        Me.Label3.Text = "eg' d/m/y"
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(511, 295)
+        Me.ClientSize = New System.Drawing.Size(511, 395)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.EtalPathVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.DatabaseVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.SoundMuteCHECKBOX)
@@ -436,8 +472,8 @@ Partial Class Settings
         Me.Controls.Add(Me.EtalPathTEXTBOX)
         Me.Controls.Add(Me.SettingsDatabasePathLABEL)
         Me.Controls.Add(Me.AutoLogingDelayNUMERICUPDOWN)
-        Me.MaximumSize = New System.Drawing.Size(527, 333)
-        Me.MinimumSize = New System.Drawing.Size(527, 333)
+        Me.MaximumSize = New System.Drawing.Size(527, 433)
+        Me.MinimumSize = New System.Drawing.Size(527, 433)
         Me.Name = "Settings"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -483,4 +519,7 @@ Partial Class Settings
     Friend WithEvents SettingsImportDelayLABEL As System.Windows.Forms.Label
     Friend WithEvents DatabaseVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
     Friend WithEvents EtalPathVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
 End Class

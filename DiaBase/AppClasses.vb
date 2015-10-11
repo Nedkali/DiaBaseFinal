@@ -71,10 +71,7 @@ Public Class AppSetting
     Public BackupBeforeEdits As Boolean = False             'Backup before applying edits to item fields    TRUE/FALSE
     Public HideMulePass As Boolean = True                   'Prefix to hide the items account password      TRUE/FALSE
     Public CurrentDatabase As String = ""                   'variable to compare current versus Default database
-    Public LogWestRealm As Boolean = True              'Checkbox bool vaule to log realm
-    Public LogEastRealm As Boolean = True           'Checkbox bool vaule to log realm
-    Public LogAsiaRealm As Boolean = True           'Checkbox bool vaule to log realm
-    Public LogEuropeRealm As Boolean = True         'Checkbox bool vaule to log realm
+    Public ResetDate As String = ""                         'variable used for ressetting ladder to nonladder
 
 End Class
 

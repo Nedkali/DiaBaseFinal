@@ -6,6 +6,7 @@
 '******************************************************************************
 Imports System.IO
 Imports System.Drawing.Text
+Imports System.Globalization
 Public Class Main
     'Trial - Setup Select All Function and support vars
     Declare Auto Function SendMessage Lib "user32.dll" (ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As IntPtr
@@ -145,12 +146,6 @@ Public Class Main
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False Or My.Computer.FileSystem.FileExists(AppSettings.DefaultDatabase) = False Then
             Settings.ShowDialog()
         End If
-
-        'Set Realm Checkboxes from Settings vars
-        Me.WestRealmCHECKBOX.Checked = AppSettings.LogWestRealm
-        Me.EastRealmCHECKBOX.Checked = AppSettings.LogEastRealm
-        Me.AsiaRealmCHECKBOX.Checked = AppSettings.LogAsiaRealm
-        Me.EuropeRealmCHECKBOX.Checked = AppSettings.LogEuropeRealm
 
         'Branch to Load Default Database and populate main listbox once all setting proceedures are absolutly completed with all potential path errors handled
         If AppSettings.DefaultDatabase <> Nothing Then OpenDatabase(AppSettings.DefaultDatabase) : PopulateAllItemsLISTBOX()
@@ -359,7 +354,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - IMPORT NOW FUNCTION - Activated the autologger on demand as opposed to waiting for the delay to time out
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+    Private Sub ImportNowMenuItem_Click(sender As Object, e As EventArgs) Handles ImportNowMenuItem.Click
         AutoLoggerRunning = True
         Timercount = 0
         RichTextBox1.Text = "Checking for New Logs..." & vbCrLf
@@ -699,41 +694,6 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub ResetSetAllItemsToNonLadderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetSetAllItemsToNonLadderToolStripMenuItem.Click
-        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
-
-        'Setup User Input Form For user warning
-        UserInput.Text = "ALERT ALERT"
-        UserInput.UserInputHeaderLABEL.Text = "RESET"
-
-        UserInput.UserInputTEXTBOX.Text = Nothing
-        UserInput.UserInputMessageLABEL.Text = "Are you sure you want to set all items in current database to Non Ladder?"
-        UserInput.UserInputNoBUTTON.Text = "Cancel"
-        UserInput.UserInputYesBUTTON.Text = "OK"
-
-        UserInput.DatabaseManagerBorder1LABEL.Visible = False
-        UserInput.DatabaseManagerBorder2LABEL.Visible = False
-        UserInput.DatabaseManagerBorder3LABEL.Visible = False
-        UserInput.DatabaseManagerBorder4LABEL.Visible = False
-        UserInput.UserInputTEXTBOX.Visible = False
-
-        UserInput.UserInputTEXTBOX.SelectionStart = 0 : UserInput.UserInputTEXTBOX.SelectionLength = Len(UserInput.UserInputTEXTBOX.Text)
-        UserInput.UserInputTEXTBOX.Select()
-
-        'Confirms the backup proceedure and proceeds on confirmation
-        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        Dim DialogResult = UserInput.ShowDialog
-        If DialogResult = Windows.Forms.DialogResult.Yes Then
-            CreateBackup(AppSettings.CurrentDatabase)
-            If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-            For index = 0 To ItemObjects.Count - 1
-                ItemObjects(index).Ladder = False
-            Next
-        End If
-        Button3_Click(sender, e)
-
-    End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Undo delete - works but restores one at a time atm
@@ -1112,27 +1072,6 @@ Public Class Main
 
     End Sub
 
-    'Handlers to Update checkbox changes to settings vars and settings file
-    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
-        If EastRealmCHECKBOX.Checked = True Then AppSettings.LogEastRealm = True Else AppSettings.LogEastRealm = False
-        SaveSettingsFile()
-    End Sub
-
-    Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged
-        If WestRealmCHECKBOX.Checked = True Then AppSettings.LogWestRealm = True Else AppSettings.LogWestRealm = False
-        SaveSettingsFile()
-    End Sub
-
-    Private Sub AsiaRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles AsiaRealmCHECKBOX.CheckedChanged
-        If AsiaRealmCHECKBOX.Checked = True Then AppSettings.LogAsiaRealm = True Else AppSettings.LogAsiaRealm = False
-        SaveSettingsFile()
-    End Sub
-
-    Private Sub EuropeRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EuropeRealmCHECKBOX.CheckedChanged
-        If EuropeRealmCHECKBOX.Checked = True Then AppSettings.LogEuropeRealm = True Else AppSettings.LogEuropeRealm = False
-        SaveSettingsFile()
-    End Sub
-
 
     '----------------------------------------------------------------------------------------------------------------------------------------
     'lists All Mule Accounts in database and displays attached realm and mule
@@ -1161,5 +1100,61 @@ Public Class Main
         If Iindex = -1 Then Return
         WriteLoaderFile(Iindex)
         'loadD2(Iindex)
+    End Sub
+
+    Private Sub AllItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllItemsToolStripMenuItem.Click
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
+        Button3_Click(sender, e)
+
+        'Setup User Input Form For user warning
+        UserInput.Text = "ALERT ALERT"
+        UserInput.UserInputHeaderLABEL.Text = "RESET"
+
+        UserInput.UserInputTEXTBOX.Text = Nothing
+        UserInput.UserInputMessageLABEL.Text = "Are you sure you want to set all items in current database to Non Ladder?"
+        UserInput.UserInputNoBUTTON.Text = "Cancel"
+        UserInput.UserInputYesBUTTON.Text = "OK"
+
+        UserInput.DatabaseManagerBorder1LABEL.Visible = False
+        UserInput.DatabaseManagerBorder2LABEL.Visible = False
+        UserInput.DatabaseManagerBorder3LABEL.Visible = False
+        UserInput.DatabaseManagerBorder4LABEL.Visible = False
+        UserInput.UserInputTEXTBOX.Visible = False
+
+        UserInput.UserInputTEXTBOX.SelectionStart = 0 : UserInput.UserInputTEXTBOX.SelectionLength = Len(UserInput.UserInputTEXTBOX.Text)
+        UserInput.UserInputTEXTBOX.Select()
+
+        'Confirms the backup proceedure and proceeds on confirmation
+        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+        Dim DialogResult = UserInput.ShowDialog
+        If DialogResult = Windows.Forms.DialogResult.Yes Then
+            CreateBackup(AppSettings.CurrentDatabase)
+            If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+            For index = 0 To ItemObjects.Count - 1
+                ItemObjects(index).Ladder = False
+            Next
+        End If
+        Button3_Click(sender, e)
+    End Sub
+    Private Sub ByDateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByDateToolStripMenuItem.Click
+
+        'AppSettings.ResetDate = "26/4/2015"
+        Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+        Dim temp As Date
+        Dim findoldest As Date = Date.Now()
+        MessageBox.Show("Please Wait")
+        Dim a = 0
+        For index = 0 To ItemObjects.Count - 1
+            ItemObjects(index).ImportDate = ItemObjects(index).ImportDate.Replace("\", "/")
+            temp = Date.ParseExact(ItemObjects(index).ImportDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+            If temp > resetdate And ItemObjects(index).Ladder = True Then
+                ItemObjects(index).Ladder = False
+                a += 1
+            End If
+            If findoldest > temp Then
+                findoldest = temp
+            End If
+        Next
+        MessageBox.Show("Changed = " & a)
     End Sub
 End Class

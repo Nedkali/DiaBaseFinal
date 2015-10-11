@@ -26,9 +26,9 @@ Public Class Settings
         Else
             Me.DatabaseVerifyPICTUREBOX.Visible = False
             Me.DatabaseVerifyFailPICTUREBOX.Visible = True
-
-
         End If
+
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -63,6 +63,7 @@ Public Class Settings
         AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits          'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
+        TextBox1.Text = AppSettings.ResetDate
         CheckSettingsPaths()                                        'Verify current paths are correct and update ticks (should only throw to actual error message when exiting with invalid settings)
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
     End Sub
@@ -78,6 +79,7 @@ Public Class Settings
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
 
         If DatabaseVerifyPICTUREBOX.Visible = True And EtalPathVerifyPICTUREBOX.Visible = True Then             'Exit if both current paths pass verification
+            If checkdate() = False Then MessageBox.Show("Date Error") : Return
             Me.Close()
         End If
     End Sub
@@ -94,21 +96,20 @@ Public Class Settings
 
         If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
-
+        If checkdate() = False Then MessageBox.Show("Date Error") : Return
         'IF BOTH PATHS PASS VERIFICATION THEN CONTINUE WITH SAVE PROCEEDURE
+
         If DatabaseVerifyPICTUREBOX.Visible = True And EtalPathVerifyPICTUREBOX.Visible = True Then
-
-
             'Update Global Config Vars From Settings Controls
             AppSettings.EtalPath = EtalPathTEXTBOX.Text
             AppSettings.DefaultDatabase = DefaultDatabaseTEXTBOX.Text
             AppSettings.AutoLoggingDelay = AutoLogingDelayNUMERICUPDOWN.Value
-            'AppSettings.HideDupes 'handled in main menu
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
+            AppSettings.ResetDate = TextBox1.Text
             Main.StartTimer()
             SaveSettingsFile()
             Me.Close()
@@ -168,6 +169,18 @@ Public Class Settings
     Private Sub DefaultDatabaseTEXTBOX_TextChanged(sender As Object, e As EventArgs) Handles DefaultDatabaseTEXTBOX.TextChanged
         CheckSettingsPaths()
     End Sub
+    Function checkdate()
+        Dim temp = TextBox1.Text.Split("/")
+        If temp.Length <> 3 Then Return False ' need to add error handling here
+        If temp(0) < 1 Or temp(0) > 31 Then Return False ' need to add error handling here
+        If temp(1) < 1 Or temp(1) > 12 Then Return False ' need to add error handling here
+        If temp(2) < 2015 Or temp(2) > 2020 Then Return False ' need to add error handling here
+        Return True
 
-   
+    End Function
+
+
+
+
+
 End Class

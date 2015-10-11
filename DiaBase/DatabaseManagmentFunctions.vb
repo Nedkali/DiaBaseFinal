@@ -20,12 +20,7 @@ Module DatabaseManagmentFunctions
                 AppSettings.BackupBeforeEdits = ReadFile.ReadLine       'Backup before item edits bool
                 AppSettings.RemoveMuleDupes = ReadFile.ReadLine         'Remove mule dupe bool
                 AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
-
-                AppSettings.LogEastRealm = ReadFile.ReadLine            'realm checkbox values
-                AppSettings.LogWestRealm = ReadFile.ReadLine
-                AppSettings.LogAsiaRealm = ReadFile.ReadLine
-                AppSettings.LogEuropeRealm = ReadFile.ReadLine
-
+                AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
                 ReadFile.Close()
 
             Else : Main.ErrorHandler(100, 0, 0, 0)                     'Our File Not Found Error Handler
@@ -48,12 +43,7 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.BackupBeforeEdits)
             WriteFile.WriteLine(AppSettings.RemoveMuleDupes)
             WriteFile.WriteLine(AppSettings.SoundMute)
-
-            WriteFile.WriteLine(AppSettings.LogEastRealm)
-            WriteFile.WriteLine(AppSettings.LogWestRealm)
-            WriteFile.WriteLine(AppSettings.LogAsiaRealm)
-            WriteFile.WriteLine(AppSettings.LogEuropeRealm)
-
+            WriteFile.WriteLine(AppSettings.ResetDate)
             WriteFile.Close()
         Catch ex As Exception
             Main.ErrorHandler(301, ex, 0, 0) 'Branch to error handler with unique code and system error code if save fails for whatever reason
