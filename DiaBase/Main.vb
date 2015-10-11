@@ -532,7 +532,7 @@ Public Class Main
         End If
 
         'DupeCountProgressForm.Close()
-        DupesList()
+        DupesList(True)
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
         ListControlTabBUTTON.BackColor = Color.Black
@@ -1140,7 +1140,8 @@ Public Class Main
 
     Private Sub BuildMuleListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuildMuleListToolStripMenuItem.Click
 
-
+        ' just a tempory listing - may keep as an app feature? Just needed some way of getting muleaccounts back :)
+        ' removed previous code as it was working for some reason
         For index = 0 To ItemObjects.Count - 1
             Dim temp = ItemObjects(index).ItemRealm & " / " & ItemObjects(index).MuleAccount & " / " & ItemObjects(index).MulePass
 
@@ -1150,43 +1151,8 @@ Public Class Main
 
         Next
 
-        DupesList()
+        DupesList(False)
         Return
-
-
-        'Set Routine Working Vars
-        Dim CountItems As Integer = 0
-        Dim CollatedString As String = Nothing
-        Me.UserLISTBOX.Items.Clear()
-
-        'Check All MuleAccounts Here
-        For Each item In ItemObjects(CountItems).MuleAccount
-
-            'Collate and add unincluded mule account / pass / realm info here...
-            If Me.UserLISTBOX.Items.Contains(ItemObjects(CountItems).MuleAccount & " / " & ItemObjects(CountItems).MulePass & " / " & ItemObjects(CountItems).ItemRealm) = False Then
-
-                CollatedString = ItemObjects(CountItems).MuleAccount & " / " & ItemObjects(CountItems).MulePass & " / " & ItemObjects(CountItems).ItemRealm
-                Me.UserLISTBOX.Items.Add(CollatedString)
-
-            End If
-
-            'Next Item To Check
-            CountItems = CountItems + 1
-        Next
-
-        Me.UserLISTBOX.Items.Add("Items checked" & CountItems)
-
-
-
-
-
-
-
-
-
-
-
-
 
     End Sub
 

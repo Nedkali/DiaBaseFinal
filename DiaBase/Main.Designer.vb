@@ -1031,10 +1031,10 @@ Partial Class Main
         Me.ItemStatsRICHTEXTBOX.CausesValidation = False
         Me.ItemStatsRICHTEXTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemStatsRICHTEXTBOX.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 255)
+        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 259)
         Me.ItemStatsRICHTEXTBOX.Name = "ItemStatsRICHTEXTBOX"
         Me.ItemStatsRICHTEXTBOX.ReadOnly = True
-        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 424)
+        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 420)
         Me.ItemStatsRICHTEXTBOX.TabIndex = 277
         Me.ItemStatsRICHTEXTBOX.Text = ""
         '

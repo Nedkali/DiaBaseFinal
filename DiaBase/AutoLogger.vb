@@ -10,26 +10,19 @@ Module AutoLogger
         'Checks Log realm directories according to checked realm checkboxes. 
         'Loops routnie four times, once for each checkbox
 
-        'Working Vars
-        Dim RealmPath As String = Nothing
-        Dim CountEmptyCheckboxes As Integer = 4
 
-        'Counts the four realm checkboxes
-        For x = 1 To 4
 
-            'Assign correct directory to each log search loop using the REalmPath Var
-            If x = 1 And AppSettings.LogEastRealm = True Then RealmPath = "\scripts\Configs\USEast\AMS\" : CountEmptyCheckboxes = CountEmptyCheckboxes - 1 : Main.RichTextBox1.AppendText("East") : GetLogs(RealmPath, relog, CountEmptyCheckboxes)
-            If x = 2 And AppSettings.LogWestRealm = True Then RealmPath = "\scripts\Configs\USWest\AMS\" : CountEmptyCheckboxes = CountEmptyCheckboxes - 1 : Main.RichTextBox1.AppendText("West") : GetLogs(RealmPath, relog, CountEmptyCheckboxes)
-            If x = 3 And AppSettings.LogAsiaRealm = True Then RealmPath = "\scripts\Configs\Asia\AMS\" : CountEmptyCheckboxes = CountEmptyCheckboxes - 1 : Main.RichTextBox1.AppendText("Asia") : GetLogs(RealmPath, relog, CountEmptyCheckboxes)
-            If x = 4 And AppSettings.LogEuropeRealm = True Then RealmPath = "\scripts\Configs\Europe\AMS\" : CountEmptyCheckboxes = CountEmptyCheckboxes - 1 : Main.RichTextBox1.AppendText("Europe") : GetLogs(RealmPath, relog, CountEmptyCheckboxes)
+        'Assign correct directory to each log search loop using the REalmPath Var
+        Dim RealmPath = "\scripts\Configs\USEast\AMS\" : Main.RichTextBox1.AppendText("East") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\USWest\AMS\" : Main.RichTextBox1.AppendText("West") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\Asia\AMS\" : Main.RichTextBox1.AppendText("Asia") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\Europe\AMS\" : Main.RichTextBox1.AppendText("Europe") : GetLogs(RealmPath, relog)
 
-            'error message if no realms are checked
-            If x = 4 And CountEmptyCheckboxes = 4 Then Main.RichTextBox1.AppendText("No Realms Checked. Nothing Was Imported!" & vbCrLf)
 
-        Next
+
     End Sub
 
-    Sub GetLogs(RealmPath, Relog, CountEmptyCheckboxes)
+    Sub GetLogs(RealmPath, Relog)
         MuleLogPath = AppSettings.EtalPath + RealmPath + "\MuleInventory\"
         DataBasePath = Application.StartupPath + "\DataBase\"
         MuleDataPath = AppSettings.EtalPath + RealmPath + "\MuleLogs\"
@@ -141,13 +134,15 @@ Module AutoLogger
 
 
 
-                If AppSettings.RemoveMuleDupes = True Then                                               'Adding in remove duplicated mule option (Ned)
+                If AppSettings.RemoveMuleDupes = True Then 'Adding in remove duplicated mule option (Ned)
                     Try
                         For mc = ItemObjects.Count - 1 To 0 Step -1
                             If Pretotal > 0 And ItemObjects(mc).MuleName = thislogmulename And ItemObjects(mc).ItemRealm = ThislogRealm Then ' added realm into this check in case same mule name exists on more than 1 realm
                                 ' maybe recover password and pickitbot here? from previous item info before delete
                                 If thispickbot = "Unknown" And ItemObjects(mc).PickitAccount <> "Unknown" Then thispickbot = ItemObjects(mc).PickitAccount
                                 If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
+                                ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
+                                Main.RichTextBox1.AppendText("Import Date retained" & vbCrLf) 'debug msg
                                 ItemObjects.RemoveAt(mc)
                                 Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
                                 Pretotal = Pretotal - 1

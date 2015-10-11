@@ -968,7 +968,7 @@ Module Tradelist
 
     End Function
 
-    Public Sub DupesList()
+    Public Sub DupesList(dblspace)
         Dim arr() As String = Main.TradeListRICHTEXTBOX.Text.Split(Chr(10))
         Dim count(UBound(arr)) As Integer
 
@@ -987,7 +987,8 @@ Module Tradelist
 
         For x = 0 To UBound(arr) ' re - list
             If arr(x) <> "" Then
-                Main.TradeListRICHTEXTBOX.AppendText(arr(x) & vbCrLf & vbCrLf)
+                Main.TradeListRICHTEXTBOX.AppendText(arr(x) & vbCrLf)
+                If dblspace = True Then Main.TradeListRICHTEXTBOX.AppendText(vbCrLf)
             End If
         Next
     End Sub
