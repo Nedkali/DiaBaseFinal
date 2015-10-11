@@ -123,6 +123,7 @@
                 '--------------------------------------------------------------------------
             Case Else
                 If Main.RefineSearchCHECKBOX.Checked = False Then
+                    If searchtype = "Item Defense" Then For index = 0 To ItemObjects.Count - 1 : Numberchecker(index, ItemObjects(index).Defense) : Next
                     If searchtype = "Sockets" Then For index = 0 To ItemObjects.Count - 1 : Numberchecker(index, ItemObjects(index).Sockets) : Next
                     If searchtype = "Chance To Block" Then For index = 0 To ItemObjects.Count - 1 : Numberchecker(index, ItemObjects(index).ChanceToBlock) : Next
                     If searchtype = "One Hand Damage Max" Then For index = 0 To ItemObjects.Count - 1 : Numberchecker(index, ItemObjects(index).OneHandDamageMax) : Next
@@ -141,6 +142,7 @@
                 If Main.RefineSearchCHECKBOX.Checked = True Then
                     For chck = 0 To RefineSearchReferenceList.Count - 1
                         a = CInt(RefineSearchReferenceList(chck))
+                        If searchtype = "Item Defense" Then Numberchecker(a, ItemObjects(a).Defense)
                         If searchtype = "Sockets" Then Numberchecker(a, ItemObjects(a).Sockets)
                         If searchtype = "Chance To Block" Then Numberchecker(a, ItemObjects(a).ChanceToBlock)
                         If searchtype = "One Hand Damage Max" Then Numberchecker(a, ItemObjects(a).OneHandDamageMax)
@@ -176,6 +178,11 @@
         If txtval = Nothing Then txtval = "" 'To avoid null reference errors
         If AppSettings.HideDupes = True And Main.SearchLISTBOX.Items.Contains(ItemObjects(index).ItemName) = True Then Return
 
+        'handling realm specific searches
+        If Main.EastRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USEast" Then Return
+        If Main.AsiaRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Asia" Then Return
+        If Main.WestRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USWest" Then Return
+        If Main.EuropeRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Europe" Then Return
 
         If Main.SearchOperatorCOMBOBOX.Text = "Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
@@ -230,6 +237,12 @@
         If AppSettings.HideDupes = True And Main.SearchLISTBOX.Items.Contains(ItemObjects(index).ItemName) = True Then Return
         If bCheck <> True And bCheck <> False Then Return 'prevents errors
 
+        'handling realm specific searches
+        If Main.EastRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USEast" Then Return
+        If Main.AsiaRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Asia" Then Return
+        If Main.WestRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USWest" Then Return
+        If Main.EuropeRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Europe" Then Return
+
         Dim temp = Main.SearchWordCOMBOBOX.Text
         If temp = "" Then temp = True 'if nothing assume search wanted is for true comparison
         If temp <> "True" Then temp = False 'if true not entered assume search wanted is for false comparison
@@ -248,6 +261,12 @@
     Sub Numberchecker(ByVal index, ByVal iValue)
         If AppSettings.HideDupes = True And Main.SearchLISTBOX.Items.Contains(ItemObjects(index).ItemName) = True Then Return
         If IsNumeric(iValue) = False Then MessageBox.Show("error in index " & index & "Value is NaN " & iValue) : Return
+
+        'handling realm specific searches
+        If Main.EastRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USEast" Then Return
+        If Main.AsiaRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Asia" Then Return
+        If Main.WestRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USWest" Then Return
+        If Main.EuropeRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Europe" Then Return
 
         Dim iCompare As Integer = Main.SearchValueNUMERICUPDWN.Value
 
@@ -271,6 +290,12 @@
 
     Function SearchUnique(index, txtval)
         If txtval = Nothing Then txtval = "" 'To avoid null reference errors
+
+        'handling realm specific searches
+        If Main.EastRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USEast" Then Return False
+        If Main.AsiaRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Asia" Then Return False
+        If Main.WestRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USWest" Then Return False
+        If Main.EuropeRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Europe" Then Return False
 
         If Main.SearchOperatorCOMBOBOX.Text = "Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
