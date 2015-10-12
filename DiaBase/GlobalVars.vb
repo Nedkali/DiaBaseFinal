@@ -30,7 +30,7 @@ Module GlobalVars
 
     'Define Vars used in autologger routine
     Public MuleLogPath As String = ""
-    Public DataBasePath As String = ""
+    'Public DataBasePath As String = ""
     Public MuleDataPath As String = ""
     Public ArchiveFolder As String = ""
     Public LogFilesList As List(Of String) = New List(Of String)

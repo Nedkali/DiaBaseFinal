@@ -129,10 +129,13 @@
   <metadata name="MenuBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>379, 2</value>
   </metadata>
+  <metadata name="SearchListContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>449, 38</value>
+  </metadata>
   <metadata name="SelectDefaultDatabaseDIALOG.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>178, 37</value>
+    <value>3, 37</value>
   </metadata>
   <metadata name="ItemListboxCONTEXTMENUSTRIP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>396, 37</value>
+    <value>216, 38</value>
   </metadata>
 </root>

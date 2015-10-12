@@ -128,6 +128,7 @@ Partial Class Main
         Me.AllItemsLISTBOX = New System.Windows.Forms.ListBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.SearchLISTBOX = New System.Windows.Forms.ListBox()
+        Me.SearchListContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TradeListRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
@@ -163,6 +164,14 @@ Partial Class Main
         Me.MuleRealmLABEL = New System.Windows.Forms.Label()
         Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.SendToTrradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SeandAllToTradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteItemToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuBar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,6 +179,7 @@ Partial Class Main
         Me.ListboxTABCONTROL.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.SearchListContextMenuStrip1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.ItemSkinPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1122,6 +1132,7 @@ Partial Class Main
         '
         Me.SearchLISTBOX.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.SearchLISTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.SearchLISTBOX.ContextMenuStrip = Me.SearchListContextMenuStrip1
         Me.SearchLISTBOX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SearchLISTBOX.ForeColor = System.Drawing.Color.White
         Me.SearchLISTBOX.FormattingEnabled = True
@@ -1130,6 +1141,12 @@ Partial Class Main
         Me.SearchLISTBOX.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.SearchLISTBOX.Size = New System.Drawing.Size(365, 402)
         Me.SearchLISTBOX.TabIndex = 0
+        '
+        'SearchListContextMenuStrip1
+        '
+        Me.SearchListContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTrradeListToolStripMenuItem, Me.SeandAllToTradeListToolStripMenuItem, Me.ToolStripSeparator8, Me.ClearItemToolStripMenuItem, Me.ClearAllToolStripMenuItem, Me.DeleteItemToolStripMenuItem1, Me.ToolStripSeparator10, Me.ExportToolStripMenuItem})
+        Me.SearchListContextMenuStrip1.Name = "SearchListContextMenuStrip1"
+        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 148)
         '
         'TabPage3
         '
@@ -1522,6 +1539,52 @@ Partial Class Main
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262
         '
+        'SendToTrradeListToolStripMenuItem
+        '
+        Me.SendToTrradeListToolStripMenuItem.Name = "SendToTrradeListToolStripMenuItem"
+        Me.SendToTrradeListToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.SendToTrradeListToolStripMenuItem.Text = "Send to TradeList"
+        '
+        'SeandAllToTradeListToolStripMenuItem
+        '
+        Me.SeandAllToTradeListToolStripMenuItem.Name = "SeandAllToTradeListToolStripMenuItem"
+        Me.SeandAllToTradeListToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.SeandAllToTradeListToolStripMenuItem.Text = "Send All to TradeList"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(179, 6)
+        '
+        'ClearItemToolStripMenuItem
+        '
+        Me.ClearItemToolStripMenuItem.Name = "ClearItemToolStripMenuItem"
+        Me.ClearItemToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ClearItemToolStripMenuItem.Text = "Clear Item"
+        '
+        'ClearAllToolStripMenuItem
+        '
+        Me.ClearAllToolStripMenuItem.Name = "ClearAllToolStripMenuItem"
+        Me.ClearAllToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ClearAllToolStripMenuItem.Text = "Clear All"
+        '
+        'DeleteItemToolStripMenuItem1
+        '
+        Me.DeleteItemToolStripMenuItem1.Name = "DeleteItemToolStripMenuItem1"
+        Me.DeleteItemToolStripMenuItem1.Size = New System.Drawing.Size(182, 22)
+        Me.DeleteItemToolStripMenuItem1.Text = "Delete Item"
+        '
+        'ExportToolStripMenuItem
+        '
+        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ExportToolStripMenuItem.Text = "Export"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(179, 6)
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1612,6 +1675,7 @@ Partial Class Main
         Me.ListboxTABCONTROL.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
+        Me.SearchListContextMenuStrip1.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         CType(Me.ItemSkinPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1762,4 +1826,13 @@ Partial Class Main
     Friend WithEvents ByDateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AllItemsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents SearchListContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents SendToTrradeListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SeandAllToTradeListToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
+    Friend WithEvents ClearItemToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteItemToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
 End Class

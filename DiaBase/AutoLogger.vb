@@ -2,29 +2,23 @@
 Module AutoLogger
     Public Sub ImportLogFiles(relog)
         If AppSettings.CurrentDatabase <> AppSettings.DefaultDatabase Then
-            Main.RichTextBox1.AppendText("Aborting - A database is not loaded")
+            Main.RichTextBox1.AppendText("Aborting - Default database not loaded")
             Return
         End If
 
-        'RETRO FIT FOR NEDS BETA...
-        'Checks Log realm directories according to checked realm checkboxes. 
-        'Loops routnie four times, once for each checkbox
 
-
-
-        'Assign correct directory to each log search loop using the REalmPath Var
+        'Assign correct directory to each log search using the REalmPath Var
         Dim RealmPath = "\scripts\Configs\USEast\AMS\" : Main.RichTextBox1.AppendText("East") : GetLogs(RealmPath, relog)
         RealmPath = "\scripts\Configs\USWest\AMS\" : Main.RichTextBox1.AppendText("West") : GetLogs(RealmPath, relog)
         RealmPath = "\scripts\Configs\Asia\AMS\" : Main.RichTextBox1.AppendText("Asia") : GetLogs(RealmPath, relog)
         RealmPath = "\scripts\Configs\Europe\AMS\" : Main.RichTextBox1.AppendText("Europe") : GetLogs(RealmPath, relog)
 
 
-
     End Sub
 
     Sub GetLogs(RealmPath, Relog)
-        MuleLogPath = AppSettings.EtalPath + RealmPath + "\MuleInventory\"
-        DataBasePath = Application.StartupPath + "\DataBase\"
+
+        'DataBasePath = Application.StartupPath + "\DataBase\"
         MuleDataPath = AppSettings.EtalPath + RealmPath + "\MuleLogs\"
         ArchiveFolder = Application.StartupPath + "\Archive\"
         If Relog = False Then MuleLogPath = AppSettings.EtalPath + RealmPath + "\MuleInventory\"
@@ -34,6 +28,7 @@ Module AutoLogger
         GetLogFiles()
         If LogFilesList.Count = 0 Then
             Main.RichTextBox1.AppendText(" Realm Has No Logs Ready." & vbCrLf)
+            Main.RichTextBox1.ScrollToCaret()
             Return 'If There Are no Log Files - exit
         End If
 
@@ -87,7 +82,7 @@ Module AutoLogger
         Dim temp As String = ""
         Dim returnstring As String = "Unknown"
         Dim temp1 As Array
-        Main.RichTextBox1.AppendText("Looking up " & accname & " information" & vbCrLf)
+        'Main.RichTextBox1.AppendText("Looking up " & accname & " information" & vbCrLf)
         For Each item In PassFiles
 
             Dim ReadPassFiles = My.Computer.FileSystem.OpenTextFileReader(MuleDataPath & PassFiles(counter))
