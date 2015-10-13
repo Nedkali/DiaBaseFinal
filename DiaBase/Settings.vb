@@ -46,7 +46,6 @@ Public Class Settings
             'Apply DiabloII Fonts - Headers 14 point - Buttons 9 point
             SettingsEtalPathLABEL.Font = New Font(pfc.Families(0), 14, FontStyle.Regular)
             SettingsDatabasePathLABEL.Font = New Font(pfc.Families(0), 14, FontStyle.Regular)
-            SettingsImportDelayLABEL.Font = New Font(pfc.Families(0), 14, FontStyle.Regular)
 
             EtalPathBrowseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             DefaultDatabaseBrowseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
@@ -63,7 +62,8 @@ Public Class Settings
         AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits          'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
-        TextBox1.Text = AppSettings.ResetDate
+        DefaultPasswordTBox.Text = AppSettings.DefaultPassword
+        ResetDateTBox.Text = AppSettings.ResetDate
         CheckSettingsPaths()                                        'Verify current paths are correct and update ticks (should only throw to actual error message when exiting with invalid settings)
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
     End Sub
@@ -74,7 +74,7 @@ Public Class Settings
     '                                           -
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub CancelDefaultsBUTTON_Click(sender As Object, e As EventArgs) Handles SettingsCancelBUTTON.Click
-    
+
         If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
 
@@ -109,7 +109,8 @@ Public Class Settings
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
-            AppSettings.ResetDate = TextBox1.Text
+            AppSettings.DefaultPassword = DefaultPasswordTBox.Text
+            AppSettings.ResetDate = ResetDateTBox.Text
             Main.StartTimer()
             SaveSettingsFile()
             Me.Close()
@@ -160,7 +161,7 @@ Public Class Settings
         CheckSettingsPaths()
     End Sub
 
-    
+
     Private Sub EtalPathTEXTBOX_TextChanged(sender As Object, e As EventArgs) Handles EtalPathTEXTBOX.TextChanged
         CheckSettingsPaths()
 
@@ -170,7 +171,7 @@ Public Class Settings
         CheckSettingsPaths()
     End Sub
     Function checkdate()
-        Dim temp = TextBox1.Text.Split("/")
+        Dim temp = ResetDateTBox.Text.Split("/")
         If temp.Length <> 3 Then Return False ' need to add error handling here
         If temp(0) < 1 Or temp(0) > 31 Then Return False ' need to add error handling here
         If temp(1) < 1 Or temp(1) > 12 Then Return False ' need to add error handling here

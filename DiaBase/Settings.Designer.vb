@@ -52,12 +52,13 @@ Partial Class Settings
         Me.EtalPathBrowseBUTTON = New System.Windows.Forms.Button()
         Me.SettingsCancelBUTTON = New System.Windows.Forms.Button()
         Me.SoundMuteCHECKBOX = New System.Windows.Forms.CheckBox()
-        Me.SettingsImportDelayLABEL = New System.Windows.Forms.Label()
         Me.DatabaseVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
         Me.EtalPathVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ResetDateTBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.DefaultPasswordTBox = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.AutoLogingDelayNUMERICUPDOWN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,7 +95,7 @@ Partial Class Settings
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label11.Location = New System.Drawing.Point(378, 181)
+        Me.Label11.Location = New System.Drawing.Point(94, 266)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(2, 21)
         Me.Label11.TabIndex = 912
@@ -102,7 +103,7 @@ Partial Class Settings
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label12.Location = New System.Drawing.Point(323, 181)
+        Me.Label12.Location = New System.Drawing.Point(39, 266)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(2, 21)
         Me.Label12.TabIndex = 911
@@ -110,7 +111,7 @@ Partial Class Settings
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label13.Location = New System.Drawing.Point(324, 181)
+        Me.Label13.Location = New System.Drawing.Point(40, 266)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(55, 2)
         Me.Label13.TabIndex = 910
@@ -118,7 +119,7 @@ Partial Class Settings
         'Label14
         '
         Me.Label14.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label14.Location = New System.Drawing.Point(325, 200)
+        Me.Label14.Location = New System.Drawing.Point(41, 285)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(55, 2)
         Me.Label14.TabIndex = 909
@@ -216,11 +217,11 @@ Partial Class Settings
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Black
         Me.Label5.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label5.Location = New System.Drawing.Point(390, 185)
+        Me.Label5.Location = New System.Drawing.Point(106, 270)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 13)
+        Me.Label5.Size = New System.Drawing.Size(105, 13)
         Me.Label5.TabIndex = 894
-        Me.Label5.Text = "Minuites"
+        Me.Label5.Text = "AutoLogging Interval"
         '
         'DefaultDatabaseTEXTBOX
         '
@@ -268,7 +269,7 @@ Partial Class Settings
         '
         Me.AutoLogingDelayNUMERICUPDOWN.BackColor = System.Drawing.Color.Black
         Me.AutoLogingDelayNUMERICUPDOWN.ForeColor = System.Drawing.Color.White
-        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(324, 182)
+        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(40, 267)
         Me.AutoLogingDelayNUMERICUPDOWN.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.AutoLogingDelayNUMERICUPDOWN.Name = "AutoLogingDelayNUMERICUPDOWN"
         Me.AutoLogingDelayNUMERICUPDOWN.Size = New System.Drawing.Size(56, 20)
@@ -365,18 +366,6 @@ Partial Class Settings
         Me.SoundMuteCHECKBOX.Text = "Mute Sounds"
         Me.SoundMuteCHECKBOX.UseVisualStyleBackColor = False
         '
-        'SettingsImportDelayLABEL
-        '
-        Me.SettingsImportDelayLABEL.AutoSize = True
-        Me.SettingsImportDelayLABEL.BackColor = System.Drawing.SystemColors.WindowText
-        Me.SettingsImportDelayLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsImportDelayLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsImportDelayLABEL.Location = New System.Drawing.Point(318, 157)
-        Me.SettingsImportDelayLABEL.Name = "SettingsImportDelayLABEL"
-        Me.SettingsImportDelayLABEL.Size = New System.Drawing.Size(110, 20)
-        Me.SettingsImportDelayLABEL.TabIndex = 893
-        Me.SettingsImportDelayLABEL.Text = "Import Every"
-        '
         'DatabaseVerifyFailPICTUREBOX
         '
         Me.DatabaseVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
@@ -399,20 +388,19 @@ Partial Class Settings
         Me.EtalPathVerifyFailPICTUREBOX.TabIndex = 917
         Me.EtalPathVerifyFailPICTUREBOX.TabStop = False
         '
-        'TextBox1
+        'ResetDateTBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(40, 291)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(140, 20)
-        Me.TextBox1.TabIndex = 918
-        Me.TextBox1.Text = "26/4/2015"
+        Me.ResetDateTBox.Location = New System.Drawing.Point(38, 342)
+        Me.ResetDateTBox.Name = "ResetDateTBox"
+        Me.ResetDateTBox.Size = New System.Drawing.Size(100, 20)
+        Me.ResetDateTBox.TabIndex = 918
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Black
         Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(186, 294)
+        Me.Label1.Location = New System.Drawing.Point(144, 345)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(84, 13)
         Me.Label1.TabIndex = 919
@@ -423,11 +411,30 @@ Partial Class Settings
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Black
         Me.Label3.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label3.Location = New System.Drawing.Point(56, 275)
+        Me.Label3.Location = New System.Drawing.Point(54, 326)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 920
         Me.Label3.Text = "eg' d/m/y"
+        '
+        'DefaultPasswordTBox
+        '
+        Me.DefaultPasswordTBox.Location = New System.Drawing.Point(38, 303)
+        Me.DefaultPasswordTBox.MaxLength = 12
+        Me.DefaultPasswordTBox.Name = "DefaultPasswordTBox"
+        Me.DefaultPasswordTBox.Size = New System.Drawing.Size(100, 20)
+        Me.DefaultPasswordTBox.TabIndex = 921
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Black
+        Me.Label4.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label4.Location = New System.Drawing.Point(144, 306)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(130, 13)
+        Me.Label4.TabIndex = 922
+        Me.Label4.Text = "Password if Undetermined"
         '
         'Settings
         '
@@ -437,9 +444,11 @@ Partial Class Settings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(511, 395)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.DefaultPasswordTBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.ResetDateTBox)
         Me.Controls.Add(Me.EtalPathVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.DatabaseVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.SoundMuteCHECKBOX)
@@ -462,7 +471,6 @@ Partial Class Settings
         Me.Controls.Add(Me.EtalPathVerifyPICTUREBOX)
         Me.Controls.Add(Me.HideAccountPassCHECKBOX)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.SettingsImportDelayLABEL)
         Me.Controls.Add(Me.SettingsSaveBUTTON)
         Me.Controls.Add(Me.DefaultDatabaseBrowseBUTTON)
         Me.Controls.Add(Me.EtalPathBrowseBUTTON)
@@ -516,10 +524,11 @@ Partial Class Settings
     Friend WithEvents SettingsDatabasePathLABEL As System.Windows.Forms.Label
     Friend WithEvents AutoLogingDelayNUMERICUPDOWN As System.Windows.Forms.NumericUpDown
     Friend WithEvents SoundMuteCHECKBOX As System.Windows.Forms.CheckBox
-    Friend WithEvents SettingsImportDelayLABEL As System.Windows.Forms.Label
     Friend WithEvents DatabaseVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
     Friend WithEvents EtalPathVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ResetDateTBox As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents DefaultPasswordTBox As TextBox
+    Friend WithEvents Label4 As Label
 End Class

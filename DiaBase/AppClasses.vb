@@ -71,7 +71,8 @@ Public Class AppSetting
     Public BackupBeforeEdits As Boolean = False             'Backup before applying edits to item fields    TRUE/FALSE
     Public HideMulePass As Boolean = True                   'Prefix to hide the items account password      TRUE/FALSE
     Public CurrentDatabase As String = ""                   'variable to compare current versus Default database
-    Public ResetDate As String = ""                         'variable used for ressetting ladder to nonladder
+    Public ResetDate As String = "26/4/2015"                'variable used for ressetting ladder to nonladder
+    Public DefaultPassword As String = ""                   'variable used to replace Unknown passwords
 
 End Class
 

@@ -746,6 +746,8 @@ Public Class Main
     'Search button - calls search routine
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SearchBUTTON_Click(sender As Object, e As EventArgs) Handles SearchBUTTON.Click
+
+        If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
         SearchRoutine()
     End Sub
 
@@ -1081,6 +1083,7 @@ Public Class Main
 
         ' just a tempory listing - may keep as an app feature? Just needed some way of getting muleaccounts back :)
         ' removed previous code as it was working for some reason
+        TradeListRICHTEXTBOX.Clear()
         For index = 0 To ItemObjects.Count - 1
             Dim temp = ItemObjects(index).ItemRealm & " / " & ItemObjects(index).MuleAccount & " / " & ItemObjects(index).MulePass
 
@@ -1136,13 +1139,12 @@ Public Class Main
         End If
         Button3_Click(sender, e)
     End Sub
-    Private Sub ByDateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByDateToolStripMenuItem.Click
 
-        'AppSettings.ResetDate = "26/4/2015"
+    'sub to set to nonladder based on mule logged date
+    Private Sub ByDateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByDateToolStripMenuItem.Click
+        'may need try catch here
         Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
         Dim temp As Date
-        Dim findoldest As Date = Date.Now()
-        MessageBox.Show("Please Wait")
         Dim a = 0
         For index = 0 To ItemObjects.Count - 1
             ItemObjects(index).ImportDate = ItemObjects(index).ImportDate.Replace("\", "/")
@@ -1151,12 +1153,8 @@ Public Class Main
                 ItemObjects(index).Ladder = False
                 a += 1
             End If
-            If findoldest > temp Then
-                findoldest = temp
-            End If
         Next
-        MessageBox.Show("Changed = " & a)
+        'MessageBox.Show("Changed = " & a)'debug message
     End Sub
-
 
 End Class

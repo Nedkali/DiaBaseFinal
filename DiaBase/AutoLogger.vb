@@ -164,7 +164,8 @@ Module AutoLogger
                     End If
                 End If
 
-
+                'Assign password if all else failed to get from above from app settings
+                If thislogpass = "Unknown" And AppSettings.DefaultPassword.Length > 0 Then thislogpass = AppSettings.DefaultPassword
 
                 Do
                     Dim NewObject As New ItemDatabase

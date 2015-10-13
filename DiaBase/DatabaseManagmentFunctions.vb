@@ -20,6 +20,7 @@ Module DatabaseManagmentFunctions
                 AppSettings.BackupBeforeEdits = ReadFile.ReadLine       'Backup before item edits bool
                 AppSettings.RemoveMuleDupes = ReadFile.ReadLine         'Remove mule dupe bool
                 AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
                 ReadFile.Close()
 
@@ -43,6 +44,7 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.BackupBeforeEdits)
             WriteFile.WriteLine(AppSettings.RemoveMuleDupes)
             WriteFile.WriteLine(AppSettings.SoundMute)
+            WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
             WriteFile.Close()
         Catch ex As Exception
