@@ -1157,4 +1157,171 @@ Public Class Main
         'MessageBox.Show("Changed = " & a)'debug message
     End Sub
 
+    Private Sub SendToTrradeListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendToTrradeListToolStripMenuItem.Click
+        If AutoLoggerRunning = True Then Return
+
+        ImportTimer.Stop()
+
+        If SearchLISTBOX.SelectedIndices.Count > 0 Then
+            Dim a As Integer = 0
+            Dim count As Integer = 0
+
+            For index = 0 To SearchLISTBOX.SelectedIndices.Count - 1
+
+                'CALCULATE PROGRESS BAR
+                count = count + 1
+                a = SearchReferenceList(SearchLISTBOX.SelectedIndices(index))
+                Dim Temp = ItemObjects(a).ItemName
+                If ItemObjects(a).ItemBase = "Rune" Or ItemObjects(a).ItemBase = "Gem" Or ItemObjects(a).ItemName.IndexOf("Token") > -1 Or ItemObjects(a).ItemName.IndexOf("Key of") > -1 Or ItemObjects(a).ItemName.IndexOf("Essence") > -1 Then
+                    If ItemObjects(a).ItemName.IndexOf("Token") > -1 Then Temp = "Token"
+                    TradeListRICHTEXTBOX.AppendText(Temp & vbCrLf & vbCrLf)
+                Else
+                    SendToTradeList(a)
+                End If
+            Next
+
+        End If
+
+        'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
+        ListControlTabBUTTON.BackColor = Color.Black
+        SearchListControlTabBUTTON.BackColor = Color.Black
+        TradesListControlTabBUTTON.BackColor = Color.DimGray
+        ListboxTABCONTROL.SelectTab(2)
+        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Trade Entries" ' simpler way to indicate count
+        ImportTimer.Start()
+
+    End Sub
+
+    Private Sub ClearItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearItemToolStripMenuItem.Click
+        If AutoLoggerRunning = True Then Return
+
+        ImportTimer.Stop()
+
+        Dim FocusOnExit As Integer = SearchLISTBOX.SelectedIndex
+        Dim a As Integer
+        For index = SearchLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
+            a = SearchLISTBOX.SelectedIndices(index)
+            SearchLISTBOX.Items.RemoveAt(a)
+            SearchReferenceList.RemoveAt(a)
+        Next
+        SearchLISTBOX.SelectedItem = -1
+
+        'KEEPS FocusOnExit WITHIN LISTBOX BOUNDARYS
+        If FocusOnExit >= (SearchLISTBOX.Items.Count) Then FocusOnExit = SearchLISTBOX.Items.Count - 1
+        If SearchLISTBOX.Items.Count = 1 Then FocusOnExit = 0
+        If SearchLISTBOX.Items.Count = 0 Then FocusOnExit = -1
+        SearchLISTBOX.SelectedIndex = FocusOnExit
+        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
+    End Sub
+
+    Private Sub DeleteItemToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DeleteItemToolStripMenuItem1.Click
+        Dim a As Integer
+        Dim b As Integer
+        Dim FocusOnExit As Integer = SearchLISTBOX.SelectedIndex
+
+        For index = SearchLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
+            a = SearchLISTBOX.SelectedIndices(index)
+            b = SearchReferenceList(a)
+            SearchLISTBOX.Items.RemoveAt(a)
+            AllItemsLISTBOX.Items.RemoveAt(b)
+            ItemObjects.RemoveAt(b)
+            SearchReferenceList.RemoveAt(a)
+            For x = a To SearchReferenceList.Count - 1
+                SearchReferenceList(x) = SearchReferenceList(x) - 1
+            Next
+        Next
+        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
+
+        'SET THE DELETED OBJECT LOCATION IN THE LIST AS THE HIGHLIGHTED ITEM ON RETURN FROM DETETE
+        If FocusOnExit >= (SearchLISTBOX.Items.Count) Then FocusOnExit = SearchLISTBOX.Items.Count - 1
+        If SearchLISTBOX.Items.Count = 1 Then FocusOnExit = 0
+        If SearchLISTBOX.Items.Count = 0 Then FocusOnExit = -1
+        SearchLISTBOX.SelectedIndex = FocusOnExit
+    End Sub
+
+    Private Sub ToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem7.Click
+        SendMessage(SearchLISTBOX.Handle, &H185, New IntPtr(1), New IntPtr(-1))
+        TriggerUpdate.SetValue(SearchLISTBOX.SelectedItems, True)
+        TriggerIndexChanged.Invoke(SearchLISTBOX, New Object() {New EventArgs})
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        'CHECK FOR LOGGER ACTIVE
+        If AutoLoggerRunning = True Then Return
+        ImportTimer.Stop()
+
+        Dim a As Integer = 0
+
+        If SearchLISTBOX.Items.Count > 0 And SearchLISTBOX.SelectedIndex <> -1 Then 'Check items exist in the search list - Only does the following if they do
+            For Each ItemIndex In SearchLISTBOX.SelectedIndices                    'Setup Loop to 
+                UserLISTBOX.Items.Add(SearchLISTBOX.Items(ItemIndex))               'Add item name to new User List
+                UserListReferenceList.Add(SearchReferenceList(ItemIndex))           'Add Item index value(in object database) for stats reference
+
+                Dim AddToUserList As New UserListDatabase
+                a = SearchReferenceList(ItemIndex)
+
+                AddToUserList.ItemName = ItemObjects(a).ItemName
+                AddToUserList.ItemBase = ItemObjects(a).ItemBase
+                AddToUserList.ItemQuality = ItemObjects(a).ItemQuality
+                AddToUserList.RequiredCharacter = ItemObjects(a).RequiredCharacter
+                AddToUserList.EtherealItem = ItemObjects(a).EtherealItem
+                AddToUserList.Sockets = ItemObjects(a).Sockets
+                AddToUserList.RuneWord = ItemObjects(a).RuneWord
+                AddToUserList.ThrowDamageMin = ItemObjects(a).ThrowDamageMin
+                AddToUserList.ThrowDamageMax = ItemObjects(a).ThrowDamageMax
+                AddToUserList.OneHandDamageMin = ItemObjects(a).OneHandDamageMin
+                AddToUserList.OneHandDamageMax = ItemObjects(a).OneHandDamageMax
+                AddToUserList.TwoHandDamageMin = ItemObjects(a).TwoHandDamageMin
+                AddToUserList.TwoHandDamageMax = ItemObjects(a).TwoHandDamageMax
+                AddToUserList.Defense = ItemObjects(a).Defense
+                AddToUserList.ChanceToBlock = ItemObjects(a).ChanceToBlock
+                AddToUserList.QuantityMin = ItemObjects(a).QuantityMin
+                AddToUserList.QuantityMax = ItemObjects(a).QuantityMax
+                AddToUserList.DurabilityMin = ItemObjects(a).DurabilityMin
+                AddToUserList.DurabilityMax = ItemObjects(a).DurabilityMax
+                AddToUserList.RequiredStrength = ItemObjects(a).RequiredStrength
+                AddToUserList.RequiredDexterity = ItemObjects(a).RequiredDexterity
+                AddToUserList.RequiredLevel = ItemObjects(a).RequiredLevel
+                AddToUserList.AttackClass = ItemObjects(a).AttackClass
+                AddToUserList.AttackSpeed = ItemObjects(a).AttackSpeed
+                AddToUserList.Stat1 = ItemObjects(a).Stat1
+                AddToUserList.Stat2 = ItemObjects(a).Stat2
+                AddToUserList.Stat3 = ItemObjects(a).Stat3
+                AddToUserList.Stat4 = ItemObjects(a).Stat4
+                AddToUserList.Stat5 = ItemObjects(a).Stat5
+                AddToUserList.Stat6 = ItemObjects(a).Stat6
+                AddToUserList.Stat7 = ItemObjects(a).Stat7
+                AddToUserList.Stat8 = ItemObjects(a).Stat8
+                AddToUserList.Stat9 = ItemObjects(a).Stat9
+                AddToUserList.Stat10 = ItemObjects(a).Stat10
+                AddToUserList.Stat11 = ItemObjects(a).Stat11
+                AddToUserList.Stat12 = ItemObjects(a).Stat12
+                AddToUserList.Stat13 = ItemObjects(a).Stat13
+                AddToUserList.Stat14 = ItemObjects(a).Stat14
+                AddToUserList.Stat15 = ItemObjects(a).Stat15
+                AddToUserList.MuleName = ItemObjects(a).MuleName
+                AddToUserList.MuleAccount = ItemObjects(a).MuleAccount
+                AddToUserList.MulePass = ItemObjects(a).MulePass
+                AddToUserList.HardCore = ItemObjects(a).HardCore
+                AddToUserList.Ladder = ItemObjects(a).Ladder
+                AddToUserList.Expansion = ItemObjects(a).Expansion
+                AddToUserList.PickitAccount = ItemObjects(a).PickitAccount
+                AddToUserList.UserField = ItemObjects(a).UserField
+                AddToUserList.ItemImage = ItemObjects(a).ItemImage
+                AddToUserList.ImportDate = ItemObjects(a).ImportDate
+                AddToUserList.ImportTime = ItemObjects(a).ImportTime
+
+                UserObjects.Add(AddToUserList)
+            Next
+
+            UserLISTBOX.SelectedItem = SearchLISTBOX.SelectedItem                   'Select first moved item placed in user list
+            ListboxTABCONTROL.SelectTab(3)                                          'Auto Select User List Tab
+            SearchListControlTabBUTTON.BackColor = Color.Black                      'Next 4 lines sets button colors to suit Auto User Tab Selection
+            ListControlTabBUTTON.BackColor = Color.Black
+            TradesListControlTabBUTTON.BackColor = Color.Black
+            UserRefControlTabBUTTON.BackColor = Color.DimGray
+
+        End If
+        ImportTimer.Start()
+    End Sub
 End Class

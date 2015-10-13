@@ -133,7 +133,6 @@ Partial Class Main
         Me.SeandAllToTradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClearItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -172,6 +171,8 @@ Partial Class Main
         Me.MuleRealmLABEL = New System.Windows.Forms.Label()
         Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuBar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1144,9 +1145,9 @@ Partial Class Main
         '
         'SearchListContextMenuStrip1
         '
-        Me.SearchListContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTrradeListToolStripMenuItem, Me.SeandAllToTradeListToolStripMenuItem, Me.ToolStripSeparator8, Me.ClearItemToolStripMenuItem, Me.ClearAllToolStripMenuItem, Me.DeleteItemToolStripMenuItem1, Me.ToolStripSeparator10, Me.ExportToolStripMenuItem})
+        Me.SearchListContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTrradeListToolStripMenuItem, Me.SeandAllToTradeListToolStripMenuItem, Me.ToolStripMenuItem8, Me.ToolStripSeparator8, Me.ClearItemToolStripMenuItem, Me.DeleteItemToolStripMenuItem1, Me.ToolStripSeparator10, Me.ToolStripMenuItem7, Me.ExportToolStripMenuItem})
         Me.SearchListContextMenuStrip1.Name = "SearchListContextMenuStrip1"
-        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 148)
+        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 192)
         '
         'SendToTrradeListToolStripMenuItem
         '
@@ -1169,19 +1170,13 @@ Partial Class Main
         '
         Me.ClearItemToolStripMenuItem.Name = "ClearItemToolStripMenuItem"
         Me.ClearItemToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
-        Me.ClearItemToolStripMenuItem.Text = "Clear Item"
-        '
-        'ClearAllToolStripMenuItem
-        '
-        Me.ClearAllToolStripMenuItem.Name = "ClearAllToolStripMenuItem"
-        Me.ClearAllToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
-        Me.ClearAllToolStripMenuItem.Text = "Clear All"
+        Me.ClearItemToolStripMenuItem.Text = "Clear"
         '
         'DeleteItemToolStripMenuItem1
         '
         Me.DeleteItemToolStripMenuItem1.Name = "DeleteItemToolStripMenuItem1"
         Me.DeleteItemToolStripMenuItem1.Size = New System.Drawing.Size(182, 22)
-        Me.DeleteItemToolStripMenuItem1.Text = "Delete Item"
+        Me.DeleteItemToolStripMenuItem1.Text = "Delete Selected"
         '
         'ToolStripSeparator10
         '
@@ -1585,6 +1580,18 @@ Partial Class Main
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262
         '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(182, 22)
+        Me.ToolStripMenuItem7.Text = "Select All"
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(182, 22)
+        Me.ToolStripMenuItem8.Text = "Send To User List"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1831,8 +1838,9 @@ Partial Class Main
     Friend WithEvents SeandAllToTradeListToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents ClearItemToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClearAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteItemToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
 End Class
