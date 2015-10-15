@@ -5,8 +5,6 @@
 '**                                                                          **
 '******************************************************************************
 
-'############## ADDED REMLINE TO TEST REPO UPDATE - PLEASE WORK ###############
-
 Imports System.IO
 Imports System.Drawing.Text
 Imports System.Globalization

@@ -62,7 +62,7 @@ Public Class AppSetting
     Public EtalPath As String = "C:\D2NT"                   'Etals Installation Path.          
     Public SoundMute As Boolean = False                     'Mute Sound Setting Prefix.              True = Muted   False = On
     Public DefaultDatabase As String = Application.StartupPath & "\Databases\Default.txt"           'FileName (without extension) of the Database To load at startup
-    Public AutoLoggingDelay As Integer = Nothing            'Delay (in seconds) between automatic attempts to import item logs
+    Public AutoLoggingDelay As Integer = 30                 'Delay (in minuites) between automatic attempts to import item logs
     Public HideDupes As Boolean = False                     'Display duplicated items when diplaying search matches bool    TRUE/FALSE
     Public RemoveMuleDupes As Boolean = True                'Prefix to remove previously logged items from later imports - used to stop duplicated items relogging
     Public SaveOnExit As Boolean = False                    'Operator to auto save the current database as app closes       TRUE/FALSE
