@@ -131,10 +131,12 @@ Partial Class Main
         Me.SearchListContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SendToTrradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SeandAllToTradeListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClearItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TradeListRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
@@ -171,8 +173,6 @@ Partial Class Main
         Me.MuleRealmLABEL = New System.Windows.Forms.Label()
         Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuBar.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -988,7 +988,7 @@ Partial Class Main
         Me.SearchFieldCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchFieldCOMBOBOX.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SearchFieldCOMBOBOX.FormattingEnabled = True
-        Me.SearchFieldCOMBOBOX.Items.AddRange(New Object() {"Item Name", "Item Base", "Item Quality", "Item Defense", "Ethereal", "Sockets", "RuneWord", "Chance To Block", "One Hand Damage Max", "One Hand Damage Min", "Two Hand Damage Max", "Two Hand Damage Min", "Throw Damage Max", "Throw Damage Min", "Required Level", "Required Strength", "Required Dexterity", "Attack Class", "Attack Speed", "Unique Attributes", "Mule Name", "Mule Account", "Mule Pass", "Realm", "Item Level", "Hardcore", "Ladder", "Expansion", "User Reference"})
+        Me.SearchFieldCOMBOBOX.Items.AddRange(New Object() {"Item Name", "Item Base", "Item Quality", "Item Defense", "Ethereal", "Sockets", "RuneWord", "Chance To Block", "One Hand Damage Max", "One Hand Damage Min", "Two Hand Damage Max", "Two Hand Damage Min", "Throw Damage Max", "Throw Damage Min", "Required Level", "Required Strength", "Required Dexterity", "Attack Class", "Attack Speed", "Unique Attributes", "Mule Name", "Mule Account", "Mule Pass", "Item Level", "Hardcore", "Ladder", "Expansion", "User Reference"})
         Me.SearchFieldCOMBOBOX.Location = New System.Drawing.Point(33, 75)
         Me.SearchFieldCOMBOBOX.Name = "SearchFieldCOMBOBOX"
         Me.SearchFieldCOMBOBOX.Size = New System.Drawing.Size(143, 21)
@@ -1147,46 +1147,58 @@ Partial Class Main
         '
         Me.SearchListContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTrradeListToolStripMenuItem, Me.SeandAllToTradeListToolStripMenuItem, Me.ToolStripMenuItem8, Me.ToolStripSeparator8, Me.ClearItemToolStripMenuItem, Me.DeleteItemToolStripMenuItem1, Me.ToolStripSeparator10, Me.ToolStripMenuItem7, Me.ExportToolStripMenuItem})
         Me.SearchListContextMenuStrip1.Name = "SearchListContextMenuStrip1"
-        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 192)
+        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(182, 170)
         '
         'SendToTrradeListToolStripMenuItem
         '
         Me.SendToTrradeListToolStripMenuItem.Name = "SendToTrradeListToolStripMenuItem"
-        Me.SendToTrradeListToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.SendToTrradeListToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SendToTrradeListToolStripMenuItem.Text = "Send to TradeList"
         '
         'SeandAllToTradeListToolStripMenuItem
         '
         Me.SeandAllToTradeListToolStripMenuItem.Name = "SeandAllToTradeListToolStripMenuItem"
-        Me.SeandAllToTradeListToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.SeandAllToTradeListToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.SeandAllToTradeListToolStripMenuItem.Text = "Send All to TradeList"
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(181, 22)
+        Me.ToolStripMenuItem8.Text = "Send To User List"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(179, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(178, 6)
         '
         'ClearItemToolStripMenuItem
         '
         Me.ClearItemToolStripMenuItem.Name = "ClearItemToolStripMenuItem"
-        Me.ClearItemToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ClearItemToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.ClearItemToolStripMenuItem.Text = "Clear"
         '
         'DeleteItemToolStripMenuItem1
         '
         Me.DeleteItemToolStripMenuItem1.Name = "DeleteItemToolStripMenuItem1"
-        Me.DeleteItemToolStripMenuItem1.Size = New System.Drawing.Size(182, 22)
+        Me.DeleteItemToolStripMenuItem1.Size = New System.Drawing.Size(181, 22)
         Me.DeleteItemToolStripMenuItem1.Text = "Delete Selected"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(179, 6)
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(178, 6)
+        '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(181, 22)
+        Me.ToolStripMenuItem7.Text = "Select All"
         '
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.ExportToolStripMenuItem.Text = "Export"
         '
         'TabPage3
@@ -1282,53 +1294,53 @@ Partial Class Main
         Me.ItemListboxCONTEXTMENUSTRIP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ItemListboxCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectAllToolStripMenuItem1, Me.AddItemToolStripMenuItem, Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem1, Me.SortListToolStripMenuItem, Me.ToolStripSeparator3, Me.SendToTradeListToolStripMenuItem3, Me.SendToUserListToolStripMenuItem1})
         Me.ItemListboxCONTEXTMENUSTRIP.Name = "ItemListboxCONTEXTMENUSTRIP"
-        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(177, 164)
+        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(175, 164)
         '
         'SelectAllToolStripMenuItem1
         '
         Me.SelectAllToolStripMenuItem1.Name = "SelectAllToolStripMenuItem1"
-        Me.SelectAllToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.SelectAllToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.SelectAllToolStripMenuItem1.Text = "Select All"
         '
         'AddItemToolStripMenuItem
         '
         Me.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem"
-        Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.AddItemToolStripMenuItem.Text = "Add"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'DeleteToolStripMenuItem1
         '
         Me.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1"
-        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.DeleteToolStripMenuItem1.Text = "Delete"
         '
         'SortListToolStripMenuItem
         '
         Me.SortListToolStripMenuItem.Name = "SortListToolStripMenuItem"
-        Me.SortListToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SortListToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.SortListToolStripMenuItem.Text = "Sort List A to Z"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(171, 6)
         '
         'SendToTradeListToolStripMenuItem3
         '
         Me.SendToTradeListToolStripMenuItem3.Name = "SendToTradeListToolStripMenuItem3"
-        Me.SendToTradeListToolStripMenuItem3.Size = New System.Drawing.Size(176, 22)
+        Me.SendToTradeListToolStripMenuItem3.Size = New System.Drawing.Size(174, 22)
         Me.SendToTradeListToolStripMenuItem3.Text = "Send To Trade List"
         '
         'SendToUserListToolStripMenuItem1
         '
         Me.SendToUserListToolStripMenuItem1.Name = "SendToUserListToolStripMenuItem1"
-        Me.SendToUserListToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.SendToUserListToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.SendToUserListToolStripMenuItem1.Text = "Send To User List"
         '
         'EastRealmCHECKBOX
@@ -1406,17 +1418,17 @@ Partial Class Main
         Me.SpecialStatsTABLELAYOUT.Name = "SpecialStatsTABLELAYOUT"
         Me.SpecialStatsTABLELAYOUT.RowCount = 13
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20212!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20212!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121271!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.059685!))
         Me.SpecialStatsTABLELAYOUT.Size = New System.Drawing.Size(107, 286)
         Me.SpecialStatsTABLELAYOUT.TabIndex = 422
@@ -1579,18 +1591,6 @@ Partial Class Main
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262
-        '
-        'ToolStripMenuItem7
-        '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(182, 22)
-        Me.ToolStripMenuItem7.Text = "Select All"
-        '
-        'ToolStripMenuItem8
-        '
-        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(182, 22)
-        Me.ToolStripMenuItem8.Text = "Send To User List"
         '
         'Main
         '
