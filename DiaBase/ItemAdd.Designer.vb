@@ -278,7 +278,7 @@ Partial Class ItemAdd
         Me.Label36.Location = New System.Drawing.Point(16, 375)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(165, 3)
-        Me.Label36.TabIndex = 1564
+        Me.Label36.TabIndex = 0
         '
         'Label37
         '
@@ -286,7 +286,7 @@ Partial Class ItemAdd
         Me.Label37.Location = New System.Drawing.Point(16, 357)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(165, 3)
-        Me.Label37.TabIndex = 1563
+        Me.Label37.TabIndex = 0
         '
         'Label38
         '
@@ -294,7 +294,7 @@ Partial Class ItemAdd
         Me.Label38.Location = New System.Drawing.Point(179, 357)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(3, 21)
-        Me.Label38.TabIndex = 1562
+        Me.Label38.TabIndex = 0
         '
         'Label39
         '
@@ -302,7 +302,7 @@ Partial Class ItemAdd
         Me.Label39.Location = New System.Drawing.Point(13, 357)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(3, 21)
-        Me.Label39.TabIndex = 1561
+        Me.Label39.TabIndex = 0
         '
         'AddItemPickitBotCOMBOBOX
         '
@@ -315,39 +315,39 @@ Partial Class ItemAdd
         Me.AddItemPickitBotCOMBOBOX.Location = New System.Drawing.Point(13, 357)
         Me.AddItemPickitBotCOMBOBOX.Name = "AddItemPickitBotCOMBOBOX"
         Me.AddItemPickitBotCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemPickitBotCOMBOBOX.TabIndex = 1560
+        Me.AddItemPickitBotCOMBOBOX.TabIndex = 47
         '
         'Label31
         '
         Me.Label31.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label31.Location = New System.Drawing.Point(16, 264)
+        Me.Label31.Location = New System.Drawing.Point(16, 252)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(165, 3)
-        Me.Label31.TabIndex = 1559
+        Me.Label31.TabIndex = 0
         '
         'Label32
         '
         Me.Label32.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label32.Location = New System.Drawing.Point(16, 246)
+        Me.Label32.Location = New System.Drawing.Point(16, 234)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(165, 3)
-        Me.Label32.TabIndex = 1558
+        Me.Label32.TabIndex = 0
         '
         'Label33
         '
         Me.Label33.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label33.Location = New System.Drawing.Point(179, 246)
+        Me.Label33.Location = New System.Drawing.Point(179, 234)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(3, 21)
-        Me.Label33.TabIndex = 1557
+        Me.Label33.TabIndex = 0
         '
         'Label34
         '
         Me.Label34.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label34.Location = New System.Drawing.Point(13, 246)
+        Me.Label34.Location = New System.Drawing.Point(13, 234)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(3, 21)
-        Me.Label34.TabIndex = 1556
+        Me.Label34.TabIndex = 0
         '
         'AddItemMuleNameCOMBOBOX
         '
@@ -357,42 +357,42 @@ Partial Class ItemAdd
         Me.AddItemMuleNameCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMuleNameCOMBOBOX.FormattingEnabled = True
         Me.AddItemMuleNameCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(13, 246)
+        Me.AddItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(13, 234)
         Me.AddItemMuleNameCOMBOBOX.Name = "AddItemMuleNameCOMBOBOX"
         Me.AddItemMuleNameCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMuleNameCOMBOBOX.TabIndex = 1555
+        Me.AddItemMuleNameCOMBOBOX.TabIndex = 45
         '
         'Label25
         '
         Me.Label25.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label25.Location = New System.Drawing.Point(16, 151)
+        Me.Label25.Location = New System.Drawing.Point(16, 126)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(165, 3)
-        Me.Label25.TabIndex = 1554
+        Me.Label25.TabIndex = 0
         '
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label27.Location = New System.Drawing.Point(16, 133)
+        Me.Label27.Location = New System.Drawing.Point(16, 108)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(165, 3)
-        Me.Label27.TabIndex = 1553
+        Me.Label27.TabIndex = 0
         '
         'Label28
         '
         Me.Label28.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label28.Location = New System.Drawing.Point(179, 133)
+        Me.Label28.Location = New System.Drawing.Point(179, 108)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(3, 21)
-        Me.Label28.TabIndex = 1552
+        Me.Label28.TabIndex = 0
         '
         'Label29
         '
         Me.Label29.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label29.Location = New System.Drawing.Point(13, 133)
+        Me.Label29.Location = New System.Drawing.Point(13, 108)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(3, 21)
-        Me.Label29.TabIndex = 1551
+        Me.Label29.TabIndex = 0
         '
         'AddItemMuleAccountCOMBOBOX
         '
@@ -402,42 +402,42 @@ Partial Class ItemAdd
         Me.AddItemMuleAccountCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMuleAccountCOMBOBOX.FormattingEnabled = True
         Me.AddItemMuleAccountCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(13, 133)
+        Me.AddItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(13, 108)
         Me.AddItemMuleAccountCOMBOBOX.Name = "AddItemMuleAccountCOMBOBOX"
         Me.AddItemMuleAccountCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMuleAccountCOMBOBOX.TabIndex = 1550
+        Me.AddItemMuleAccountCOMBOBOX.TabIndex = 43
         '
         'Label20
         '
         Me.Label20.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label20.Location = New System.Drawing.Point(16, 207)
+        Me.Label20.Location = New System.Drawing.Point(16, 189)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(165, 3)
-        Me.Label20.TabIndex = 1549
+        Me.Label20.TabIndex = 0
         '
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label21.Location = New System.Drawing.Point(16, 189)
+        Me.Label21.Location = New System.Drawing.Point(16, 171)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(165, 3)
-        Me.Label21.TabIndex = 1548
+        Me.Label21.TabIndex = 0
         '
         'Label22
         '
         Me.Label22.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label22.Location = New System.Drawing.Point(179, 189)
+        Me.Label22.Location = New System.Drawing.Point(179, 171)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(3, 21)
-        Me.Label22.TabIndex = 1547
+        Me.Label22.TabIndex = 0
         '
         'Label23
         '
         Me.Label23.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label23.Location = New System.Drawing.Point(13, 189)
+        Me.Label23.Location = New System.Drawing.Point(13, 171)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(3, 21)
-        Me.Label23.TabIndex = 1546
+        Me.Label23.TabIndex = 0
         '
         'AddItemMulePassCOMBOBOX
         '
@@ -447,20 +447,20 @@ Partial Class ItemAdd
         Me.AddItemMulePassCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMulePassCOMBOBOX.FormattingEnabled = True
         Me.AddItemMulePassCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMulePassCOMBOBOX.Location = New System.Drawing.Point(13, 189)
+        Me.AddItemMulePassCOMBOBOX.Location = New System.Drawing.Point(13, 171)
         Me.AddItemMulePassCOMBOBOX.Name = "AddItemMulePassCOMBOBOX"
         Me.AddItemMulePassCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMulePassCOMBOBOX.TabIndex = 1545
+        Me.AddItemMulePassCOMBOBOX.TabIndex = 44
         '
         'EditItemMuleNameLABEL
         '
         Me.EditItemMuleNameLABEL.AutoSize = True
         Me.EditItemMuleNameLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemMuleNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(9, 228)
+        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(9, 216)
         Me.EditItemMuleNameLABEL.Name = "EditItemMuleNameLABEL"
         Me.EditItemMuleNameLABEL.Size = New System.Drawing.Size(61, 13)
-        Me.EditItemMuleNameLABEL.TabIndex = 1512
+        Me.EditItemMuleNameLABEL.TabIndex = 0
         Me.EditItemMuleNameLABEL.Text = "Mule Name"
         '
         'Label2
@@ -469,7 +469,7 @@ Partial Class ItemAdd
         Me.Label2.Location = New System.Drawing.Point(580, 428)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(193, 3)
-        Me.Label2.TabIndex = 1918
+        Me.Label2.TabIndex = 0
         '
         'Label50
         '
@@ -477,7 +477,7 @@ Partial Class ItemAdd
         Me.Label50.Location = New System.Drawing.Point(86, 5)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(110, 3)
-        Me.Label50.TabIndex = 1511
+        Me.Label50.TabIndex = 0
         '
         'Label19
         '
@@ -485,7 +485,7 @@ Partial Class ItemAdd
         Me.Label19.Location = New System.Drawing.Point(0, 8)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(3, 397)
-        Me.Label19.TabIndex = 1512
+        Me.Label19.TabIndex = 0
         '
         'Label18
         '
@@ -493,52 +493,52 @@ Partial Class ItemAdd
         Me.Label18.Location = New System.Drawing.Point(191, 8)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(3, 397)
-        Me.Label18.TabIndex = 1511
+        Me.Label18.TabIndex = 0
         '
         'AddItemLadderCheckBox
         '
         Me.AddItemLadderCheckBox.AutoSize = True
         Me.AddItemLadderCheckBox.BackColor = System.Drawing.Color.Transparent
         Me.AddItemLadderCheckBox.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemLadderCheckBox.Location = New System.Drawing.Point(55, 31)
+        Me.AddItemLadderCheckBox.Location = New System.Drawing.Point(201, 99)
         Me.AddItemLadderCheckBox.Name = "AddItemLadderCheckBox"
         Me.AddItemLadderCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.AddItemLadderCheckBox.Size = New System.Drawing.Size(59, 17)
-        Me.AddItemLadderCheckBox.TabIndex = 1544
+        Me.AddItemLadderCheckBox.TabIndex = 5
         Me.AddItemLadderCheckBox.Text = "Ladder"
         Me.AddItemLadderCheckBox.UseVisualStyleBackColor = False
         '
         'Label163
         '
         Me.Label163.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label163.Location = New System.Drawing.Point(16, 100)
+        Me.Label163.Location = New System.Drawing.Point(16, 67)
         Me.Label163.Name = "Label163"
         Me.Label163.Size = New System.Drawing.Size(165, 3)
-        Me.Label163.TabIndex = 1543
+        Me.Label163.TabIndex = 0
         '
         'Label164
         '
         Me.Label164.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label164.Location = New System.Drawing.Point(16, 82)
+        Me.Label164.Location = New System.Drawing.Point(16, 49)
         Me.Label164.Name = "Label164"
         Me.Label164.Size = New System.Drawing.Size(165, 3)
-        Me.Label164.TabIndex = 1542
+        Me.Label164.TabIndex = 0
         '
         'Label165
         '
         Me.Label165.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label165.Location = New System.Drawing.Point(179, 82)
+        Me.Label165.Location = New System.Drawing.Point(179, 49)
         Me.Label165.Name = "Label165"
         Me.Label165.Size = New System.Drawing.Size(3, 21)
-        Me.Label165.TabIndex = 1541
+        Me.Label165.TabIndex = 0
         '
         'Label166
         '
         Me.Label166.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label166.Location = New System.Drawing.Point(13, 82)
+        Me.Label166.Location = New System.Drawing.Point(13, 49)
         Me.Label166.Name = "Label166"
         Me.Label166.Size = New System.Drawing.Size(3, 21)
-        Me.Label166.TabIndex = 1540
+        Me.Label166.TabIndex = 0
         '
         'AddItemRealmCOMBOBOX
         '
@@ -548,53 +548,53 @@ Partial Class ItemAdd
         Me.AddItemRealmCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemRealmCOMBOBOX.FormattingEnabled = True
         Me.AddItemRealmCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemRealmCOMBOBOX.Location = New System.Drawing.Point(13, 82)
+        Me.AddItemRealmCOMBOBOX.Location = New System.Drawing.Point(13, 49)
         Me.AddItemRealmCOMBOBOX.Name = "AddItemRealmCOMBOBOX"
         Me.AddItemRealmCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemRealmCOMBOBOX.TabIndex = 1538
+        Me.AddItemRealmCOMBOBOX.TabIndex = 42
         '
         'Label167
         '
         Me.Label167.AutoSize = True
         Me.Label167.BackColor = System.Drawing.Color.Transparent
         Me.Label167.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label167.Location = New System.Drawing.Point(9, 62)
+        Me.Label167.Location = New System.Drawing.Point(9, 29)
         Me.Label167.Name = "Label167"
         Me.Label167.Size = New System.Drawing.Size(37, 13)
-        Me.Label167.TabIndex = 1539
+        Me.Label167.TabIndex = 0
         Me.Label167.Text = "Realm"
         '
         'Label149
         '
         Me.Label149.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label149.Location = New System.Drawing.Point(15, 320)
+        Me.Label149.Location = New System.Drawing.Point(15, 315)
         Me.Label149.Name = "Label149"
         Me.Label149.Size = New System.Drawing.Size(165, 3)
-        Me.Label149.TabIndex = 1537
+        Me.Label149.TabIndex = 0
         '
         'Label150
         '
         Me.Label150.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label150.Location = New System.Drawing.Point(15, 302)
+        Me.Label150.Location = New System.Drawing.Point(15, 297)
         Me.Label150.Name = "Label150"
         Me.Label150.Size = New System.Drawing.Size(165, 3)
-        Me.Label150.TabIndex = 1536
+        Me.Label150.TabIndex = 0
         '
         'Label155
         '
         Me.Label155.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label155.Location = New System.Drawing.Point(178, 302)
+        Me.Label155.Location = New System.Drawing.Point(178, 297)
         Me.Label155.Name = "Label155"
         Me.Label155.Size = New System.Drawing.Size(3, 21)
-        Me.Label155.TabIndex = 1535
+        Me.Label155.TabIndex = 0
         '
         'Label156
         '
         Me.Label156.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label156.Location = New System.Drawing.Point(12, 302)
+        Me.Label156.Location = New System.Drawing.Point(12, 297)
         Me.Label156.Name = "Label156"
         Me.Label156.Size = New System.Drawing.Size(3, 21)
-        Me.Label156.TabIndex = 1534
+        Me.Label156.TabIndex = 0
         '
         'GroupBox1
         '
@@ -623,7 +623,6 @@ Partial Class ItemAdd
         Me.GroupBox1.Controls.Add(Me.Label50)
         Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.Label18)
-        Me.GroupBox1.Controls.Add(Me.AddItemLadderCheckBox)
         Me.GroupBox1.Controls.Add(Me.Label163)
         Me.GroupBox1.Controls.Add(Me.Label164)
         Me.GroupBox1.Controls.Add(Me.Label165)
@@ -645,7 +644,7 @@ Partial Class ItemAdd
         Me.GroupBox1.Location = New System.Drawing.Point(579, 25)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(194, 406)
-        Me.GroupBox1.TabIndex = 1917
+        Me.GroupBox1.TabIndex = 42
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Account Details"
         '
@@ -655,7 +654,7 @@ Partial Class ItemAdd
         Me.Label51.Location = New System.Drawing.Point(0, 5)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(7, 3)
-        Me.Label51.TabIndex = 1511
+        Me.Label51.TabIndex = 0
         '
         'AddItemCoreTypeCOMBOBOX
         '
@@ -664,20 +663,20 @@ Partial Class ItemAdd
         Me.AddItemCoreTypeCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemCoreTypeCOMBOBOX.FormattingEnabled = True
         Me.AddItemCoreTypeCOMBOBOX.Items.AddRange(New Object() {"HardCore", "SoftCore"})
-        Me.AddItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(12, 302)
+        Me.AddItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(12, 297)
         Me.AddItemCoreTypeCOMBOBOX.Name = "AddItemCoreTypeCOMBOBOX"
         Me.AddItemCoreTypeCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemCoreTypeCOMBOBOX.TabIndex = 1532
+        Me.AddItemCoreTypeCOMBOBOX.TabIndex = 46
         '
         'Label157
         '
         Me.Label157.AutoSize = True
         Me.Label157.BackColor = System.Drawing.Color.Transparent
         Me.Label157.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label157.Location = New System.Drawing.Point(9, 283)
+        Me.Label157.Location = New System.Drawing.Point(9, 278)
         Me.Label157.Name = "Label157"
         Me.Label157.Size = New System.Drawing.Size(56, 13)
-        Me.Label157.TabIndex = 1533
+        Me.Label157.TabIndex = 0
         Me.Label157.Text = "Core Type"
         '
         'EditItemPickitBotLABEL
@@ -688,7 +687,7 @@ Partial Class ItemAdd
         Me.EditItemPickitBotLABEL.Location = New System.Drawing.Point(9, 339)
         Me.EditItemPickitBotLABEL.Name = "EditItemPickitBotLABEL"
         Me.EditItemPickitBotLABEL.Size = New System.Drawing.Size(76, 13)
-        Me.EditItemPickitBotLABEL.TabIndex = 1515
+        Me.EditItemPickitBotLABEL.TabIndex = 0
         Me.EditItemPickitBotLABEL.Text = "Pickit Account"
         '
         'EditMulePassLABEL
@@ -696,10 +695,10 @@ Partial Class ItemAdd
         Me.EditMulePassLABEL.AutoSize = True
         Me.EditMulePassLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditMulePassLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditMulePassLABEL.Location = New System.Drawing.Point(9, 171)
+        Me.EditMulePassLABEL.Location = New System.Drawing.Point(9, 153)
         Me.EditMulePassLABEL.Name = "EditMulePassLABEL"
         Me.EditMulePassLABEL.Size = New System.Drawing.Size(79, 13)
-        Me.EditMulePassLABEL.TabIndex = 1514
+        Me.EditMulePassLABEL.TabIndex = 0
         Me.EditMulePassLABEL.Text = "Mule Password"
         '
         'EditItemMuleAccountLABEL
@@ -707,10 +706,10 @@ Partial Class ItemAdd
         Me.EditItemMuleAccountLABEL.AutoSize = True
         Me.EditItemMuleAccountLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemMuleAccountLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(9, 117)
+        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(9, 92)
         Me.EditItemMuleAccountLABEL.Name = "EditItemMuleAccountLABEL"
         Me.EditItemMuleAccountLABEL.Size = New System.Drawing.Size(73, 13)
-        Me.EditItemMuleAccountLABEL.TabIndex = 1513
+        Me.EditItemMuleAccountLABEL.TabIndex = 0
         Me.EditItemMuleAccountLABEL.Text = "Mule Account"
         '
         'AddItemRunewordCheckBox
@@ -718,11 +717,11 @@ Partial Class ItemAdd
         Me.AddItemRunewordCheckBox.AutoSize = True
         Me.AddItemRunewordCheckBox.BackColor = System.Drawing.Color.Transparent
         Me.AddItemRunewordCheckBox.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemRunewordCheckBox.Location = New System.Drawing.Point(205, 96)
+        Me.AddItemRunewordCheckBox.Location = New System.Drawing.Point(271, 98)
         Me.AddItemRunewordCheckBox.Name = "AddItemRunewordCheckBox"
         Me.AddItemRunewordCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.AddItemRunewordCheckBox.Size = New System.Drawing.Size(78, 17)
-        Me.AddItemRunewordCheckBox.TabIndex = 1916
+        Me.AddItemRunewordCheckBox.TabIndex = 6
         Me.AddItemRunewordCheckBox.Text = "RuneWord"
         Me.AddItemRunewordCheckBox.UseVisualStyleBackColor = False
         '
@@ -732,7 +731,7 @@ Partial Class ItemAdd
         Me.Label151.Location = New System.Drawing.Point(133, 456)
         Me.Label151.Name = "Label151"
         Me.Label151.Size = New System.Drawing.Size(129, 3)
-        Me.Label151.TabIndex = 1915
+        Me.Label151.TabIndex = 0
         '
         'Label152
         '
@@ -740,7 +739,7 @@ Partial Class ItemAdd
         Me.Label152.Location = New System.Drawing.Point(133, 436)
         Me.Label152.Name = "Label152"
         Me.Label152.Size = New System.Drawing.Size(129, 3)
-        Me.Label152.TabIndex = 1914
+        Me.Label152.TabIndex = 0
         '
         'Label153
         '
@@ -748,7 +747,7 @@ Partial Class ItemAdd
         Me.Label153.Location = New System.Drawing.Point(259, 437)
         Me.Label153.Name = "Label153"
         Me.Label153.Size = New System.Drawing.Size(3, 21)
-        Me.Label153.TabIndex = 1913
+        Me.Label153.TabIndex = 0
         '
         'Label154
         '
@@ -756,7 +755,7 @@ Partial Class ItemAdd
         Me.Label154.Location = New System.Drawing.Point(133, 437)
         Me.Label154.Name = "Label154"
         Me.Label154.Size = New System.Drawing.Size(3, 21)
-        Me.Label154.TabIndex = 1912
+        Me.Label154.TabIndex = 0
         '
         'EditReqCharLABEL
         '
@@ -766,7 +765,7 @@ Partial Class ItemAdd
         Me.EditReqCharLABEL.Location = New System.Drawing.Point(25, 441)
         Me.EditReqCharLABEL.Name = "EditReqCharLABEL"
         Me.EditReqCharLABEL.Size = New System.Drawing.Size(104, 13)
-        Me.EditReqCharLABEL.TabIndex = 1911
+        Me.EditReqCharLABEL.TabIndex = 0
         Me.EditReqCharLABEL.Text = "Req Character Class"
         '
         'Label121
@@ -780,94 +779,94 @@ Partial Class ItemAdd
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label7.Location = New System.Drawing.Point(652, 485)
+        Me.Label7.Location = New System.Drawing.Point(659, 485)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(113, 3)
-        Me.Label7.TabIndex = 1909
+        Me.Label7.TabIndex = 0
         '
         'Label16
         '
         Me.Label16.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label16.Location = New System.Drawing.Point(652, 467)
+        Me.Label16.Location = New System.Drawing.Point(659, 467)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(113, 3)
-        Me.Label16.TabIndex = 1908
+        Me.Label16.TabIndex = 0
         '
         'Label24
         '
         Me.Label24.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label24.Location = New System.Drawing.Point(762, 467)
+        Me.Label24.Location = New System.Drawing.Point(769, 467)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(3, 21)
-        Me.Label24.TabIndex = 1907
+        Me.Label24.TabIndex = 0
         '
         'Label30
         '
         Me.Label30.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label30.Location = New System.Drawing.Point(651, 467)
+        Me.Label30.Location = New System.Drawing.Point(658, 467)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(3, 21)
-        Me.Label30.TabIndex = 1906
+        Me.Label30.TabIndex = 0
         '
         'AddItemImportDateTEXTBOX
         '
         Me.AddItemImportDateTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.AddItemImportDateTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.AddItemImportDateTEXTBOX.Location = New System.Drawing.Point(652, 468)
+        Me.AddItemImportDateTEXTBOX.Location = New System.Drawing.Point(659, 468)
         Me.AddItemImportDateTEXTBOX.Name = "AddItemImportDateTEXTBOX"
         Me.AddItemImportDateTEXTBOX.Size = New System.Drawing.Size(112, 20)
-        Me.AddItemImportDateTEXTBOX.TabIndex = 1754
+        Me.AddItemImportDateTEXTBOX.TabIndex = 50
         '
         'Label35
         '
         Me.Label35.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label35.Location = New System.Drawing.Point(652, 515)
+        Me.Label35.Location = New System.Drawing.Point(659, 515)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(113, 3)
-        Me.Label35.TabIndex = 1905
+        Me.Label35.TabIndex = 0
         '
         'Label142
         '
         Me.Label142.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label142.Location = New System.Drawing.Point(652, 497)
+        Me.Label142.Location = New System.Drawing.Point(659, 497)
         Me.Label142.Name = "Label142"
         Me.Label142.Size = New System.Drawing.Size(113, 3)
-        Me.Label142.TabIndex = 1904
+        Me.Label142.TabIndex = 0
         '
         'Label147
         '
         Me.Label147.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label147.Location = New System.Drawing.Point(762, 497)
+        Me.Label147.Location = New System.Drawing.Point(769, 497)
         Me.Label147.Name = "Label147"
         Me.Label147.Size = New System.Drawing.Size(3, 21)
-        Me.Label147.TabIndex = 1903
+        Me.Label147.TabIndex = 0
         '
         'Label148
         '
         Me.Label148.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label148.Location = New System.Drawing.Point(651, 497)
+        Me.Label148.Location = New System.Drawing.Point(658, 497)
         Me.Label148.Name = "Label148"
         Me.Label148.Size = New System.Drawing.Size(3, 21)
-        Me.Label148.TabIndex = 1902
+        Me.Label148.TabIndex = 0
         '
         'AddItemImportTimeTEXTBOX
         '
         Me.AddItemImportTimeTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.AddItemImportTimeTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.AddItemImportTimeTEXTBOX.Location = New System.Drawing.Point(651, 498)
+        Me.AddItemImportTimeTEXTBOX.Location = New System.Drawing.Point(658, 498)
         Me.AddItemImportTimeTEXTBOX.Name = "AddItemImportTimeTEXTBOX"
         Me.AddItemImportTimeTEXTBOX.Size = New System.Drawing.Size(113, 20)
-        Me.AddItemImportTimeTEXTBOX.TabIndex = 1755
+        Me.AddItemImportTimeTEXTBOX.TabIndex = 51
         '
         'EditImportTimeLABEL
         '
         Me.EditImportTimeLABEL.AutoSize = True
         Me.EditImportTimeLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditImportTimeLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditImportTimeLABEL.Location = New System.Drawing.Point(585, 501)
+        Me.EditImportTimeLABEL.Location = New System.Drawing.Point(592, 501)
         Me.EditImportTimeLABEL.Name = "EditImportTimeLABEL"
         Me.EditImportTimeLABEL.Size = New System.Drawing.Size(62, 13)
-        Me.EditImportTimeLABEL.TabIndex = 1901
+        Me.EditImportTimeLABEL.TabIndex = 0
         Me.EditImportTimeLABEL.Text = "Import Time"
         '
         'EditImportDateLABEL
@@ -875,10 +874,10 @@ Partial Class ItemAdd
         Me.EditImportDateLABEL.AutoSize = True
         Me.EditImportDateLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditImportDateLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditImportDateLABEL.Location = New System.Drawing.Point(585, 471)
+        Me.EditImportDateLABEL.Location = New System.Drawing.Point(592, 471)
         Me.EditImportDateLABEL.Name = "EditImportDateLABEL"
         Me.EditImportDateLABEL.Size = New System.Drawing.Size(62, 13)
-        Me.EditImportDateLABEL.TabIndex = 1900
+        Me.EditImportDateLABEL.TabIndex = 0
         Me.EditImportDateLABEL.Text = "Import Date"
         '
         'Label49
@@ -887,7 +886,7 @@ Partial Class ItemAdd
         Me.Label49.Location = New System.Drawing.Point(106, 114)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(44, 3)
-        Me.Label49.TabIndex = 1899
+        Me.Label49.TabIndex = 0
         '
         'Label109
         '
@@ -895,7 +894,7 @@ Partial Class ItemAdd
         Me.Label109.Location = New System.Drawing.Point(105, 96)
         Me.Label109.Name = "Label109"
         Me.Label109.Size = New System.Drawing.Size(44, 3)
-        Me.Label109.TabIndex = 1898
+        Me.Label109.TabIndex = 0
         '
         'Label110
         '
@@ -903,7 +902,7 @@ Partial Class ItemAdd
         Me.Label110.Location = New System.Drawing.Point(105, 97)
         Me.Label110.Name = "Label110"
         Me.Label110.Size = New System.Drawing.Size(3, 20)
-        Me.Label110.TabIndex = 1897
+        Me.Label110.TabIndex = 0
         '
         'Label115
         '
@@ -911,7 +910,7 @@ Partial Class ItemAdd
         Me.Label115.Location = New System.Drawing.Point(147, 96)
         Me.Label115.Name = "Label115"
         Me.Label115.Size = New System.Drawing.Size(3, 20)
-        Me.Label115.TabIndex = 1896
+        Me.Label115.TabIndex = 0
         '
         'AddItemLevelTEXTBOX
         '
@@ -920,7 +919,7 @@ Partial Class ItemAdd
         Me.AddItemLevelTEXTBOX.Location = New System.Drawing.Point(105, 96)
         Me.AddItemLevelTEXTBOX.Name = "AddItemLevelTEXTBOX"
         Me.AddItemLevelTEXTBOX.Size = New System.Drawing.Size(44, 20)
-        Me.AddItemLevelTEXTBOX.TabIndex = 1718
+        Me.AddItemLevelTEXTBOX.TabIndex = 4
         '
         'EditItemLevelLABEL
         '
@@ -930,7 +929,7 @@ Partial Class ItemAdd
         Me.EditItemLevelLABEL.Location = New System.Drawing.Point(45, 100)
         Me.EditItemLevelLABEL.Name = "EditItemLevelLABEL"
         Me.EditItemLevelLABEL.Size = New System.Drawing.Size(56, 13)
-        Me.EditItemLevelLABEL.TabIndex = 1895
+        Me.EditItemLevelLABEL.TabIndex = 0
         Me.EditItemLevelLABEL.Text = "Item Level"
         '
         'Label141
@@ -1051,7 +1050,7 @@ Partial Class ItemAdd
         Me.Label126.Location = New System.Drawing.Point(278, 426)
         Me.Label126.Name = "Label126"
         Me.Label126.Size = New System.Drawing.Size(280, 3)
-        Me.Label126.TabIndex = 1880
+        Me.Label126.TabIndex = 0
         '
         'Label124
         '
@@ -1059,7 +1058,7 @@ Partial Class ItemAdd
         Me.Label124.Location = New System.Drawing.Point(555, 148)
         Me.Label124.Name = "Label124"
         Me.Label124.Size = New System.Drawing.Size(3, 279)
-        Me.Label124.TabIndex = 1879
+        Me.Label124.TabIndex = 0
         '
         'Label125
         '
@@ -1067,7 +1066,7 @@ Partial Class ItemAdd
         Me.Label125.Location = New System.Drawing.Point(278, 147)
         Me.Label125.Name = "Label125"
         Me.Label125.Size = New System.Drawing.Size(280, 3)
-        Me.Label125.TabIndex = 1878
+        Me.Label125.TabIndex = 0
         '
         'Label127
         '
@@ -1075,7 +1074,7 @@ Partial Class ItemAdd
         Me.Label127.Location = New System.Drawing.Point(278, 148)
         Me.Label127.Name = "Label127"
         Me.Label127.Size = New System.Drawing.Size(3, 280)
-        Me.Label127.TabIndex = 1877
+        Me.Label127.TabIndex = 0
         '
         'Label120
         '
@@ -1107,7 +1106,7 @@ Partial Class ItemAdd
         Me.Label116.Location = New System.Drawing.Point(96, 516)
         Me.Label116.Name = "Label116"
         Me.Label116.Size = New System.Drawing.Size(165, 3)
-        Me.Label116.TabIndex = 1873
+        Me.Label116.TabIndex = 0
         '
         'Label117
         '
@@ -1115,7 +1114,7 @@ Partial Class ItemAdd
         Me.Label117.Location = New System.Drawing.Point(96, 498)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(165, 3)
-        Me.Label117.TabIndex = 1872
+        Me.Label117.TabIndex = 0
         '
         'Label118
         '
@@ -1123,7 +1122,7 @@ Partial Class ItemAdd
         Me.Label118.Location = New System.Drawing.Point(260, 498)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(3, 21)
-        Me.Label118.TabIndex = 1871
+        Me.Label118.TabIndex = 0
         '
         'Label119
         '
@@ -1131,7 +1130,7 @@ Partial Class ItemAdd
         Me.Label119.Location = New System.Drawing.Point(93, 498)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(3, 21)
-        Me.Label119.TabIndex = 1870
+        Me.Label119.TabIndex = 0
         '
         'Label111
         '
@@ -1139,7 +1138,7 @@ Partial Class ItemAdd
         Me.Label111.Location = New System.Drawing.Point(96, 486)
         Me.Label111.Name = "Label111"
         Me.Label111.Size = New System.Drawing.Size(165, 3)
-        Me.Label111.TabIndex = 1869
+        Me.Label111.TabIndex = 0
         '
         'Label112
         '
@@ -1147,7 +1146,7 @@ Partial Class ItemAdd
         Me.Label112.Location = New System.Drawing.Point(96, 468)
         Me.Label112.Name = "Label112"
         Me.Label112.Size = New System.Drawing.Size(165, 3)
-        Me.Label112.TabIndex = 1868
+        Me.Label112.TabIndex = 0
         '
         'Label113
         '
@@ -1155,7 +1154,7 @@ Partial Class ItemAdd
         Me.Label113.Location = New System.Drawing.Point(260, 468)
         Me.Label113.Name = "Label113"
         Me.Label113.Size = New System.Drawing.Size(3, 21)
-        Me.Label113.TabIndex = 1867
+        Me.Label113.TabIndex = 0
         '
         'Label114
         '
@@ -1163,39 +1162,39 @@ Partial Class ItemAdd
         Me.Label114.Location = New System.Drawing.Point(93, 468)
         Me.Label114.Name = "Label114"
         Me.Label114.Size = New System.Drawing.Size(3, 21)
-        Me.Label114.TabIndex = 1866
+        Me.Label114.TabIndex = 0
         '
         'Label105
         '
         Me.Label105.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label105.Location = New System.Drawing.Point(510, 111)
+        Me.Label105.Location = New System.Drawing.Point(510, 113)
         Me.Label105.Name = "Label105"
         Me.Label105.Size = New System.Drawing.Size(44, 3)
-        Me.Label105.TabIndex = 1865
+        Me.Label105.TabIndex = 0
         '
         'Label106
         '
         Me.Label106.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label106.Location = New System.Drawing.Point(510, 93)
+        Me.Label106.Location = New System.Drawing.Point(510, 95)
         Me.Label106.Name = "Label106"
         Me.Label106.Size = New System.Drawing.Size(44, 3)
-        Me.Label106.TabIndex = 1864
+        Me.Label106.TabIndex = 0
         '
         'Label107
         '
         Me.Label107.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label107.Location = New System.Drawing.Point(510, 94)
+        Me.Label107.Location = New System.Drawing.Point(510, 96)
         Me.Label107.Name = "Label107"
         Me.Label107.Size = New System.Drawing.Size(3, 20)
-        Me.Label107.TabIndex = 1863
+        Me.Label107.TabIndex = 0
         '
         'Label108
         '
         Me.Label108.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label108.Location = New System.Drawing.Point(554, 93)
+        Me.Label108.Location = New System.Drawing.Point(554, 95)
         Me.Label108.Name = "Label108"
         Me.Label108.Size = New System.Drawing.Size(3, 21)
-        Me.Label108.TabIndex = 1862
+        Me.Label108.TabIndex = 0
         '
         'Label101
         '
@@ -1203,7 +1202,7 @@ Partial Class ItemAdd
         Me.Label101.Location = New System.Drawing.Point(134, 150)
         Me.Label101.Name = "Label101"
         Me.Label101.Size = New System.Drawing.Size(39, 3)
-        Me.Label101.TabIndex = 1861
+        Me.Label101.TabIndex = 0
         '
         'Label102
         '
@@ -1211,7 +1210,7 @@ Partial Class ItemAdd
         Me.Label102.Location = New System.Drawing.Point(133, 132)
         Me.Label102.Name = "Label102"
         Me.Label102.Size = New System.Drawing.Size(40, 3)
-        Me.Label102.TabIndex = 1860
+        Me.Label102.TabIndex = 0
         '
         'Label103
         '
@@ -1219,7 +1218,7 @@ Partial Class ItemAdd
         Me.Label103.Location = New System.Drawing.Point(133, 133)
         Me.Label103.Name = "Label103"
         Me.Label103.Size = New System.Drawing.Size(3, 20)
-        Me.Label103.TabIndex = 1859
+        Me.Label103.TabIndex = 0
         '
         'Label104
         '
@@ -1227,7 +1226,7 @@ Partial Class ItemAdd
         Me.Label104.Location = New System.Drawing.Point(170, 133)
         Me.Label104.Name = "Label104"
         Me.Label104.Size = New System.Drawing.Size(3, 20)
-        Me.Label104.TabIndex = 1858
+        Me.Label104.TabIndex = 0
         '
         'Label97
         '
@@ -1235,7 +1234,7 @@ Partial Class ItemAdd
         Me.Label97.Location = New System.Drawing.Point(134, 180)
         Me.Label97.Name = "Label97"
         Me.Label97.Size = New System.Drawing.Size(39, 3)
-        Me.Label97.TabIndex = 1857
+        Me.Label97.TabIndex = 0
         '
         'Label94
         '
@@ -1243,7 +1242,7 @@ Partial Class ItemAdd
         Me.Label94.Location = New System.Drawing.Point(133, 193)
         Me.Label94.Name = "Label94"
         Me.Label94.Size = New System.Drawing.Size(40, 3)
-        Me.Label94.TabIndex = 1852
+        Me.Label94.TabIndex = 0
         '
         'Label98
         '
@@ -1251,7 +1250,7 @@ Partial Class ItemAdd
         Me.Label98.Location = New System.Drawing.Point(133, 162)
         Me.Label98.Name = "Label98"
         Me.Label98.Size = New System.Drawing.Size(40, 3)
-        Me.Label98.TabIndex = 1856
+        Me.Label98.TabIndex = 0
         '
         'Label99
         '
@@ -1259,7 +1258,7 @@ Partial Class ItemAdd
         Me.Label99.Location = New System.Drawing.Point(133, 163)
         Me.Label99.Name = "Label99"
         Me.Label99.Size = New System.Drawing.Size(3, 20)
-        Me.Label99.TabIndex = 1855
+        Me.Label99.TabIndex = 0
         '
         'Label100
         '
@@ -1267,7 +1266,7 @@ Partial Class ItemAdd
         Me.Label100.Location = New System.Drawing.Point(170, 163)
         Me.Label100.Name = "Label100"
         Me.Label100.Size = New System.Drawing.Size(3, 20)
-        Me.Label100.TabIndex = 1854
+        Me.Label100.TabIndex = 0
         '
         'Label93
         '
@@ -1275,7 +1274,7 @@ Partial Class ItemAdd
         Me.Label93.Location = New System.Drawing.Point(134, 211)
         Me.Label93.Name = "Label93"
         Me.Label93.Size = New System.Drawing.Size(39, 3)
-        Me.Label93.TabIndex = 1853
+        Me.Label93.TabIndex = 0
         '
         'Label95
         '
@@ -1283,7 +1282,7 @@ Partial Class ItemAdd
         Me.Label95.Location = New System.Drawing.Point(133, 194)
         Me.Label95.Name = "Label95"
         Me.Label95.Size = New System.Drawing.Size(3, 20)
-        Me.Label95.TabIndex = 1851
+        Me.Label95.TabIndex = 0
         '
         'Label96
         '
@@ -1291,7 +1290,7 @@ Partial Class ItemAdd
         Me.Label96.Location = New System.Drawing.Point(170, 194)
         Me.Label96.Name = "Label96"
         Me.Label96.Size = New System.Drawing.Size(3, 20)
-        Me.Label96.TabIndex = 1850
+        Me.Label96.TabIndex = 0
         '
         'Label89
         '
@@ -1299,7 +1298,7 @@ Partial Class ItemAdd
         Me.Label89.Location = New System.Drawing.Point(201, 150)
         Me.Label89.Name = "Label89"
         Me.Label89.Size = New System.Drawing.Size(39, 3)
-        Me.Label89.TabIndex = 1849
+        Me.Label89.TabIndex = 0
         '
         'Label90
         '
@@ -1307,7 +1306,7 @@ Partial Class ItemAdd
         Me.Label90.Location = New System.Drawing.Point(200, 132)
         Me.Label90.Name = "Label90"
         Me.Label90.Size = New System.Drawing.Size(40, 3)
-        Me.Label90.TabIndex = 1848
+        Me.Label90.TabIndex = 0
         '
         'Label91
         '
@@ -1315,7 +1314,7 @@ Partial Class ItemAdd
         Me.Label91.Location = New System.Drawing.Point(200, 133)
         Me.Label91.Name = "Label91"
         Me.Label91.Size = New System.Drawing.Size(3, 20)
-        Me.Label91.TabIndex = 1847
+        Me.Label91.TabIndex = 0
         '
         'Label92
         '
@@ -1323,7 +1322,7 @@ Partial Class ItemAdd
         Me.Label92.Location = New System.Drawing.Point(237, 133)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(3, 20)
-        Me.Label92.TabIndex = 1846
+        Me.Label92.TabIndex = 0
         '
         'Label85
         '
@@ -1331,7 +1330,7 @@ Partial Class ItemAdd
         Me.Label85.Location = New System.Drawing.Point(201, 180)
         Me.Label85.Name = "Label85"
         Me.Label85.Size = New System.Drawing.Size(39, 3)
-        Me.Label85.TabIndex = 1845
+        Me.Label85.TabIndex = 0
         '
         'Label86
         '
@@ -1339,7 +1338,7 @@ Partial Class ItemAdd
         Me.Label86.Location = New System.Drawing.Point(200, 162)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(40, 3)
-        Me.Label86.TabIndex = 1844
+        Me.Label86.TabIndex = 0
         '
         'Label87
         '
@@ -1347,7 +1346,7 @@ Partial Class ItemAdd
         Me.Label87.Location = New System.Drawing.Point(200, 163)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(3, 20)
-        Me.Label87.TabIndex = 1843
+        Me.Label87.TabIndex = 0
         '
         'Label88
         '
@@ -1355,7 +1354,7 @@ Partial Class ItemAdd
         Me.Label88.Location = New System.Drawing.Point(237, 163)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(3, 20)
-        Me.Label88.TabIndex = 1842
+        Me.Label88.TabIndex = 0
         '
         'Label81
         '
@@ -1363,7 +1362,7 @@ Partial Class ItemAdd
         Me.Label81.Location = New System.Drawing.Point(201, 211)
         Me.Label81.Name = "Label81"
         Me.Label81.Size = New System.Drawing.Size(39, 3)
-        Me.Label81.TabIndex = 1841
+        Me.Label81.TabIndex = 0
         '
         'Label82
         '
@@ -1371,7 +1370,7 @@ Partial Class ItemAdd
         Me.Label82.Location = New System.Drawing.Point(200, 193)
         Me.Label82.Name = "Label82"
         Me.Label82.Size = New System.Drawing.Size(40, 3)
-        Me.Label82.TabIndex = 1840
+        Me.Label82.TabIndex = 0
         '
         'Label83
         '
@@ -1379,7 +1378,7 @@ Partial Class ItemAdd
         Me.Label83.Location = New System.Drawing.Point(200, 194)
         Me.Label83.Name = "Label83"
         Me.Label83.Size = New System.Drawing.Size(3, 20)
-        Me.Label83.TabIndex = 1839
+        Me.Label83.TabIndex = 0
         '
         'Label84
         '
@@ -1387,7 +1386,7 @@ Partial Class ItemAdd
         Me.Label84.Location = New System.Drawing.Point(237, 194)
         Me.Label84.Name = "Label84"
         Me.Label84.Size = New System.Drawing.Size(3, 20)
-        Me.Label84.TabIndex = 1838
+        Me.Label84.TabIndex = 0
         '
         'Label77
         '
@@ -1395,7 +1394,7 @@ Partial Class ItemAdd
         Me.Label77.Location = New System.Drawing.Point(134, 393)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(39, 3)
-        Me.Label77.TabIndex = 1837
+        Me.Label77.TabIndex = 0
         '
         'Label78
         '
@@ -1403,7 +1402,7 @@ Partial Class ItemAdd
         Me.Label78.Location = New System.Drawing.Point(133, 375)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(40, 3)
-        Me.Label78.TabIndex = 1836
+        Me.Label78.TabIndex = 0
         '
         'Label79
         '
@@ -1411,7 +1410,7 @@ Partial Class ItemAdd
         Me.Label79.Location = New System.Drawing.Point(133, 376)
         Me.Label79.Name = "Label79"
         Me.Label79.Size = New System.Drawing.Size(3, 20)
-        Me.Label79.TabIndex = 1835
+        Me.Label79.TabIndex = 0
         '
         'Label80
         '
@@ -1419,7 +1418,7 @@ Partial Class ItemAdd
         Me.Label80.Location = New System.Drawing.Point(170, 376)
         Me.Label80.Name = "Label80"
         Me.Label80.Size = New System.Drawing.Size(3, 20)
-        Me.Label80.TabIndex = 1834
+        Me.Label80.TabIndex = 0
         '
         'Label73
         '
@@ -1427,7 +1426,7 @@ Partial Class ItemAdd
         Me.Label73.Location = New System.Drawing.Point(134, 424)
         Me.Label73.Name = "Label73"
         Me.Label73.Size = New System.Drawing.Size(39, 3)
-        Me.Label73.TabIndex = 1833
+        Me.Label73.TabIndex = 0
         '
         'Label74
         '
@@ -1435,7 +1434,7 @@ Partial Class ItemAdd
         Me.Label74.Location = New System.Drawing.Point(133, 406)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(40, 3)
-        Me.Label74.TabIndex = 1832
+        Me.Label74.TabIndex = 0
         '
         'Label75
         '
@@ -1443,7 +1442,7 @@ Partial Class ItemAdd
         Me.Label75.Location = New System.Drawing.Point(133, 407)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(3, 20)
-        Me.Label75.TabIndex = 1831
+        Me.Label75.TabIndex = 0
         '
         'Label76
         '
@@ -1451,7 +1450,7 @@ Partial Class ItemAdd
         Me.Label76.Location = New System.Drawing.Point(170, 407)
         Me.Label76.Name = "Label76"
         Me.Label76.Size = New System.Drawing.Size(3, 20)
-        Me.Label76.TabIndex = 1830
+        Me.Label76.TabIndex = 0
         '
         'Label69
         '
@@ -1459,7 +1458,7 @@ Partial Class ItemAdd
         Me.Label69.Location = New System.Drawing.Point(134, 363)
         Me.Label69.Name = "Label69"
         Me.Label69.Size = New System.Drawing.Size(39, 3)
-        Me.Label69.TabIndex = 1829
+        Me.Label69.TabIndex = 0
         '
         'Label70
         '
@@ -1467,7 +1466,7 @@ Partial Class ItemAdd
         Me.Label70.Location = New System.Drawing.Point(133, 345)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(40, 3)
-        Me.Label70.TabIndex = 1828
+        Me.Label70.TabIndex = 0
         '
         'Label71
         '
@@ -1475,7 +1474,7 @@ Partial Class ItemAdd
         Me.Label71.Location = New System.Drawing.Point(133, 346)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(3, 20)
-        Me.Label71.TabIndex = 1827
+        Me.Label71.TabIndex = 0
         '
         'Label72
         '
@@ -1483,7 +1482,7 @@ Partial Class ItemAdd
         Me.Label72.Location = New System.Drawing.Point(170, 346)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(3, 20)
-        Me.Label72.TabIndex = 1826
+        Me.Label72.TabIndex = 0
         '
         'Label65
         '
@@ -1491,7 +1490,7 @@ Partial Class ItemAdd
         Me.Label65.Location = New System.Drawing.Point(134, 332)
         Me.Label65.Name = "Label65"
         Me.Label65.Size = New System.Drawing.Size(39, 3)
-        Me.Label65.TabIndex = 1825
+        Me.Label65.TabIndex = 0
         '
         'Label66
         '
@@ -1499,7 +1498,7 @@ Partial Class ItemAdd
         Me.Label66.Location = New System.Drawing.Point(133, 314)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(40, 3)
-        Me.Label66.TabIndex = 1824
+        Me.Label66.TabIndex = 0
         '
         'Label67
         '
@@ -1507,7 +1506,7 @@ Partial Class ItemAdd
         Me.Label67.Location = New System.Drawing.Point(133, 315)
         Me.Label67.Name = "Label67"
         Me.Label67.Size = New System.Drawing.Size(3, 20)
-        Me.Label67.TabIndex = 1823
+        Me.Label67.TabIndex = 0
         '
         'Label68
         '
@@ -1515,7 +1514,7 @@ Partial Class ItemAdd
         Me.Label68.Location = New System.Drawing.Point(170, 315)
         Me.Label68.Name = "Label68"
         Me.Label68.Size = New System.Drawing.Size(3, 20)
-        Me.Label68.TabIndex = 1822
+        Me.Label68.TabIndex = 0
         '
         'Label61
         '
@@ -1523,7 +1522,7 @@ Partial Class ItemAdd
         Me.Label61.Location = New System.Drawing.Point(134, 302)
         Me.Label61.Name = "Label61"
         Me.Label61.Size = New System.Drawing.Size(39, 3)
-        Me.Label61.TabIndex = 1821
+        Me.Label61.TabIndex = 0
         '
         'Label62
         '
@@ -1531,7 +1530,7 @@ Partial Class ItemAdd
         Me.Label62.Location = New System.Drawing.Point(133, 284)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(40, 3)
-        Me.Label62.TabIndex = 1820
+        Me.Label62.TabIndex = 0
         '
         'Label63
         '
@@ -1539,7 +1538,7 @@ Partial Class ItemAdd
         Me.Label63.Location = New System.Drawing.Point(133, 285)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(3, 20)
-        Me.Label63.TabIndex = 1819
+        Me.Label63.TabIndex = 0
         '
         'Label64
         '
@@ -1547,7 +1546,7 @@ Partial Class ItemAdd
         Me.Label64.Location = New System.Drawing.Point(170, 285)
         Me.Label64.Name = "Label64"
         Me.Label64.Size = New System.Drawing.Size(3, 20)
-        Me.Label64.TabIndex = 1818
+        Me.Label64.TabIndex = 0
         '
         'Label57
         '
@@ -1555,7 +1554,7 @@ Partial Class ItemAdd
         Me.Label57.Location = New System.Drawing.Point(134, 242)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(39, 3)
-        Me.Label57.TabIndex = 1817
+        Me.Label57.TabIndex = 0
         '
         'Label58
         '
@@ -1563,7 +1562,7 @@ Partial Class ItemAdd
         Me.Label58.Location = New System.Drawing.Point(133, 224)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(40, 3)
-        Me.Label58.TabIndex = 1816
+        Me.Label58.TabIndex = 0
         '
         'Label59
         '
@@ -1571,7 +1570,7 @@ Partial Class ItemAdd
         Me.Label59.Location = New System.Drawing.Point(133, 225)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(3, 20)
-        Me.Label59.TabIndex = 1815
+        Me.Label59.TabIndex = 0
         '
         'Label60
         '
@@ -1579,7 +1578,7 @@ Partial Class ItemAdd
         Me.Label60.Location = New System.Drawing.Point(170, 225)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(3, 20)
-        Me.Label60.TabIndex = 1814
+        Me.Label60.TabIndex = 0
         '
         'Label53
         '
@@ -1587,7 +1586,7 @@ Partial Class ItemAdd
         Me.Label53.Location = New System.Drawing.Point(134, 272)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(39, 3)
-        Me.Label53.TabIndex = 1813
+        Me.Label53.TabIndex = 0
         '
         'Label54
         '
@@ -1595,7 +1594,7 @@ Partial Class ItemAdd
         Me.Label54.Location = New System.Drawing.Point(133, 253)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(40, 3)
-        Me.Label54.TabIndex = 1812
+        Me.Label54.TabIndex = 0
         '
         'Label55
         '
@@ -1603,7 +1602,7 @@ Partial Class ItemAdd
         Me.Label55.Location = New System.Drawing.Point(133, 254)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(3, 20)
-        Me.Label55.TabIndex = 1811
+        Me.Label55.TabIndex = 0
         '
         'Label56
         '
@@ -1611,7 +1610,7 @@ Partial Class ItemAdd
         Me.Label56.Location = New System.Drawing.Point(170, 254)
         Me.Label56.Name = "Label56"
         Me.Label56.Size = New System.Drawing.Size(3, 20)
-        Me.Label56.TabIndex = 1810
+        Me.Label56.TabIndex = 0
         '
         'Label42
         '
@@ -1619,7 +1618,7 @@ Partial Class ItemAdd
         Me.Label42.Location = New System.Drawing.Point(201, 242)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(39, 3)
-        Me.Label42.TabIndex = 1809
+        Me.Label42.TabIndex = 0
         '
         'Label43
         '
@@ -1627,7 +1626,7 @@ Partial Class ItemAdd
         Me.Label43.Location = New System.Drawing.Point(200, 224)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(40, 3)
-        Me.Label43.TabIndex = 1808
+        Me.Label43.TabIndex = 0
         '
         'Label44
         '
@@ -1635,7 +1634,7 @@ Partial Class ItemAdd
         Me.Label44.Location = New System.Drawing.Point(200, 225)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(3, 20)
-        Me.Label44.TabIndex = 1807
+        Me.Label44.TabIndex = 0
         '
         'Label52
         '
@@ -1643,7 +1642,7 @@ Partial Class ItemAdd
         Me.Label52.Location = New System.Drawing.Point(237, 225)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(3, 20)
-        Me.Label52.TabIndex = 1806
+        Me.Label52.TabIndex = 0
         '
         'Label41
         '
@@ -1651,7 +1650,7 @@ Partial Class ItemAdd
         Me.Label41.Location = New System.Drawing.Point(201, 272)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(39, 3)
-        Me.Label41.TabIndex = 1805
+        Me.Label41.TabIndex = 0
         '
         'Label40
         '
@@ -1659,7 +1658,7 @@ Partial Class ItemAdd
         Me.Label40.Location = New System.Drawing.Point(200, 253)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(40, 3)
-        Me.Label40.TabIndex = 1804
+        Me.Label40.TabIndex = 0
         '
         'Label8
         '
@@ -1667,7 +1666,7 @@ Partial Class ItemAdd
         Me.Label8.Location = New System.Drawing.Point(394, 80)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(161, 3)
-        Me.Label8.TabIndex = 1803
+        Me.Label8.TabIndex = 0
         '
         'Label9
         '
@@ -1675,7 +1674,7 @@ Partial Class ItemAdd
         Me.Label9.Location = New System.Drawing.Point(394, 62)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(161, 3)
-        Me.Label9.TabIndex = 1802
+        Me.Label9.TabIndex = 0
         '
         'Label14
         '
@@ -1683,7 +1682,7 @@ Partial Class ItemAdd
         Me.Label14.Location = New System.Drawing.Point(553, 62)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(3, 21)
-        Me.Label14.TabIndex = 1801
+        Me.Label14.TabIndex = 0
         '
         'Label15
         '
@@ -1691,39 +1690,39 @@ Partial Class ItemAdd
         Me.Label15.Location = New System.Drawing.Point(393, 62)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(3, 21)
-        Me.Label15.TabIndex = 1800
+        Me.Label15.TabIndex = 0
         '
         'Label45
         '
         Me.Label45.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label45.Location = New System.Drawing.Point(623, 535)
+        Me.Label45.Location = New System.Drawing.Point(770, 534)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(3, 20)
-        Me.Label45.TabIndex = 1799
+        Me.Label45.TabIndex = 0
         '
         'Label46
         '
         Me.Label46.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label46.Location = New System.Drawing.Point(180, 534)
+        Me.Label46.Location = New System.Drawing.Point(93, 534)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(3, 20)
-        Me.Label46.TabIndex = 1798
+        Me.Label46.TabIndex = 0
         '
         'Label47
         '
         Me.Label47.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label47.Location = New System.Drawing.Point(181, 552)
+        Me.Label47.Location = New System.Drawing.Point(94, 552)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(445, 3)
-        Me.Label47.TabIndex = 1797
+        Me.Label47.Size = New System.Drawing.Size(679, 3)
+        Me.Label47.TabIndex = 0
         '
         'Label48
         '
         Me.Label48.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label48.Location = New System.Drawing.Point(180, 533)
+        Me.Label48.Location = New System.Drawing.Point(93, 533)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(446, 3)
-        Me.Label48.TabIndex = 1796
+        Me.Label48.Size = New System.Drawing.Size(679, 3)
+        Me.Label48.TabIndex = 0
         '
         'Label13
         '
@@ -1731,7 +1730,7 @@ Partial Class ItemAdd
         Me.Label13.Location = New System.Drawing.Point(106, 80)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(161, 3)
-        Me.Label13.TabIndex = 1795
+        Me.Label13.TabIndex = 0
         '
         'Label12
         '
@@ -1739,7 +1738,7 @@ Partial Class ItemAdd
         Me.Label12.Location = New System.Drawing.Point(106, 62)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(161, 3)
-        Me.Label12.TabIndex = 1794
+        Me.Label12.TabIndex = 0
         '
         'Label11
         '
@@ -1747,7 +1746,7 @@ Partial Class ItemAdd
         Me.Label11.Location = New System.Drawing.Point(200, 254)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(3, 20)
-        Me.Label11.TabIndex = 1793
+        Me.Label11.TabIndex = 0
         '
         'Label10
         '
@@ -1755,7 +1754,7 @@ Partial Class ItemAdd
         Me.Label10.Location = New System.Drawing.Point(237, 254)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(3, 20)
-        Me.Label10.TabIndex = 1792
+        Me.Label10.TabIndex = 0
         '
         'Label6
         '
@@ -1763,7 +1762,7 @@ Partial Class ItemAdd
         Me.Label6.Location = New System.Drawing.Point(265, 62)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(3, 21)
-        Me.Label6.TabIndex = 1791
+        Me.Label6.TabIndex = 0
         '
         'Label5
         '
@@ -1771,7 +1770,7 @@ Partial Class ItemAdd
         Me.Label5.Location = New System.Drawing.Point(105, 62)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(3, 21)
-        Me.Label5.TabIndex = 1790
+        Me.Label5.TabIndex = 0
         '
         'Label4
         '
@@ -1779,7 +1778,8 @@ Partial Class ItemAdd
         Me.Label4.Location = New System.Drawing.Point(553, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(3, 20)
-        Me.Label4.TabIndex = 1789
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "0"
         '
         'Label26
         '
@@ -1787,7 +1787,7 @@ Partial Class ItemAdd
         Me.Label26.Location = New System.Drawing.Point(105, 31)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(3, 20)
-        Me.Label26.TabIndex = 1788
+        Me.Label26.TabIndex = 0
         '
         'Label3
         '
@@ -1795,7 +1795,7 @@ Partial Class ItemAdd
         Me.Label3.Location = New System.Drawing.Point(105, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(451, 3)
-        Me.Label3.TabIndex = 1787
+        Me.Label3.TabIndex = 0
         '
         'Label17
         '
@@ -1803,7 +1803,7 @@ Partial Class ItemAdd
         Me.Label17.Location = New System.Drawing.Point(105, 30)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(451, 3)
-        Me.Label17.TabIndex = 1786
+        Me.Label17.TabIndex = 0
         '
         'AddItemImageTEXTBOX
         '
@@ -1812,7 +1812,7 @@ Partial Class ItemAdd
         Me.AddItemImageTEXTBOX.Location = New System.Drawing.Point(339, 483)
         Me.AddItemImageTEXTBOX.Name = "AddItemImageTEXTBOX"
         Me.AddItemImageTEXTBOX.Size = New System.Drawing.Size(80, 20)
-        Me.AddItemImageTEXTBOX.TabIndex = 1756
+        Me.AddItemImageTEXTBOX.TabIndex = 0
         '
         'EditItemImageLABEL
         '
@@ -1822,7 +1822,7 @@ Partial Class ItemAdd
         Me.EditItemImageLABEL.Location = New System.Drawing.Point(280, 485)
         Me.EditItemImageLABEL.Name = "EditItemImageLABEL"
         Me.EditItemImageLABEL.Size = New System.Drawing.Size(51, 13)
-        Me.EditItemImageLABEL.TabIndex = 1785
+        Me.EditItemImageLABEL.TabIndex = 0
         Me.EditItemImageLABEL.Text = "Item Skin"
         '
         'AddItemImageBUTTON
@@ -1834,7 +1834,7 @@ Partial Class ItemAdd
         Me.AddItemImageBUTTON.Location = New System.Drawing.Point(455, 481)
         Me.AddItemImageBUTTON.Name = "AddItemImageBUTTON"
         Me.AddItemImageBUTTON.Size = New System.Drawing.Size(102, 23)
-        Me.AddItemImageBUTTON.TabIndex = 1757
+        Me.AddItemImageBUTTON.TabIndex = 0
         Me.AddItemImageBUTTON.Text = "Change Image"
         Me.AddItemImageBUTTON.UseVisualStyleBackColor = False
         '
@@ -1848,7 +1848,7 @@ Partial Class ItemAdd
         Me.AddItemQualityCOMBOBOX.Location = New System.Drawing.Point(393, 62)
         Me.AddItemQualityCOMBOBOX.Name = "AddItemQualityCOMBOBOX"
         Me.AddItemQualityCOMBOBOX.Size = New System.Drawing.Size(161, 21)
-        Me.AddItemQualityCOMBOBOX.TabIndex = 1717
+        Me.AddItemQualityCOMBOBOX.TabIndex = 3
         '
         'AddItemAttackClassCOMBOBOX
         '
@@ -1859,7 +1859,7 @@ Partial Class ItemAdd
         Me.AddItemAttackClassCOMBOBOX.Location = New System.Drawing.Point(93, 468)
         Me.AddItemAttackClassCOMBOBOX.Name = "AddItemAttackClassCOMBOBOX"
         Me.AddItemAttackClassCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemAttackClassCOMBOBOX.TabIndex = 1737
+        Me.AddItemAttackClassCOMBOBOX.TabIndex = 25
         '
         'AddItemAttackSpeedCOMBOBOX
         '
@@ -1871,7 +1871,7 @@ Partial Class ItemAdd
         Me.AddItemAttackSpeedCOMBOBOX.Location = New System.Drawing.Point(93, 498)
         Me.AddItemAttackSpeedCOMBOBOX.Name = "AddItemAttackSpeedCOMBOBOX"
         Me.AddItemAttackSpeedCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemAttackSpeedCOMBOBOX.TabIndex = 1738
+        Me.AddItemAttackSpeedCOMBOBOX.TabIndex = 26
         '
         'AddItemStat15TEXTBOX
         '
@@ -1881,7 +1881,7 @@ Partial Class ItemAdd
         Me.AddItemStat15TEXTBOX.Location = New System.Drawing.Point(279, 408)
         Me.AddItemStat15TEXTBOX.Name = "AddItemStat15TEXTBOX"
         Me.AddItemStat15TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat15TEXTBOX.TabIndex = 1753
+        Me.AddItemStat15TEXTBOX.TabIndex = 41
         '
         'AddItemStat14TEXTBOX
         '
@@ -1891,7 +1891,7 @@ Partial Class ItemAdd
         Me.AddItemStat14TEXTBOX.Location = New System.Drawing.Point(279, 389)
         Me.AddItemStat14TEXTBOX.Name = "AddItemStat14TEXTBOX"
         Me.AddItemStat14TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat14TEXTBOX.TabIndex = 1752
+        Me.AddItemStat14TEXTBOX.TabIndex = 40
         '
         'AddItemStat13TEXTBOX
         '
@@ -1901,7 +1901,7 @@ Partial Class ItemAdd
         Me.AddItemStat13TEXTBOX.Location = New System.Drawing.Point(279, 370)
         Me.AddItemStat13TEXTBOX.Name = "AddItemStat13TEXTBOX"
         Me.AddItemStat13TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat13TEXTBOX.TabIndex = 1751
+        Me.AddItemStat13TEXTBOX.TabIndex = 39
         '
         'AddItemRequiredStrengthTEXTBOX
         '
@@ -1910,7 +1910,7 @@ Partial Class ItemAdd
         Me.AddItemRequiredStrengthTEXTBOX.Location = New System.Drawing.Point(133, 346)
         Me.AddItemRequiredStrengthTEXTBOX.Name = "AddItemRequiredStrengthTEXTBOX"
         Me.AddItemRequiredStrengthTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemRequiredStrengthTEXTBOX.TabIndex = 1733
+        Me.AddItemRequiredStrengthTEXTBOX.TabIndex = 21
         '
         'EditItemRequiredStrengthLABEL
         '
@@ -1920,7 +1920,7 @@ Partial Class ItemAdd
         Me.EditItemRequiredStrengthLABEL.Location = New System.Drawing.Point(36, 349)
         Me.EditItemRequiredStrengthLABEL.Name = "EditItemRequiredStrengthLABEL"
         Me.EditItemRequiredStrengthLABEL.Size = New System.Drawing.Size(93, 13)
-        Me.EditItemRequiredStrengthLABEL.TabIndex = 1784
+        Me.EditItemRequiredStrengthLABEL.TabIndex = 0
         Me.EditItemRequiredStrengthLABEL.Text = "Required Strength"
         '
         'AddItemCancelBUTTON
@@ -1933,7 +1933,7 @@ Partial Class ItemAdd
         Me.AddItemCancelBUTTON.Location = New System.Drawing.Point(510, 578)
         Me.AddItemCancelBUTTON.Name = "AddItemCancelBUTTON"
         Me.AddItemCancelBUTTON.Size = New System.Drawing.Size(75, 23)
-        Me.AddItemCancelBUTTON.TabIndex = 1760
+        Me.AddItemCancelBUTTON.TabIndex = 54
         Me.AddItemCancelBUTTON.Text = "Cancel"
         Me.AddItemCancelBUTTON.UseVisualStyleBackColor = False
         '
@@ -1945,7 +1945,7 @@ Partial Class ItemAdd
         Me.EditItemBaseLABEL.Location = New System.Drawing.Point(47, 66)
         Me.EditItemBaseLABEL.Name = "EditItemBaseLABEL"
         Me.EditItemBaseLABEL.Size = New System.Drawing.Size(54, 13)
-        Me.EditItemBaseLABEL.TabIndex = 1783
+        Me.EditItemBaseLABEL.TabIndex = 0
         Me.EditItemBaseLABEL.Text = "Item Base"
         '
         'AddItemBaseCOMBOBOX
@@ -1957,7 +1957,7 @@ Partial Class ItemAdd
         Me.AddItemBaseCOMBOBOX.Location = New System.Drawing.Point(105, 62)
         Me.AddItemBaseCOMBOBOX.Name = "AddItemBaseCOMBOBOX"
         Me.AddItemBaseCOMBOBOX.Size = New System.Drawing.Size(161, 21)
-        Me.AddItemBaseCOMBOBOX.TabIndex = 1716
+        Me.AddItemBaseCOMBOBOX.TabIndex = 2
         '
         'AddItemDurabilityMaxTEXTBOX
         '
@@ -1967,7 +1967,7 @@ Partial Class ItemAdd
         Me.AddItemDurabilityMaxTEXTBOX.MaxLength = 4
         Me.AddItemDurabilityMaxTEXTBOX.Name = "AddItemDurabilityMaxTEXTBOX"
         Me.AddItemDurabilityMaxTEXTBOX.Size = New System.Drawing.Size(38, 20)
-        Me.AddItemDurabilityMaxTEXTBOX.TabIndex = 1730
+        Me.AddItemDurabilityMaxTEXTBOX.TabIndex = 18
         '
         'EditItemDurabilityOfLABEL
         '
@@ -1977,7 +1977,7 @@ Partial Class ItemAdd
         Me.EditItemDurabilityOfLABEL.Location = New System.Drawing.Point(179, 257)
         Me.EditItemDurabilityOfLABEL.Name = "EditItemDurabilityOfLABEL"
         Me.EditItemDurabilityOfLABEL.Size = New System.Drawing.Size(16, 13)
-        Me.EditItemDurabilityOfLABEL.TabIndex = 1782
+        Me.EditItemDurabilityOfLABEL.TabIndex = 0
         Me.EditItemDurabilityOfLABEL.Text = "of"
         '
         'EditItemQuantityOfLABEL
@@ -1988,7 +1988,7 @@ Partial Class ItemAdd
         Me.EditItemQuantityOfLABEL.Location = New System.Drawing.Point(179, 226)
         Me.EditItemQuantityOfLABEL.Name = "EditItemQuantityOfLABEL"
         Me.EditItemQuantityOfLABEL.Size = New System.Drawing.Size(16, 13)
-        Me.EditItemQuantityOfLABEL.TabIndex = 1781
+        Me.EditItemQuantityOfLABEL.TabIndex = 0
         Me.EditItemQuantityOfLABEL.Text = "of"
         '
         'AddItemQuantityMaxTEXTBOX
@@ -1999,7 +1999,7 @@ Partial Class ItemAdd
         Me.AddItemQuantityMaxTEXTBOX.MaxLength = 4
         Me.AddItemQuantityMaxTEXTBOX.Name = "AddItemQuantityMaxTEXTBOX"
         Me.AddItemQuantityMaxTEXTBOX.Size = New System.Drawing.Size(38, 20)
-        Me.AddItemQuantityMaxTEXTBOX.TabIndex = 1728
+        Me.AddItemQuantityMaxTEXTBOX.TabIndex = 16
         '
         'EditItemUniqueAttributesLABEL
         '
@@ -2009,7 +2009,7 @@ Partial Class ItemAdd
         Me.EditItemUniqueAttributesLABEL.Location = New System.Drawing.Point(277, 130)
         Me.EditItemUniqueAttributesLABEL.Name = "EditItemUniqueAttributesLABEL"
         Me.EditItemUniqueAttributesLABEL.Size = New System.Drawing.Size(131, 13)
-        Me.EditItemUniqueAttributesLABEL.TabIndex = 1780
+        Me.EditItemUniqueAttributesLABEL.TabIndex = 0
         Me.EditItemUniqueAttributesLABEL.Text = "Unique Attributes (15 max)"
         '
         'EditItemUserReferenceLABEL
@@ -2017,20 +2017,20 @@ Partial Class ItemAdd
         Me.EditItemUserReferenceLABEL.AutoSize = True
         Me.EditItemUserReferenceLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemUserReferenceLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemUserReferenceLABEL.Location = New System.Drawing.Point(122, 537)
+        Me.EditItemUserReferenceLABEL.Location = New System.Drawing.Point(30, 537)
         Me.EditItemUserReferenceLABEL.Name = "EditItemUserReferenceLABEL"
         Me.EditItemUserReferenceLABEL.Size = New System.Drawing.Size(54, 13)
-        Me.EditItemUserReferenceLABEL.TabIndex = 1779
+        Me.EditItemUserReferenceLABEL.TabIndex = 0
         Me.EditItemUserReferenceLABEL.Text = "User Field"
         '
         'AddItemUserReferenceTEXTBOX
         '
         Me.AddItemUserReferenceTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.AddItemUserReferenceTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.AddItemUserReferenceTEXTBOX.Location = New System.Drawing.Point(181, 534)
+        Me.AddItemUserReferenceTEXTBOX.Location = New System.Drawing.Point(94, 534)
         Me.AddItemUserReferenceTEXTBOX.Name = "AddItemUserReferenceTEXTBOX"
-        Me.AddItemUserReferenceTEXTBOX.Size = New System.Drawing.Size(445, 20)
-        Me.AddItemUserReferenceTEXTBOX.TabIndex = 1758
+        Me.AddItemUserReferenceTEXTBOX.Size = New System.Drawing.Size(679, 20)
+        Me.AddItemUserReferenceTEXTBOX.TabIndex = 52
         '
         'AddItemSaveChangesBUTTON
         '
@@ -2041,7 +2041,7 @@ Partial Class ItemAdd
         Me.AddItemSaveChangesBUTTON.Location = New System.Drawing.Point(229, 578)
         Me.AddItemSaveChangesBUTTON.Name = "AddItemSaveChangesBUTTON"
         Me.AddItemSaveChangesBUTTON.Size = New System.Drawing.Size(99, 23)
-        Me.AddItemSaveChangesBUTTON.TabIndex = 1759
+        Me.AddItemSaveChangesBUTTON.TabIndex = 53
         Me.AddItemSaveChangesBUTTON.Text = "Add Item"
         Me.AddItemSaveChangesBUTTON.UseVisualStyleBackColor = False
         '
@@ -2053,7 +2053,7 @@ Partial Class ItemAdd
         Me.EditItemDefenseLABEL.Location = New System.Drawing.Point(56, 288)
         Me.EditItemDefenseLABEL.Name = "EditItemDefenseLABEL"
         Me.EditItemDefenseLABEL.Size = New System.Drawing.Size(73, 13)
-        Me.EditItemDefenseLABEL.TabIndex = 1778
+        Me.EditItemDefenseLABEL.TabIndex = 0
         Me.EditItemDefenseLABEL.Text = " Item Defense"
         '
         'AddItemDefenseTEXTBOX
@@ -2064,7 +2064,7 @@ Partial Class ItemAdd
         Me.AddItemDefenseTEXTBOX.MaxLength = 4
         Me.AddItemDefenseTEXTBOX.Name = "AddItemDefenseTEXTBOX"
         Me.AddItemDefenseTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemDefenseTEXTBOX.TabIndex = 1731
+        Me.AddItemDefenseTEXTBOX.TabIndex = 19
         '
         'AddItemStat12TEXTBOX
         '
@@ -2074,7 +2074,7 @@ Partial Class ItemAdd
         Me.AddItemStat12TEXTBOX.Location = New System.Drawing.Point(279, 352)
         Me.AddItemStat12TEXTBOX.Name = "AddItemStat12TEXTBOX"
         Me.AddItemStat12TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat12TEXTBOX.TabIndex = 1750
+        Me.AddItemStat12TEXTBOX.TabIndex = 38
         '
         'AddItemStat11TEXTBOX
         '
@@ -2084,7 +2084,7 @@ Partial Class ItemAdd
         Me.AddItemStat11TEXTBOX.Location = New System.Drawing.Point(279, 333)
         Me.AddItemStat11TEXTBOX.Name = "AddItemStat11TEXTBOX"
         Me.AddItemStat11TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat11TEXTBOX.TabIndex = 1749
+        Me.AddItemStat11TEXTBOX.TabIndex = 37
         '
         'AddItemStat10TEXTBOX
         '
@@ -2094,7 +2094,7 @@ Partial Class ItemAdd
         Me.AddItemStat10TEXTBOX.Location = New System.Drawing.Point(279, 315)
         Me.AddItemStat10TEXTBOX.Name = "AddItemStat10TEXTBOX"
         Me.AddItemStat10TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat10TEXTBOX.TabIndex = 1748
+        Me.AddItemStat10TEXTBOX.TabIndex = 36
         '
         'AddItemStat9TEXTBOX
         '
@@ -2104,7 +2104,7 @@ Partial Class ItemAdd
         Me.AddItemStat9TEXTBOX.Location = New System.Drawing.Point(279, 296)
         Me.AddItemStat9TEXTBOX.Name = "AddItemStat9TEXTBOX"
         Me.AddItemStat9TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat9TEXTBOX.TabIndex = 1747
+        Me.AddItemStat9TEXTBOX.TabIndex = 35
         '
         'AddItemStat8TEXTBOX
         '
@@ -2114,7 +2114,7 @@ Partial Class ItemAdd
         Me.AddItemStat8TEXTBOX.Location = New System.Drawing.Point(279, 277)
         Me.AddItemStat8TEXTBOX.Name = "AddItemStat8TEXTBOX"
         Me.AddItemStat8TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat8TEXTBOX.TabIndex = 1746
+        Me.AddItemStat8TEXTBOX.TabIndex = 34
         '
         'AddItemStat7TEXTBOX
         '
@@ -2124,7 +2124,7 @@ Partial Class ItemAdd
         Me.AddItemStat7TEXTBOX.Location = New System.Drawing.Point(279, 258)
         Me.AddItemStat7TEXTBOX.Name = "AddItemStat7TEXTBOX"
         Me.AddItemStat7TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat7TEXTBOX.TabIndex = 1745
+        Me.AddItemStat7TEXTBOX.TabIndex = 33
         '
         'AddItemStat6TEXTBOX
         '
@@ -2134,7 +2134,7 @@ Partial Class ItemAdd
         Me.AddItemStat6TEXTBOX.Location = New System.Drawing.Point(279, 239)
         Me.AddItemStat6TEXTBOX.Name = "AddItemStat6TEXTBOX"
         Me.AddItemStat6TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat6TEXTBOX.TabIndex = 1744
+        Me.AddItemStat6TEXTBOX.TabIndex = 32
         '
         'AddItemStat5TEXTBOX
         '
@@ -2144,7 +2144,7 @@ Partial Class ItemAdd
         Me.AddItemStat5TEXTBOX.Location = New System.Drawing.Point(279, 220)
         Me.AddItemStat5TEXTBOX.Name = "AddItemStat5TEXTBOX"
         Me.AddItemStat5TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat5TEXTBOX.TabIndex = 1743
+        Me.AddItemStat5TEXTBOX.TabIndex = 31
         '
         'AddItemStat4TEXTBOX
         '
@@ -2154,7 +2154,7 @@ Partial Class ItemAdd
         Me.AddItemStat4TEXTBOX.Location = New System.Drawing.Point(279, 202)
         Me.AddItemStat4TEXTBOX.Name = "AddItemStat4TEXTBOX"
         Me.AddItemStat4TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat4TEXTBOX.TabIndex = 1742
+        Me.AddItemStat4TEXTBOX.TabIndex = 30
         '
         'AddItemStat3TEXTBOX
         '
@@ -2164,7 +2164,7 @@ Partial Class ItemAdd
         Me.AddItemStat3TEXTBOX.Location = New System.Drawing.Point(279, 185)
         Me.AddItemStat3TEXTBOX.Name = "AddItemStat3TEXTBOX"
         Me.AddItemStat3TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat3TEXTBOX.TabIndex = 1741
+        Me.AddItemStat3TEXTBOX.TabIndex = 29
         '
         'AddItemStat2TEXTBOX
         '
@@ -2174,7 +2174,7 @@ Partial Class ItemAdd
         Me.AddItemStat2TEXTBOX.Location = New System.Drawing.Point(279, 167)
         Me.AddItemStat2TEXTBOX.Name = "AddItemStat2TEXTBOX"
         Me.AddItemStat2TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat2TEXTBOX.TabIndex = 1740
+        Me.AddItemStat2TEXTBOX.TabIndex = 28
         '
         'AddItemStat1TEXTBOX
         '
@@ -2184,7 +2184,7 @@ Partial Class ItemAdd
         Me.AddItemStat1TEXTBOX.Location = New System.Drawing.Point(279, 149)
         Me.AddItemStat1TEXTBOX.Name = "AddItemStat1TEXTBOX"
         Me.AddItemStat1TEXTBOX.Size = New System.Drawing.Size(278, 20)
-        Me.AddItemStat1TEXTBOX.TabIndex = 1739
+        Me.AddItemStat1TEXTBOX.TabIndex = 27
         '
         'EditItemAttackSpeedLABEL
         '
@@ -2194,7 +2194,7 @@ Partial Class ItemAdd
         Me.EditItemAttackSpeedLABEL.Location = New System.Drawing.Point(17, 502)
         Me.EditItemAttackSpeedLABEL.Name = "EditItemAttackSpeedLABEL"
         Me.EditItemAttackSpeedLABEL.Size = New System.Drawing.Size(72, 13)
-        Me.EditItemAttackSpeedLABEL.TabIndex = 1776
+        Me.EditItemAttackSpeedLABEL.TabIndex = 0
         Me.EditItemAttackSpeedLABEL.Text = "Attack Speed"
         '
         'EditItemChanceToBlockLABEL
@@ -2205,7 +2205,7 @@ Partial Class ItemAdd
         Me.EditItemChanceToBlockLABEL.Location = New System.Drawing.Point(39, 318)
         Me.EditItemChanceToBlockLABEL.Name = "EditItemChanceToBlockLABEL"
         Me.EditItemChanceToBlockLABEL.Size = New System.Drawing.Size(90, 13)
-        Me.EditItemChanceToBlockLABEL.TabIndex = 1775
+        Me.EditItemChanceToBlockLABEL.TabIndex = 0
         Me.EditItemChanceToBlockLABEL.Text = "Chance To Block"
         '
         'AddItemChanceToBlockTEXTBOX
@@ -2216,17 +2216,17 @@ Partial Class ItemAdd
         Me.AddItemChanceToBlockTEXTBOX.MaxLength = 4
         Me.AddItemChanceToBlockTEXTBOX.Name = "AddItemChanceToBlockTEXTBOX"
         Me.AddItemChanceToBlockTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemChanceToBlockTEXTBOX.TabIndex = 1732
+        Me.AddItemChanceToBlockTEXTBOX.TabIndex = 20
         '
         'EditItemSocketsLABEL
         '
         Me.EditItemSocketsLABEL.AutoSize = True
         Me.EditItemSocketsLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemSocketsLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemSocketsLABEL.Location = New System.Drawing.Point(460, 97)
+        Me.EditItemSocketsLABEL.Location = New System.Drawing.Point(460, 99)
         Me.EditItemSocketsLABEL.Name = "EditItemSocketsLABEL"
         Me.EditItemSocketsLABEL.Size = New System.Drawing.Size(46, 13)
-        Me.EditItemSocketsLABEL.TabIndex = 1774
+        Me.EditItemSocketsLABEL.TabIndex = 0
         Me.EditItemSocketsLABEL.Text = "Sockets"
         '
         'AddItemEtherealItemCHECKBOX
@@ -2234,11 +2234,11 @@ Partial Class ItemAdd
         Me.AddItemEtherealItemCHECKBOX.AutoSize = True
         Me.AddItemEtherealItemCHECKBOX.BackColor = System.Drawing.Color.Transparent
         Me.AddItemEtherealItemCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemEtherealItemCHECKBOX.Location = New System.Drawing.Point(330, 99)
+        Me.AddItemEtherealItemCHECKBOX.Location = New System.Drawing.Point(361, 98)
         Me.AddItemEtherealItemCHECKBOX.Name = "AddItemEtherealItemCHECKBOX"
         Me.AddItemEtherealItemCHECKBOX.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.AddItemEtherealItemCHECKBOX.Size = New System.Drawing.Size(88, 17)
-        Me.AddItemEtherealItemCHECKBOX.TabIndex = 1720
+        Me.AddItemEtherealItemCHECKBOX.TabIndex = 7
         Me.AddItemEtherealItemCHECKBOX.Text = "Ethereal Item"
         Me.AddItemEtherealItemCHECKBOX.UseVisualStyleBackColor = False
         '
@@ -2250,7 +2250,7 @@ Partial Class ItemAdd
         Me.EditItemDurabilityLABEL.Location = New System.Drawing.Point(79, 257)
         Me.EditItemDurabilityLABEL.Name = "EditItemDurabilityLABEL"
         Me.EditItemDurabilityLABEL.Size = New System.Drawing.Size(50, 13)
-        Me.EditItemDurabilityLABEL.TabIndex = 1773
+        Me.EditItemDurabilityLABEL.TabIndex = 0
         Me.EditItemDurabilityLABEL.Text = "Durability"
         '
         'AddItemDurabilityMinTEXTBOX
@@ -2261,7 +2261,7 @@ Partial Class ItemAdd
         Me.AddItemDurabilityMinTEXTBOX.MaxLength = 4
         Me.AddItemDurabilityMinTEXTBOX.Name = "AddItemDurabilityMinTEXTBOX"
         Me.AddItemDurabilityMinTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemDurabilityMinTEXTBOX.TabIndex = 1729
+        Me.AddItemDurabilityMinTEXTBOX.TabIndex = 17
         '
         'EditItemAttackClassLABEL
         '
@@ -2271,7 +2271,7 @@ Partial Class ItemAdd
         Me.EditItemAttackClassLABEL.Location = New System.Drawing.Point(23, 472)
         Me.EditItemAttackClassLABEL.Name = "EditItemAttackClassLABEL"
         Me.EditItemAttackClassLABEL.Size = New System.Drawing.Size(66, 13)
-        Me.EditItemAttackClassLABEL.TabIndex = 1772
+        Me.EditItemAttackClassLABEL.TabIndex = 0
         Me.EditItemAttackClassLABEL.Text = "Attack Class"
         '
         'EditItemRequiredLevelLABEL
@@ -2282,7 +2282,7 @@ Partial Class ItemAdd
         Me.EditItemRequiredLevelLABEL.Location = New System.Drawing.Point(24, 410)
         Me.EditItemRequiredLevelLABEL.Name = "EditItemRequiredLevelLABEL"
         Me.EditItemRequiredLevelLABEL.Size = New System.Drawing.Size(105, 13)
-        Me.EditItemRequiredLevelLABEL.TabIndex = 1771
+        Me.EditItemRequiredLevelLABEL.TabIndex = 0
         Me.EditItemRequiredLevelLABEL.Text = "Req Character Level"
         '
         'AddItemRequiredLevelTEXTBOX
@@ -2293,7 +2293,7 @@ Partial Class ItemAdd
         Me.AddItemRequiredLevelTEXTBOX.MaxLength = 4
         Me.AddItemRequiredLevelTEXTBOX.Name = "AddItemRequiredLevelTEXTBOX"
         Me.AddItemRequiredLevelTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemRequiredLevelTEXTBOX.TabIndex = 1735
+        Me.AddItemRequiredLevelTEXTBOX.TabIndex = 23
         '
         'EditItemRequiredDexterityLABEL
         '
@@ -2303,7 +2303,7 @@ Partial Class ItemAdd
         Me.EditItemRequiredDexterityLABEL.Location = New System.Drawing.Point(35, 379)
         Me.EditItemRequiredDexterityLABEL.Name = "EditItemRequiredDexterityLABEL"
         Me.EditItemRequiredDexterityLABEL.Size = New System.Drawing.Size(94, 13)
-        Me.EditItemRequiredDexterityLABEL.TabIndex = 1770
+        Me.EditItemRequiredDexterityLABEL.TabIndex = 0
         Me.EditItemRequiredDexterityLABEL.Text = "Required Dexterity"
         '
         'AddItemRequiredDexterityTEXTBOX
@@ -2314,7 +2314,7 @@ Partial Class ItemAdd
         Me.AddItemRequiredDexterityTEXTBOX.MaxLength = 4
         Me.AddItemRequiredDexterityTEXTBOX.Name = "AddItemRequiredDexterityTEXTBOX"
         Me.AddItemRequiredDexterityTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemRequiredDexterityTEXTBOX.TabIndex = 1734
+        Me.AddItemRequiredDexterityTEXTBOX.TabIndex = 22
         '
         'EditItemQuantityLABEL
         '
@@ -2324,7 +2324,7 @@ Partial Class ItemAdd
         Me.EditItemQuantityLABEL.Location = New System.Drawing.Point(83, 228)
         Me.EditItemQuantityLABEL.Name = "EditItemQuantityLABEL"
         Me.EditItemQuantityLABEL.Size = New System.Drawing.Size(46, 13)
-        Me.EditItemQuantityLABEL.TabIndex = 1769
+        Me.EditItemQuantityLABEL.TabIndex = 0
         Me.EditItemQuantityLABEL.Text = "Quantity"
         '
         'AddItemQuantityMinTEXTBOX
@@ -2335,7 +2335,7 @@ Partial Class ItemAdd
         Me.AddItemQuantityMinTEXTBOX.MaxLength = 4
         Me.AddItemQuantityMinTEXTBOX.Name = "AddItemQuantityMinTEXTBOX"
         Me.AddItemQuantityMinTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemQuantityMinTEXTBOX.TabIndex = 1727
+        Me.AddItemQuantityMinTEXTBOX.TabIndex = 15
         '
         'EditItemTwoHandDamageLABEL
         '
@@ -2345,7 +2345,7 @@ Partial Class ItemAdd
         Me.EditItemTwoHandDamageLABEL.Location = New System.Drawing.Point(29, 197)
         Me.EditItemTwoHandDamageLABEL.Name = "EditItemTwoHandDamageLABEL"
         Me.EditItemTwoHandDamageLABEL.Size = New System.Drawing.Size(100, 13)
-        Me.EditItemTwoHandDamageLABEL.TabIndex = 1768
+        Me.EditItemTwoHandDamageLABEL.TabIndex = 0
         Me.EditItemTwoHandDamageLABEL.Text = "Two Hand Damage"
         '
         'EditItemTwoHandDamageToLABEL
@@ -2356,7 +2356,7 @@ Partial Class ItemAdd
         Me.EditItemTwoHandDamageToLABEL.Location = New System.Drawing.Point(179, 197)
         Me.EditItemTwoHandDamageToLABEL.Name = "EditItemTwoHandDamageToLABEL"
         Me.EditItemTwoHandDamageToLABEL.Size = New System.Drawing.Size(16, 13)
-        Me.EditItemTwoHandDamageToLABEL.TabIndex = 1767
+        Me.EditItemTwoHandDamageToLABEL.TabIndex = 0
         Me.EditItemTwoHandDamageToLABEL.Text = "to"
         '
         'AddItemTwoHandDamageMaxTEXTBOX
@@ -2367,7 +2367,7 @@ Partial Class ItemAdd
         Me.AddItemTwoHandDamageMaxTEXTBOX.MaxLength = 4
         Me.AddItemTwoHandDamageMaxTEXTBOX.Name = "AddItemTwoHandDamageMaxTEXTBOX"
         Me.AddItemTwoHandDamageMaxTEXTBOX.Size = New System.Drawing.Size(38, 20)
-        Me.AddItemTwoHandDamageMaxTEXTBOX.TabIndex = 1726
+        Me.AddItemTwoHandDamageMaxTEXTBOX.TabIndex = 14
         '
         'AddItemTwoHandDamageMinTEXTBOX
         '
@@ -2377,7 +2377,7 @@ Partial Class ItemAdd
         Me.AddItemTwoHandDamageMinTEXTBOX.MaxLength = 4
         Me.AddItemTwoHandDamageMinTEXTBOX.Name = "AddItemTwoHandDamageMinTEXTBOX"
         Me.AddItemTwoHandDamageMinTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemTwoHandDamageMinTEXTBOX.TabIndex = 1725
+        Me.AddItemTwoHandDamageMinTEXTBOX.TabIndex = 13
         '
         'EditItemOneHandDamageToLABEL
         '
@@ -2387,7 +2387,7 @@ Partial Class ItemAdd
         Me.EditItemOneHandDamageToLABEL.Location = New System.Drawing.Point(179, 166)
         Me.EditItemOneHandDamageToLABEL.Name = "EditItemOneHandDamageToLABEL"
         Me.EditItemOneHandDamageToLABEL.Size = New System.Drawing.Size(16, 13)
-        Me.EditItemOneHandDamageToLABEL.TabIndex = 1766
+        Me.EditItemOneHandDamageToLABEL.TabIndex = 0
         Me.EditItemOneHandDamageToLABEL.Text = "to"
         '
         'EditItemOneHamdDamageLABEL
@@ -2398,7 +2398,7 @@ Partial Class ItemAdd
         Me.EditItemOneHamdDamageLABEL.Location = New System.Drawing.Point(30, 166)
         Me.EditItemOneHamdDamageLABEL.Name = "EditItemOneHamdDamageLABEL"
         Me.EditItemOneHamdDamageLABEL.Size = New System.Drawing.Size(99, 13)
-        Me.EditItemOneHamdDamageLABEL.TabIndex = 1765
+        Me.EditItemOneHamdDamageLABEL.TabIndex = 0
         Me.EditItemOneHamdDamageLABEL.Text = "One Hand Damage"
         '
         'AddItemOneHandDamageMaxTEXTBOX
@@ -2409,7 +2409,7 @@ Partial Class ItemAdd
         Me.AddItemOneHandDamageMaxTEXTBOX.MaxLength = 4
         Me.AddItemOneHandDamageMaxTEXTBOX.Name = "AddItemOneHandDamageMaxTEXTBOX"
         Me.AddItemOneHandDamageMaxTEXTBOX.Size = New System.Drawing.Size(38, 20)
-        Me.AddItemOneHandDamageMaxTEXTBOX.TabIndex = 1724
+        Me.AddItemOneHandDamageMaxTEXTBOX.TabIndex = 12
         '
         'AddItemOneHandDamageMinTEXTBOX
         '
@@ -2419,7 +2419,7 @@ Partial Class ItemAdd
         Me.AddItemOneHandDamageMinTEXTBOX.MaxLength = 4
         Me.AddItemOneHandDamageMinTEXTBOX.Name = "AddItemOneHandDamageMinTEXTBOX"
         Me.AddItemOneHandDamageMinTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemOneHandDamageMinTEXTBOX.TabIndex = 1723
+        Me.AddItemOneHandDamageMinTEXTBOX.TabIndex = 11
         '
         'AddItemThrowDamageMaxTEXTBOX
         '
@@ -2429,7 +2429,7 @@ Partial Class ItemAdd
         Me.AddItemThrowDamageMaxTEXTBOX.MaxLength = 4
         Me.AddItemThrowDamageMaxTEXTBOX.Name = "AddItemThrowDamageMaxTEXTBOX"
         Me.AddItemThrowDamageMaxTEXTBOX.Size = New System.Drawing.Size(38, 20)
-        Me.AddItemThrowDamageMaxTEXTBOX.TabIndex = 1722
+        Me.AddItemThrowDamageMaxTEXTBOX.TabIndex = 10
         '
         'EditItemThrowDamageOfLABEL
         '
@@ -2439,7 +2439,7 @@ Partial Class ItemAdd
         Me.EditItemThrowDamageOfLABEL.Location = New System.Drawing.Point(179, 135)
         Me.EditItemThrowDamageOfLABEL.Name = "EditItemThrowDamageOfLABEL"
         Me.EditItemThrowDamageOfLABEL.Size = New System.Drawing.Size(16, 13)
-        Me.EditItemThrowDamageOfLABEL.TabIndex = 1764
+        Me.EditItemThrowDamageOfLABEL.TabIndex = 0
         Me.EditItemThrowDamageOfLABEL.Text = "to"
         '
         'EditItemThrowDamageLABEL
@@ -2450,7 +2450,7 @@ Partial Class ItemAdd
         Me.EditItemThrowDamageLABEL.Location = New System.Drawing.Point(49, 136)
         Me.EditItemThrowDamageLABEL.Name = "EditItemThrowDamageLABEL"
         Me.EditItemThrowDamageLABEL.Size = New System.Drawing.Size(80, 13)
-        Me.EditItemThrowDamageLABEL.TabIndex = 1763
+        Me.EditItemThrowDamageLABEL.TabIndex = 0
         Me.EditItemThrowDamageLABEL.Text = "Throw Damage"
         '
         'AddItemThrowDamageMinTEXTBOX
@@ -2461,7 +2461,7 @@ Partial Class ItemAdd
         Me.AddItemThrowDamageMinTEXTBOX.MaxLength = 4
         Me.AddItemThrowDamageMinTEXTBOX.Name = "AddItemThrowDamageMinTEXTBOX"
         Me.AddItemThrowDamageMinTEXTBOX.Size = New System.Drawing.Size(40, 20)
-        Me.AddItemThrowDamageMinTEXTBOX.TabIndex = 1721
+        Me.AddItemThrowDamageMinTEXTBOX.TabIndex = 9
         '
         'EditItemQualityLABEL
         '
@@ -2471,7 +2471,7 @@ Partial Class ItemAdd
         Me.EditItemQualityLABEL.Location = New System.Drawing.Point(327, 66)
         Me.EditItemQualityLABEL.Name = "EditItemQualityLABEL"
         Me.EditItemQualityLABEL.Size = New System.Drawing.Size(62, 13)
-        Me.EditItemQualityLABEL.TabIndex = 1762
+        Me.EditItemQualityLABEL.TabIndex = 1901
         Me.EditItemQualityLABEL.Text = "Item Quality"
         '
         'EditItemNameLABEL
@@ -2482,7 +2482,7 @@ Partial Class ItemAdd
         Me.EditItemNameLABEL.Location = New System.Drawing.Point(43, 35)
         Me.EditItemNameLABEL.Name = "EditItemNameLABEL"
         Me.EditItemNameLABEL.Size = New System.Drawing.Size(58, 13)
-        Me.EditItemNameLABEL.TabIndex = 1761
+        Me.EditItemNameLABEL.TabIndex = 0
         Me.EditItemNameLABEL.Text = "Item Name"
         '
         'AddItemNameTEXTBOX
@@ -2492,7 +2492,7 @@ Partial Class ItemAdd
         Me.AddItemNameTEXTBOX.Location = New System.Drawing.Point(105, 31)
         Me.AddItemNameTEXTBOX.Name = "AddItemNameTEXTBOX"
         Me.AddItemNameTEXTBOX.Size = New System.Drawing.Size(451, 20)
-        Me.AddItemNameTEXTBOX.TabIndex = 1715
+        Me.AddItemNameTEXTBOX.TabIndex = 1
         '
         'Label1
         '
@@ -2513,14 +2513,14 @@ Partial Class ItemAdd
         Me.AddItemReqCharCOMBOBOX.Location = New System.Drawing.Point(134, 437)
         Me.AddItemReqCharCOMBOBOX.Name = "AddItemReqCharCOMBOBOX"
         Me.AddItemReqCharCOMBOBOX.Size = New System.Drawing.Size(126, 21)
-        Me.AddItemReqCharCOMBOBOX.TabIndex = 1736
+        Me.AddItemReqCharCOMBOBOX.TabIndex = 24
         '
         'AddItemSocketsNumericUpDown
         '
-        Me.AddItemSocketsNumericUpDown.Location = New System.Drawing.Point(512, 93)
+        Me.AddItemSocketsNumericUpDown.Location = New System.Drawing.Point(512, 95)
         Me.AddItemSocketsNumericUpDown.Name = "AddItemSocketsNumericUpDown"
         Me.AddItemSocketsNumericUpDown.Size = New System.Drawing.Size(44, 20)
-        Me.AddItemSocketsNumericUpDown.TabIndex = 1919
+        Me.AddItemSocketsNumericUpDown.TabIndex = 8
         '
         'ItemAdd
         '
@@ -2529,7 +2529,7 @@ Partial Class ItemAdd
         Me.BackColor = System.Drawing.Color.BurlyWood
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.D2BACKGROUNDPIC
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(790, 626)
+        Me.ClientSize = New System.Drawing.Size(790, 625)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label107)
         Me.Controls.Add(Me.Label2)
@@ -2555,6 +2555,7 @@ Partial Class ItemAdd
         Me.Controls.Add(Me.EditImportDateLABEL)
         Me.Controls.Add(Me.Label49)
         Me.Controls.Add(Me.Label109)
+        Me.Controls.Add(Me.AddItemLadderCheckBox)
         Me.Controls.Add(Me.Label110)
         Me.Controls.Add(Me.Label115)
         Me.Controls.Add(Me.AddItemLevelTEXTBOX)

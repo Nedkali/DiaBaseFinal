@@ -26,7 +26,7 @@ Public Class Main
         ToolStripProgressBar1.Maximum = 100
         ImportTimer.Interval = 1000
         ImportTimer.Start()
-        RichTextBox1.Text = "AutoLogging Enabled" & vbCrLf
+        RichTextBox1.Text = "AutoLogger Ready" & vbCrLf
     End Sub
 
 
@@ -36,17 +36,17 @@ Public Class Main
         If Timercount > TimerSeconds Then
             Timercount = 0
             ImportTimer.Stop()
-            RichTextBox1.Text = "Checking for new Log Files" & vbCrLf
+            RichTextBox1.Text = "AutoLogger Running..." & vbCrLf & "Checking for new Log Files" & vbCrLf
             AutoLoggerRunning = True
             ImportLogFiles(False)
             AutoLoggerRunning = False
             ImportTimer.Start()
-            RichTextBox1.AppendText("AutoLogging Enabled" & vbCrLf)
+            RichTextBox1.AppendText("AutoLogger Ready" & vbCrLf)
         End If
 
         Dim Timerprogress As Integer = Math.Round((Timercount / TimerSeconds) * 100)
         ToolStripProgressBar1.Value = Timerprogress
-        ToolStripStatusLabel2.Text = "< " & Math.Ceiling((TimerSeconds - Timercount) / 60) & " mins"
+        ToolStripStatusLabel2.Text = "< " & Math.Ceiling((TimerSeconds - Timercount) / 60) & " Minuites"
     End Sub
 
     'TIMER BUTTON pause & restart routine
@@ -62,7 +62,7 @@ Public Class Main
         If TimerControl.Text = "Start" And TimerRestart = True Then
             ImportTimer.Start()
             TimerControl.Text = "Pause"
-            RichTextBox1.Text = "AutoLogging Enabled" & vbCrLf
+            RichTextBox1.Text = "AutoLogger Ready" & vbCrLf
         End If
     End Sub
 
@@ -124,6 +124,13 @@ Public Class Main
             SearchBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             TimerControl.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
+
+        'Updates Realm Search Checkbox checkstaes from AppSettings class
+        If AppSettings.EastRealmCheckbox = True Then Me.EastRealmCHECKBOX.Checked = True
+        If AppSettings.WestRealmCheckbox = True Then Me.WestRealmCHECKBOX.Checked = True
+        If AppSettings.EuropeRealmCheckbox = True Then Me.EuropeRealmCHECKBOX.Checked = True
+        If AppSettings.AsiaRealmCheckbox = True Then Me.AsiaRealmCHECKBOX.Checked = True
+
 
         'Set foucus on the main listbox
         AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
@@ -337,6 +344,10 @@ Public Class Main
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
+                'Update Settings file (Saves Realm Checkboces Checkstates)
+                SaveSettingsFile()
+
+
             End If
         Else
             e.Cancel = True 'Automatically cancels Exit Event If Autologger Is Running (Avoids Potential Import Errors)
@@ -358,7 +369,7 @@ Public Class Main
     Private Sub ImportNowMenuItem_Click(sender As Object, e As EventArgs) Handles ImportNowMenuItem.Click
         AutoLoggerRunning = True
         Timercount = 0
-        RichTextBox1.Text = "Checking for New Logs..." & vbCrLf
+        RichTextBox1.Text = "AutoLogger Running..." & vbCrLf & "Checking for New Logs" & vbCrLf
         ImportLogFiles(False)
         AutoLoggerRunning = False
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
@@ -1327,7 +1338,7 @@ Public Class Main
     End Sub
 
 
-
+    'AAARRRRGGGHHHHHH!!!
     'Populate search dropdown routine - triggers when field value changes (Third Time Lucky??)
     Private Sub SearchFieldCOMBOBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchFieldCOMBOBOX.SelectedIndexChanged
         Me.SearchWordCOMBOBOX.Items.Clear() 'clear old list out ready for new selection
@@ -1360,5 +1371,27 @@ Public Class Main
 
 
 
+    End Sub
+
+    'Update East Realm Search CheckState to settings vars (Updates settings save file ONLY as app closes)
+    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
+        AppSettings.EastRealmCheckbox = EastRealmCHECKBOX.CheckState
+    End Sub
+
+    'Update West Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
+    Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged
+        AppSettings.WestRealmCheckbox = WestRealmCHECKBOX.CheckState
+
+    End Sub
+
+    'Update Asia Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
+    Private Sub AsiaRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles AsiaRealmCHECKBOX.CheckedChanged
+        AppSettings.AsiaRealmCheckbox = AsiaRealmCHECKBOX.CheckState
+
+    End Sub
+
+    'Update Europe Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
+    Private Sub EuropeRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EuropeRealmCHECKBOX.CheckedChanged
+        AppSettings.EuropeRealmCheckbox = EuropeRealmCHECKBOX.CheckState
     End Sub
 End Class

@@ -54,11 +54,18 @@ Partial Class Settings
         Me.SoundMuteCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.DatabaseVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
         Me.EtalPathVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.ResetDateTBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.DefaultPasswordTBox = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ResetDateTEXTBOX = New System.Windows.Forms.TextBox()
+        Me.ResetDateLABEL = New System.Windows.Forms.Label()
+        Me.DefaultPasswordTEXTBOX = New System.Windows.Forms.TextBox()
+        Me.DefaultPasswordLABEL = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         CType(Me.AutoLogingDelayNUMERICUPDOWN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,7 +102,7 @@ Partial Class Settings
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label11.Location = New System.Drawing.Point(94, 266)
+        Me.Label11.Location = New System.Drawing.Point(94, 274)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(2, 21)
         Me.Label11.TabIndex = 912
@@ -103,7 +110,7 @@ Partial Class Settings
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label12.Location = New System.Drawing.Point(39, 266)
+        Me.Label12.Location = New System.Drawing.Point(39, 274)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(2, 21)
         Me.Label12.TabIndex = 911
@@ -111,7 +118,7 @@ Partial Class Settings
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label13.Location = New System.Drawing.Point(40, 266)
+        Me.Label13.Location = New System.Drawing.Point(40, 274)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(55, 2)
         Me.Label13.TabIndex = 910
@@ -119,7 +126,7 @@ Partial Class Settings
         'Label14
         '
         Me.Label14.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label14.Location = New System.Drawing.Point(41, 285)
+        Me.Label14.Location = New System.Drawing.Point(41, 293)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(55, 2)
         Me.Label14.TabIndex = 909
@@ -127,7 +134,7 @@ Partial Class Settings
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label7.Location = New System.Drawing.Point(345, 53)
+        Me.Label7.Location = New System.Drawing.Point(351, 61)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(2, 20)
         Me.Label7.TabIndex = 908
@@ -135,7 +142,7 @@ Partial Class Settings
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label8.Location = New System.Drawing.Point(72, 53)
+        Me.Label8.Location = New System.Drawing.Point(78, 61)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(2, 20)
         Me.Label8.TabIndex = 907
@@ -143,7 +150,7 @@ Partial Class Settings
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label9.Location = New System.Drawing.Point(72, 53)
+        Me.Label9.Location = New System.Drawing.Point(78, 61)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(275, 2)
         Me.Label9.TabIndex = 906
@@ -151,7 +158,7 @@ Partial Class Settings
         'Label10
         '
         Me.Label10.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label10.Location = New System.Drawing.Point(72, 71)
+        Me.Label10.Location = New System.Drawing.Point(78, 79)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(275, 2)
         Me.Label10.TabIndex = 905
@@ -159,7 +166,7 @@ Partial Class Settings
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label6.Location = New System.Drawing.Point(345, 115)
+        Me.Label6.Location = New System.Drawing.Point(351, 115)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(2, 20)
         Me.Label6.TabIndex = 904
@@ -167,7 +174,7 @@ Partial Class Settings
         'Label15
         '
         Me.Label15.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label15.Location = New System.Drawing.Point(72, 115)
+        Me.Label15.Location = New System.Drawing.Point(78, 115)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(2, 20)
         Me.Label15.TabIndex = 903
@@ -175,7 +182,7 @@ Partial Class Settings
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(74, 115)
+        Me.Label2.Location = New System.Drawing.Point(80, 115)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(273, 2)
         Me.Label2.TabIndex = 902
@@ -183,7 +190,7 @@ Partial Class Settings
         'Label128
         '
         Me.Label128.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label128.Location = New System.Drawing.Point(72, 133)
+        Me.Label128.Location = New System.Drawing.Point(78, 133)
         Me.Label128.Name = "Label128"
         Me.Label128.Size = New System.Drawing.Size(275, 2)
         Me.Label128.TabIndex = 901
@@ -217,17 +224,17 @@ Partial Class Settings
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Black
         Me.Label5.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label5.Location = New System.Drawing.Point(106, 270)
+        Me.Label5.Location = New System.Drawing.Point(144, 278)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(105, 13)
+        Me.Label5.Size = New System.Drawing.Size(153, 13)
         Me.Label5.TabIndex = 894
-        Me.Label5.Text = "AutoLogging Interval"
+        Me.Label5.Text = "AutoLogging Interval (Minuites)"
         '
         'DefaultDatabaseTEXTBOX
         '
         Me.DefaultDatabaseTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.DefaultDatabaseTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.DefaultDatabaseTEXTBOX.Location = New System.Drawing.Point(72, 115)
+        Me.DefaultDatabaseTEXTBOX.Location = New System.Drawing.Point(78, 115)
         Me.DefaultDatabaseTEXTBOX.Name = "DefaultDatabaseTEXTBOX"
         Me.DefaultDatabaseTEXTBOX.Size = New System.Drawing.Size(275, 20)
         Me.DefaultDatabaseTEXTBOX.TabIndex = 888
@@ -238,7 +245,7 @@ Partial Class Settings
         Me.SettingsEtalPathLABEL.BackColor = System.Drawing.SystemColors.WindowText
         Me.SettingsEtalPathLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsEtalPathLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsEtalPathLABEL.Location = New System.Drawing.Point(69, 29)
+        Me.SettingsEtalPathLABEL.Location = New System.Drawing.Point(75, 37)
         Me.SettingsEtalPathLABEL.Name = "SettingsEtalPathLABEL"
         Me.SettingsEtalPathLABEL.Size = New System.Drawing.Size(139, 20)
         Me.SettingsEtalPathLABEL.TabIndex = 887
@@ -248,7 +255,7 @@ Partial Class Settings
         '
         Me.EtalPathTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.EtalPathTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.EtalPathTEXTBOX.Location = New System.Drawing.Point(72, 53)
+        Me.EtalPathTEXTBOX.Location = New System.Drawing.Point(78, 61)
         Me.EtalPathTEXTBOX.Name = "EtalPathTEXTBOX"
         Me.EtalPathTEXTBOX.Size = New System.Drawing.Size(275, 20)
         Me.EtalPathTEXTBOX.TabIndex = 886
@@ -259,7 +266,7 @@ Partial Class Settings
         Me.SettingsDatabasePathLABEL.BackColor = System.Drawing.SystemColors.WindowText
         Me.SettingsDatabasePathLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsDatabasePathLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsDatabasePathLABEL.Location = New System.Drawing.Point(69, 91)
+        Me.SettingsDatabasePathLABEL.Location = New System.Drawing.Point(75, 91)
         Me.SettingsDatabasePathLABEL.Name = "SettingsDatabasePathLABEL"
         Me.SettingsDatabasePathLABEL.Size = New System.Drawing.Size(193, 20)
         Me.SettingsDatabasePathLABEL.TabIndex = 895
@@ -269,7 +276,7 @@ Partial Class Settings
         '
         Me.AutoLogingDelayNUMERICUPDOWN.BackColor = System.Drawing.Color.Black
         Me.AutoLogingDelayNUMERICUPDOWN.ForeColor = System.Drawing.Color.White
-        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(40, 267)
+        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(40, 275)
         Me.AutoLogingDelayNUMERICUPDOWN.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.AutoLogingDelayNUMERICUPDOWN.Name = "AutoLogingDelayNUMERICUPDOWN"
         Me.AutoLogingDelayNUMERICUPDOWN.Size = New System.Drawing.Size(56, 20)
@@ -291,7 +298,7 @@ Partial Class Settings
         '
         Me.EtalPathVerifyPICTUREBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.EtalPathVerifyPICTUREBOX.Image = CType(resources.GetObject("EtalPathVerifyPICTUREBOX.Image"), System.Drawing.Image)
-        Me.EtalPathVerifyPICTUREBOX.Location = New System.Drawing.Point(50, 55)
+        Me.EtalPathVerifyPICTUREBOX.Location = New System.Drawing.Point(50, 63)
         Me.EtalPathVerifyPICTUREBOX.Name = "EtalPathVerifyPICTUREBOX"
         Me.EtalPathVerifyPICTUREBOX.Size = New System.Drawing.Size(23, 24)
         Me.EtalPathVerifyPICTUREBOX.TabIndex = 898
@@ -305,7 +312,7 @@ Partial Class Settings
         Me.SettingsSaveBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsSaveBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsSaveBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(375, 264)
+        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(398, 288)
         Me.SettingsSaveBUTTON.Name = "SettingsSaveBUTTON"
         Me.SettingsSaveBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsSaveBUTTON.TabIndex = 892
@@ -319,7 +326,7 @@ Partial Class Settings
         Me.DefaultDatabaseBrowseBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.DefaultDatabaseBrowseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DefaultDatabaseBrowseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DefaultDatabaseBrowseBUTTON.Location = New System.Drawing.Point(375, 113)
+        Me.DefaultDatabaseBrowseBUTTON.Location = New System.Drawing.Point(398, 113)
         Me.DefaultDatabaseBrowseBUTTON.Name = "DefaultDatabaseBrowseBUTTON"
         Me.DefaultDatabaseBrowseBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.DefaultDatabaseBrowseBUTTON.TabIndex = 891
@@ -333,7 +340,7 @@ Partial Class Settings
         Me.EtalPathBrowseBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EtalPathBrowseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.EtalPathBrowseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EtalPathBrowseBUTTON.Location = New System.Drawing.Point(375, 52)
+        Me.EtalPathBrowseBUTTON.Location = New System.Drawing.Point(398, 60)
         Me.EtalPathBrowseBUTTON.Name = "EtalPathBrowseBUTTON"
         Me.EtalPathBrowseBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.EtalPathBrowseBUTTON.TabIndex = 890
@@ -347,7 +354,7 @@ Partial Class Settings
         Me.SettingsCancelBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsCancelBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsCancelBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(375, 306)
+        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(398, 330)
         Me.SettingsCancelBUTTON.Name = "SettingsCancelBUTTON"
         Me.SettingsCancelBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsCancelBUTTON.TabIndex = 889
@@ -382,59 +389,114 @@ Partial Class Settings
         Me.EtalPathVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
         Me.EtalPathVerifyFailPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.CrossGraphic
         Me.EtalPathVerifyFailPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EtalPathVerifyFailPICTUREBOX.Location = New System.Drawing.Point(50, 54)
+        Me.EtalPathVerifyFailPICTUREBOX.Location = New System.Drawing.Point(50, 62)
         Me.EtalPathVerifyFailPICTUREBOX.Name = "EtalPathVerifyFailPICTUREBOX"
         Me.EtalPathVerifyFailPICTUREBOX.Size = New System.Drawing.Size(18, 18)
         Me.EtalPathVerifyFailPICTUREBOX.TabIndex = 917
         Me.EtalPathVerifyFailPICTUREBOX.TabStop = False
         '
-        'ResetDateTBox
+        'ResetDateTEXTBOX
         '
-        Me.ResetDateTBox.Location = New System.Drawing.Point(38, 342)
-        Me.ResetDateTBox.Name = "ResetDateTBox"
-        Me.ResetDateTBox.Size = New System.Drawing.Size(100, 20)
-        Me.ResetDateTBox.TabIndex = 918
+        Me.ResetDateTEXTBOX.BackColor = System.Drawing.Color.Black
+        Me.ResetDateTEXTBOX.Location = New System.Drawing.Point(38, 335)
+        Me.ResetDateTEXTBOX.Name = "ResetDateTEXTBOX"
+        Me.ResetDateTEXTBOX.Size = New System.Drawing.Size(100, 20)
+        Me.ResetDateTEXTBOX.TabIndex = 918
         '
-        'Label1
+        'ResetDateLABEL
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(144, 345)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 13)
-        Me.Label1.TabIndex = 919
-        Me.Label1.Text = "Last Reset Date"
+        Me.ResetDateLABEL.AutoSize = True
+        Me.ResetDateLABEL.BackColor = System.Drawing.Color.Black
+        Me.ResetDateLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.ResetDateLABEL.Location = New System.Drawing.Point(144, 338)
+        Me.ResetDateLABEL.Name = "ResetDateLABEL"
+        Me.ResetDateLABEL.Size = New System.Drawing.Size(169, 13)
+        Me.ResetDateLABEL.TabIndex = 919
+        Me.ResetDateLABEL.Text = "Last Reset Date (eg. DD/MM/YY)"
         '
-        'Label3
+        'DefaultPasswordTEXTBOX
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Black
-        Me.Label3.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label3.Location = New System.Drawing.Point(54, 326)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 13)
-        Me.Label3.TabIndex = 920
-        Me.Label3.Text = "eg' d/m/y"
+        Me.DefaultPasswordTEXTBOX.BackColor = System.Drawing.Color.Black
+        Me.DefaultPasswordTEXTBOX.Location = New System.Drawing.Point(38, 304)
+        Me.DefaultPasswordTEXTBOX.MaxLength = 12
+        Me.DefaultPasswordTEXTBOX.Name = "DefaultPasswordTEXTBOX"
+        Me.DefaultPasswordTEXTBOX.Size = New System.Drawing.Size(100, 20)
+        Me.DefaultPasswordTEXTBOX.TabIndex = 921
         '
-        'DefaultPasswordTBox
+        'DefaultPasswordLABEL
         '
-        Me.DefaultPasswordTBox.Location = New System.Drawing.Point(38, 303)
-        Me.DefaultPasswordTBox.MaxLength = 12
-        Me.DefaultPasswordTBox.Name = "DefaultPasswordTBox"
-        Me.DefaultPasswordTBox.Size = New System.Drawing.Size(100, 20)
-        Me.DefaultPasswordTBox.TabIndex = 921
+        Me.DefaultPasswordLABEL.AutoSize = True
+        Me.DefaultPasswordLABEL.BackColor = System.Drawing.Color.Black
+        Me.DefaultPasswordLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.DefaultPasswordLABEL.Location = New System.Drawing.Point(144, 307)
+        Me.DefaultPasswordLABEL.Name = "DefaultPasswordLABEL"
+        Me.DefaultPasswordLABEL.Size = New System.Drawing.Size(174, 13)
+        Me.DefaultPasswordLABEL.TabIndex = 922
+        Me.DefaultPasswordLABEL.Text = "Default Password (If Undetermined)"
         '
-        'Label4
+        'Label16
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Black
-        Me.Label4.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label4.Location = New System.Drawing.Point(144, 306)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(130, 13)
-        Me.Label4.TabIndex = 922
-        Me.Label4.Text = "Password if Undetermined"
+        Me.Label16.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label16.Location = New System.Drawing.Point(136, 306)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(2, 15)
+        Me.Label16.TabIndex = 923
+        '
+        'Label17
+        '
+        Me.Label17.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label17.Location = New System.Drawing.Point(38, 306)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(2, 15)
+        Me.Label17.TabIndex = 924
+        '
+        'Label18
+        '
+        Me.Label18.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label18.Location = New System.Drawing.Point(38, 338)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(2, 15)
+        Me.Label18.TabIndex = 925
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label19.Location = New System.Drawing.Point(136, 337)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(2, 15)
+        Me.Label19.TabIndex = 926
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label20.Location = New System.Drawing.Point(40, 304)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(97, 2)
+        Me.Label20.TabIndex = 927
+        '
+        'Label21
+        '
+        Me.Label21.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label21.Location = New System.Drawing.Point(40, 322)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(97, 2)
+        Me.Label21.TabIndex = 928
+        '
+        'Label22
+        '
+        Me.Label22.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label22.Location = New System.Drawing.Point(40, 335)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(97, 2)
+        Me.Label22.TabIndex = 929
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label23.Location = New System.Drawing.Point(40, 353)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(97, 2)
+        Me.Label23.TabIndex = 930
         '
         'Settings
         '
@@ -442,13 +504,20 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(511, 395)
+        Me.ClientSize = New System.Drawing.Size(511, 394)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.DefaultPasswordTBox)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ResetDateTBox)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.DefaultPasswordLABEL)
+        Me.Controls.Add(Me.DefaultPasswordTEXTBOX)
+        Me.Controls.Add(Me.ResetDateLABEL)
+        Me.Controls.Add(Me.ResetDateTEXTBOX)
         Me.Controls.Add(Me.EtalPathVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.DatabaseVerifyFailPICTUREBOX)
         Me.Controls.Add(Me.SoundMuteCHECKBOX)
@@ -526,9 +595,16 @@ Partial Class Settings
     Friend WithEvents SoundMuteCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents DatabaseVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
     Friend WithEvents EtalPathVerifyFailPICTUREBOX As System.Windows.Forms.PictureBox
-    Friend WithEvents ResetDateTBox As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents DefaultPasswordTBox As TextBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents ResetDateTEXTBOX As TextBox
+    Friend WithEvents ResetDateLABEL As Label
+    Friend WithEvents DefaultPasswordTEXTBOX As TextBox
+    Friend WithEvents DefaultPasswordLABEL As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
 End Class

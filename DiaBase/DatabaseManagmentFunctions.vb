@@ -22,6 +22,10 @@ Module DatabaseManagmentFunctions
                 AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.EastRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.WestRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.EuropeRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.AsiaRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
                 ReadFile.Close()
 
             Else : Main.ErrorHandler(100, 0, 0, 0)                     'Our File Not Found Error Handler
@@ -46,6 +50,11 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.SoundMute)
             WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
+            WriteFile.WriteLine(AppSettings.EastRealmCheckbox)
+            WriteFile.WriteLine(AppSettings.WestRealmCheckbox)
+            WriteFile.WriteLine(AppSettings.EuropeRealmCheckbox)
+            WriteFile.WriteLine(AppSettings.AsiaRealmCheckbox)
+
             WriteFile.Close()
         Catch ex As Exception
             Main.ErrorHandler(301, ex, 0, 0) 'Branch to error handler with unique code and system error code if save fails for whatever reason

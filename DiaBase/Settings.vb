@@ -62,8 +62,8 @@ Public Class Settings
         AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits          'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
-        DefaultPasswordTBox.Text = AppSettings.DefaultPassword
-        ResetDateTBox.Text = AppSettings.ResetDate
+        DefaultPasswordTEXTBOX.Text = AppSettings.DefaultPassword
+        ResetDateTEXTBOX.Text = AppSettings.ResetDate
         CheckSettingsPaths()                                        'Verify current paths are correct and update ticks (should only throw to actual error message when exiting with invalid settings)
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
     End Sub
@@ -109,8 +109,12 @@ Public Class Settings
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
-            AppSettings.DefaultPassword = DefaultPasswordTBox.Text
-            AppSettings.ResetDate = ResetDateTBox.Text
+            AppSettings.DefaultPassword = DefaultPasswordTEXTBOX.Text
+            AppSettings.ResetDate = ResetDateTEXTBOX.Text
+            AppSettings.EastRealmCheckbox = Main.EastRealmCHECKBOX.CheckState
+            AppSettings.WestRealmCheckbox = Main.WestRealmCHECKBOX.CheckState
+            AppSettings.EuropeRealmCheckbox = Main.EuropeRealmCHECKBOX.CheckState
+            AppSettings.AsiaRealmCheckbox = Main.AsiaRealmCHECKBOX.CheckState
             Main.StartTimer()
             SaveSettingsFile()
             Me.Close()
@@ -171,7 +175,7 @@ Public Class Settings
         CheckSettingsPaths()
     End Sub
     Function checkdate()
-        Dim temp = ResetDateTBox.Text.Split("/")
+        Dim temp = ResetDateTEXTBOX.Text.Split("/")
         If temp.Length <> 3 Then Return False ' need to add error handling here
         If temp(0) < 1 Or temp(0) > 31 Then Return False ' need to add error handling here
         If temp(1) < 1 Or temp(1) > 12 Then Return False ' need to add error handling here
