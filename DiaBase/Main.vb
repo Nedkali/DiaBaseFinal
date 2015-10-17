@@ -1325,4 +1325,40 @@ Public Class Main
         End If
         ImportTimer.Start()
     End Sub
+
+
+
+    'Populate search dropdown routine - triggers when field value changes (Third Time Lucky??)
+    Private Sub SearchFieldCOMBOBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchFieldCOMBOBOX.SelectedIndexChanged
+        Me.SearchWordCOMBOBOX.Items.Clear() 'clear old list out ready for new selection
+
+        'Check For Fields That Need NO Drop lists
+        If Me.SearchFieldCOMBOBOX.Text = "Item Name" Or Me.SearchFieldCOMBOBOX.Text = "Item Defense" Then Return
+
+        'Check For Fields That Require True False Only
+        If Me.SearchFieldCOMBOBOX.Text = "Runeword" Or Me.SearchFieldCOMBOBOX.Text = "Ethereal" Then
+
+            SearchWordCOMBOBOX.Items.Add("True")
+            SearchWordCOMBOBOX.Items.Add("False")
+
+        End If
+
+
+
+
+
+        'Item Quality
+        If Me.SearchFieldCOMBOBOX.Text = "Item Quality" Then
+
+            SearchWordCOMBOBOX.Items.Add("Unique")
+            SearchWordCOMBOBOX.Items.Add("Rare")
+                SearchWordCOMBOBOX.Items.Add("Magic")
+                SearchWordCOMBOBOX.Items.Add("Normal")
+
+
+            End If
+
+
+
+    End Sub
 End Class
