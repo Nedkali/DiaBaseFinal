@@ -537,7 +537,6 @@ Public Class Main
         End If
 
         'DupeCountProgressForm.Close()
-        DupesList(True)
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
 
@@ -1169,7 +1168,7 @@ Public Class Main
         'MessageBox.Show("Changed = " & a)'debug message
     End Sub
 
-    Private Sub SendToTrradeListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendToTrradeListToolStripMenuItem.Click
+    Private Sub SendToTradeListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendToTradeListToolStripMenuItem.Click
         If AutoLoggerRunning = True Then Return
 
         ImportTimer.Stop()
@@ -1180,8 +1179,6 @@ Public Class Main
 
             For index = 0 To SearchLISTBOX.SelectedIndices.Count - 1
 
-                'CALCULATE PROGRESS BAR
-                count = count + 1
                 a = SearchReferenceList(SearchLISTBOX.SelectedIndices(index))
                 Dim Temp = ItemObjects(a).ItemName
                 If ItemObjects(a).ItemBase = "Rune" Or ItemObjects(a).ItemBase = "Gem" Or ItemObjects(a).ItemName.IndexOf("Token") > -1 Or ItemObjects(a).ItemName.IndexOf("Key of") > -1 Or ItemObjects(a).ItemName.IndexOf("Essence") > -1 Then
@@ -1195,10 +1192,9 @@ Public Class Main
         End If
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
-        ListControlTabBUTTON.BackColor = Color.Black
-        SearchListControlTabBUTTON.BackColor = Color.Black
-        TradesListControlTabBUTTON.BackColor = Color.DimGray
         ListboxTABCONTROL.SelectTab(2)
+
+
         ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Trade Entries" ' simpler way to indicate count
         ImportTimer.Start()
 
@@ -1317,4 +1313,42 @@ Public Class Main
         AllItemsToUserList()
     End Sub
 
+    Private Sub SendAllToTradeListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendAllToTradeListToolStripMenuItem.Click
+        If AutoLoggerRunning = True Then Return
+
+        ImportTimer.Stop()
+
+        If SearchLISTBOX.Items.Count > 0 Then
+            Dim a As Integer = 0
+            Dim count As Integer = 0
+
+            For index = 0 To SearchLISTBOX.Items.Count - 1
+
+                a = SearchReferenceList(index)
+                Dim Temp = ItemObjects(a).ItemName
+                If ItemObjects(a).ItemBase = "Rune" Or ItemObjects(a).ItemBase = "Gem" Or ItemObjects(a).ItemName.IndexOf("Token") > -1 Or ItemObjects(a).ItemName.IndexOf("Key of") > -1 Or ItemObjects(a).ItemName.IndexOf("Essence") > -1 Then
+                    If ItemObjects(a).ItemName.IndexOf("Token") > -1 Then Temp = "Token"
+                    TradeListRICHTEXTBOX.AppendText(Temp & vbCrLf & vbCrLf)
+                Else
+                    SendToTradeList(a)
+                End If
+            Next
+
+        End If
+
+        'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
+        ListboxTABCONTROL.SelectTab(2)
+
+
+        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Trade Entries" ' simpler way to indicate count
+        ImportTimer.Start()
+    End Sub
+
+    Private Sub CombineDupesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CombineDupesToolStripMenuItem.Click
+        DupesList(True)
+    End Sub
+
+    Private Sub CopyAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyAllToolStripMenuItem.Click
+        My.Computer.Clipboard.SetText(TradeListRICHTEXTBOX.Text)
+    End Sub
 End Class

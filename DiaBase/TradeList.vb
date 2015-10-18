@@ -45,7 +45,7 @@ Module Tradelist
         ' if Identified & set item go to set function
         If ItemObjects(x).ItemQuality = "Set" And ItemObjects(x).Stat1.IndexOf("Unid") = -1 Then
             temp = Set_items(x)
-            If ItemObjects(x).Sockets <> "" Then temp = temp & ", Socs " & ItemObjects(x).Sockets
+            If ItemObjects(x).Sockets > 0 Then temp = temp & ", Socs " & ItemObjects(x).Sockets
             If ItemObjects(x).EtherealItem = True Then temp = temp & ", Eth"
         End If
 
