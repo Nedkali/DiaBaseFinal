@@ -96,6 +96,12 @@
     <Compile Include="ExitApplication.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Export.Designer.vb">
+      <DependentUpon>Export.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Export.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalVars.vb" />
     <Compile Include="Help.Designer.vb">
       <DependentUpon>Help.vb</DependentUpon>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExitApplication.resx">
       <DependentUpon>ExitApplication.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.vb</DependentUpon>

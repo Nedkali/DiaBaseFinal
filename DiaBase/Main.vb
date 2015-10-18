@@ -1351,4 +1351,11 @@ Public Class Main
     Private Sub CopyAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyAllToolStripMenuItem.Click
         My.Computer.Clipboard.SetText(TradeListRICHTEXTBOX.Text)
     End Sub
+
+    Private Sub ExportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToolStripMenuItem.Click
+        ImportTimer.Stop()
+        Export.ShowDialog()
+        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+        ImportTimer.Start()
+    End Sub
 End Class
