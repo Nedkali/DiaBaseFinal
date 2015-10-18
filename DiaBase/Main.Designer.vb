@@ -387,7 +387,7 @@ Partial Class Main
         Me.ToolStripMenuItem6.Enabled = False
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
         Me.ToolStripMenuItem6.Size = New System.Drawing.Size(165, 22)
-        Me.ToolStripMenuItem6.Text = "UnDo"
+        Me.ToolStripMenuItem6.Text = "UnDo Delete"
         '
         'ToolStripMenuItem5
         '

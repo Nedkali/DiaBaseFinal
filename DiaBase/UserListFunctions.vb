@@ -99,7 +99,7 @@
         AddToUserList.ImportDate = ItemObjects(a).ImportDate
         AddToUserList.ImportTime = ItemObjects(a).ImportTime
 
-        Dim temp = AppSettings.CurrentDatabase.Split("/")
+        Dim temp = AppSettings.CurrentDatabase.Split("\")
 
         AddToUserList.DatabaseFilename = temp(temp.Length - 1)
         UserObjects.Add(AddToUserList)
