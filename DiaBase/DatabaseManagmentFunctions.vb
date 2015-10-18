@@ -14,26 +14,26 @@ Module DatabaseManagmentFunctions
                 Dim ReadFile As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(AppSettings.InstallPath + "\Settings.cfg")
                 AppSettings.EtalPath = ReadFile.ReadLine                'Etal Path
                 AppSettings.DefaultDatabase = ReadFile.ReadLine         'Startup Database
-                AppSettings.AutoLoggingDelay = ReadFile.ReadLine        'Autologger delay
+                AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.RemoveMuleDupes = ReadFile.ReadLine         'Remove mule dupe bool
                 AppSettings.HideMulePass = ReadFile.ReadLine            'Hide Password Bool
                 AppSettings.BackupBeforeImports = ReadFile.ReadLine     'Backup before imports bool 
                 AppSettings.BackupBeforeEdits = ReadFile.ReadLine       'Backup before item edits bool
-                AppSettings.RemoveMuleDupes = ReadFile.ReadLine         'Remove mule dupe bool
-                AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.AutoLoggingDelay = ReadFile.ReadLine        'Autologger delay
+                AppSettings.DefaultRealm = ReadFile.ReadLine               'Mute Sound Setting bool
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
-                AppSettings.EastRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
-                AppSettings.WestRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
-                AppSettings.EuropeRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
-                AppSettings.AsiaRealmCheckbox = ReadFile.ReadLine               'Mute Sound Setting bool
                 ReadFile.Close()
-
             Else : Main.ErrorHandler(100, 0, 0, 0)                     'Our File Not Found Error Handler
             End If
 
         Catch ex As Exception                               'All Other Unforseen System Error Handler
             Main.ErrorHandler(101, ex, 0, 0)
         End Try
+        If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "USWest" Then Main.WestRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "Asia" Then Main.AsiaRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "Europe" Then Main.EuropeRealmCHECKBOX.Checked = True
     End Sub
 
     Sub SaveSettingsFile()
@@ -42,19 +42,15 @@ Module DatabaseManagmentFunctions
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
             WriteFile.WriteLine(AppSettings.EtalPath)
             WriteFile.WriteLine(AppSettings.DefaultDatabase)
-            WriteFile.WriteLine(AppSettings.AutoLoggingDelay)
+            WriteFile.WriteLine(AppSettings.SoundMute)
+            WriteFile.WriteLine(AppSettings.RemoveMuleDupes)
             WriteFile.WriteLine(AppSettings.HideMulePass)
             WriteFile.WriteLine(AppSettings.BackupBeforeImports)
             WriteFile.WriteLine(AppSettings.BackupBeforeEdits)
-            WriteFile.WriteLine(AppSettings.RemoveMuleDupes)
-            WriteFile.WriteLine(AppSettings.SoundMute)
+            WriteFile.WriteLine(AppSettings.AutoLoggingDelay)
+            WriteFile.WriteLine(AppSettings.DefaultRealm)
             WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
-            WriteFile.WriteLine(AppSettings.EastRealmCheckbox)
-            WriteFile.WriteLine(AppSettings.WestRealmCheckbox)
-            WriteFile.WriteLine(AppSettings.EuropeRealmCheckbox)
-            WriteFile.WriteLine(AppSettings.AsiaRealmCheckbox)
-
             WriteFile.Close()
         Catch ex As Exception
             Main.ErrorHandler(301, ex, 0, 0) 'Branch to error handler with unique code and system error code if save fails for whatever reason

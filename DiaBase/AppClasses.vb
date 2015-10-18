@@ -72,11 +72,9 @@ Public Class AppSetting
     Public HideMulePass As Boolean = True                   'Prefix to hide the items account password      TRUE/FALSE
     Public CurrentDatabase As String = ""                   'variable to compare current versus Default database
     Public ResetDate As String = "26/4/2015"                'variable used for ressetting ladder to nonladder
-    Public DefaultPassword As String = ""                   'variable used to replace Unknown passwords
-    Public EastRealmCheckbox As Boolean = False             'Realm Search Checkboxes settings Var 
-    Public WestRealmCheckbox As Boolean = False             'Realm Search Checkboxes settings Var 
-    Public EuropeRealmCheckbox As Boolean = False           'Realm Search Checkboxes settings Var 
-    Public AsiaRealmCheckbox As Boolean = False             'Realm Search Checkboxes settings Var 
+    Public DefaultPassword As String = "Unknown"            'variable used to replace Unknown passwords
+    Public DefaultRealm As String = ""                      'variable used for setting default search realm
+
 End Class
 
 Public Class UserListDatabase

@@ -62,6 +62,10 @@ Public Class Settings
         AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits          'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
+        If AppSettings.DefaultRealm <> "" Then
+            SearchRealmCBOX.SelectedItem = AppSettings.DefaultRealm
+        Else SearchRealmCBOX.SelectedIndex = 0
+        End If
         DefaultPasswordTEXTBOX.Text = AppSettings.DefaultPassword
         ResetDateTEXTBOX.Text = AppSettings.ResetDate
         CheckSettingsPaths()                                        'Verify current paths are correct and update ticks (should only throw to actual error message when exiting with invalid settings)
@@ -103,20 +107,22 @@ Public Class Settings
             'Update Global Config Vars From Settings Controls
             AppSettings.EtalPath = EtalPathTEXTBOX.Text
             AppSettings.DefaultDatabase = DefaultDatabaseTEXTBOX.Text
+            AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.AutoLoggingDelay = AutoLogingDelayNUMERICUPDOWN.Value
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
-            AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
             AppSettings.DefaultPassword = DefaultPasswordTEXTBOX.Text
             AppSettings.ResetDate = ResetDateTEXTBOX.Text
-            AppSettings.EastRealmCheckbox = Main.EastRealmCHECKBOX.CheckState
-            AppSettings.WestRealmCheckbox = Main.WestRealmCHECKBOX.CheckState
-            AppSettings.EuropeRealmCheckbox = Main.EuropeRealmCHECKBOX.CheckState
-            AppSettings.AsiaRealmCheckbox = Main.AsiaRealmCHECKBOX.CheckState
-            Main.StartTimer()
+            AppSettings.DefaultRealm = SearchRealmCBOX.Text
+            Main.StartTimer() ' why is this here????
             SaveSettingsFile()
+
+            If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
+            If AppSettings.DefaultRealm = "USWest" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = True : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
+            If AppSettings.DefaultRealm = "Asia" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = True : Main.EuropeRealmCHECKBOX.Checked = False
+            If AppSettings.DefaultRealm = "Europe" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = True
             Me.Close()
         End If
     End Sub
@@ -174,6 +180,8 @@ Public Class Settings
     Private Sub DefaultDatabaseTEXTBOX_TextChanged(sender As Object, e As EventArgs) Handles DefaultDatabaseTEXTBOX.TextChanged
         CheckSettingsPaths()
     End Sub
+
+
     Function checkdate()
         Dim temp = ResetDateTEXTBOX.Text.Split("/")
         If temp.Length <> 3 Then Return False ' need to add error handling here

@@ -125,13 +125,6 @@ Public Class Main
             TimerControl.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
 
-        'Updates Realm Search Checkbox checkstaes from AppSettings class
-        If AppSettings.EastRealmCheckbox = True Then Me.EastRealmCHECKBOX.Checked = True
-        If AppSettings.WestRealmCheckbox = True Then Me.WestRealmCHECKBOX.Checked = True
-        If AppSettings.EuropeRealmCheckbox = True Then Me.EuropeRealmCHECKBOX.Checked = True
-        If AppSettings.AsiaRealmCheckbox = True Then Me.AsiaRealmCHECKBOX.Checked = True
-
-
         'Set foucus on the main listbox
         AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
 
@@ -1338,60 +1331,54 @@ Public Class Main
     End Sub
 
 
-    'AAARRRRGGGHHHHHH!!!
     'Populate search dropdown routine - triggers when field value changes (Third Time Lucky??)
     Private Sub SearchFieldCOMBOBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchFieldCOMBOBOX.SelectedIndexChanged
         Me.SearchWordCOMBOBOX.Items.Clear() 'clear old list out ready for new selection
 
-        'Check For Fields That Need NO Drop lists
-        If Me.SearchFieldCOMBOBOX.Text = "Item Name" Or Me.SearchFieldCOMBOBOX.Text = "Item Defense" Then Return
-
-        'Check For Fields That Require True False Only
-        If Me.SearchFieldCOMBOBOX.Text = "Runeword" Or Me.SearchFieldCOMBOBOX.Text = "Ethereal" Then
-
-            SearchWordCOMBOBOX.Items.Add("True")
-            SearchWordCOMBOBOX.Items.Add("False")
-
-        End If
-
-
-
-
-
-        'Item Quality
-        If Me.SearchFieldCOMBOBOX.Text = "Item Quality" Then
-
-            SearchWordCOMBOBOX.Items.Add("Unique")
-            SearchWordCOMBOBOX.Items.Add("Rare")
-                SearchWordCOMBOBOX.Items.Add("Magic")
+        Select Case (SearchFieldCOMBOBOX.Text)
+            Case "Item Quality"
                 SearchWordCOMBOBOX.Items.Add("Normal")
+                SearchWordCOMBOBOX.Items.Add("Superior")
+                SearchWordCOMBOBOX.Items.Add("Set")
+                SearchWordCOMBOBOX.Items.Add("Rare")
+                SearchWordCOMBOBOX.Items.Add("Magic")
+                SearchWordCOMBOBOX.Items.Add("Unique")
+                SearchWordCOMBOBOX.Items.Add("Crafted")
 
-
-            End If
-
-
+        End Select
 
     End Sub
 
-    'Update East Realm Search CheckState to settings vars (Updates settings save file ONLY as app closes)
-    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
-        AppSettings.EastRealmCheckbox = EastRealmCHECKBOX.CheckState
-    End Sub
 
-    'Update West Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
     Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged
-        AppSettings.WestRealmCheckbox = WestRealmCHECKBOX.CheckState
-
+        If WestRealmCHECKBOX.Checked = True Then
+            EastRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+        End If
     End Sub
 
-    'Update Asia Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
+    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
+        If EastRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+        End If
+    End Sub
+
     Private Sub AsiaRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles AsiaRealmCHECKBOX.CheckedChanged
-        AppSettings.AsiaRealmCheckbox = AsiaRealmCHECKBOX.CheckState
-
+        If AsiaRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            EastRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+        End If
     End Sub
 
-    'Update Europe Realm Search CheckState to settings vars and save file (Updates settings save file ONLY as app closes)
     Private Sub EuropeRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EuropeRealmCHECKBOX.CheckedChanged
-        AppSettings.EuropeRealmCheckbox = EuropeRealmCHECKBOX.CheckState
+        If EuropeRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            EastRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+        End If
     End Sub
 End Class
