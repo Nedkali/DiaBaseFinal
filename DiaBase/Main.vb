@@ -190,8 +190,10 @@ Public Class Main
     'SEARCH LISTBOX INDEX CHANGED HANDLER       - Focuses Main Listbox Selected Item to Match the Serch Lists Currently Selected Item 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SearchLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchLISTBOX.SelectedIndexChanged
+        'this needs more work to be have more functionality eg multi selected items
         Dim a As Integer = SearchLISTBOX.SelectedIndex
         If a > -1 Then
+            AllItemsLISTBOX.SelectedItems.Clear() 'only selected item will be highlighted in both listings
             AllItemsLISTBOX.SelectedIndex = SearchReferenceList(a)
             DisplayItemStats(SearchReferenceList(a))
             If SearchLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = SearchLISTBOX.SelectedItems.Count & " - Selected Items" : Return
@@ -204,7 +206,7 @@ Public Class Main
     'USER LISTBOX INDEX CHANGED HANDLER         - Branches to Display Item Statistics Routine
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub UserLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles UserLISTBOX.SelectedIndexChanged
-
+        DisplayUserList()
     End Sub
 
 
@@ -247,9 +249,12 @@ Public Class Main
         SearchListControlTabBUTTON.BackgroundImage = Nothing
         ListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
-        ItemTallyTEXTBOX.Text = TradeListRICHTEXTBOX.Lines.Count & " - Trade Entries" ' this needs to be changed to a routine that counts the BLANK lines between trade entries
-        DatabaseFileNameLABEL.Hide()
-        DatabaseFileNameTEXTBOX.Hide()
+        Dim TradeItemCounter As Integer = 0
+        For Each item In TradeListRICHTEXTBOX.Lines
+            If item = Nothing Then TradeItemCounter = TradeItemCounter + 1
+        Next
+        If TradeItemCounter = 0 Then TradeItemCounter = 1
+        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Trade Entries"
     End Sub
 
 
@@ -535,10 +540,12 @@ Public Class Main
         DupesList(True)
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
-        ListControlTabBUTTON.BackColor = Color.Black
-        SearchListControlTabBUTTON.BackColor = Color.Black
-        TradesListControlTabBUTTON.BackColor = Color.DimGray
+
         ListboxTABCONTROL.SelectTab(2)
+        TradesListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
+        SearchListControlTabBUTTON.BackgroundImage = Nothing
+        ListControlTabBUTTON.BackgroundImage = Nothing
+        UserRefControlTabBUTTON.BackgroundImage = Nothing
 
         'SHORT ROUTINE TO COUNT TRADE ITEMS IN RICHTEXT3 BY COUNTING THE GAPS BETWEEN THE ITEMS (SUBTRACTS 1 DUE TO EMPTY LINE AT END OF TEXT) 
         Dim TradeItemCounter As Integer = 0
@@ -1251,83 +1258,7 @@ Public Class Main
     End Sub
 
     Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
-        'CHECK FOR LOGGER ACTIVE
-        If AutoLoggerRunning = True Then Return
-        ImportTimer.Stop()
-
-        Dim a As Integer = 0
-
-        If SearchLISTBOX.Items.Count > 0 And SearchLISTBOX.SelectedIndex <> -1 Then 'Check items exist in the search list - Only does the following if they do
-            For Each ItemIndex In SearchLISTBOX.SelectedIndices                    'Setup Loop to 
-                UserLISTBOX.Items.Add(SearchLISTBOX.Items(ItemIndex))               'Add item name to new User List
-                UserListReferenceList.Add(SearchReferenceList(ItemIndex))           'Add Item index value(in object database) for stats reference
-
-                Dim AddToUserList As New UserListDatabase
-                a = SearchReferenceList(ItemIndex)
-
-                AddToUserList.ItemName = ItemObjects(a).ItemName
-                AddToUserList.ItemBase = ItemObjects(a).ItemBase
-                AddToUserList.ItemQuality = ItemObjects(a).ItemQuality
-                AddToUserList.RequiredCharacter = ItemObjects(a).RequiredCharacter
-                AddToUserList.EtherealItem = ItemObjects(a).EtherealItem
-                AddToUserList.Sockets = ItemObjects(a).Sockets
-                AddToUserList.RuneWord = ItemObjects(a).RuneWord
-                AddToUserList.ThrowDamageMin = ItemObjects(a).ThrowDamageMin
-                AddToUserList.ThrowDamageMax = ItemObjects(a).ThrowDamageMax
-                AddToUserList.OneHandDamageMin = ItemObjects(a).OneHandDamageMin
-                AddToUserList.OneHandDamageMax = ItemObjects(a).OneHandDamageMax
-                AddToUserList.TwoHandDamageMin = ItemObjects(a).TwoHandDamageMin
-                AddToUserList.TwoHandDamageMax = ItemObjects(a).TwoHandDamageMax
-                AddToUserList.Defense = ItemObjects(a).Defense
-                AddToUserList.ChanceToBlock = ItemObjects(a).ChanceToBlock
-                AddToUserList.QuantityMin = ItemObjects(a).QuantityMin
-                AddToUserList.QuantityMax = ItemObjects(a).QuantityMax
-                AddToUserList.DurabilityMin = ItemObjects(a).DurabilityMin
-                AddToUserList.DurabilityMax = ItemObjects(a).DurabilityMax
-                AddToUserList.RequiredStrength = ItemObjects(a).RequiredStrength
-                AddToUserList.RequiredDexterity = ItemObjects(a).RequiredDexterity
-                AddToUserList.RequiredLevel = ItemObjects(a).RequiredLevel
-                AddToUserList.AttackClass = ItemObjects(a).AttackClass
-                AddToUserList.AttackSpeed = ItemObjects(a).AttackSpeed
-                AddToUserList.Stat1 = ItemObjects(a).Stat1
-                AddToUserList.Stat2 = ItemObjects(a).Stat2
-                AddToUserList.Stat3 = ItemObjects(a).Stat3
-                AddToUserList.Stat4 = ItemObjects(a).Stat4
-                AddToUserList.Stat5 = ItemObjects(a).Stat5
-                AddToUserList.Stat6 = ItemObjects(a).Stat6
-                AddToUserList.Stat7 = ItemObjects(a).Stat7
-                AddToUserList.Stat8 = ItemObjects(a).Stat8
-                AddToUserList.Stat9 = ItemObjects(a).Stat9
-                AddToUserList.Stat10 = ItemObjects(a).Stat10
-                AddToUserList.Stat11 = ItemObjects(a).Stat11
-                AddToUserList.Stat12 = ItemObjects(a).Stat12
-                AddToUserList.Stat13 = ItemObjects(a).Stat13
-                AddToUserList.Stat14 = ItemObjects(a).Stat14
-                AddToUserList.Stat15 = ItemObjects(a).Stat15
-                AddToUserList.MuleName = ItemObjects(a).MuleName
-                AddToUserList.MuleAccount = ItemObjects(a).MuleAccount
-                AddToUserList.MulePass = ItemObjects(a).MulePass
-                AddToUserList.HardCore = ItemObjects(a).HardCore
-                AddToUserList.Ladder = ItemObjects(a).Ladder
-                AddToUserList.Expansion = ItemObjects(a).Expansion
-                AddToUserList.PickitAccount = ItemObjects(a).PickitAccount
-                AddToUserList.UserField = ItemObjects(a).UserField
-                AddToUserList.ItemImage = ItemObjects(a).ItemImage
-                AddToUserList.ImportDate = ItemObjects(a).ImportDate
-                AddToUserList.ImportTime = ItemObjects(a).ImportTime
-
-                UserObjects.Add(AddToUserList)
-            Next
-
-            UserLISTBOX.SelectedItem = SearchLISTBOX.SelectedItem                   'Select first moved item placed in user list
-            ListboxTABCONTROL.SelectTab(3)                                          'Auto Select User List Tab
-            SearchListControlTabBUTTON.BackColor = Color.Black                      'Next 4 lines sets button colors to suit Auto User Tab Selection
-            ListControlTabBUTTON.BackColor = Color.Black
-            TradesListControlTabBUTTON.BackColor = Color.Black
-            UserRefControlTabBUTTON.BackColor = Color.DimGray
-
-        End If
-        ImportTimer.Start()
+        SearchItemsToUserList()
     End Sub
 
 
@@ -1381,4 +1312,9 @@ Public Class Main
             AsiaRealmCHECKBOX.Checked = False
         End If
     End Sub
+
+    Private Sub SendToUserListToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SendToUserListToolStripMenuItem1.Click
+        AllItemsToUserList()
+    End Sub
+
 End Class

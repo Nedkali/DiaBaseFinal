@@ -163,9 +163,10 @@
         If SearchReferenceList.Count > 0 Then
             Main.SearchLISTBOX.SelectedIndex = 0
             Main.ListboxTABCONTROL.SelectTab(1)
-            Main.SearchListControlTabBUTTON.BackColor = Color.DimGray
-            Main.ListControlTabBUTTON.BackColor = Color.Black
-            Main.TradesListControlTabBUTTON.BackColor = Color.Black
+            Main.SearchListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
+            Main.ListControlTabBUTTON.BackgroundImage = Nothing
+            Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
+            Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
 
         End If
         Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Total Matches"
