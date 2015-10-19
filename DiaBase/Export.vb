@@ -43,7 +43,7 @@ Public Class Export
         End If
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton1.Click
         Me.Close()
     End Sub
 

@@ -220,7 +220,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
-        DatabaseFileNameLABEL.Hide()
+        DatabaseFileLabel.Hide()
         DatabaseFileNameTEXTBOX.Hide()
     End Sub
 
@@ -235,7 +235,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Matches"
-        DatabaseFileNameLABEL.Hide()
+        DatabaseFileLabel.Hide()
         DatabaseFileNameTEXTBOX.Hide()
     End Sub
 
@@ -249,6 +249,8 @@ Public Class Main
         SearchListControlTabBUTTON.BackgroundImage = Nothing
         ListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
+        DatabaseFileLabel.Hide()
+        DatabaseFileNameTEXTBOX.Hide()
         Dim TradeItemCounter As Integer = 0
         For Each item In TradeListRICHTEXTBOX.Lines
             If item = Nothing Then TradeItemCounter = TradeItemCounter + 1
@@ -268,7 +270,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
         ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Entries")
-        DatabaseFileNameLABEL.Show()
+        DatabaseFileLabel.Show()
         DatabaseFileNameTEXTBOX.Show()
     End Sub
 
@@ -952,6 +954,9 @@ Public Class Main
         If ItemObjects(ItemIndex).HardCore = True Then CoreTypeTEXTBOX.Text = "HardCore"
         If ItemObjects(ItemIndex).HardCore = False Then CoreTypeTEXTBOX.Text = "SoftCore"
 
+        If ItemObjects(ItemIndex).Ladder = False Then LadderTEXTBOX.Text = "Non Ladder"
+        If ItemObjects(ItemIndex).Ladder = True Then LadderTEXTBOX.Text = "Ladder"
+
         Dim DisplayColour As String = ItemObjects(ItemIndex).ItemQuality
         Dim ColourCount1 As Integer = ItemObjects(ItemIndex).ItemQuality.Length
 
@@ -1358,5 +1363,9 @@ Public Class Main
         Export.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
         ImportTimer.Start()
+    End Sub
+
+    Private Sub ClearAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearAllToolStripMenuItem.Click
+        TradeListRICHTEXTBOX.Clear()
     End Sub
 End Class

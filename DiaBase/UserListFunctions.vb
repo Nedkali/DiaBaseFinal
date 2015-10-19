@@ -19,8 +19,8 @@
         Main.SearchListControlTabBUTTON.BackgroundImage = Nothing
         Main.ListControlTabBUTTON.BackgroundImage = Nothing
         Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
-        Main.DatabaseFileNameTEXTBOX.Show()
-        Main.DatabaseFileNameLABEL.Show()
+        Main.LadderTEXTBOX.Show()
+        Main.Ladder.Show()
         Main.ImportTimer.Start()
     End Sub
 
@@ -47,7 +47,7 @@
     Public Sub transferobjects(ByVal a)
 
         Dim AddToUserList As New UserListDatabase
-
+        AddToUserList.ItemRealm = ItemObjects(a).ItemRealm
         AddToUserList.ItemName = ItemObjects(a).ItemName
         AddToUserList.ItemBase = ItemObjects(a).ItemBase
         AddToUserList.ItemQuality = ItemObjects(a).ItemQuality
@@ -123,6 +123,7 @@
             Return
         End If
 
+        Main.DatabaseFileLabel.Show()
         Main.ItemStatsRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
         'Display mule details
@@ -135,6 +136,10 @@
 
         If UserObjects(ItemIndex).HardCore = True Then Main.CoreTypeTEXTBOX.Text = "HardCore"
         If UserObjects(ItemIndex).HardCore = False Then Main.CoreTypeTEXTBOX.Text = "SoftCore"
+
+        If ItemObjects(ItemIndex).Ladder = False Then Main.LadderTEXTBOX.Text = "Non Ladder"
+        If ItemObjects(ItemIndex).Ladder = True Then Main.LadderTEXTBOX.Text = "Ladder"
+
         Main.DatabaseFileNameTEXTBOX.Text = UserObjects(ItemIndex).DatabaseFilename
 
         Dim DisplayColour As String = UserObjects(ItemIndex).ItemQuality

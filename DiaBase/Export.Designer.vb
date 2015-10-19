@@ -27,7 +27,7 @@ Partial Class Export
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CreateFileBUTTON = New System.Windows.Forms.Button()
         Me.ExportButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.CancelButton1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -91,20 +91,20 @@ Partial Class Export
         '
         'CancelButton
         '
-        Me.CancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelButton.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.CancelButton.BackgroundImage = CType(resources.GetObject("CancelButton.BackgroundImage"), System.Drawing.Image)
-        Me.CancelButton.FlatAppearance.BorderSize = 2
-        Me.CancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CancelButton.ForeColor = System.Drawing.Color.BurlyWood
-        Me.CancelButton.Location = New System.Drawing.Point(292, 233)
-        Me.CancelButton.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(146, 25)
-        Me.CancelButton.TabIndex = 905
-        Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = False
+        Me.CancelButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CancelButton1.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.CancelButton1.BackgroundImage = CType(resources.GetObject("CancelButton.BackgroundImage"), System.Drawing.Image)
+        Me.CancelButton1.FlatAppearance.BorderSize = 2
+        Me.CancelButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.CancelButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelButton1.ForeColor = System.Drawing.Color.BurlyWood
+        Me.CancelButton1.Location = New System.Drawing.Point(292, 233)
+        Me.CancelButton1.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
+        Me.CancelButton1.Name = "CancelButton"
+        Me.CancelButton1.Size = New System.Drawing.Size(146, 25)
+        Me.CancelButton1.TabIndex = 905
+        Me.CancelButton1.Text = "Cancel"
+        Me.CancelButton1.UseVisualStyleBackColor = False
         '
         'TextBox1
         '
@@ -149,7 +149,7 @@ Partial Class Export
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.CancelButton1)
         Me.Controls.Add(Me.ExportButton)
         Me.Controls.Add(Me.CreateFileBUTTON)
         Me.Controls.Add(Me.Label1)
@@ -167,7 +167,7 @@ Partial Class Export
     Friend WithEvents Label1 As Label
     Friend WithEvents CreateFileBUTTON As Button
     Friend WithEvents ExportButton As Button
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents CancelButton1 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents CheckBox1 As CheckBox

@@ -143,6 +143,7 @@ Partial Class Main
         Me.TradeContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CombineDupesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.UserLISTBOX = New System.Windows.Forms.ListBox()
         Me.ItemAndMuleLABEL = New System.Windows.Forms.Label()
@@ -163,18 +164,20 @@ Partial Class Main
         Me.AsiaRealmCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.EuropeRealmCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.SpecialStatsTABLELAYOUT = New System.Windows.Forms.TableLayoutPanel()
+        Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
+        Me.DatabaseFileLabel = New System.Windows.Forms.Label()
         Me.CoreTypeTEXTBOX = New System.Windows.Forms.TextBox()
         Me.MulePasswordTEXTBOX = New System.Windows.Forms.TextBox()
         Me.CoreTypeLABEL = New System.Windows.Forms.Label()
         Me.MuleNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.MulePasswordLABEL = New System.Windows.Forms.Label()
-        Me.DatabaseFileNameLABEL = New System.Windows.Forms.Label()
+        Me.Ladder = New System.Windows.Forms.Label()
         Me.MuleAccountLABEL = New System.Windows.Forms.Label()
         Me.MuleNameLABEL = New System.Windows.Forms.Label()
         Me.MuleAccountTEXTBOX = New System.Windows.Forms.TextBox()
         Me.MuleRealmTEXTBOX = New System.Windows.Forms.TextBox()
         Me.MuleRealmLABEL = New System.Windows.Forms.Label()
-        Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
+        Me.LadderTEXTBOX = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuBar.SuspendLayout()
@@ -1151,7 +1154,7 @@ Partial Class Main
         '
         Me.SearchListContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListToolStripMenuItem, Me.SendAllToTradeListToolStripMenuItem, Me.ToolStripMenuItem8, Me.ToolStripSeparator8, Me.ClearItemToolStripMenuItem, Me.DeleteItemToolStripMenuItem1, Me.ToolStripSeparator10, Me.ToolStripMenuItem7, Me.ExportToolStripMenuItem})
         Me.SearchListContextMenuStrip1.Name = "SearchListContextMenuStrip1"
-        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 192)
+        Me.SearchListContextMenuStrip1.Size = New System.Drawing.Size(183, 170)
         '
         'SendToTradeListToolStripMenuItem
         '
@@ -1229,9 +1232,9 @@ Partial Class Main
         '
         'TradeContextMenuStrip
         '
-        Me.TradeContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyAllToolStripMenuItem, Me.CombineDupesToolStripMenuItem})
+        Me.TradeContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyAllToolStripMenuItem, Me.CombineDupesToolStripMenuItem, Me.ClearAllToolStripMenuItem})
         Me.TradeContextMenuStrip.Name = "TradeContextMenuStrip"
-        Me.TradeContextMenuStrip.Size = New System.Drawing.Size(160, 48)
+        Me.TradeContextMenuStrip.Size = New System.Drawing.Size(160, 70)
         '
         'CopyAllToolStripMenuItem
         '
@@ -1244,6 +1247,12 @@ Partial Class Main
         Me.CombineDupesToolStripMenuItem.Name = "CombineDupesToolStripMenuItem"
         Me.CombineDupesToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.CombineDupesToolStripMenuItem.Text = "Combine Dupes"
+        '
+        'ClearAllToolStripMenuItem
+        '
+        Me.ClearAllToolStripMenuItem.Name = "ClearAllToolStripMenuItem"
+        Me.ClearAllToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.ClearAllToolStripMenuItem.Text = "Clear All"
         '
         'TabPage4
         '
@@ -1425,39 +1434,66 @@ Partial Class Main
         Me.SpecialStatsTABLELAYOUT.BackColor = System.Drawing.Color.Black
         Me.SpecialStatsTABLELAYOUT.ColumnCount = 1
         Me.SpecialStatsTABLELAYOUT.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileNameTEXTBOX, 0, 14)
+        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileLabel, 0, 13)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.CoreTypeTEXTBOX, 0, 9)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MulePasswordTEXTBOX, 0, 7)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.CoreTypeLABEL, 0, 8)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleNameTEXTBOX, 0, 5)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MulePasswordLABEL, 0, 6)
-        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileNameLABEL, 0, 10)
+        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.Ladder, 0, 10)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleAccountLABEL, 0, 2)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleNameLABEL, 0, 4)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleAccountTEXTBOX, 0, 3)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleRealmTEXTBOX, 0, 1)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MuleRealmLABEL, 0, 0)
-        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileNameTEXTBOX, 0, 11)
+        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.LadderTEXTBOX, 0, 11)
         Me.SpecialStatsTABLELAYOUT.Location = New System.Drawing.Point(445, 394)
         Me.SpecialStatsTABLELAYOUT.Name = "SpecialStatsTABLELAYOUT"
-        Me.SpecialStatsTABLELAYOUT.RowCount = 13
+        Me.SpecialStatsTABLELAYOUT.RowCount = 15
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20212!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20212!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.20211!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121272!))
+        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.121273!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.059685!))
-        Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.SpecialStatsTABLELAYOUT.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.SpecialStatsTABLELAYOUT.Size = New System.Drawing.Size(107, 331)
         Me.SpecialStatsTABLELAYOUT.TabIndex = 422
+        '
+        'DatabaseFileNameTEXTBOX
+        '
+        Me.DatabaseFileNameTEXTBOX.BackColor = System.Drawing.SystemColors.WindowText
+        Me.DatabaseFileNameTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DatabaseFileNameTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DatabaseFileNameTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.DatabaseFileNameTEXTBOX.Location = New System.Drawing.Point(3, 304)
+        Me.DatabaseFileNameTEXTBOX.Name = "DatabaseFileNameTEXTBOX"
+        Me.DatabaseFileNameTEXTBOX.ReadOnly = True
+        Me.DatabaseFileNameTEXTBOX.Size = New System.Drawing.Size(101, 13)
+        Me.DatabaseFileNameTEXTBOX.TabIndex = 426
+        Me.DatabaseFileNameTEXTBOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'DatabaseFileLabel
+        '
+        Me.DatabaseFileLabel.BackColor = System.Drawing.Color.Black
+        Me.DatabaseFileLabel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.DatabaseFileLabel.ForeColor = System.Drawing.Color.BurlyWood
+        Me.DatabaseFileLabel.Location = New System.Drawing.Point(3, 281)
+        Me.DatabaseFileLabel.Name = "DatabaseFileLabel"
+        Me.DatabaseFileLabel.Size = New System.Drawing.Size(101, 20)
+        Me.DatabaseFileLabel.TabIndex = 425
+        Me.DatabaseFileLabel.Text = "Database File"
+        Me.DatabaseFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.DatabaseFileLabel.Visible = False
         '
         'CoreTypeTEXTBOX
         '
@@ -1465,7 +1501,7 @@ Partial Class Main
         Me.CoreTypeTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CoreTypeTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
         Me.CoreTypeTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.CoreTypeTEXTBOX.Location = New System.Drawing.Point(3, 248)
+        Me.CoreTypeTEXTBOX.Location = New System.Drawing.Point(3, 216)
         Me.CoreTypeTEXTBOX.Name = "CoreTypeTEXTBOX"
         Me.CoreTypeTEXTBOX.ReadOnly = True
         Me.CoreTypeTEXTBOX.Size = New System.Drawing.Size(101, 13)
@@ -1478,7 +1514,7 @@ Partial Class Main
         Me.MulePasswordTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MulePasswordTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
         Me.MulePasswordTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.MulePasswordTEXTBOX.Location = New System.Drawing.Point(3, 195)
+        Me.MulePasswordTEXTBOX.Location = New System.Drawing.Point(3, 170)
         Me.MulePasswordTEXTBOX.Name = "MulePasswordTEXTBOX"
         Me.MulePasswordTEXTBOX.ReadOnly = True
         Me.MulePasswordTEXTBOX.Size = New System.Drawing.Size(101, 13)
@@ -1490,7 +1526,7 @@ Partial Class Main
         Me.CoreTypeLABEL.BackColor = System.Drawing.Color.Black
         Me.CoreTypeLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.CoreTypeLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.CoreTypeLABEL.Location = New System.Drawing.Point(3, 232)
+        Me.CoreTypeLABEL.Location = New System.Drawing.Point(3, 200)
         Me.CoreTypeLABEL.Name = "CoreTypeLABEL"
         Me.CoreTypeLABEL.Size = New System.Drawing.Size(101, 13)
         Me.CoreTypeLABEL.TabIndex = 422
@@ -1503,7 +1539,7 @@ Partial Class Main
         Me.MuleNameTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MuleNameTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
         Me.MuleNameTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.MuleNameTEXTBOX.Location = New System.Drawing.Point(3, 142)
+        Me.MuleNameTEXTBOX.Location = New System.Drawing.Point(3, 124)
         Me.MuleNameTEXTBOX.Name = "MuleNameTEXTBOX"
         Me.MuleNameTEXTBOX.ReadOnly = True
         Me.MuleNameTEXTBOX.Size = New System.Drawing.Size(101, 13)
@@ -1515,32 +1551,31 @@ Partial Class Main
         Me.MulePasswordLABEL.BackColor = System.Drawing.Color.Black
         Me.MulePasswordLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.MulePasswordLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.MulePasswordLABEL.Location = New System.Drawing.Point(3, 179)
+        Me.MulePasswordLABEL.Location = New System.Drawing.Point(3, 154)
         Me.MulePasswordLABEL.Name = "MulePasswordLABEL"
         Me.MulePasswordLABEL.Size = New System.Drawing.Size(101, 13)
         Me.MulePasswordLABEL.TabIndex = 422
         Me.MulePasswordLABEL.Text = "Mule Password"
         Me.MulePasswordLABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'DatabaseFileNameLABEL
+        'Ladder
         '
-        Me.DatabaseFileNameLABEL.BackColor = System.Drawing.Color.Black
-        Me.DatabaseFileNameLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DatabaseFileNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseFileNameLABEL.Location = New System.Drawing.Point(3, 285)
-        Me.DatabaseFileNameLABEL.Name = "DatabaseFileNameLABEL"
-        Me.DatabaseFileNameLABEL.Size = New System.Drawing.Size(101, 13)
-        Me.DatabaseFileNameLABEL.TabIndex = 415
-        Me.DatabaseFileNameLABEL.Text = "Database File Name"
-        Me.DatabaseFileNameLABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.DatabaseFileNameLABEL.Visible = False
+        Me.Ladder.BackColor = System.Drawing.Color.Black
+        Me.Ladder.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Ladder.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Ladder.Location = New System.Drawing.Point(3, 246)
+        Me.Ladder.Name = "Ladder"
+        Me.Ladder.Size = New System.Drawing.Size(101, 13)
+        Me.Ladder.TabIndex = 415
+        Me.Ladder.Text = "Ladder"
+        Me.Ladder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MuleAccountLABEL
         '
         Me.MuleAccountLABEL.BackColor = System.Drawing.Color.Black
         Me.MuleAccountLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.MuleAccountLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.MuleAccountLABEL.Location = New System.Drawing.Point(3, 73)
+        Me.MuleAccountLABEL.Location = New System.Drawing.Point(3, 62)
         Me.MuleAccountLABEL.Name = "MuleAccountLABEL"
         Me.MuleAccountLABEL.Size = New System.Drawing.Size(101, 13)
         Me.MuleAccountLABEL.TabIndex = 423
@@ -1552,7 +1587,7 @@ Partial Class Main
         Me.MuleNameLABEL.BackColor = System.Drawing.Color.Black
         Me.MuleNameLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.MuleNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.MuleNameLABEL.Location = New System.Drawing.Point(3, 126)
+        Me.MuleNameLABEL.Location = New System.Drawing.Point(3, 108)
         Me.MuleNameLABEL.Name = "MuleNameLABEL"
         Me.MuleNameLABEL.Size = New System.Drawing.Size(101, 13)
         Me.MuleNameLABEL.TabIndex = 422
@@ -1565,7 +1600,7 @@ Partial Class Main
         Me.MuleAccountTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MuleAccountTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
         Me.MuleAccountTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.MuleAccountTEXTBOX.Location = New System.Drawing.Point(3, 89)
+        Me.MuleAccountTEXTBOX.Location = New System.Drawing.Point(3, 78)
         Me.MuleAccountTEXTBOX.Name = "MuleAccountTEXTBOX"
         Me.MuleAccountTEXTBOX.ReadOnly = True
         Me.MuleAccountTEXTBOX.Size = New System.Drawing.Size(101, 13)
@@ -1578,7 +1613,7 @@ Partial Class Main
         Me.MuleRealmTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MuleRealmTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
         Me.MuleRealmTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.MuleRealmTEXTBOX.Location = New System.Drawing.Point(3, 36)
+        Me.MuleRealmTEXTBOX.Location = New System.Drawing.Point(3, 32)
         Me.MuleRealmTEXTBOX.Name = "MuleRealmTEXTBOX"
         Me.MuleRealmTEXTBOX.ReadOnly = True
         Me.MuleRealmTEXTBOX.Size = New System.Drawing.Size(101, 13)
@@ -1590,25 +1625,25 @@ Partial Class Main
         Me.MuleRealmLABEL.BackColor = System.Drawing.Color.Black
         Me.MuleRealmLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.MuleRealmLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.MuleRealmLABEL.Location = New System.Drawing.Point(3, 20)
+        Me.MuleRealmLABEL.Location = New System.Drawing.Point(3, 16)
         Me.MuleRealmLABEL.Name = "MuleRealmLABEL"
         Me.MuleRealmLABEL.Size = New System.Drawing.Size(101, 13)
         Me.MuleRealmLABEL.TabIndex = 421
         Me.MuleRealmLABEL.Text = "Mule Realm"
         Me.MuleRealmLABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'DatabaseFileNameTEXTBOX
+        'LadderTEXTBOX
         '
-        Me.DatabaseFileNameTEXTBOX.BackColor = System.Drawing.SystemColors.WindowText
-        Me.DatabaseFileNameTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DatabaseFileNameTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DatabaseFileNameTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.DatabaseFileNameTEXTBOX.Location = New System.Drawing.Point(3, 301)
-        Me.DatabaseFileNameTEXTBOX.Name = "DatabaseFileNameTEXTBOX"
-        Me.DatabaseFileNameTEXTBOX.ReadOnly = True
-        Me.DatabaseFileNameTEXTBOX.Size = New System.Drawing.Size(101, 13)
-        Me.DatabaseFileNameTEXTBOX.TabIndex = 407
-        Me.DatabaseFileNameTEXTBOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.LadderTEXTBOX.BackColor = System.Drawing.SystemColors.WindowText
+        Me.LadderTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.LadderTEXTBOX.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LadderTEXTBOX.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.LadderTEXTBOX.Location = New System.Drawing.Point(3, 262)
+        Me.LadderTEXTBOX.Name = "LadderTEXTBOX"
+        Me.LadderTEXTBOX.ReadOnly = True
+        Me.LadderTEXTBOX.Size = New System.Drawing.Size(101, 13)
+        Me.LadderTEXTBOX.TabIndex = 407
+        Me.LadderTEXTBOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
@@ -1868,9 +1903,12 @@ Partial Class Main
     Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
-    Friend WithEvents DatabaseFileNameLABEL As Label
-    Friend WithEvents DatabaseFileNameTEXTBOX As TextBox
+    Friend WithEvents LadderTEXTBOX As TextBox
     Friend WithEvents TradeContextMenuStrip As ContextMenuStrip
     Friend WithEvents CopyAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CombineDupesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Ladder As Label
+    Friend WithEvents DatabaseFileNameTEXTBOX As TextBox
+    Friend WithEvents DatabaseFileLabel As Label
 End Class
