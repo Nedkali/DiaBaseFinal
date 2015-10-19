@@ -211,7 +211,7 @@
         If UserObjects(ItemIndex).TwoHandDamageMax > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Two Hand Damage: " & UserObjects(ItemIndex).TwoHandDamageMin & " to " & UserObjects(ItemIndex).TwoHandDamageMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksToolStripMenuItem.Checked = True Then
+        If Main.DisplayLineBreaksMainMenu.Checked = True Then
             If UserObjects(ItemIndex).OneHandDamageMax > 0 Or UserObjects(ItemIndex).TwoHandDamageMax > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
@@ -220,7 +220,7 @@
         If UserObjects(ItemIndex).DurabilityMin > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Durability: " & UserObjects(ItemIndex).DurabilityMin & " of " & UserObjects(ItemIndex).DurabilityMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksToolStripMenuItem.Checked = True Then
+        If Main.DisplayLineBreaksMainMenu.Checked = True Then
             If UserObjects(ItemIndex).Defense > 0 Or UserObjects(ItemIndex).ChanceToBlock > 0 Or UserObjects(ItemIndex).DurabilityMin > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
@@ -233,13 +233,13 @@
         If UserObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Required Level: " & UserObjects(ItemIndex).RequiredLevel & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksToolStripMenuItem.Checked = True Then
+        If Main.DisplayLineBreaksMainMenu.Checked = True Then
             ' If UserObjects(ItemIndex).RequiredStrength > 0 Or UserObjects(ItemIndex).RequiredDexterity > 0 Or UserObjects(ItemIndex).RequiredCharacter = 0 And UserObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
         If UserObjects(ItemIndex).AttackClass <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(UserObjects(ItemIndex).AttackClass & " Class") : If UserObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(" - " & UserObjects(ItemIndex).AttackSpeed & vbCrLf) Else Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksToolStripMenuItem.Checked = True Then
+        If Main.DisplayLineBreaksMainMenu.Checked = True Then
             If UserObjects(ItemIndex).AttackClass <> Nothing Or UserObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
