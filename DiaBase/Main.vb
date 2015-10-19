@@ -149,7 +149,7 @@ Public Class Main
         End If
 
         'Branch to Load Default Database and populate main listbox once all setting proceedures are absolutly completed with all potential path errors handled
-        If AppSettings.DefaultDatabase <> Nothing Then OpenDatabase(AppSettings.DefaultDatabase) : PopulateAllItemsLISTBOX()
+        If AppSettings.DefaultDatabase <> Nothing Then OpenDatabase(AppSettings.DefaultDatabase)
 
         StartTimer()
 
@@ -683,11 +683,12 @@ Public Class Main
     'MENU BAR - Rebuild database from Archived logs
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub RebuildDefaultDBaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RebuildDefaultDBaseToolStripMenuItem.Click
-        AutoLoggerRunning = True
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
+        Button3_Click(sender, e)
         RichTextBox1.Text = "Checking for New Logs" & vbCrLf
         ImportLogFiles(True)
         PopulateAllItemsLISTBOX()
-        AutoLoggerRunning = False
+        Button3_Click(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -146,7 +146,8 @@ Module DatabaseManagmentFunctions
         End Try
 
         PopulateAllItemsLISTBOX()
-        'OpenDatabaseLABEL.Text = Path.GetFileName(Replace(AppSettings.CurrentDatabase, ".txt", ""))                                     'Extract Defaut database name from Global DefaultDatabase
+        If ItemObjects.Count > 0 Then Main.AllItemsLISTBOX.SelectedIndex = 0
+
         Main.OpenDatabaseLABEL.Text = Replace(My.Computer.FileSystem.GetName(AppSettings.CurrentDatabase), ".txt", "")
 
     End Sub
@@ -172,16 +173,18 @@ Module DatabaseManagmentFunctions
         Main.AllItemsLISTBOX.Items.Clear()
         Main.SearchLISTBOX.Items.Clear()
         Main.UserLISTBOX.Items.Clear()
-        Main.TradeListRICHTEXTBOX.Text = Nothing
+        Main.TradeListRICHTEXTBOX.Clear()
 
         'Main.MuleRealmValueTEXTBOX = Nothing
-        Main.MuleAccountTEXTBOX.Text = Nothing
-        Main.MuleNameTEXTBOX.Text = Nothing
-        Main.MulePasswordTEXTBOX.Text = Nothing
-        Main.DatabaseFileNameTEXTBOX.Text = Nothing
+        Main.MuleRealmTEXTBOX.Clear()
+        Main.MuleAccountTEXTBOX.Clear()
+        Main.MuleNameTEXTBOX.Clear()
+        Main.MulePasswordTEXTBOX.Clear()
+        Main.CoreTypeTEXTBOX.Clear()
+        Main.ItemStatsRICHTEXTBOX.Clear()
 
         Main.ItemSkinPICTUREBOX.Image = Nothing
-        Main.OpenDatabaseLABEL.Text = Nothing
+        Main.OpenDatabaseLABEL.Text = ""
 
         Main.AllItemsLISTBOX.Select()
         Main.ItemTallyTEXTBOX.Text = Main.AllItemsLISTBOX.Items.Count & " - Total Items"
