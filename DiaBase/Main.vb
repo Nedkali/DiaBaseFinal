@@ -50,7 +50,7 @@ Public Class Main
     End Sub
 
     'TIMER BUTTON pause & restart routine
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles TimerControl.Click
+    Private Sub TimerStartPauseButton(sender As Object, e As EventArgs) Handles TimerControl.Click
         If TimerControl.Text = "Pause" Then
             ImportTimer.Stop()
             TimerRestart = True
@@ -206,7 +206,8 @@ Public Class Main
     'USER LISTBOX INDEX CHANGED HANDLER         - Branches to Display Item Statistics Routine
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub UserLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles UserLISTBOX.SelectedIndexChanged
-        DisplayUserList()
+        'DisplayUserList()
+        'TODO
     End Sub
 
 
@@ -275,29 +276,15 @@ Public Class Main
     End Sub
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAY SETTINGS FORM - Settings Window Handles All Global Config Functions for the Entire Application
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SettingsToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem1.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         Settings.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
     End Sub
 
@@ -307,21 +294,12 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         DatabaseManager.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
     End Sub
-
-
-
-
-
-
-
-
-
 
 
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -383,18 +361,18 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         WriteToFile(0, AppSettings.DefaultDatabase, False)
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CREATE BACKUP BUTTONPRESS HANDLER - Branches to backup routine to create backup of current file 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub BackupMenuItem_Click(sender As Object, e As EventArgs) Handles BackupMenuItem1.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
         'Setup User Input Form For Use With The Menu BarBackup Current Database Function
         UserInput.Text = "Database Backup System"
@@ -422,7 +400,7 @@ Public Class Main
             If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
 
         End If
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
     End Sub
 
@@ -431,9 +409,9 @@ Public Class Main
     'MENU BAR - RESTORE FROM BACKUP BUTTON PRESS HANDLER - Branches to backup routine to restore the current file from backup 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub RestoreBackupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreBackupToolStripMenuItem.Click
+    Private Sub RestoreBackupMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreBackupMenuItem.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         'Setup User Input Form For Use With The Menu Bar Restore Backup Function
         UserInput.Text = "Database Backup System"
         UserInput.UserInputHeaderLABEL.Text = "RESTORE DATABASE FROM BACKUP"
@@ -472,34 +450,34 @@ Public Class Main
             End If
             If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background) 'confirmatory sound bite
         End If
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - EDIT ITEM FUNCTION - Displays edit item form and broances to EditItem.vb if 1 or more items are selected in the main listbox
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub EditExistingItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditExistingItemToolStripMenuItem.Click
+    Private Sub EditExistingItemMainMenu_Click(sender As Object, e As EventArgs) Handles EditExistingItemMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         If AllItemsLISTBOX.SelectedIndex = -1 Then
             ErrorHandler(2, 0, 0, 0) : Return
         End If
         iEdit = AllItemsLISTBOX.SelectedIndex
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         ItemEdit.ShowDialog()
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Sort ItemObjects alphabetically
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub SortItemsMainMenu_Click(sender As Object, e As EventArgs) Handles SortItemsMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         ItemTallyTEXTBOX.Text = ("Sorting A to Z)")
         ItemObjects.Sort(Function(x, y) x.ItemName.CompareTo(y.ItemName))
         PopulateAllItemsLISTBOX()
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
 
@@ -562,7 +540,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - SELLECT ALL ITEMS
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
+    Private Sub SelectAllMainMenu_Click(sender As Object, e As EventArgs) Handles SelectAllMainMenu.Click
         SendMessage(AllItemsLISTBOX.Handle, &H185, New IntPtr(1), New IntPtr(-1))
         TriggerUpdate.SetValue(AllItemsLISTBOX.SelectedItems, True)
         TriggerIndexChanged.Invoke(AllItemsLISTBOX, New Object() {New EventArgs})
@@ -573,23 +551,19 @@ Public Class Main
     'MENU BAR - OPENS ADD NEW ITEM FORM
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub AddNewItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddNewItemToolStripMenuItem.Click
+    Private Sub AddNewItemMainMenu_Click(sender As Object, e As EventArgs) Handles AddNewItemMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
-
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         ItemAdd.ShowDialog()
-        Button3_Click(sender, e)
-
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - DELETE SELECTED ITEM/S
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub DeleteItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteItemToolStripMenuItem.Click
+    Private Sub DeleteItemMainMenu_Click(sender As Object, e As EventArgs) Handles DeleteItemMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
         Dim FocusOnExit As Integer = AllItemsLISTBOX.SelectedIndex
 
@@ -600,7 +574,7 @@ Public Class Main
             For index = AllItemsLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
                 Dim a As Integer = AllItemsLISTBOX.SelectedIndices(index)
                 AllItemsLISTBOX.Items.RemoveAt(a)
-                UnDo.Add(ItemObjects(a)) : UnDoPos.Add(a) : ToolStripMenuItem6.Enabled = True
+                UnDo.Add(ItemObjects(a)) : UnDoPos.Add(a) : UndoDeleteMenuItem.Enabled = True
                 ItemObjects.RemoveAt(a)
 
                 'Removes Item From Search Listbox & Ref List
@@ -629,40 +603,40 @@ Public Class Main
 
         End If
 
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEAR SEARCH LISTING
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearSearchListToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ClearSearchListToolStripMenuItem1.Click
+    Private Sub ClearSearchListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearSearchListMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         SearchLISTBOX.Items.Clear()
         SearchReferenceList.Clear()
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEARS TRADELIST
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearTradeListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearTradeListToolStripMenuItem.Click
+    Private Sub ClearTradeListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearTradeListMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         TradeListRICHTEXTBOX.Clear()
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEARS USERLIST
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearUserListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearUserListToolStripMenuItem.Click
+    Private Sub ClearUserListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearUserListMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         UserLISTBOX.Items.Clear()
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -686,11 +660,11 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub RebuildDefaultDBaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RebuildDefaultDBaseToolStripMenuItem.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
         RichTextBox1.Text = "Checking for New Logs" & vbCrLf
         ImportLogFiles(True)
         PopulateAllItemsLISTBOX()
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -712,7 +686,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Undo delete - works but restores one at a time atm
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem6.Click
+    Private Sub UndoDeleteMenuItem_Click(sender As Object, e As EventArgs) Handles UndoDeleteMenuItem.Click
         Dim index = CInt(UnDoCount(UnDoCount.Count - 1))
         If UnDo.Count > 0 Then
             For index = CInt(UnDoCount(UnDoCount.Count - 1)) To 0 Step -1
@@ -727,7 +701,7 @@ Public Class Main
 
         End If
         If UnDo.Count < 1 Then
-            ToolStripMenuItem6.Enabled = False
+            UndoDeleteMenuItem.Enabled = False
         End If
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
     End Sub
@@ -736,24 +710,24 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'All Item List MENU - rerouted to main menu option
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SortListToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SortListToolStripMenuItem.Click
-        ToolStripMenuItem3_Click(sender, e) 'links to main menu option
+    Private Sub SortListMenuItem_Click(sender As Object, e As EventArgs) Handles SortListMenuItem.Click
+        SortItemsMainMenu_Click(sender, e) 'links to main menu option
     End Sub
 
-    Private Sub DeleteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem1.Click
-        DeleteItemToolStripMenuItem_Click(sender, e) 'links to main menu option
+    Private Sub DeleteItemsMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteItemsMenuItem.Click
+        DeleteItemMainMenu_Click(sender, e) 'links to main menu option
     End Sub
 
-    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
-        EditExistingItemToolStripMenuItem_Click(sender, e) 'links to main menu option
+    Private Sub EditItemMenuItem_Click(sender As Object, e As EventArgs) Handles EditItemMenuItem.Click
+        EditExistingItemMainMenu_Click(sender, e) 'links to main menu option
     End Sub
 
-    Private Sub SendToTradeListToolStripMenuItem3_Click_1(sender As Object, e As EventArgs) Handles SendToTradeListToolStripMenuItem3.Click
+    Private Sub SendToTradeListMenuItem_Click(sender As Object, e As EventArgs) Handles SendToTradeListMenuItem.Click
         SendToTradeListToolStripMenuItem3_Click(sender, e) 'links to main menu option
     End Sub
 
     Private Sub SelectAllToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SelectAllToolStripMenuItem1.Click
-        ToolStripMenuItem5_Click(sender, e) 'links to main menu option
+        SelectAllMainMenu_Click(sender, e) 'links to main menu option
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1124,7 +1098,7 @@ Public Class Main
 
     Private Sub AllItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllItemsToolStripMenuItem.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
 
         'Setup User Input Form For user warning
         UserInput.Text = "ALERT ALERT"
@@ -1154,7 +1128,7 @@ Public Class Main
                 ItemObjects(index).Ladder = False
             Next
         End If
-        Button3_Click(sender, e)
+        TimerStartPauseButton(sender, e)
     End Sub
 
     'sub to set to nonladder based on mule logged date
