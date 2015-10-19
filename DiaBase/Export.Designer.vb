@@ -30,13 +30,14 @@ Partial Class Export
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'ListBox1
         '
         Me.ListBox1.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(50, 70)
+        Me.ListBox1.Location = New System.Drawing.Point(37, 67)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(228, 225)
         Me.ListBox1.TabIndex = 0
@@ -47,7 +48,7 @@ Partial Class Export
         Me.Label1.BackColor = System.Drawing.SystemColors.Desktop
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(57, 45)
+        Me.Label1.Location = New System.Drawing.Point(44, 42)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(109, 20)
         Me.Label1.TabIndex = 1
@@ -62,10 +63,10 @@ Partial Class Export
         Me.CreateFileBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.CreateFileBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CreateFileBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.CreateFileBUTTON.Location = New System.Drawing.Point(334, 331)
+        Me.CreateFileBUTTON.Location = New System.Drawing.Point(292, 330)
         Me.CreateFileBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.CreateFileBUTTON.Name = "CreateFileBUTTON"
-        Me.CreateFileBUTTON.Size = New System.Drawing.Size(85, 25)
+        Me.CreateFileBUTTON.Size = New System.Drawing.Size(146, 25)
         Me.CreateFileBUTTON.TabIndex = 903
         Me.CreateFileBUTTON.Text = "Create"
         Me.CreateFileBUTTON.UseVisualStyleBackColor = False
@@ -75,14 +76,15 @@ Partial Class Export
         Me.ExportButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ExportButton.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ExportButton.BackgroundImage = CType(resources.GetObject("ExportButton.BackgroundImage"), System.Drawing.Image)
+        Me.ExportButton.Enabled = False
         Me.ExportButton.FlatAppearance.BorderSize = 2
         Me.ExportButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExportButton.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ExportButton.Location = New System.Drawing.Point(334, 85)
+        Me.ExportButton.Location = New System.Drawing.Point(292, 146)
         Me.ExportButton.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.ExportButton.Name = "ExportButton"
-        Me.ExportButton.Size = New System.Drawing.Size(85, 25)
+        Me.ExportButton.Size = New System.Drawing.Size(146, 25)
         Me.ExportButton.TabIndex = 904
         Me.ExportButton.Text = "Expot"
         Me.ExportButton.UseVisualStyleBackColor = False
@@ -96,10 +98,10 @@ Partial Class Export
         Me.CancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CancelButton.ForeColor = System.Drawing.Color.BurlyWood
-        Me.CancelButton.Location = New System.Drawing.Point(334, 198)
+        Me.CancelButton.Location = New System.Drawing.Point(292, 233)
         Me.CancelButton.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(85, 25)
+        Me.CancelButton.Size = New System.Drawing.Size(146, 25)
         Me.CancelButton.TabIndex = 905
         Me.CancelButton.Text = "Cancel"
         Me.CancelButton.UseVisualStyleBackColor = False
@@ -107,10 +109,10 @@ Partial Class Export
         'TextBox1
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox1.ForeColor = System.Drawing.SystemColors.ScrollBar
-        Me.TextBox1.Location = New System.Drawing.Point(50, 336)
+        Me.TextBox1.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.TextBox1.Location = New System.Drawing.Point(37, 333)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(129, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(177, 20)
         Me.TextBox1.TabIndex = 906
         '
         'Label2
@@ -119,11 +121,23 @@ Partial Class Export
         Me.Label2.BackColor = System.Drawing.SystemColors.Desktop
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(51, 313)
+        Me.Label2.Location = New System.Drawing.Point(38, 310)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(115, 20)
         Me.Label2.TabIndex = 907
         Me.Label2.Text = "New File Name"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.BackColor = System.Drawing.SystemColors.ControlText
+        Me.CheckBox1.ForeColor = System.Drawing.Color.BurlyWood
+        Me.CheckBox1.Location = New System.Drawing.Point(292, 79)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(146, 17)
+        Me.CheckBox1.TabIndex = 908
+        Me.CheckBox1.Text = "Delete Item/s after export"
+        Me.CheckBox1.UseVisualStyleBackColor = False
         '
         'Export
         '
@@ -131,7 +145,8 @@ Partial Class Export
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(496, 402)
+        Me.ClientSize = New System.Drawing.Size(477, 402)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.CancelButton)
@@ -139,6 +154,8 @@ Partial Class Export
         Me.Controls.Add(Me.CreateFileBUTTON)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ListBox1)
+        Me.MaximumSize = New System.Drawing.Size(493, 440)
+        Me.MinimumSize = New System.Drawing.Size(493, 440)
         Me.Name = "Export"
         Me.Text = "Export"
         Me.ResumeLayout(False)
@@ -153,4 +170,5 @@ Partial Class Export
     Friend WithEvents CancelButton As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

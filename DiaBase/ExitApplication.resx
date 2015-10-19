@@ -126,7 +126,7 @@ If you wish to save and backup please check the appropriate checkboxes below bef
   <data name="ExitApplicationConfirmBUTTON.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARQAAAA+CAYAAADqMOSdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAABkuSURBVHhe7d0vl6bFtcbh+QgIBAKBQIxAjEAgEIiIiIiI
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AABkuSURBVHhe7d0vl6bFtcbh+QgIBAKBQIxAjEAgEIiIiIiI
         CEREBAKBiIjMd8956+W5ij2/7kqzzslaSTiPuNfq/f/eu6o23W/PDO+++OKLf0y8f//+ia+++uofHz58
         eOK777574ptvvnnid999+zN+97snvv7m2ydWzAL5D3/4w0cQL+/XX3/9hLgvv/zyCRzkKb799meoD+Wp
         zqkevXzsX3z26RPsf/rTnza+//77J/QkFn7/+99/BJxw/POf//zEjz/++MQPP/zwEf74xz8+MftakF9v
@@ -240,7 +240,7 @@ If you wish to save and backup please check the appropriate checkboxes below bef
   <data name="ExitApplicationCancelBUTTON.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARQAAAA+CAYAAADqMOSdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAABkuSURBVHhe7d0vl6bFtcbh+QgIBAKBQIxAjEAgEIiIiIiI
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AABkuSURBVHhe7d0vl6bFtcbh+QgIBAKBQIxAjEAgEIiIiIiI
         CEREBAKBiIjMd8956+W5ij2/7kqzzslaSTiPuNfq/f/eu6o23W/PDO+++OKLf0y8f//+ia+++uofHz58
         eOK777574ptvvnnid999+zN+97snvv7m2ydWzAL5D3/4w0cQL+/XX3/9hLgvv/zyCRzkKb799meoD+Wp
         zqkevXzsX3z26RPsf/rTnza+//77J/QkFn7/+99/BJxw/POf//zEjz/++MQPP/zwEf74xz8+MftakF9v

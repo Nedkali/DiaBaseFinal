@@ -1234,9 +1234,9 @@ Public Class Main
             AllItemsLISTBOX.Items.RemoveAt(b)
             ItemObjects.RemoveAt(b)
             SearchReferenceList.RemoveAt(a)
-            For x = a To SearchReferenceList.Count - 1
-                SearchReferenceList(x) = SearchReferenceList(x) - 1
-            Next
+            'For x = a To SearchReferenceList.Count - 1' redundant ?
+            '    SearchReferenceList(x) = SearchReferenceList(x) - 1
+            'Next
         Next
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
 
