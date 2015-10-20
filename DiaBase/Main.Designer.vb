@@ -535,7 +535,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 248)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 238)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -1658,7 +1658,7 @@ Partial Class Main
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(25, 247)
+        Me.Label4.Location = New System.Drawing.Point(25, 236)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262
@@ -1667,7 +1667,7 @@ Partial Class Main
         '
         Me.UserListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListToolStripMenuItem, Me.SelectAllToolStripMenuItem2, Me.OpenContainingDatabaseToolStripMenuItem})
         Me.UserListCONTEXTMENUSTRIP.Name = "UserListCONTEXTMENUSTRIP"
-        Me.UserListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(221, 92)
+        Me.UserListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(221, 70)
         '
         'SendToTradeListToolStripMenuItem
         '

@@ -1082,6 +1082,36 @@ Public Class Main
 
 
 
+    Private Sub ClearItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearItemsToolStripMenuItem.Click
+        'Clear all items from User Ref List When Selected from context menu
+
+        Dim ReturnLocation As Integer = -1
+
+        If UserLISTBOX.SelectedIndex > 0 Then ReturnLocation = UserLISTBOX.SelectedIndex ' puts the highlight bar one above the fist item deleted in the 
+        '                                                                                   '  block after clear is finished for easier user refrence
+        '                                                                                   '  if there is only one item before delete no item is highlighted
+        If UserLISTBOX.SelectedIndices.Count = 1 Then
+            UserObjects.RemoveAt(UserLISTBOX.SelectedIndex)
+            UserLISTBOX.Items.RemoveAt(UserLISTBOX.SelectedIndex)
+        Else
+            For ItemIndex = UserLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
+                UserObjects.RemoveAt(ItemIndex)
+                UserLISTBOX.Items.RemoveAt(ItemIndex)
+            Next
+        End If
+
+
+        If UserLISTBOX.SelectedIndex = -1 Then
+            MuleNameTEXTBOX.Text = Nothing
+            MulePasswordTEXTBOX.Text = Nothing
+            ItemStatsRICHTEXTBOX.Text = Nothing
+            ItemSkinPICTUREBOX.Image = Nothing
+            DatabaseFileNameTEXTBOX.Text = Nothing
+        End If
+        UserLISTBOX.SelectedIndex = -1
+        UserLISTBOX.SelectedIndex = ReturnLocation
+
+    End Sub
 
 
 
@@ -1542,5 +1572,13 @@ Public Class Main
 
     Private Sub AddItemItemsCMenu_Click(sender As Object, e As EventArgs) Handles AddItemItemsCMenu.Click
 
+    End Sub
+
+    Private Sub UserLISTBOX_MouseDown(sender As Object, e As MouseEventArgs) Handles UserLISTBOX.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If UserLISTBOX.Items.Count > 0 Then
+                Me.UserListCONTEXTMENUSTRIP.Show(Control.MousePosition)
+            End If
+        End If
     End Sub
 End Class
