@@ -205,10 +205,186 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'USER LISTBOX INDEX CHANGED HANDLER         - Branches to Display Item Statistics Routine
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    'Sets the UserListbox.SelectedItem the same as the AllItemsInDatabaseListbox.SelectedItems to trigger the items stats to be displayed
     Private Sub UserLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles UserLISTBOX.SelectedIndexChanged
-        'DisplayUserList()
-        'TODO
+
+        'Sets User Items as TallyLabel value when only 1 item is selected else it sets TallyLabel value as SelectedItems.count
+        If UserLISTBOX.SelectedItems.Count <= 1 Then
+            ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Items")
+        ElseIf UserLISTBOX.SelectedItems.Count > 1 Then
+            ItemTallyTEXTBOX.Text = (UserLISTBOX.SelectedItems.Count & " - Selected")
+        End If
+
+
+        'enables or disables the open containing database function is user list contet menu 
+        If UserLISTBOX.SelectedItems.Count = 1 Then
+            If UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename <> DatabaseFileNameTEXTBOX.Text Then OpenContainingDatabaseToolStripMenuItem.Enabled = True Else OpenContainingDatabaseToolStripMenuItem.Enabled = False
+        Else
+            OpenContainingDatabaseToolStripMenuItem.Enabled = False
+        End If
+
+        'enables or disables send to trade list depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then SendToTradeListToolStripMenuItem1.Enabled = True Else SendToTradeListToolStripMenuItem1.Enabled = False
+
+        'enables or disables delete depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then DeleteItemsToolStripMenuItem1.Enabled = True Else DeleteItemsToolStripMenuItem1.Enabled = False
+
+        'enables or disables export items depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then ExportItemsToolStripMenuItem.Enabled = True Else ExportItemsToolStripMenuItem.Enabled = False
+
+
+
+
+
+        'New method like main listbox to draw stats from user list database (as i apply them to test) rev 29
+        '----------------------------------------------------------------------------------------------
+        If UserLISTBOX.SelectedIndex <> -1 Then
+            Dim RowNumber As Integer = UserLISTBOX.SelectedIndex
+            If RowNumber = -1 Then Return ' do nothing
+            If RowNumber >= 0 Then
+                ItemStatsRICHTEXTBOX.Text = Nothing
+
+                MuleAccountTEXTBOX.Clear()
+                MuleNameTEXTBOX.Clear()
+                MulePasswordTEXTBOX.Clear()
+
+                Dim DisplayType As String = UserObjects(RowNumber).ItemQuality
+                Dim count As Integer = UserObjects(RowNumber).ItemQuality.Length
+                If DisplayType = "Normal" Or DisplayType = "Superior" Then
+                    If UserObjects(RowNumber).ItemBase = "Rune" Then
+                        ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
+                        ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                    End If
+
+                    If UserObjects(RowNumber).ItemBase = "Quest" Then
+                        ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
+                        ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                    End If
+
+                    If UserObjects(RowNumber).ItemName.IndexOf("Rune") = -1 And UserObjects(RowNumber).ItemBase <> "Quest" Then
+                        ItemStatsRICHTEXTBOX.SelectionColor = Color.White
+                        ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                    End If
+                End If
+                If DisplayType = "Magic" Then
+                    ItemStatsRICHTEXTBOX.SelectionColor = Color.DodgerBlue
+                    ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                End If
+                If DisplayType = "Rare" Then
+                    ItemStatsRICHTEXTBOX.SelectionColor = Color.Yellow
+                    ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                End If
+                If DisplayType = "Crafted" Then
+                    ItemStatsRICHTEXTBOX.SelectionColor = Color.DarkGoldenrod
+                    ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                End If
+                If DisplayType = "Set" Then
+                    ItemStatsRICHTEXTBOX.SelectionColor = Color.Green
+                    ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                End If
+                If DisplayType = "Unique" Then
+                    ItemStatsRICHTEXTBOX.SelectionColor = Color.BurlyWood
+                    ItemStatsRICHTEXTBOX.SelectedText = UserObjects(RowNumber).ItemName & vbCrLf
+                End If
+
+                ItemStatsRICHTEXTBOX.AppendText(vbCrLf) ' add a spacing line between item name and item stats (looks neater) ROBS EDIT
+
+                count = ItemStatsRICHTEXTBOX.TextLength
+
+
+                If UserObjects(RowNumber).Defense <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("Defense: " & UserObjects(RowNumber).Defense & vbCrLf)
+                If UserObjects(RowNumber).ChanceToBlock <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("ChanceToBlock: " & UserObjects(RowNumber).ChanceToBlock & vbCrLf)
+                If UserObjects(RowNumber).OneHandDamageMax <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("OneHandDamage: " & UserObjects(RowNumber).OneHandDamageMin & " To " & UserObjects(RowNumber).OneHandDamageMax & vbCrLf)
+                If UserObjects(RowNumber).TwoHandDamageMax <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("TwoHandDamage: " & UserObjects(RowNumber).TwoHandDamageMin & " To " & UserObjects(RowNumber).TwoHandDamageMax & vbCrLf)
+                If UserObjects(RowNumber).DurabilityMin <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("Durability: " & UserObjects(RowNumber).DurabilityMin & " of " & UserObjects(RowNumber).DurabilityMax & vbCrLf)
+                If UserObjects(RowNumber).RequiredStrength <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("Required Strength: " & UserObjects(RowNumber).RequiredStrength & vbCrLf)
+                If UserObjects(RowNumber).RequiredDexterity <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("Required Dexterity: " & UserObjects(RowNumber).RequiredDexterity & vbCrLf)
+                If UserObjects(RowNumber).RequiredLevel <> Nothing Then ItemStatsRICHTEXTBOX.AppendText("Required Level: " & UserObjects(RowNumber).RequiredLevel & vbCrLf)
+
+                'ROBS EDIT - includes attack class in the main stat display  as opposed to the unique attibutes block?
+                If UserObjects(RowNumber).AttackClass <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).AttackClass & " Class") : If UserObjects(RowNumber).AttackSpeed <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(" - " & UserObjects(RowNumber).AttackSpeed & vbCrLf) Else ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+
+                ItemStatsRICHTEXTBOX.AppendText(vbCrLf) ' add a spacing line between item stats and unique attributes (looks neater) ROBS EDIT
+
+                Dim count2 As Integer = ItemStatsRICHTEXTBOX.TextLength - count
+                ItemStatsRICHTEXTBOX.Select(count, count2)
+                ItemStatsRICHTEXTBOX.SelectionColor = Color.White
+
+
+                If UserObjects(RowNumber).Stat1 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat1 & vbCrLf)
+                If UserObjects(RowNumber).Stat2 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat2 & vbCrLf)
+                If UserObjects(RowNumber).Stat3 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat3 & vbCrLf)
+                If UserObjects(RowNumber).Stat4 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat4 & vbCrLf)
+                If UserObjects(RowNumber).Stat5 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat5 & vbCrLf)
+                If UserObjects(RowNumber).Stat6 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat6 & vbCrLf)
+                If UserObjects(RowNumber).Stat7 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat7 & vbCrLf)
+                If UserObjects(RowNumber).Stat8 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat8 & vbCrLf)
+                If UserObjects(RowNumber).Stat9 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat9 & vbCrLf)
+                If UserObjects(RowNumber).Stat10 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat10 & vbCrLf)
+                If UserObjects(RowNumber).Stat11 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat11 & vbCrLf)
+                If UserObjects(RowNumber).Stat12 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat12 & vbCrLf)
+                If UserObjects(RowNumber).Stat13 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat13 & vbCrLf)
+                If UserObjects(RowNumber).Stat14 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat14 & vbCrLf)
+                If UserObjects(RowNumber).Stat15 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(UserObjects(RowNumber).Stat15 & vbCrLf)
+                MuleAccountTEXTBOX.Text = UserObjects(RowNumber).MuleAccount
+                MuleNameTEXTBOX.Text = UserObjects(RowNumber).MuleName
+                DatabaseFileNameTEXTBOX.Text = UserObjects(RowNumber).DatabaseFilename
+
+                'converts pass to '***' with function if hide pass is set
+                'If AppSettings.HideMulePass = True Then MulePasswordTEXTBOX.Text =                         Else MulePasswordTEXTBOX.Text = UserObjects(RowNumber).MulePass
+
+            End If
+            ItemStatsRICHTEXTBOX.SelectAll()
+            ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
+            'ItemSkinPICTUREBOX.Load("Skins\" + ItemImageList(UserObjects(RowNumber).ItemImage) + ".jpg")
+        End If
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -903,6 +1079,28 @@ Public Class Main
 
         End Select
     End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     Sub DisplayItemStats(ItemIndex)
         If ItemIndex < 0 Or ItemIndex >= ItemObjects.Count Then

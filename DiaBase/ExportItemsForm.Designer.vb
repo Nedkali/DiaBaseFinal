@@ -230,7 +230,7 @@ Partial Class ExportItemsForm
         Me.MaximizeBox = False
         Me.Name = "ExportItemsForm"
         Me.ShowIcon = False
-        Me.Text = "Export Items To destination Database"
+        Me.Text = "Export Items To Destination Database"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
