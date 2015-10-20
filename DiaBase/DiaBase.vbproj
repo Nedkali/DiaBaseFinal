@@ -123,6 +123,12 @@
     <Compile Include="Export.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ExportItemsForm.Designer.vb">
+      <DependentUpon>ExportItemsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExportItemsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalVars.vb" />
     <Compile Include="Help.Designer.vb">
       <DependentUpon>Help.vb</DependentUpon>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Export.resx">
       <DependentUpon>Export.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportItemsForm.resx">
+      <DependentUpon>ExportItemsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.vb</DependentUpon>
