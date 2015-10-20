@@ -57,6 +57,8 @@ Partial Class ExitApplication
         '
         Me.ExitApplicationSaveDatabaseCHECKBOX.AutoSize = True
         Me.ExitApplicationSaveDatabaseCHECKBOX.BackColor = System.Drawing.Color.Black
+        Me.ExitApplicationSaveDatabaseCHECKBOX.Checked = True
+        Me.ExitApplicationSaveDatabaseCHECKBOX.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ExitApplicationSaveDatabaseCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
         Me.ExitApplicationSaveDatabaseCHECKBOX.Location = New System.Drawing.Point(40, 150)
         Me.ExitApplicationSaveDatabaseCHECKBOX.Name = "ExitApplicationSaveDatabaseCHECKBOX"
@@ -109,7 +111,7 @@ Partial Class ExitApplication
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(398, 224)
+        Me.ClientSize = New System.Drawing.Size(398, 223)
         Me.ControlBox = False
         Me.Controls.Add(Me.ExitApplicationHeaderLABEL)
         Me.Controls.Add(Me.ExitApplicationInformationLABEL)
