@@ -896,7 +896,7 @@ Partial Class Main
         '
         Me.PictureBox2.BackgroundImage = Global.DiaBase.My.Resources.Resources.Gem
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.PictureBox2.Location = New System.Drawing.Point(420, 208)
+        Me.PictureBox2.Location = New System.Drawing.Point(420, 201)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
         Me.PictureBox2.TabIndex = 313
@@ -1391,7 +1391,7 @@ Partial Class Main
         Me.EastRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.EastRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EastRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EastRealmCHECKBOX.Location = New System.Drawing.Point(55, 164)
+        Me.EastRealmCHECKBOX.Location = New System.Drawing.Point(55, 161)
         Me.EastRealmCHECKBOX.Name = "EastRealmCHECKBOX"
         Me.EastRealmCHECKBOX.Size = New System.Drawing.Size(47, 17)
         Me.EastRealmCHECKBOX.TabIndex = 328
@@ -1404,7 +1404,7 @@ Partial Class Main
         Me.WestRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.WestRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.WestRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.WestRealmCHECKBOX.Location = New System.Drawing.Point(139, 164)
+        Me.WestRealmCHECKBOX.Location = New System.Drawing.Point(139, 161)
         Me.WestRealmCHECKBOX.Name = "WestRealmCHECKBOX"
         Me.WestRealmCHECKBOX.Size = New System.Drawing.Size(51, 17)
         Me.WestRealmCHECKBOX.TabIndex = 329
@@ -1417,7 +1417,7 @@ Partial Class Main
         Me.AsiaRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.AsiaRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.AsiaRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AsiaRealmCHECKBOX.Location = New System.Drawing.Point(221, 164)
+        Me.AsiaRealmCHECKBOX.Location = New System.Drawing.Point(221, 161)
         Me.AsiaRealmCHECKBOX.Name = "AsiaRealmCHECKBOX"
         Me.AsiaRealmCHECKBOX.Size = New System.Drawing.Size(46, 17)
         Me.AsiaRealmCHECKBOX.TabIndex = 330
@@ -1430,7 +1430,7 @@ Partial Class Main
         Me.EuropeRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.EuropeRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EuropeRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EuropeRealmCHECKBOX.Location = New System.Drawing.Point(293, 164)
+        Me.EuropeRealmCHECKBOX.Location = New System.Drawing.Point(293, 161)
         Me.EuropeRealmCHECKBOX.Name = "EuropeRealmCHECKBOX"
         Me.EuropeRealmCHECKBOX.Size = New System.Drawing.Size(60, 17)
         Me.EuropeRealmCHECKBOX.TabIndex = 331
