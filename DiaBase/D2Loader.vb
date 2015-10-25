@@ -99,7 +99,8 @@
             WriteFile.WriteLine("           break;")
 
             WriteFile.WriteLine("       case 8:")
-            WriteFile.WriteLine("           SelectRealm(""" & ItemObjects(x).ItemRealm & """);")
+            WriteFile.WriteLine("           ClickScreen(0, 295, 315);") ' SinglePlayer
+            'WriteFile.WriteLine("           SelectRealm(""" & ItemObjects(x).ItemRealm & """);")
             WriteFile.WriteLine("           Sleep(1000);")
             WriteFile.WriteLine("           break;")
 
@@ -109,16 +110,16 @@
             WriteFile.WriteLine("           break;")
 
             WriteFile.WriteLine("       case 12:")
-            ' WriteFile.WriteLine("           SelectChar(""SugarLips"");")
-            WriteFile.WriteLine("           SelectChar(""" & ItemObjects(x).MuleName & """);")
+            WriteFile.WriteLine("           SelectChar(""SugarLips"");")
+            'WriteFile.WriteLine("           SelectChar(""" & ItemObjects(x).MuleName & """);")
             WriteFile.WriteLine("           Sleep(1000);")
             WriteFile.WriteLine("           break;")
 
 
-            ' WriteFile.WriteLine("       case 20:")
-            ' WriteFile.WriteLine("           ClickScreen(0, 300, 272);") ' normal difficulty
-            ' WriteFile.WriteLine("           Sleep(1000);")
-            ' WriteFile.WriteLine("           break;")
+            WriteFile.WriteLine("       case 20:")
+            WriteFile.WriteLine("           ClickScreen(0, 300, 272);") ' normal difficulty
+            WriteFile.WriteLine("           Sleep(1000);")
+            WriteFile.WriteLine("           break;")
 
             WriteFile.WriteLine("        default:")
             WriteFile.WriteLine("           Sleep(1000);")
