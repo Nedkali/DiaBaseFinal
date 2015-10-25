@@ -125,9 +125,9 @@ Partial Class Main
         Me.ListsLABEL = New System.Windows.Forms.Label()
         Me.ItemStatsRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.ListboxTABCONTROL = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ItemListTABPAGE = New System.Windows.Forms.TabPage()
         Me.AllItemsLISTBOX = New System.Windows.Forms.ListBox()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.SearchListTABPAGE = New System.Windows.Forms.TabPage()
         Me.SearchLISTBOX = New System.Windows.Forms.ListBox()
         Me.SearchListCONTEXTMENUSTRIP = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SendToTradeListSearchMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -139,13 +139,13 @@ Partial Class Main
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TradeListTABPAGE = New System.Windows.Forms.TabPage()
         Me.TradeListRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.TradeListCONTEXTMENUSTRIP = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CombineDupesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.UserListTABPAGE = New System.Windows.Forms.TabPage()
         Me.UserLISTBOX = New System.Windows.Forms.ListBox()
         Me.ItemAndMuleLABEL = New System.Windows.Forms.Label()
         Me.AutoLoggingLABEL = New System.Windows.Forms.Label()
@@ -193,12 +193,12 @@ Partial Class Main
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchValueNUMERICUPDWN, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ListboxTABCONTROL.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.ItemListTABPAGE.SuspendLayout()
+        Me.SearchListTABPAGE.SuspendLayout()
         Me.SearchListCONTEXTMENUSTRIP.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
+        Me.TradeListTABPAGE.SuspendLayout()
         Me.TradeListCONTEXTMENUSTRIP.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.UserListTABPAGE.SuspendLayout()
         CType(Me.ItemSkinPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ItemListboxCONTEXTMENUSTRIP.SuspendLayout()
         Me.SpecialStatsTABLELAYOUT.SuspendLayout()
@@ -535,7 +535,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 238)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 248)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -1097,10 +1097,10 @@ Partial Class Main
         'ListboxTABCONTROL
         '
         Me.ListboxTABCONTROL.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.ListboxTABCONTROL.Controls.Add(Me.TabPage1)
-        Me.ListboxTABCONTROL.Controls.Add(Me.TabPage2)
-        Me.ListboxTABCONTROL.Controls.Add(Me.TabPage3)
-        Me.ListboxTABCONTROL.Controls.Add(Me.TabPage4)
+        Me.ListboxTABCONTROL.Controls.Add(Me.ItemListTABPAGE)
+        Me.ListboxTABCONTROL.Controls.Add(Me.SearchListTABPAGE)
+        Me.ListboxTABCONTROL.Controls.Add(Me.TradeListTABPAGE)
+        Me.ListboxTABCONTROL.Controls.Add(Me.UserListTABPAGE)
         Me.ListboxTABCONTROL.Location = New System.Drawing.Point(26, 255)
         Me.ListboxTABCONTROL.Margin = New System.Windows.Forms.Padding(0)
         Me.ListboxTABCONTROL.Name = "ListboxTABCONTROL"
@@ -1109,17 +1109,17 @@ Partial Class Main
         Me.ListboxTABCONTROL.Size = New System.Drawing.Size(381, 481)
         Me.ListboxTABCONTROL.TabIndex = 278
         '
-        'TabPage1
+        'ItemListTABPAGE
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.Black
-        Me.TabPage1.Controls.Add(Me.AllItemsLISTBOX)
-        Me.TabPage1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(373, 455)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Item List"
+        Me.ItemListTABPAGE.BackColor = System.Drawing.Color.Black
+        Me.ItemListTABPAGE.Controls.Add(Me.AllItemsLISTBOX)
+        Me.ItemListTABPAGE.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ItemListTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.ItemListTABPAGE.Name = "ItemListTABPAGE"
+        Me.ItemListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
+        Me.ItemListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.ItemListTABPAGE.TabIndex = 0
+        Me.ItemListTABPAGE.Text = "Item List"
         '
         'AllItemsLISTBOX
         '
@@ -1134,17 +1134,17 @@ Partial Class Main
         Me.AllItemsLISTBOX.Size = New System.Drawing.Size(367, 449)
         Me.AllItemsLISTBOX.TabIndex = 22
         '
-        'TabPage2
+        'SearchListTABPAGE
         '
-        Me.TabPage2.BackColor = System.Drawing.Color.Black
-        Me.TabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TabPage2.Controls.Add(Me.SearchLISTBOX)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(373, 455)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Search List"
+        Me.SearchListTABPAGE.BackColor = System.Drawing.Color.Black
+        Me.SearchListTABPAGE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SearchListTABPAGE.Controls.Add(Me.SearchLISTBOX)
+        Me.SearchListTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.SearchListTABPAGE.Name = "SearchListTABPAGE"
+        Me.SearchListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
+        Me.SearchListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.SearchListTABPAGE.TabIndex = 1
+        Me.SearchListTABPAGE.Text = "Search List"
         '
         'SearchLISTBOX
         '
@@ -1218,15 +1218,15 @@ Partial Class Main
         Me.ExportSearchCMenu.Size = New System.Drawing.Size(181, 22)
         Me.ExportSearchCMenu.Text = "Export"
         '
-        'TabPage3
+        'TradeListTABPAGE
         '
-        Me.TabPage3.BackColor = System.Drawing.Color.Black
-        Me.TabPage3.Controls.Add(Me.TradeListRICHTEXTBOX)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(373, 455)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "TabPage3"
+        Me.TradeListTABPAGE.BackColor = System.Drawing.Color.Black
+        Me.TradeListTABPAGE.Controls.Add(Me.TradeListRICHTEXTBOX)
+        Me.TradeListTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.TradeListTABPAGE.Name = "TradeListTABPAGE"
+        Me.TradeListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.TradeListTABPAGE.TabIndex = 2
+        Me.TradeListTABPAGE.Text = "Trade List"
         '
         'TradeListRICHTEXTBOX
         '
@@ -1264,16 +1264,16 @@ Partial Class Main
         Me.ClearAllToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.ClearAllToolStripMenuItem.Text = "Clear All"
         '
-        'TabPage4
+        'UserListTABPAGE
         '
-        Me.TabPage4.Controls.Add(Me.UserLISTBOX)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(373, 455)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "TabPage4"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.UserListTABPAGE.Controls.Add(Me.UserLISTBOX)
+        Me.UserListTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.UserListTABPAGE.Name = "UserListTABPAGE"
+        Me.UserListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
+        Me.UserListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.UserListTABPAGE.TabIndex = 3
+        Me.UserListTABPAGE.Text = "User List"
+        Me.UserListTABPAGE.UseVisualStyleBackColor = True
         '
         'UserLISTBOX
         '
@@ -1658,7 +1658,7 @@ Partial Class Main
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(25, 236)
+        Me.Label4.Location = New System.Drawing.Point(25, 247)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262
@@ -1723,7 +1723,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.D2Data
+        Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.MainBackground
         Me.ClientSize = New System.Drawing.Size(794, 762)
         Me.Controls.Add(Me.SpecialStatsTABLELAYOUT)
         Me.Controls.Add(Me.EuropeRealmCHECKBOX)
@@ -1808,12 +1808,12 @@ Partial Class Main
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchValueNUMERICUPDWN, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ListboxTABCONTROL.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
+        Me.ItemListTABPAGE.ResumeLayout(False)
+        Me.SearchListTABPAGE.ResumeLayout(False)
         Me.SearchListCONTEXTMENUSTRIP.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
+        Me.TradeListTABPAGE.ResumeLayout(False)
         Me.TradeListCONTEXTMENUSTRIP.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
+        Me.UserListTABPAGE.ResumeLayout(False)
         CType(Me.ItemSkinPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ItemListboxCONTEXTMENUSTRIP.ResumeLayout(False)
         Me.SpecialStatsTABLELAYOUT.ResumeLayout(False)
@@ -1908,13 +1908,13 @@ Partial Class Main
     Friend WithEvents ListsLABEL As System.Windows.Forms.Label
     Friend WithEvents ItemStatsRICHTEXTBOX As System.Windows.Forms.RichTextBox
     Friend WithEvents ListboxTABCONTROL As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents ItemListTABPAGE As System.Windows.Forms.TabPage
     Friend WithEvents AllItemsLISTBOX As System.Windows.Forms.ListBox
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents SearchListTABPAGE As System.Windows.Forms.TabPage
     Friend WithEvents SearchLISTBOX As System.Windows.Forms.ListBox
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents TradeListTABPAGE As System.Windows.Forms.TabPage
     Friend WithEvents TradeListRICHTEXTBOX As System.Windows.Forms.RichTextBox
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents UserListTABPAGE As System.Windows.Forms.TabPage
     Friend WithEvents UserLISTBOX As System.Windows.Forms.ListBox
     Friend WithEvents ItemAndMuleLABEL As System.Windows.Forms.Label
     Friend WithEvents AutoLoggingLABEL As System.Windows.Forms.Label
