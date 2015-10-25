@@ -22,7 +22,7 @@ Public Class Export
         Next
     End Sub
 
-    Private Sub CreateFileBUTTON_Click(sender As Object, e As EventArgs) Handles CreateFileBUTTON.Click
+    Private Sub CreateFileBUTTON_Click(sender As Object, e As EventArgs)
 
         Dim temp = TextBox1.Text
         If temp.Length = 0 Then Return
@@ -37,13 +37,13 @@ Public Class Export
         GetFileList()
     End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
         If ListBox1.SelectedIndex > -1 Then
             ExportButton.Enabled = True
         End If
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton1.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
