@@ -9,6 +9,7 @@
             Dim count As Integer = 0
             For index = 0 To Main.AllItemsLISTBOX.SelectedIndices.Count - 1
                 transferobjects(Main.AllItemsLISTBOX.SelectedIndices(index))
+                UserListReferenceList.Add(Main.AllItemsLISTBOX.SelectedIndices(index))
             Next
             Main.AllItemsLISTBOX.SelectedIndex = -1
         End If
@@ -123,7 +124,7 @@
             Return
         End If
 
-        Main.DatabaseFileLabel.Show()
+        Main.DatabaseFileLABEL.Show()
         Main.ItemStatsRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
         'Display mule details

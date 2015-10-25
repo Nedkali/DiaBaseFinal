@@ -227,14 +227,9 @@ Public Class Main
             OpenContainingDatabaseToolStripMenuItem.Enabled = False
         End If
 
-        'enables or disables send to trade list depending if current database holds the selected item
-        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then SendToTradeListToolStripMenuItem1.Enabled = True Else SendToTradeListToolStripMenuItem1.Enabled = False
 
-        'enables or disables delete depending if current database holds the selected item
-        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then DeleteItemsToolStripMenuItem1.Enabled = True Else DeleteItemsToolStripMenuItem1.Enabled = False
 
-        'enables or disables export items depending if current database holds the selected item
-        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then ExportItemsToolStripMenuItem.Enabled = True Else ExportItemsToolStripMenuItem.Enabled = False
+
 
         UserListFunctions.DisplayUserList() ' Branch to UserFunction module to run sub to display stats for selected user list item
 
@@ -293,7 +288,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
-        DatabaseFileLabel.Hide()
+        DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
     End Sub
 
@@ -308,7 +303,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Matches"
-        DatabaseFileLabel.Hide()
+        DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
     End Sub
 
@@ -322,7 +317,7 @@ Public Class Main
         SearchListControlTabBUTTON.BackgroundImage = Nothing
         ListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
-        DatabaseFileLabel.Hide()
+        DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
         Dim TradeItemCounter As Integer = 0
         For Each item In TradeListRICHTEXTBOX.Lines
@@ -343,7 +338,7 @@ Public Class Main
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
         ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Entries")
-        DatabaseFileLabel.Show()
+        DatabaseFileLABEL.Show()
         DatabaseFileNameTEXTBOX.Show()
     End Sub
 
@@ -973,7 +968,22 @@ Public Class Main
                 ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
                 DialogResult = ErrorHandlerForm.ShowDialog()
 
+            Case 1001 'IMPORT ITEMS TO DATABASE - EXPORT FORM - Unexpected Error - Item Export Has Failed
+
+                ErrorHandlerForm.ErrorTrapHeaderLABEL.Text = "UNEXPECTED ERROR EXPORTING ITEMS"
+                ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Visible = True
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Text = "Cancel Import"
+                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase cannot export the selected items. The export has failed... " & vbCrLf & vbCrLf & "SYSTEM ERROR:" & vbCrLf & vbCrLf & SystemCode
+                ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
+                DialogResult = ErrorHandlerForm.ShowDialog()
+
         End Select
+
+
+
+
+
     End Sub
 
 
@@ -1455,12 +1465,6 @@ Public Class Main
         My.Computer.Clipboard.SetText(TradeListRICHTEXTBOX.Text)
     End Sub
 
-    Private Sub ExportSearchCMenu_Click(sender As Object, e As EventArgs) Handles ExportSearchCMenu.Click
-        ImportTimer.Stop()
-        Export.ShowDialog()
-        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        ImportTimer.Start()
-    End Sub
 
     Private Sub ClearAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearAllToolStripMenuItem.Click
         TradeListRICHTEXTBOX.Clear()
@@ -1471,10 +1475,41 @@ Public Class Main
     End Sub
 
     Private Sub UserLISTBOX_MouseDown(sender As Object, e As MouseEventArgs) Handles UserLISTBOX.MouseDown
+
+
+
+
+        'Display User List Context Menu
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If UserLISTBOX.Items.Count > 0 Then
                 Me.UserListCONTEXTMENUSTRIP.Show(Control.MousePosition)
             End If
         End If
+    End Sub
+
+    Private Sub ExportItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportItemsToolStripMenuItem.Click
+        ImportTimer.Stop()
+        Export.ShowDialog()
+        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+        ImportTimer.Start()
+    End Sub
+
+    'logic arguments for context  sensitive options in user list context menu
+    Private Sub UserListCONTEXTMENUSTRIP_Opened(sender As Object, e As EventArgs) Handles UserListCONTEXTMENUSTRIP.Opened
+
+        '================================================================================================================================================================================================
+        'ROBS NOTE TO HIMSELF:  CHECK THE BELOW ARGUMENTS FUNCTIONALITY ACTUALLY WORKS AS INTENDED - TO DISABLE MANIPULATION OF ITEMS THAT ARE IN THE USER LIST BUT ARE NOT PART OF THE CURRENT DATABASE
+        '================================================================================================================================================================================================
+
+        'enables or disables send to trade list depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then SendToTradeListToolStripMenuItem1.Enabled = True Else SendToTradeListToolStripMenuItem1.Enabled = False
+
+        'enables or disables delete depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then DeleteItemsToolStripMenuItem1.Enabled = True Else DeleteItemsToolStripMenuItem1.Enabled = False
+
+        'enables or disables export items depending if current database holds the selected item
+        If UserLISTBOX.SelectedIndex <> -1 Then If DatabaseFileNameTEXTBOX.Text = UserObjects(UserLISTBOX.SelectedIndex).DatabaseFilename Then ExportItemsToolStripMenuItem.Enabled = True Else ExportItemsToolStripMenuItem.Enabled = False
+
+
     End Sub
 End Class

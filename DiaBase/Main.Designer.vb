@@ -138,7 +138,6 @@ Partial Class Main
         Me.DeleteItemSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TradeListTABPAGE = New System.Windows.Forms.TabPage()
         Me.TradeListRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.TradeListCONTEXTMENUSTRIP = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -166,7 +165,7 @@ Partial Class Main
         Me.EuropeRealmCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.SpecialStatsTABLELAYOUT = New System.Windows.Forms.TableLayoutPanel()
         Me.DatabaseFileNameTEXTBOX = New System.Windows.Forms.TextBox()
-        Me.DatabaseFileLabel = New System.Windows.Forms.Label()
+        Me.DatabaseFileLABEL = New System.Windows.Forms.Label()
         Me.CoreTypeTEXTBOX = New System.Windows.Forms.TextBox()
         Me.MulePasswordTEXTBOX = New System.Windows.Forms.TextBox()
         Me.CoreTypeLABEL = New System.Windows.Forms.Label()
@@ -535,7 +534,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 248)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 247)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -553,7 +552,7 @@ Partial Class Main
         Me.TradesListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.TradesListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.TradesListControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(183, 248)
+        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(183, 247)
         Me.TradesListControlTabBUTTON.Name = "TradesListControlTabBUTTON"
         Me.TradesListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.TradesListControlTabBUTTON.TabIndex = 310
@@ -585,7 +584,7 @@ Partial Class Main
         '
         Me.Label38.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label38.BackColor = System.Drawing.Color.DimGray
-        Me.Label38.Location = New System.Drawing.Point(26, 273)
+        Me.Label38.Location = New System.Drawing.Point(26, 274)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(2, 455)
         Me.Label38.TabIndex = 286
@@ -770,7 +769,7 @@ Partial Class Main
         Me.ListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 248)
+        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 247)
         Me.ListControlTabBUTTON.Name = "ListControlTabBUTTON"
         Me.ListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.ListControlTabBUTTON.TabIndex = 308
@@ -787,7 +786,7 @@ Partial Class Main
         Me.SearchListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.SearchListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(105, 248)
+        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(105, 247)
         Me.SearchListControlTabBUTTON.Name = "SearchListControlTabBUTTON"
         Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.SearchListControlTabBUTTON.TabIndex = 309
@@ -1142,7 +1141,7 @@ Partial Class Main
         Me.SearchListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.SearchListTABPAGE.Name = "SearchListTABPAGE"
         Me.SearchListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.SearchListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.SearchListTABPAGE.Size = New System.Drawing.Size(373, 448)
         Me.SearchListTABPAGE.TabIndex = 1
         Me.SearchListTABPAGE.Text = "Search List"
         '
@@ -1157,14 +1156,14 @@ Partial Class Main
         Me.SearchLISTBOX.Location = New System.Drawing.Point(3, 3)
         Me.SearchLISTBOX.Name = "SearchLISTBOX"
         Me.SearchLISTBOX.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.SearchLISTBOX.Size = New System.Drawing.Size(365, 447)
+        Me.SearchLISTBOX.Size = New System.Drawing.Size(365, 440)
         Me.SearchLISTBOX.TabIndex = 0
         '
         'SearchListCONTEXTMENUSTRIP
         '
-        Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.ToolStripSeparator10, Me.SelectAllSearchCMenu, Me.ExportSearchCMenu})
+        Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.ToolStripSeparator10, Me.SelectAllSearchCMenu})
         Me.SearchListCONTEXTMENUSTRIP.Name = "SearchListContextMenuStrip1"
-        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(182, 170)
+        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(182, 148)
         '
         'SendToTradeListSearchMenu
         '
@@ -1212,19 +1211,13 @@ Partial Class Main
         Me.SelectAllSearchCMenu.Size = New System.Drawing.Size(181, 22)
         Me.SelectAllSearchCMenu.Text = "Select All"
         '
-        'ExportSearchCMenu
-        '
-        Me.ExportSearchCMenu.Name = "ExportSearchCMenu"
-        Me.ExportSearchCMenu.Size = New System.Drawing.Size(181, 22)
-        Me.ExportSearchCMenu.Text = "Export"
-        '
         'TradeListTABPAGE
         '
         Me.TradeListTABPAGE.BackColor = System.Drawing.Color.Black
         Me.TradeListTABPAGE.Controls.Add(Me.TradeListRICHTEXTBOX)
         Me.TradeListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.TradeListTABPAGE.Name = "TradeListTABPAGE"
-        Me.TradeListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.TradeListTABPAGE.Size = New System.Drawing.Size(373, 448)
         Me.TradeListTABPAGE.TabIndex = 2
         Me.TradeListTABPAGE.Text = "Trade List"
         '
@@ -1236,7 +1229,7 @@ Partial Class Main
         Me.TradeListRICHTEXTBOX.ForeColor = System.Drawing.SystemColors.Menu
         Me.TradeListRICHTEXTBOX.Location = New System.Drawing.Point(0, 0)
         Me.TradeListRICHTEXTBOX.Name = "TradeListRICHTEXTBOX"
-        Me.TradeListRICHTEXTBOX.Size = New System.Drawing.Size(373, 455)
+        Me.TradeListRICHTEXTBOX.Size = New System.Drawing.Size(373, 448)
         Me.TradeListRICHTEXTBOX.TabIndex = 0
         Me.TradeListRICHTEXTBOX.Text = ""
         '
@@ -1270,7 +1263,7 @@ Partial Class Main
         Me.UserListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.UserListTABPAGE.Name = "UserListTABPAGE"
         Me.UserListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.UserListTABPAGE.Size = New System.Drawing.Size(373, 455)
+        Me.UserListTABPAGE.Size = New System.Drawing.Size(373, 448)
         Me.UserListTABPAGE.TabIndex = 3
         Me.UserListTABPAGE.Text = "User List"
         Me.UserListTABPAGE.UseVisualStyleBackColor = True
@@ -1283,7 +1276,7 @@ Partial Class Main
         Me.UserLISTBOX.Location = New System.Drawing.Point(3, 3)
         Me.UserLISTBOX.Name = "UserLISTBOX"
         Me.UserLISTBOX.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.UserLISTBOX.Size = New System.Drawing.Size(367, 449)
+        Me.UserLISTBOX.Size = New System.Drawing.Size(367, 442)
         Me.UserLISTBOX.TabIndex = 0
         '
         'ItemAndMuleLABEL
@@ -1445,7 +1438,7 @@ Partial Class Main
         Me.SpecialStatsTABLELAYOUT.ColumnCount = 1
         Me.SpecialStatsTABLELAYOUT.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileNameTEXTBOX, 0, 14)
-        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileLabel, 0, 13)
+        Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.DatabaseFileLABEL, 0, 13)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.CoreTypeTEXTBOX, 0, 9)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.MulePasswordTEXTBOX, 0, 7)
         Me.SpecialStatsTABLELAYOUT.Controls.Add(Me.CoreTypeLABEL, 0, 8)
@@ -1492,18 +1485,18 @@ Partial Class Main
         Me.DatabaseFileNameTEXTBOX.TabIndex = 426
         Me.DatabaseFileNameTEXTBOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DatabaseFileLabel
+        'DatabaseFileLABEL
         '
-        Me.DatabaseFileLabel.BackColor = System.Drawing.Color.Black
-        Me.DatabaseFileLabel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DatabaseFileLabel.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseFileLabel.Location = New System.Drawing.Point(3, 275)
-        Me.DatabaseFileLabel.Name = "DatabaseFileLabel"
-        Me.DatabaseFileLabel.Size = New System.Drawing.Size(101, 20)
-        Me.DatabaseFileLabel.TabIndex = 425
-        Me.DatabaseFileLabel.Text = "Database File"
-        Me.DatabaseFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.DatabaseFileLabel.Visible = False
+        Me.DatabaseFileLABEL.BackColor = System.Drawing.Color.Black
+        Me.DatabaseFileLABEL.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.DatabaseFileLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.DatabaseFileLABEL.Location = New System.Drawing.Point(3, 275)
+        Me.DatabaseFileLABEL.Name = "DatabaseFileLABEL"
+        Me.DatabaseFileLABEL.Size = New System.Drawing.Size(101, 20)
+        Me.DatabaseFileLABEL.TabIndex = 425
+        Me.DatabaseFileLABEL.Text = "Database File"
+        Me.DatabaseFileLABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.DatabaseFileLABEL.Visible = False
         '
         'CoreTypeTEXTBOX
         '
@@ -1968,7 +1961,6 @@ Partial Class Main
     Friend WithEvents ClearItemSearchCMenu As ToolStripMenuItem
     Friend WithEvents DeleteItemSearchCMenu As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
-    Friend WithEvents ExportSearchCMenu As ToolStripMenuItem
     Friend WithEvents SelectAllSearchCMenu As ToolStripMenuItem
     Friend WithEvents SendAllItemsToUserListSearchMenu As ToolStripMenuItem
     Friend WithEvents LadderTEXTBOX As TextBox
@@ -1978,7 +1970,7 @@ Partial Class Main
     Friend WithEvents ClearAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Ladder As Label
     Friend WithEvents DatabaseFileNameTEXTBOX As TextBox
-    Friend WithEvents DatabaseFileLabel As Label
+    Friend WithEvents DatabaseFileLABEL As Label
     Friend WithEvents UserListCONTEXTMENUSTRIP As ContextMenuStrip
     Friend WithEvents SendToTradeListToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SendToTradeListToolStripMenuItem1 As ToolStripMenuItem

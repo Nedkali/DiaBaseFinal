@@ -191,6 +191,74 @@ Module DatabaseManagmentFunctions
 
     End Sub
 
+
+    'SAVES THE CURRENT DATABASE TO FILE
+    Public Sub SaveDatabase(DatabaseFile)
+        Try
+            Dim LogWriter = My.Computer.FileSystem.OpenTextFileWriter(DatabaseFile, False)
+            For x = 0 To ItemObjects.Count - 1
+                LogWriter.WriteLine("--------------------")
+                LogWriter.WriteLine(ItemObjects(x).ItemName)
+                LogWriter.WriteLine(ItemObjects(x).ItemBase)
+                LogWriter.WriteLine(ItemObjects(x).ItemQuality)
+                LogWriter.WriteLine(ItemObjects(x).RequiredCharacter)
+                LogWriter.WriteLine(ItemObjects(x).EtherealItem)
+                LogWriter.WriteLine(ItemObjects(x).Sockets)
+                LogWriter.WriteLine(ItemObjects(x).RuneWord)
+                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMin)
+                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMax)
+                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMin)
+                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMax)
+                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMin)
+                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMax)
+                LogWriter.WriteLine(ItemObjects(x).Defense)
+                LogWriter.WriteLine(ItemObjects(x).ChanceToBlock)
+                LogWriter.WriteLine(ItemObjects(x).QuantityMin)
+                LogWriter.WriteLine(ItemObjects(x).QuantityMax)
+                LogWriter.WriteLine(ItemObjects(x).DurabilityMin)
+                LogWriter.WriteLine(ItemObjects(x).DurabilityMax)
+                LogWriter.WriteLine(ItemObjects(x).RequiredStrength)
+                LogWriter.WriteLine(ItemObjects(x).RequiredDexterity)
+                LogWriter.WriteLine(ItemObjects(x).RequiredLevel)
+                LogWriter.WriteLine(ItemObjects(x).AttackClass)
+                LogWriter.WriteLine(ItemObjects(x).AttackSpeed)
+                LogWriter.WriteLine(ItemObjects(x).Stat1)
+                LogWriter.WriteLine(ItemObjects(x).Stat2)
+                LogWriter.WriteLine(ItemObjects(x).Stat3)
+                LogWriter.WriteLine(ItemObjects(x).Stat4)
+                LogWriter.WriteLine(ItemObjects(x).Stat5)
+                LogWriter.WriteLine(ItemObjects(x).Stat6)
+                LogWriter.WriteLine(ItemObjects(x).Stat7)
+                LogWriter.WriteLine(ItemObjects(x).Stat8)
+                LogWriter.WriteLine(ItemObjects(x).Stat9)
+                LogWriter.WriteLine(ItemObjects(x).Stat10)
+                LogWriter.WriteLine(ItemObjects(x).Stat11)
+                LogWriter.WriteLine(ItemObjects(x).Stat12)
+                LogWriter.WriteLine(ItemObjects(x).Stat13)
+                LogWriter.WriteLine(ItemObjects(x).Stat14)
+                LogWriter.WriteLine(ItemObjects(x).Stat15)
+                LogWriter.WriteLine(ItemObjects(x).MuleName)
+                LogWriter.WriteLine(ItemObjects(x).MuleAccount)
+                LogWriter.WriteLine(ItemObjects(x).MulePass)
+                LogWriter.WriteLine(ItemObjects(x).PickitAccount)
+                LogWriter.WriteLine(ItemObjects(x).HardCore)
+                LogWriter.WriteLine(ItemObjects(x).Ladder)
+                LogWriter.WriteLine(ItemObjects(x).Expansion)
+                LogWriter.WriteLine(ItemObjects(x).UserField)
+                LogWriter.WriteLine(ItemObjects(x).ItemImage)
+                LogWriter.WriteLine(ItemObjects(x).ImportTime)
+                LogWriter.WriteLine(ItemObjects(x).ImportDate)
+            Next
+            LogWriter.Close()
+
+        Catch ex As Exception
+            'ymessages = "File Write Error" : MyMessageBox()
+        End Try
+
+    End Sub
+
+
+
     ' To use call by using SaveLoggedItems(integer, name of file, Append true/false)
 
     Public Sub WriteToFile(ByVal itemstart, fName, bAppend)
