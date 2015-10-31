@@ -1,5 +1,5 @@
-﻿'Define Database Fields
-'nothing else will go here
+﻿'Defines the main three... Database Fields, UserList Fields and Application Settings all as class objects, and their subsequent fields
+'NOTHING ELSE WILL GO HERE
 
 Public Class ItemDatabase
     Public ItemName As String
@@ -54,13 +54,12 @@ Public Class ItemDatabase
     Public ItemImage As Integer
     Public ImportDate As String
     Public ImportTime As String
-
 End Class
 
 Public Class AppSetting
-    Public InstallPath As String = Application.StartupPath  'Applications Installation path
-    Public EtalPath As String = "C:\D2NT"                   'Etals Installation Path.          
-    Public SoundMute As Boolean = False                     'Mute Sound Setting Prefix.              True = Muted   False = On
+    Public InstallPath As String = Application.StartupPath                                          'Applications Installation path
+    Public EtalPath As String = "C:\D2NT"                                                           'Etals Installation Path.          
+    Public SoundMute As Boolean = False                                                             'Mute Sound Setting Prefix. True = Muted   False = On
     Public DefaultDatabase As String = Application.StartupPath & "\Databases\Default.txt"           'FileName (without extension) of the Database To load at startup
     Public AutoLoggingDelay As Integer = 30                 'Delay (in minuites) between automatic attempts to import item logs
     Public HideDupes As Boolean = False                     'Display duplicated items when diplaying search matches bool    TRUE/FALSE
@@ -74,7 +73,8 @@ Public Class AppSetting
     Public ResetDate As String = "26/4/2015"                'variable used for ressetting ladder to nonladder
     Public DefaultPassword As String = "Unknown"            'variable used to replace Unknown passwords
     Public DefaultRealm As String = ""                      'variable used for setting default search realm
-
+    Public DisplayLineBreaks As Boolean = False             'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
+    Public EtalVersion As String = "---"                    'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public
 End Class
 
 Public Class UserListDatabase
@@ -134,5 +134,10 @@ Public Class UserListDatabase
     Public ImportTime As String
 
     'note from ned - why not just add this to the other class? we can just leave it out during file read and write I dont think it will matter
-    Public DatabaseFilename As String 'This field is unique to this class - Used to link items back to thier containing database in the user list
+
+    'answer from rob -  Good idea if we could. It must have its own class sorry so the user list will work with multiple databases in mind.
+    '                   I first started with just a public array like the search list reference file but it wasnt enough, once a new database is 
+    '                   loaded the user items would have no object reference and crash the app. 
+
+    Public DatabaseFilename As String 'This field is unique to this class - Used to link items back to thier containing database in the user list.
 End Class

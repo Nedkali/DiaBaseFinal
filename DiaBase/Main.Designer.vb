@@ -108,7 +108,7 @@ Partial Class Main
         Me.Label5 = New System.Windows.Forms.Label()
         Me.RefineSearchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.StringSearchLABEEL = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.HiddenGemPICTUREBOX = New System.Windows.Forms.PictureBox()
         Me.TimerControl = New System.Windows.Forms.Button()
         Me.ExactMatchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.SearchValueLABEL = New System.Windows.Forms.Label()
@@ -189,7 +189,7 @@ Partial Class Main
         Me.OpenContainingDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchValueNUMERICUPDWN, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ListboxTABCONTROL.SuspendLayout()
         Me.ItemListTABPAGE.SuspendLayout()
@@ -891,15 +891,15 @@ Partial Class Main
         Me.StringSearchLABEEL.TabIndex = 269
         Me.StringSearchLABEEL.Text = "For Word Or Phrase"
         '
-        'PictureBox2
+        'HiddenGemPICTUREBOX
         '
-        Me.PictureBox2.BackgroundImage = Global.DiaBase.My.Resources.Resources.Gem
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.PictureBox2.Location = New System.Drawing.Point(421, 200)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(15, 15)
-        Me.PictureBox2.TabIndex = 313
-        Me.PictureBox2.TabStop = False
+        Me.HiddenGemPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.Gem
+        Me.HiddenGemPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.HiddenGemPICTUREBOX.Location = New System.Drawing.Point(421, 200)
+        Me.HiddenGemPICTUREBOX.Name = "HiddenGemPICTUREBOX"
+        Me.HiddenGemPICTUREBOX.Size = New System.Drawing.Size(15, 15)
+        Me.HiddenGemPICTUREBOX.TabIndex = 313
+        Me.HiddenGemPICTUREBOX.TabStop = False
         '
         'TimerControl
         '
@@ -1762,7 +1762,7 @@ Partial Class Main
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.RefineSearchCHECKBOX)
         Me.Controls.Add(Me.StringSearchLABEEL)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.HiddenGemPICTUREBOX)
         Me.Controls.Add(Me.TimerControl)
         Me.Controls.Add(Me.ExactMatchCHECKBOX)
         Me.Controls.Add(Me.SearchValueLABEL)
@@ -1798,7 +1798,7 @@ Partial Class Main
         Me.MainFormSTATUSSTRIP.PerformLayout()
         Me.MainFormMENUBAR.ResumeLayout(False)
         Me.MainFormMENUBAR.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchValueNUMERICUPDWN, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ListboxTABCONTROL.ResumeLayout(False)
         Me.ItemListTABPAGE.ResumeLayout(False)
@@ -1884,7 +1884,7 @@ Partial Class Main
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents RefineSearchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents StringSearchLABEEL As System.Windows.Forms.Label
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents HiddenGemPICTUREBOX As System.Windows.Forms.PictureBox
     Friend WithEvents TimerControl As System.Windows.Forms.Button
     Friend WithEvents ExactMatchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents SearchValueLABEL As System.Windows.Forms.Label

@@ -4,12 +4,12 @@
 Public Class Settings
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'SETTINGS PATH CHECKER SUB ROUTINE          - Verifys the Etal and Default Database Paths in Settings Actually exist
+    'SETTINGS PATH CHECKER SUB ROUTINE          - Verifys the Etal and Default Database Paths in Settings Actually exist FOR BOTH THE PUBLIC AND NEDS VERSION NOW
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub CheckSettingsPaths()
         Me.EtalPathVerifyPICTUREBOX.Visible = False
         DatabaseVerifyPICTUREBOX.Visible = False
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Or (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\AMS\MuleInventory"))) = True Then
             Me.EtalPathVerifyPICTUREBOX.Visible = True
             Me.EtalPathVerifyFailPICTUREBOX.Visible = False
 
@@ -57,9 +57,9 @@ Public Class Settings
         EtalPathTEXTBOX.Text = AppSettings.EtalPath                             'Etal Path
         DefaultDatabaseTEXTBOX.Text = AppSettings.DefaultDatabase               'Startup Database
         AutoLogingDelayNUMERICUPDOWN.Value = AppSettings.AutoLoggingDelay       'Autologger delay
-        AutoBackupImportsCHECKBOX.Checked = AppSettings.BackupBeforeImports  'Backup before imports bool 
+        AutoBackupImportsCHECKBOX.Checked = AppSettings.BackupBeforeImports     'Backup before imports bool 
         HideAccountPassCHECKBOX.Checked = AppSettings.HideMulePass
-        AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits          'Backup before item edits bool
+        AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits         'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
         If AppSettings.DefaultRealm <> "" Then
@@ -107,23 +107,31 @@ Public Class Settings
             'Update Global Config Vars From Settings Controls
             AppSettings.EtalPath = EtalPathTEXTBOX.Text
             AppSettings.DefaultDatabase = DefaultDatabaseTEXTBOX.Text
+            AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
-            AppSettings.AutoLoggingDelay = AutoLogingDelayNUMERICUPDOWN.Value
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
-            AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
+            AppSettings.AutoLoggingDelay = AutoLogingDelayNUMERICUPDOWN.Value
             AppSettings.DefaultPassword = DefaultPasswordTEXTBOX.Text
-            AppSettings.ResetDate = ResetDateTEXTBOX.Text
             AppSettings.DefaultRealm = SearchRealmCBOX.Text
-            Main.StartTimer() ' why is this here????
+            AppSettings.ResetDate = ResetDateTEXTBOX.Text
+            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMainMenu.CheckState
             SaveSettingsFile()
 
+            'Checks only one Check box is checked across all realm search checkboxes - like radio buttons but not as yucky looking
             If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "USWest" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = True : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "Asia" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = True : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "Europe" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = True
             Me.Close()
+
+            'Update etal version info..
+            If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
+            If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
+            If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
+            If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
+
         End If
     End Sub
 

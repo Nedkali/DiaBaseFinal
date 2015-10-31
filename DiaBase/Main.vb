@@ -82,8 +82,6 @@ Public Class Main
 
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = VersionAndRevision                            'Display Version and Revision Number in Main Form Title Bar
-
         '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         'CREATE ALL DIRECTORYS AND SUPPORT FILES THE APP REQUIRES TO FUNCTION
         '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -134,24 +132,32 @@ Public Class Main
     End Sub
 
 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '====================================================================================================================================================================
     'SHOWN MAIN FORM EVENT HANDLER  - Checks Paths and Branches to settings if path check fails
     '                               - Loads Default Database File (if there is one)
     '                               - If database is loaded also populates main listbox
     '                               - Focus On 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '====================================================================================================================================================================
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
 
 
-        'Verify The current Paths In Settings Are Correct - Auto Open Settings Window If Verify Fails
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False Or My.Computer.FileSystem.FileExists(AppSettings.DefaultDatabase) = False Then
-            Settings.ShowDialog()
-        End If
+        'Verify The current Paths In Settings Are Correct - Auto Open Settings Window If Verify Fails - VERIFYS FOR BOTH PUBLIC AND NEDS ETAL VERSIONS NOW
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False And My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory")) = False Then Settings.ShowDialog()
+
+        'Verify the default database Path is validated
+        If My.Computer.FileSystem.FileExists(AppSettings.DefaultDatabase) = False Then Settings.ShowDialog()
 
         'Branch to Load Default Database and populate main listbox once all setting proceedures are absolutly completed with all potential path errors handled
         If AppSettings.DefaultDatabase <> Nothing Then OpenDatabase(AppSettings.DefaultDatabase)
 
-        StartTimer()
+        'THIS DETERMINES WHICH ETAL IS CURRENTLY BEING USED (PUBLIC OR NEDS) AND SETS THE NEW AppSettings.EtalVersion var to either "NED" or "PUB" (not to be confused with ned at the pub :)
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
+
+        If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
+        If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
+
+        StartTimer() 'Start The Import Timer And Pass Control Back To The Main Form...
 
     End Sub
 
@@ -319,22 +325,6 @@ Public Class Main
 
     End Sub
 
-    'ROUTINE CLEANS OUT THE ITEM STATS CONTROLS FOR WHEN AN ITEM IS NOT SELECTED OR WHEN NO ITEMS EXITS IN A LIST
-    Sub ClearItemStats()
-        Me.MuleRealmTEXTBOX.Clear()
-        Me.MuleAccountTEXTBOX.Clear()
-        Me.MuleNameTEXTBOX.Clear()
-        Me.MulePasswordTEXTBOX.Clear()
-        Me.CoreTypeTEXTBOX.Clear()
-        Me.LadderTEXTBOX.Clear()
-        Me.ItemStatsRICHTEXTBOX.Clear()
-
-        Me.ItemSkinPICTUREBOX.Image = Nothing
-        Me.OpenDatabaseLABEL.Text = ""
-
-    End Sub
-
-
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -349,7 +339,29 @@ Public Class Main
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Matches"
         DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
+
+        If SearchLISTBOX.SelectedIndex = -1 And SearchLISTBOX.Items.Count > 0 Then SearchLISTBOX.SelectedIndex = 1 Else If SearchLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+        If SearchLISTBOX.Items.Count = 0 Then ClearItemStats()
+
     End Sub
+
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'ROUTINE CLEANS OUT THE ITEM STATS CONTROLS FOR WHEN AN ITEM IS NOT SELECTED OR WHEN NO ITEMS EXITS IN A LIST
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Sub ClearItemStats()
+        Me.MuleRealmTEXTBOX.Clear()
+        Me.MuleAccountTEXTBOX.Clear()
+        Me.MuleNameTEXTBOX.Clear()
+        Me.MulePasswordTEXTBOX.Clear()
+        Me.CoreTypeTEXTBOX.Clear()
+        Me.LadderTEXTBOX.Clear()
+        Me.ItemStatsRICHTEXTBOX.Clear()
+
+        Me.ItemSkinPICTUREBOX.Image = Nothing
+        Me.OpenDatabaseLABEL.Text = ""
+
+    End Sub
+
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -420,9 +432,8 @@ Public Class Main
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
-                'Update Settings file (Saves Realm Checkboces Checkstates)
+                'Updates Realm Checkboxes and Display Line Breaks In Stats CheckStates To Settings File
                 SaveSettingsFile()
-
 
             End If
         Else
@@ -738,25 +749,31 @@ Public Class Main
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'MENU BAR - Add blank lines to item displayed
+    'MENU BAR - Add blank line - Line Breaks to item stats display
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub DisplayLineBreaksMainMenu_Click(sender As Object, e As EventArgs) Handles DisplayLineBreaksMainMenu.Click
+
+        'Update LineBreaks settings to false
         If DisplayLineBreaksMainMenu.Checked = True Then
             DisplayLineBreaksMainMenu.Checked = False
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
 
-
+            'Refresh The Stats Display to apply the False Setting changes relevant to the list selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
             Return
         End If
-            If DisplayLineBreaksMainMenu.Checked = False Then
+
+        'Update LineBreaks settings to true
+        If DisplayLineBreaksMainMenu.Checked = False Then
             DisplayLineBreaksMainMenu.Checked = True
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
 
-
+            'Refresh The Stats Display to apply ther True setting changes relevant to the lists selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
+            Return
         End If
-
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -835,15 +852,13 @@ Public Class Main
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'Search button - calls search routine
+    'SEARCH BUTTON - Branches to search routine if a realm checkbox is checked else aborts
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SearchBUTTON_Click(sender As Object, e As EventArgs) Handles SearchBUTTON.Click
 
         If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
         SearchRoutine()
     End Sub
-
-
 
 
     '=====================================================================================================================================================================
@@ -891,8 +906,6 @@ Public Class Main
                     'ShowSettingsWindowOnStartup = True
                 End If
 
-
-
             Case 101 'FROM MAIN FORM LOAD HANDLER   - READ SETTINGS FILE UNSPECIFIED SYSTEM ERROR -
                 ErrorHandlerForm.ErrorTrapMessageTEXTBOX.ScrollBars = ScrollBars.None
                 ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
@@ -903,14 +916,6 @@ Public Class Main
                 ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "The application cannot load the Settings.CFG file and must terminate." & vbCrLf & vbCrLf & SystemCode.Message
                 ErrorHandlerForm.ShowDialog()
                 End
-
-
-
-
-
-
-
-
 
             Case 201 'FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - ETAL PATH IN SETTINGS IS INCORRECT ERROR -
                 MessageBox.Show("FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - ETAL PATH IN SETTINGS IS INCORRECT ERROR -")
@@ -1015,24 +1020,26 @@ Public Class Main
                 ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
                 DialogResult = ErrorHandlerForm.ShowDialog()
 
+
+
+
         End Select
-
-
-
-
-
     End Sub
 
 
-
+    '---------------------------------------------------------------------------------------------------------------------------------
+    'User List CONTEXT MENU - REMOVE ITEMS - DELETES SELECTED ITEMS FROM THE USER LIST (this should be in user list funxctions module)
+    '---------------------------------------------------------------------------------------------------------------------------------
     Private Sub ClearItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearItemsToolStripMenuItem.Click
         'Clear all items from User Ref List When Selected from context menu
 
-        Dim ReturnLocation As Integer = -1
+        Dim ReturnLocation As Integer = -1 '                                               Remember current item location to return highlight bar to after delete
 
         If UserLISTBOX.SelectedIndex > 0 Then ReturnLocation = UserLISTBOX.SelectedIndex ' puts the highlight bar one above the fist item deleted in the 
-        '                                                                                   '  block after clear is finished for easier user refrence
-        '                                                                                   '  if there is only one item before delete no item is highlighted
+        '                                                                                ' block after clear is finished for easier user refrence
+        '                                                                                ' if there is only one item before delete no item is highlighted
+
+        'Itterate and remove all selected itmes in user list
         If UserLISTBOX.SelectedIndices.Count = 1 Then
             UserObjects.RemoveAt(UserLISTBOX.SelectedIndex)
             UserLISTBOX.Items.RemoveAt(UserLISTBOX.SelectedIndex)
@@ -1043,14 +1050,8 @@ Public Class Main
             Next
         End If
 
-
-        If UserLISTBOX.SelectedIndex = -1 Then
-            MuleNameTEXTBOX.Text = Nothing
-            MulePasswordTEXTBOX.Text = Nothing
-            ItemStatsRICHTEXTBOX.Text = Nothing
-            ItemSkinPICTUREBOX.Image = Nothing
-            DatabaseFileNameTEXTBOX.Text = Nothing
-        End If
+        'Attempts to select the prior selected item after delete else selects nothing (selecting nothing stops list from moving if all else fails)
+        Me.ClearItemStats()
         UserLISTBOX.SelectedIndex = -1
         UserLISTBOX.SelectedIndex = ReturnLocation
 
@@ -1058,33 +1059,13 @@ Public Class Main
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    'DISPLAYS THE STATISTICS FOR THE CURRNETLY SELECTED ITEM IN THE ALL ITMES LIST (user list has its own routine in UserListFunctions)
+    '-----------------------------------------------------------------------------------------------------------------------------------------
 
     Sub DisplayItemStats(ItemIndex)
-        If ItemIndex < 0 Or ItemIndex >= ItemObjects.Count Then
-            MuleRealmTEXTBOX.Clear()
-            MuleAccountTEXTBOX.Clear()
-            MuleNameTEXTBOX.Clear()
-            MulePasswordTEXTBOX.Clear()
-            CoreTypeTEXTBOX.Clear()
-            ItemStatsRICHTEXTBOX.Clear()
-            Return
-        End If
+
+        If ItemIndex < 0 Or ItemIndex >= ItemObjects.Count Then ClearItemStats() : Return
 
         ItemStatsRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
@@ -1194,17 +1175,18 @@ Public Class Main
 
         'ADD lINE SPACING BASED ON OPTION SETTING
         If DisplayLineBreaksMainMenu.Checked = True Then
-            ' If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter = 0 And ItemObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+            If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter <> Nothing And ItemObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
         If ItemObjects(ItemIndex).AttackClass <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).AttackClass & " Class") : If ItemObjects(ItemIndex).AttackSpeed <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(" - " & ItemObjects(ItemIndex).AttackSpeed & vbCrLf) Else ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         'ADD lINE SPACING BASED ON OPTION SETTING
         If DisplayLineBreaksMainMenu.Checked = True Then
             If ItemObjects(ItemIndex).AttackClass <> Nothing Or ItemObjects(ItemIndex).AttackSpeed <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+            If ItemObjects(ItemIndex).RequiredLevel > 0 And ItemObjects(ItemIndex).AttackClass = Nothing And ItemObjects(ItemIndex).AttackSpeed = Nothing And ItemObjects(ItemIndex).RequiredCharacter = Nothing And ItemObjects(ItemIndex).RequiredDexterity = 0 And ItemObjects(ItemIndex).RequiredStrength = 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
         'Colour Above Displayed Basic Info Text Block White
-        Dim ColourCount2 As Integer = ItemStatsRICHTEXTBOX.TextLength - ColourCount1 'Calculate difference between Basic Info Block and Other Stats to Color Basic Info - this var represents the finishing point to colour
+        Dim ColourCount2 As Integer = ItemStatsRICHTEXTBOX.TextLength - ColourCount1 'Calculate difference between Basic Info Block and Other Stats to Color Basic Info - this var represents the finishing point to colour (rob: adding a ditty to avoid colouring the ilevel blue, keeping it white so its clearly seperate from the stats block)
         ItemStatsRICHTEXTBOX.Select(ColourCount1, ColourCount2)
         ItemStatsRICHTEXTBOX.SelectionColor = Color.White
 
@@ -1233,6 +1215,16 @@ Public Class Main
         ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
         ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
+
+        'THIS DITTY CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
+        'NOTE TO MYSELF: is something not right with the runes display, seems to add extra spaces, only does it to runes, atm nfi wtf, perhaps logging differs to other unique attribs blocks is my guess REMEMBER TO FIX!
+        Dim linecount As Integer = 0
+        For Each Line In ItemStatsRICHTEXTBOX.Lines
+            If Line.IndexOf("Item Level:") > -1 Then ItemStatsRICHTEXTBOX.Select(ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))
+            linecount = linecount + 1
+        Next
+        ItemStatsRICHTEXTBOX.SelectionColor = Color.White
+
 
     End Sub
 
@@ -1552,5 +1544,11 @@ Public Class Main
 
     End Sub
 
-
+    '--------------------------------------------------------------------------------------------------------------------------
+    'NEDS GEM EFFECT HANDLER - Plays A Funky D2 Sound Effect And Then Hides The Gem For Rest Of Session - A Little Fun From Ned
+    '--------------------------------------------------------------------------------------------------------------------------
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles HiddenGemPICTUREBOX.Click
+        My.Computer.Audio.Play(My.Resources.DiabloTaunt, AudioPlayMode.Background)
+        HiddenGemPICTUREBOX.Hide()
+    End Sub
 End Class

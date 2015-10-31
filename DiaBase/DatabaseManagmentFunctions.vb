@@ -23,14 +23,18 @@ Module DatabaseManagmentFunctions
                 AppSettings.DefaultRealm = ReadFile.ReadLine            'Mute Sound Setting bool
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.DisplayLineBreaks = ReadFile.ReadLine       'Stat display spaceing 
                 ReadFile.Close()
-            Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler
+            Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler - pass to error handler
             End If
 
-        Catch ex As Exception                                           'All Other Unforseen System Error Handler
+        Catch ex As Exception                                           'All Other Unforseen System Error Handler - pass to error handler
             Main.ErrorHandler(101, ex, 0, 0)
-
         End Try
+
+        'Apply LineBreak Bool Value To Menu Control Checkstate
+        If AppSettings.DisplayLineBreaks = True Then Main.DisplayLineBreaksMainMenu.Checked = True
+        If AppSettings.DisplayLineBreaks = False Then Main.DisplayLineBreaksMainMenu.Checked = False
 
         'Apply Realm Search Checkbox Values
         If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True
@@ -39,9 +43,25 @@ Module DatabaseManagmentFunctions
         If AppSettings.DefaultRealm = "Europe" Then Main.EuropeRealmCHECKBOX.Checked = True
     End Sub
 
+    '------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    ' SAVE SETTINGS FILE - Updates AppSettings Class Variables to Settings.CFG file in the Install Directory - Used by Settings Form, First Run Routine, and Exit App Handler
+    '------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Sub SaveSettingsFile()
-        'Update Settings.CFG file (Overwrite old file)
         Try
+
+            'Check for valid entrys (avoid potential crash with null entries) and swap app runstate values (where nessicary) to settings class variables
+            If AppSettings.DefaultDatabase = Nothing Then AppSettings.DefaultDatabase = AppSettings.InstallPath & "\Databases\Default.TXT"
+
+            'technically only one of the following checkboxes should be checked, but not on first run i dont think.
+            If Main.EastRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "USEast"
+            If Main.WestRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "USWest"
+            If Main.AsiaRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "Asia"
+            If Main.EuropeRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "Europe"
+
+            'applys the menu option checkstate to its partnered settings clas variable
+            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMainMenu.CheckState
+
+            'Writes the settings to file Settings.CFG Assumes no null entries exist at this point or lines will be skipped during save will crash when attempting to read it later
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
             WriteFile.WriteLine(AppSettings.EtalPath)
             WriteFile.WriteLine(AppSettings.DefaultDatabase)
@@ -54,11 +74,18 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.DefaultRealm)
             WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
+            WriteFile.WriteLine(AppSettings.DisplayLineBreaks)
             WriteFile.Close()
         Catch ex As Exception
-            Main.ErrorHandler(301, ex, 0, 0) 'Branch to error handler with unique code and system error code if save fails for whatever reason
+            'Branch to error handler with unique code and system error code if save fails for whatever reason
+            Main.ErrorHandler(301, ex, 0, 0)
         End Try
 
+        'Update Working Vars...
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
+        If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
+        If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
     End Sub
 
 
@@ -142,12 +169,13 @@ Module DatabaseManagmentFunctions
             If CheckSpacerFlag <> "--------------------" Then Main.ErrorHandler(502, 0, 0, 0) 'Branch to error handler if item records in file are out of sync
             'Branch To Populate ListBox Routine If Load Worked Fine
 
+            'CATCH ERRORS WHEN OPENING DATABASES AND PASS THEM TO THE ERROR HANDLER
         Catch ex As Exception
             OpenDatabase.Close()                                                        'Close the OpenDatabase Read File Channel
-
             Main.ErrorHandler(501, ex, CountRecordsForErrorEvents, My.Computer.FileSystem.GetName(DatabaseFilePath).ToString)                                                  'Branch to error handler on any other unexpected error
         End Try
 
+        'Setup New Database On Main Form
         PopulateAllItemsLISTBOX()
         If ItemObjects.Count > 0 Then Main.AllItemsLISTBOX.SelectedIndex = 0
 
@@ -169,7 +197,9 @@ Module DatabaseManagmentFunctions
 
     End Sub
 
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'CLOSE FILE ROUTINE - clears Item Database and all main form controls
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub CloseFile()
         ItemObjects.Clear()
 
@@ -177,24 +207,24 @@ Module DatabaseManagmentFunctions
         Main.SearchLISTBOX.Items.Clear()
         Main.TradeListRICHTEXTBOX.Clear()
 
-        'Main.MuleRealmValueTEXTBOX = Nothing
-        Main.MuleRealmTEXTBOX.Clear()
-        Main.MuleAccountTEXTBOX.Clear()
-        Main.MuleNameTEXTBOX.Clear()
-        Main.MulePasswordTEXTBOX.Clear()
-        Main.CoreTypeTEXTBOX.Clear()
-        Main.ItemStatsRICHTEXTBOX.Clear()
-
-        Main.ItemSkinPICTUREBOX.Image = Nothing
+        Main.ClearItemStats()
         Main.OpenDatabaseLABEL.Text = ""
 
         Main.AllItemsLISTBOX.Select()
+        Main.ListboxTABCONTROL.SelectTab(0)
+        Main.ListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
+        Main.SearchListControlTabBUTTON.BackgroundImage = Nothing
+        Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
+        Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
         Main.ItemTallyTEXTBOX.Text = Main.AllItemsLISTBOX.Items.Count & " - Total Items"
+        Main.DatabaseFileLABEL.Hide()
+        Main.DatabaseFileNameTEXTBOX.Hide()
 
     End Sub
 
-
-    'SAVES THE CURRENT DATABASE TO FILE
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'SAVES THE CURRENT DATABASE TO FILE ROUTINE 
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub SaveDatabase(DatabaseFile)
         Try
             Dim LogWriter = My.Computer.FileSystem.OpenTextFileWriter(DatabaseFile, False)
@@ -260,9 +290,9 @@ Module DatabaseManagmentFunctions
     End Sub
 
 
-
+    '-----------------------------------------------------------------------------------------------------------------------------------------------
     ' To use call by using SaveLoggedItems(integer, name of file, Append true/false)
-
+    '-----------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub WriteToFile(ByVal itemstart, fName, bAppend)
         Dim CountRecordsForErrorReports As Integer = 0
         Main.RichTextBox1.AppendText("Saving to file " & fName & vbCrLf)
@@ -380,12 +410,7 @@ Module DatabaseManagmentFunctions
                 End If
 
                 'Renames Settings Default file if it matches
-
                 If AppSettings.DefaultDatabase = DatabasePath Then AppSettings.DefaultDatabase = AppSettings.InstallPath + "\Databases\" + UserInput.UserInputTEXTBOX.Text + ".txt" : SaveSettingsFile()
-
-
-
-
                 If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
             Catch ex As Exception
                 Main.ErrorHandler(701, ex, 0, 0)
@@ -403,15 +428,14 @@ Module DatabaseManagmentFunctions
             Return
         End If
 
-        Dim FileToBackup = My.Computer.FileSystem.GetName(DatabaseFile) 'remove path and assign filename to variable
-        Dim backupFileName = AppSettings.InstallPath + "\Databases\Backup\" + Replace(FileToBackup, ".txt", ".bak")      'assign backup path to filename and add .bak extension
+        Dim FileToBackup = My.Computer.FileSystem.GetName(DatabaseFile) '                                               remove path and assign filename to variable
+        Dim backupFileName = AppSettings.InstallPath + "\Databases\Backup\" + Replace(FileToBackup, ".txt", ".bak") '   assign backup path to filename and add .bak extension
         If My.Computer.FileSystem.FileExists(backupFileName) = True Then  '
             My.Computer.FileSystem.DeleteFile(backupFileName)
         End If
 
+        'Writes the new file by copying the current with an new .BAK extension
         My.Computer.FileSystem.CopyFile(DatabaseFile, backupFileName)
-
     End Sub
-
-
+    '=====================================================================================================================================================================
 End Module

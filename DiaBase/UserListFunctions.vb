@@ -235,13 +235,16 @@
 
         'ADD lINE SPACING BASED ON OPTION SETTING
         If Main.DisplayLineBreaksMainMenu.Checked = True Then
-            ' If UserObjects(ItemIndex).RequiredStrength > 0 Or UserObjects(ItemIndex).RequiredDexterity > 0 Or UserObjects(ItemIndex).RequiredCharacter = 0 And UserObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+            If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter <> Nothing And ItemObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
         If UserObjects(ItemIndex).AttackClass <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(UserObjects(ItemIndex).AttackClass & " Class") : If UserObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(" - " & UserObjects(ItemIndex).AttackSpeed & vbCrLf) Else Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         'ADD lINE SPACING BASED ON OPTION SETTING
         If Main.DisplayLineBreaksMainMenu.Checked = True Then
-            If UserObjects(ItemIndex).AttackClass <> Nothing Or UserObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+            If ItemObjects(ItemIndex).AttackClass <> Nothing Or ItemObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+            If ItemObjects(ItemIndex).RequiredLevel > 0 And ItemObjects(ItemIndex).AttackClass = Nothing And ItemObjects(ItemIndex).AttackSpeed = Nothing And ItemObjects(ItemIndex).RequiredCharacter = Nothing And ItemObjects(ItemIndex).RequiredDexterity = 0 And ItemObjects(ItemIndex).RequiredStrength = 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+
+
         End If
 
         'Colour Above Displayed Basic Info Text Block White
@@ -274,5 +277,14 @@
         Main.ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
         Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
+
+        'THIS DITTY CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
+        'NOTE TO MYSELF: is something not right with the runes display, seems to add extra spaces, only does it to runes, atm nfi wtf, perhaps logging differs to other unique attribs blocks is my guess REMEMBER TO FIX!
+        Dim linecount As Integer = 0
+        For Each Line In Main.ItemStatsRICHTEXTBOX.Lines
+            If Line.IndexOf("Item Level:") > -1 Then Main.ItemStatsRICHTEXTBOX.Select(Main.ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))
+            linecount = linecount + 1
+        Next
+        Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.White
     End Sub
 End Module
