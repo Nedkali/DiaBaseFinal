@@ -20,16 +20,19 @@ Module DatabaseManagmentFunctions
                 AppSettings.BackupBeforeImports = ReadFile.ReadLine     'Backup before imports bool 
                 AppSettings.BackupBeforeEdits = ReadFile.ReadLine       'Backup before item edits bool
                 AppSettings.AutoLoggingDelay = ReadFile.ReadLine        'Autologger delay
-                AppSettings.DefaultRealm = ReadFile.ReadLine               'Mute Sound Setting bool
+                AppSettings.DefaultRealm = ReadFile.ReadLine            'Mute Sound Setting bool
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
                 ReadFile.Close()
-            Else : Main.ErrorHandler(100, 0, 0, 0)                     'Our File Not Found Error Handler
+            Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler
             End If
 
-        Catch ex As Exception                               'All Other Unforseen System Error Handler
+        Catch ex As Exception                                           'All Other Unforseen System Error Handler
             Main.ErrorHandler(101, ex, 0, 0)
+
         End Try
+
+        'Apply Realm Search Checkbox Values
         If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True
         If AppSettings.DefaultRealm = "USWest" Then Main.WestRealmCHECKBOX.Checked = True
         If AppSettings.DefaultRealm = "Asia" Then Main.AsiaRealmCHECKBOX.Checked = True

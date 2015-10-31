@@ -23,49 +23,7 @@ Partial Class ItemEdit
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ItemEdit))
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.EditItemPickitBotCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.EditItemMuleNameCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.EditItemMuleAccountCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.EditItemMulePassCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.EditItemLadderCheckBox = New System.Windows.Forms.CheckBox()
-        Me.Label163 = New System.Windows.Forms.Label()
-        Me.Label164 = New System.Windows.Forms.Label()
-        Me.Label165 = New System.Windows.Forms.Label()
-        Me.Label166 = New System.Windows.Forms.Label()
-        Me.EditItemRealmCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label167 = New System.Windows.Forms.Label()
-        Me.Label149 = New System.Windows.Forms.Label()
-        Me.Label150 = New System.Windows.Forms.Label()
-        Me.Label155 = New System.Windows.Forms.Label()
-        Me.Label156 = New System.Windows.Forms.Label()
-        Me.EditItemCoreTypeCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.Label157 = New System.Windows.Forms.Label()
-        Me.EditItemPickitBotLABEL = New System.Windows.Forms.Label()
-        Me.EditMulePassLABEL = New System.Windows.Forms.Label()
-        Me.EditItemMuleAccountLABEL = New System.Windows.Forms.Label()
-        Me.EditItemMuleNameLABEL = New System.Windows.Forms.Label()
         Me.EditItemRunewordCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label151 = New System.Windows.Forms.Label()
         Me.Label152 = New System.Windows.Forms.Label()
@@ -268,288 +226,50 @@ Partial Class ItemEdit
         Me.EditItemNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.EditItemReqCharCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.GroupBox1.SuspendLayout()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.EditItemPickitBotCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.EditItemMuleNameCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.EditItemMuleAccountCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.EditItemMulePassCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label163 = New System.Windows.Forms.Label()
+        Me.Label164 = New System.Windows.Forms.Label()
+        Me.Label165 = New System.Windows.Forms.Label()
+        Me.Label166 = New System.Windows.Forms.Label()
+        Me.EditItemRealmCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label167 = New System.Windows.Forms.Label()
+        Me.Label149 = New System.Windows.Forms.Label()
+        Me.Label150 = New System.Windows.Forms.Label()
+        Me.Label155 = New System.Windows.Forms.Label()
+        Me.Label156 = New System.Windows.Forms.Label()
+        Me.EditItemCoreTypeCOMBOBOX = New System.Windows.Forms.ComboBox()
+        Me.Label157 = New System.Windows.Forms.Label()
+        Me.EditItemPickitBotLABEL = New System.Windows.Forms.Label()
+        Me.EditMulePassLABEL = New System.Windows.Forms.Label()
+        Me.EditItemMuleAccountLABEL = New System.Windows.Forms.Label()
+        Me.EditItemMuleNameLABEL = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(582, 412)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(193, 3)
-        Me.Label2.TabIndex = 1714
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.GroupBox1.Controls.Add(Me.Label36)
-        Me.GroupBox1.Controls.Add(Me.Label37)
-        Me.GroupBox1.Controls.Add(Me.Label38)
-        Me.GroupBox1.Controls.Add(Me.Label39)
-        Me.GroupBox1.Controls.Add(Me.EditItemPickitBotCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label31)
-        Me.GroupBox1.Controls.Add(Me.Label32)
-        Me.GroupBox1.Controls.Add(Me.Label33)
-        Me.GroupBox1.Controls.Add(Me.Label34)
-        Me.GroupBox1.Controls.Add(Me.EditItemMuleNameCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label25)
-        Me.GroupBox1.Controls.Add(Me.Label27)
-        Me.GroupBox1.Controls.Add(Me.Label28)
-        Me.GroupBox1.Controls.Add(Me.Label29)
-        Me.GroupBox1.Controls.Add(Me.EditItemMuleAccountCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label20)
-        Me.GroupBox1.Controls.Add(Me.Label21)
-        Me.GroupBox1.Controls.Add(Me.Label22)
-        Me.GroupBox1.Controls.Add(Me.Label23)
-        Me.GroupBox1.Controls.Add(Me.EditItemMulePassCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label51)
-        Me.GroupBox1.Controls.Add(Me.Label50)
-        Me.GroupBox1.Controls.Add(Me.Label19)
-        Me.GroupBox1.Controls.Add(Me.Label18)
-        Me.GroupBox1.Controls.Add(Me.EditItemLadderCheckBox)
-        Me.GroupBox1.Controls.Add(Me.Label163)
-        Me.GroupBox1.Controls.Add(Me.Label164)
-        Me.GroupBox1.Controls.Add(Me.Label165)
-        Me.GroupBox1.Controls.Add(Me.Label166)
-        Me.GroupBox1.Controls.Add(Me.EditItemRealmCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label167)
-        Me.GroupBox1.Controls.Add(Me.Label149)
-        Me.GroupBox1.Controls.Add(Me.Label150)
-        Me.GroupBox1.Controls.Add(Me.Label155)
-        Me.GroupBox1.Controls.Add(Me.Label156)
-        Me.GroupBox1.Controls.Add(Me.EditItemCoreTypeCOMBOBOX)
-        Me.GroupBox1.Controls.Add(Me.Label157)
-        Me.GroupBox1.Controls.Add(Me.EditItemPickitBotLABEL)
-        Me.GroupBox1.Controls.Add(Me.EditMulePassLABEL)
-        Me.GroupBox1.Controls.Add(Me.EditItemMuleAccountLABEL)
-        Me.GroupBox1.Controls.Add(Me.EditItemMuleNameLABEL)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.GroupBox1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.GroupBox1.Location = New System.Drawing.Point(581, 9)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(194, 406)
-        Me.GroupBox1.TabIndex = 1713
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Account Details"
-        '
-        'Label36
-        '
-        Me.Label36.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label36.Location = New System.Drawing.Point(16, 375)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(165, 3)
-        Me.Label36.TabIndex = 1564
-        '
-        'Label37
-        '
-        Me.Label37.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label37.Location = New System.Drawing.Point(16, 357)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(165, 3)
-        Me.Label37.TabIndex = 1563
-        '
-        'Label38
-        '
-        Me.Label38.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label38.Location = New System.Drawing.Point(179, 357)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(3, 21)
-        Me.Label38.TabIndex = 1562
-        '
-        'Label39
-        '
-        Me.Label39.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label39.Location = New System.Drawing.Point(13, 357)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(3, 21)
-        Me.Label39.TabIndex = 1561
-        '
-        'EditItemPickitBotCOMBOBOX
-        '
-        Me.EditItemPickitBotCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemPickitBotCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemPickitBotCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemPickitBotCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemPickitBotCOMBOBOX.FormattingEnabled = True
-        Me.EditItemPickitBotCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemPickitBotCOMBOBOX.Location = New System.Drawing.Point(13, 357)
-        Me.EditItemPickitBotCOMBOBOX.Name = "EditItemPickitBotCOMBOBOX"
-        Me.EditItemPickitBotCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemPickitBotCOMBOBOX.TabIndex = 1560
-        '
-        'Label31
-        '
-        Me.Label31.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label31.Location = New System.Drawing.Point(16, 264)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(165, 3)
-        Me.Label31.TabIndex = 1559
-        '
-        'Label32
-        '
-        Me.Label32.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label32.Location = New System.Drawing.Point(16, 246)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(165, 3)
-        Me.Label32.TabIndex = 1558
-        '
-        'Label33
-        '
-        Me.Label33.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label33.Location = New System.Drawing.Point(179, 246)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(3, 21)
-        Me.Label33.TabIndex = 1557
-        '
-        'Label34
-        '
-        Me.Label34.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label34.Location = New System.Drawing.Point(13, 246)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(3, 21)
-        Me.Label34.TabIndex = 1556
-        '
-        'EditItemMuleNameCOMBOBOX
-        '
-        Me.EditItemMuleNameCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMuleNameCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemMuleNameCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemMuleNameCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemMuleNameCOMBOBOX.FormattingEnabled = True
-        Me.EditItemMuleNameCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(13, 246)
-        Me.EditItemMuleNameCOMBOBOX.Name = "EditItemMuleNameCOMBOBOX"
-        Me.EditItemMuleNameCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemMuleNameCOMBOBOX.TabIndex = 1555
-        '
-        'Label25
-        '
-        Me.Label25.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label25.Location = New System.Drawing.Point(16, 151)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(165, 3)
-        Me.Label25.TabIndex = 1554
-        '
-        'Label27
-        '
-        Me.Label27.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label27.Location = New System.Drawing.Point(16, 133)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(165, 3)
-        Me.Label27.TabIndex = 1553
-        '
-        'Label28
-        '
-        Me.Label28.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label28.Location = New System.Drawing.Point(179, 133)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(3, 21)
-        Me.Label28.TabIndex = 1552
-        '
-        'Label29
-        '
-        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label29.Location = New System.Drawing.Point(13, 133)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(3, 21)
-        Me.Label29.TabIndex = 1551
-        '
-        'EditItemMuleAccountCOMBOBOX
-        '
-        Me.EditItemMuleAccountCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMuleAccountCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemMuleAccountCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemMuleAccountCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemMuleAccountCOMBOBOX.FormattingEnabled = True
-        Me.EditItemMuleAccountCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(13, 133)
-        Me.EditItemMuleAccountCOMBOBOX.Name = "EditItemMuleAccountCOMBOBOX"
-        Me.EditItemMuleAccountCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemMuleAccountCOMBOBOX.TabIndex = 1550
-        '
-        'Label20
-        '
-        Me.Label20.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label20.Location = New System.Drawing.Point(16, 207)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(165, 3)
-        Me.Label20.TabIndex = 1549
-        '
-        'Label21
-        '
-        Me.Label21.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label21.Location = New System.Drawing.Point(16, 189)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(165, 3)
-        Me.Label21.TabIndex = 1548
-        '
-        'Label22
-        '
-        Me.Label22.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label22.Location = New System.Drawing.Point(179, 189)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(3, 21)
-        Me.Label22.TabIndex = 1547
-        '
-        'Label23
-        '
-        Me.Label23.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label23.Location = New System.Drawing.Point(13, 189)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(3, 21)
-        Me.Label23.TabIndex = 1546
-        '
-        'EditItemMulePassCOMBOBOX
-        '
-        Me.EditItemMulePassCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMulePassCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemMulePassCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemMulePassCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemMulePassCOMBOBOX.FormattingEnabled = True
-        Me.EditItemMulePassCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemMulePassCOMBOBOX.Location = New System.Drawing.Point(13, 189)
-        Me.EditItemMulePassCOMBOBOX.Name = "EditItemMulePassCOMBOBOX"
-        Me.EditItemMulePassCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemMulePassCOMBOBOX.TabIndex = 1545
-        '
-        'Label51
-        '
-        Me.Label51.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label51.Location = New System.Drawing.Point(0, 5)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(7, 3)
-        Me.Label51.TabIndex = 1511
-        '
-        'Label50
-        '
-        Me.Label50.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label50.Location = New System.Drawing.Point(86, 5)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(110, 3)
-        Me.Label50.TabIndex = 1511
-        '
-        'Label19
-        '
-        Me.Label19.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label19.Location = New System.Drawing.Point(0, 8)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(3, 397)
-        Me.Label19.TabIndex = 1512
-        '
-        'Label18
-        '
-        Me.Label18.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label18.Location = New System.Drawing.Point(191, 8)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(3, 397)
-        Me.Label18.TabIndex = 1511
         '
         'EditItemLadderCheckBox
         '
         Me.EditItemLadderCheckBox.AutoSize = True
         Me.EditItemLadderCheckBox.BackColor = System.Drawing.Color.Transparent
         Me.EditItemLadderCheckBox.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemLadderCheckBox.Location = New System.Drawing.Point(55, 31)
+        Me.EditItemLadderCheckBox.Location = New System.Drawing.Point(283, 83)
         Me.EditItemLadderCheckBox.Name = "EditItemLadderCheckBox"
         Me.EditItemLadderCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.EditItemLadderCheckBox.Size = New System.Drawing.Size(59, 17)
@@ -557,167 +277,12 @@ Partial Class ItemEdit
         Me.EditItemLadderCheckBox.Text = "Ladder"
         Me.EditItemLadderCheckBox.UseVisualStyleBackColor = False
         '
-        'Label163
-        '
-        Me.Label163.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label163.Location = New System.Drawing.Point(16, 100)
-        Me.Label163.Name = "Label163"
-        Me.Label163.Size = New System.Drawing.Size(165, 3)
-        Me.Label163.TabIndex = 1543
-        '
-        'Label164
-        '
-        Me.Label164.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label164.Location = New System.Drawing.Point(16, 82)
-        Me.Label164.Name = "Label164"
-        Me.Label164.Size = New System.Drawing.Size(165, 3)
-        Me.Label164.TabIndex = 1542
-        '
-        'Label165
-        '
-        Me.Label165.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label165.Location = New System.Drawing.Point(179, 82)
-        Me.Label165.Name = "Label165"
-        Me.Label165.Size = New System.Drawing.Size(3, 21)
-        Me.Label165.TabIndex = 1541
-        '
-        'Label166
-        '
-        Me.Label166.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label166.Location = New System.Drawing.Point(13, 82)
-        Me.Label166.Name = "Label166"
-        Me.Label166.Size = New System.Drawing.Size(3, 21)
-        Me.Label166.TabIndex = 1540
-        '
-        'EditItemRealmCOMBOBOX
-        '
-        Me.EditItemRealmCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemRealmCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemRealmCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemRealmCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemRealmCOMBOBOX.FormattingEnabled = True
-        Me.EditItemRealmCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.EditItemRealmCOMBOBOX.Location = New System.Drawing.Point(13, 82)
-        Me.EditItemRealmCOMBOBOX.Name = "EditItemRealmCOMBOBOX"
-        Me.EditItemRealmCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemRealmCOMBOBOX.TabIndex = 1538
-        '
-        'Label167
-        '
-        Me.Label167.AutoSize = True
-        Me.Label167.BackColor = System.Drawing.Color.Transparent
-        Me.Label167.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label167.Location = New System.Drawing.Point(9, 62)
-        Me.Label167.Name = "Label167"
-        Me.Label167.Size = New System.Drawing.Size(37, 13)
-        Me.Label167.TabIndex = 1539
-        Me.Label167.Text = "Realm"
-        '
-        'Label149
-        '
-        Me.Label149.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label149.Location = New System.Drawing.Point(15, 320)
-        Me.Label149.Name = "Label149"
-        Me.Label149.Size = New System.Drawing.Size(165, 3)
-        Me.Label149.TabIndex = 1537
-        '
-        'Label150
-        '
-        Me.Label150.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label150.Location = New System.Drawing.Point(15, 302)
-        Me.Label150.Name = "Label150"
-        Me.Label150.Size = New System.Drawing.Size(165, 3)
-        Me.Label150.TabIndex = 1536
-        '
-        'Label155
-        '
-        Me.Label155.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label155.Location = New System.Drawing.Point(178, 302)
-        Me.Label155.Name = "Label155"
-        Me.Label155.Size = New System.Drawing.Size(3, 21)
-        Me.Label155.TabIndex = 1535
-        '
-        'Label156
-        '
-        Me.Label156.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label156.Location = New System.Drawing.Point(12, 302)
-        Me.Label156.Name = "Label156"
-        Me.Label156.Size = New System.Drawing.Size(3, 21)
-        Me.Label156.TabIndex = 1534
-        '
-        'EditItemCoreTypeCOMBOBOX
-        '
-        Me.EditItemCoreTypeCOMBOBOX.BackColor = System.Drawing.Color.Black
-        Me.EditItemCoreTypeCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.EditItemCoreTypeCOMBOBOX.ForeColor = System.Drawing.Color.White
-        Me.EditItemCoreTypeCOMBOBOX.FormattingEnabled = True
-        Me.EditItemCoreTypeCOMBOBOX.Items.AddRange(New Object() {"HardCore", "SoftCore"})
-        Me.EditItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(12, 302)
-        Me.EditItemCoreTypeCOMBOBOX.Name = "EditItemCoreTypeCOMBOBOX"
-        Me.EditItemCoreTypeCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.EditItemCoreTypeCOMBOBOX.TabIndex = 1532
-        '
-        'Label157
-        '
-        Me.Label157.AutoSize = True
-        Me.Label157.BackColor = System.Drawing.Color.Transparent
-        Me.Label157.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label157.Location = New System.Drawing.Point(9, 283)
-        Me.Label157.Name = "Label157"
-        Me.Label157.Size = New System.Drawing.Size(56, 13)
-        Me.Label157.TabIndex = 1533
-        Me.Label157.Text = "Core Type"
-        '
-        'EditItemPickitBotLABEL
-        '
-        Me.EditItemPickitBotLABEL.AutoSize = True
-        Me.EditItemPickitBotLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.EditItemPickitBotLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemPickitBotLABEL.Location = New System.Drawing.Point(9, 339)
-        Me.EditItemPickitBotLABEL.Name = "EditItemPickitBotLABEL"
-        Me.EditItemPickitBotLABEL.Size = New System.Drawing.Size(76, 13)
-        Me.EditItemPickitBotLABEL.TabIndex = 1515
-        Me.EditItemPickitBotLABEL.Text = "Pickit Account"
-        '
-        'EditMulePassLABEL
-        '
-        Me.EditMulePassLABEL.AutoSize = True
-        Me.EditMulePassLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.EditMulePassLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditMulePassLABEL.Location = New System.Drawing.Point(9, 171)
-        Me.EditMulePassLABEL.Name = "EditMulePassLABEL"
-        Me.EditMulePassLABEL.Size = New System.Drawing.Size(79, 13)
-        Me.EditMulePassLABEL.TabIndex = 1514
-        Me.EditMulePassLABEL.Text = "Mule Password"
-        '
-        'EditItemMuleAccountLABEL
-        '
-        Me.EditItemMuleAccountLABEL.AutoSize = True
-        Me.EditItemMuleAccountLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.EditItemMuleAccountLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(9, 117)
-        Me.EditItemMuleAccountLABEL.Name = "EditItemMuleAccountLABEL"
-        Me.EditItemMuleAccountLABEL.Size = New System.Drawing.Size(73, 13)
-        Me.EditItemMuleAccountLABEL.TabIndex = 1513
-        Me.EditItemMuleAccountLABEL.Text = "Mule Account"
-        '
-        'EditItemMuleNameLABEL
-        '
-        Me.EditItemMuleNameLABEL.AutoSize = True
-        Me.EditItemMuleNameLABEL.BackColor = System.Drawing.Color.Transparent
-        Me.EditItemMuleNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(9, 228)
-        Me.EditItemMuleNameLABEL.Name = "EditItemMuleNameLABEL"
-        Me.EditItemMuleNameLABEL.Size = New System.Drawing.Size(61, 13)
-        Me.EditItemMuleNameLABEL.TabIndex = 1512
-        Me.EditItemMuleNameLABEL.Text = "Mule Name"
-        '
         'EditItemRunewordCheckBox
         '
         Me.EditItemRunewordCheckBox.AutoSize = True
         Me.EditItemRunewordCheckBox.BackColor = System.Drawing.Color.Transparent
         Me.EditItemRunewordCheckBox.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemRunewordCheckBox.Location = New System.Drawing.Point(207, 80)
+        Me.EditItemRunewordCheckBox.Location = New System.Drawing.Point(175, 83)
         Me.EditItemRunewordCheckBox.Name = "EditItemRunewordCheckBox"
         Me.EditItemRunewordCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.EditItemRunewordCheckBox.Size = New System.Drawing.Size(78, 17)
@@ -2245,7 +1810,7 @@ Partial Class ItemEdit
         Me.EditItemEtherealItemCHECKBOX.AutoSize = True
         Me.EditItemEtherealItemCHECKBOX.BackColor = System.Drawing.Color.Transparent
         Me.EditItemEtherealItemCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemEtherealItemCHECKBOX.Location = New System.Drawing.Point(332, 83)
+        Me.EditItemEtherealItemCHECKBOX.Location = New System.Drawing.Point(368, 83)
         Me.EditItemEtherealItemCHECKBOX.Name = "EditItemEtherealItemCHECKBOX"
         Me.EditItemEtherealItemCHECKBOX.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.EditItemEtherealItemCHECKBOX.Size = New System.Drawing.Size(88, 17)
@@ -2526,6 +2091,341 @@ Partial Class ItemEdit
         Me.EditItemReqCharCOMBOBOX.Size = New System.Drawing.Size(126, 21)
         Me.EditItemReqCharCOMBOBOX.TabIndex = 1532
         '
+        'Label36
+        '
+        Me.Label36.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label36.Location = New System.Drawing.Point(593, 404)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(165, 3)
+        Me.Label36.TabIndex = 1748
+        '
+        'Label37
+        '
+        Me.Label37.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label37.Location = New System.Drawing.Point(593, 386)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(165, 3)
+        Me.Label37.TabIndex = 1747
+        '
+        'Label38
+        '
+        Me.Label38.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label38.Location = New System.Drawing.Point(756, 386)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(3, 21)
+        Me.Label38.TabIndex = 1746
+        '
+        'Label39
+        '
+        Me.Label39.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label39.Location = New System.Drawing.Point(590, 386)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(3, 21)
+        Me.Label39.TabIndex = 1745
+        '
+        'EditItemPickitBotCOMBOBOX
+        '
+        Me.EditItemPickitBotCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemPickitBotCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemPickitBotCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemPickitBotCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemPickitBotCOMBOBOX.FormattingEnabled = True
+        Me.EditItemPickitBotCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemPickitBotCOMBOBOX.Location = New System.Drawing.Point(590, 386)
+        Me.EditItemPickitBotCOMBOBOX.Name = "EditItemPickitBotCOMBOBOX"
+        Me.EditItemPickitBotCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemPickitBotCOMBOBOX.TabIndex = 1744
+        '
+        'Label31
+        '
+        Me.Label31.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label31.Location = New System.Drawing.Point(593, 293)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(165, 3)
+        Me.Label31.TabIndex = 1743
+        '
+        'Label32
+        '
+        Me.Label32.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label32.Location = New System.Drawing.Point(593, 275)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(165, 3)
+        Me.Label32.TabIndex = 1742
+        '
+        'Label33
+        '
+        Me.Label33.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label33.Location = New System.Drawing.Point(756, 275)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(3, 21)
+        Me.Label33.TabIndex = 1741
+        '
+        'Label34
+        '
+        Me.Label34.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label34.Location = New System.Drawing.Point(590, 275)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(3, 21)
+        Me.Label34.TabIndex = 1740
+        '
+        'EditItemMuleNameCOMBOBOX
+        '
+        Me.EditItemMuleNameCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMuleNameCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemMuleNameCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemMuleNameCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemMuleNameCOMBOBOX.FormattingEnabled = True
+        Me.EditItemMuleNameCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(590, 275)
+        Me.EditItemMuleNameCOMBOBOX.Name = "EditItemMuleNameCOMBOBOX"
+        Me.EditItemMuleNameCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemMuleNameCOMBOBOX.TabIndex = 1739
+        '
+        'Label25
+        '
+        Me.Label25.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label25.Location = New System.Drawing.Point(593, 180)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(165, 3)
+        Me.Label25.TabIndex = 1738
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label27.Location = New System.Drawing.Point(593, 162)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(165, 3)
+        Me.Label27.TabIndex = 1737
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label28.Location = New System.Drawing.Point(756, 162)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(3, 21)
+        Me.Label28.TabIndex = 1736
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label29.Location = New System.Drawing.Point(590, 162)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(3, 21)
+        Me.Label29.TabIndex = 1735
+        '
+        'EditItemMuleAccountCOMBOBOX
+        '
+        Me.EditItemMuleAccountCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMuleAccountCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemMuleAccountCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemMuleAccountCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemMuleAccountCOMBOBOX.FormattingEnabled = True
+        Me.EditItemMuleAccountCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(590, 162)
+        Me.EditItemMuleAccountCOMBOBOX.Name = "EditItemMuleAccountCOMBOBOX"
+        Me.EditItemMuleAccountCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemMuleAccountCOMBOBOX.TabIndex = 1734
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label20.Location = New System.Drawing.Point(593, 236)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(165, 3)
+        Me.Label20.TabIndex = 1733
+        '
+        'Label21
+        '
+        Me.Label21.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label21.Location = New System.Drawing.Point(593, 218)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(165, 3)
+        Me.Label21.TabIndex = 1732
+        '
+        'Label22
+        '
+        Me.Label22.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label22.Location = New System.Drawing.Point(756, 218)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(3, 21)
+        Me.Label22.TabIndex = 1731
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label23.Location = New System.Drawing.Point(590, 218)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(3, 21)
+        Me.Label23.TabIndex = 1730
+        '
+        'EditItemMulePassCOMBOBOX
+        '
+        Me.EditItemMulePassCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMulePassCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemMulePassCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemMulePassCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemMulePassCOMBOBOX.FormattingEnabled = True
+        Me.EditItemMulePassCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemMulePassCOMBOBOX.Location = New System.Drawing.Point(590, 218)
+        Me.EditItemMulePassCOMBOBOX.Name = "EditItemMulePassCOMBOBOX"
+        Me.EditItemMulePassCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemMulePassCOMBOBOX.TabIndex = 1729
+        '
+        'Label163
+        '
+        Me.Label163.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label163.Location = New System.Drawing.Point(593, 129)
+        Me.Label163.Name = "Label163"
+        Me.Label163.Size = New System.Drawing.Size(165, 3)
+        Me.Label163.TabIndex = 1728
+        '
+        'Label164
+        '
+        Me.Label164.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label164.Location = New System.Drawing.Point(593, 111)
+        Me.Label164.Name = "Label164"
+        Me.Label164.Size = New System.Drawing.Size(165, 3)
+        Me.Label164.TabIndex = 1727
+        '
+        'Label165
+        '
+        Me.Label165.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label165.Location = New System.Drawing.Point(756, 111)
+        Me.Label165.Name = "Label165"
+        Me.Label165.Size = New System.Drawing.Size(3, 21)
+        Me.Label165.TabIndex = 1726
+        '
+        'Label166
+        '
+        Me.Label166.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label166.Location = New System.Drawing.Point(590, 111)
+        Me.Label166.Name = "Label166"
+        Me.Label166.Size = New System.Drawing.Size(3, 21)
+        Me.Label166.TabIndex = 1725
+        '
+        'EditItemRealmCOMBOBOX
+        '
+        Me.EditItemRealmCOMBOBOX.AutoCompleteCustomSource.AddRange(New String() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemRealmCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemRealmCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemRealmCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemRealmCOMBOBOX.FormattingEnabled = True
+        Me.EditItemRealmCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
+        Me.EditItemRealmCOMBOBOX.Location = New System.Drawing.Point(590, 111)
+        Me.EditItemRealmCOMBOBOX.Name = "EditItemRealmCOMBOBOX"
+        Me.EditItemRealmCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemRealmCOMBOBOX.TabIndex = 1723
+        '
+        'Label167
+        '
+        Me.Label167.AutoSize = True
+        Me.Label167.BackColor = System.Drawing.Color.Transparent
+        Me.Label167.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label167.Location = New System.Drawing.Point(586, 91)
+        Me.Label167.Name = "Label167"
+        Me.Label167.Size = New System.Drawing.Size(37, 13)
+        Me.Label167.TabIndex = 1724
+        Me.Label167.Text = "Realm"
+        '
+        'Label149
+        '
+        Me.Label149.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label149.Location = New System.Drawing.Point(592, 349)
+        Me.Label149.Name = "Label149"
+        Me.Label149.Size = New System.Drawing.Size(165, 3)
+        Me.Label149.TabIndex = 1722
+        '
+        'Label150
+        '
+        Me.Label150.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label150.Location = New System.Drawing.Point(592, 331)
+        Me.Label150.Name = "Label150"
+        Me.Label150.Size = New System.Drawing.Size(165, 3)
+        Me.Label150.TabIndex = 1721
+        '
+        'Label155
+        '
+        Me.Label155.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label155.Location = New System.Drawing.Point(755, 331)
+        Me.Label155.Name = "Label155"
+        Me.Label155.Size = New System.Drawing.Size(3, 21)
+        Me.Label155.TabIndex = 1720
+        '
+        'Label156
+        '
+        Me.Label156.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label156.Location = New System.Drawing.Point(589, 331)
+        Me.Label156.Name = "Label156"
+        Me.Label156.Size = New System.Drawing.Size(3, 21)
+        Me.Label156.TabIndex = 1719
+        '
+        'EditItemCoreTypeCOMBOBOX
+        '
+        Me.EditItemCoreTypeCOMBOBOX.BackColor = System.Drawing.Color.Black
+        Me.EditItemCoreTypeCOMBOBOX.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.EditItemCoreTypeCOMBOBOX.ForeColor = System.Drawing.Color.White
+        Me.EditItemCoreTypeCOMBOBOX.FormattingEnabled = True
+        Me.EditItemCoreTypeCOMBOBOX.Items.AddRange(New Object() {"HardCore", "SoftCore"})
+        Me.EditItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(589, 331)
+        Me.EditItemCoreTypeCOMBOBOX.Name = "EditItemCoreTypeCOMBOBOX"
+        Me.EditItemCoreTypeCOMBOBOX.Size = New System.Drawing.Size(168, 21)
+        Me.EditItemCoreTypeCOMBOBOX.TabIndex = 1717
+        '
+        'Label157
+        '
+        Me.Label157.AutoSize = True
+        Me.Label157.BackColor = System.Drawing.Color.Transparent
+        Me.Label157.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label157.Location = New System.Drawing.Point(586, 312)
+        Me.Label157.Name = "Label157"
+        Me.Label157.Size = New System.Drawing.Size(56, 13)
+        Me.Label157.TabIndex = 1718
+        Me.Label157.Text = "Core Type"
+        '
+        'EditItemPickitBotLABEL
+        '
+        Me.EditItemPickitBotLABEL.AutoSize = True
+        Me.EditItemPickitBotLABEL.BackColor = System.Drawing.Color.Transparent
+        Me.EditItemPickitBotLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.EditItemPickitBotLABEL.Location = New System.Drawing.Point(586, 368)
+        Me.EditItemPickitBotLABEL.Name = "EditItemPickitBotLABEL"
+        Me.EditItemPickitBotLABEL.Size = New System.Drawing.Size(76, 13)
+        Me.EditItemPickitBotLABEL.TabIndex = 1716
+        Me.EditItemPickitBotLABEL.Text = "Pickit Account"
+        '
+        'EditMulePassLABEL
+        '
+        Me.EditMulePassLABEL.AutoSize = True
+        Me.EditMulePassLABEL.BackColor = System.Drawing.Color.Transparent
+        Me.EditMulePassLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.EditMulePassLABEL.Location = New System.Drawing.Point(586, 200)
+        Me.EditMulePassLABEL.Name = "EditMulePassLABEL"
+        Me.EditMulePassLABEL.Size = New System.Drawing.Size(79, 13)
+        Me.EditMulePassLABEL.TabIndex = 1715
+        Me.EditMulePassLABEL.Text = "Mule Password"
+        '
+        'EditItemMuleAccountLABEL
+        '
+        Me.EditItemMuleAccountLABEL.AutoSize = True
+        Me.EditItemMuleAccountLABEL.BackColor = System.Drawing.Color.Transparent
+        Me.EditItemMuleAccountLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(586, 146)
+        Me.EditItemMuleAccountLABEL.Name = "EditItemMuleAccountLABEL"
+        Me.EditItemMuleAccountLABEL.Size = New System.Drawing.Size(73, 13)
+        Me.EditItemMuleAccountLABEL.TabIndex = 1714
+        Me.EditItemMuleAccountLABEL.Text = "Mule Account"
+        '
+        'EditItemMuleNameLABEL
+        '
+        Me.EditItemMuleNameLABEL.AutoSize = True
+        Me.EditItemMuleNameLABEL.BackColor = System.Drawing.Color.Transparent
+        Me.EditItemMuleNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
+        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(586, 257)
+        Me.EditItemMuleNameLABEL.Name = "EditItemMuleNameLABEL"
+        Me.EditItemMuleNameLABEL.Size = New System.Drawing.Size(61, 13)
+        Me.EditItemMuleNameLABEL.TabIndex = 1713
+        Me.EditItemMuleNameLABEL.Text = "Mule Name"
+        '
         'ItemEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2534,8 +2434,42 @@ Partial Class ItemEdit
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(794, 601)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Label36)
+        Me.Controls.Add(Me.Label37)
+        Me.Controls.Add(Me.Label38)
+        Me.Controls.Add(Me.Label39)
+        Me.Controls.Add(Me.EditItemPickitBotCOMBOBOX)
+        Me.Controls.Add(Me.Label31)
+        Me.Controls.Add(Me.Label32)
+        Me.Controls.Add(Me.Label33)
+        Me.Controls.Add(Me.Label34)
+        Me.Controls.Add(Me.EditItemMuleNameCOMBOBOX)
+        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.EditItemMuleAccountCOMBOBOX)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.EditItemMulePassCOMBOBOX)
+        Me.Controls.Add(Me.Label163)
+        Me.Controls.Add(Me.Label164)
+        Me.Controls.Add(Me.Label165)
+        Me.Controls.Add(Me.Label166)
+        Me.Controls.Add(Me.EditItemRealmCOMBOBOX)
+        Me.Controls.Add(Me.Label167)
+        Me.Controls.Add(Me.Label149)
+        Me.Controls.Add(Me.Label150)
+        Me.Controls.Add(Me.Label155)
+        Me.Controls.Add(Me.Label156)
+        Me.Controls.Add(Me.EditItemCoreTypeCOMBOBOX)
+        Me.Controls.Add(Me.Label157)
+        Me.Controls.Add(Me.EditItemPickitBotLABEL)
+        Me.Controls.Add(Me.EditMulePassLABEL)
+        Me.Controls.Add(Me.EditItemMuleAccountLABEL)
+        Me.Controls.Add(Me.EditItemMuleNameLABEL)
         Me.Controls.Add(Me.EditItemRunewordCheckBox)
         Me.Controls.Add(Me.Label151)
         Me.Controls.Add(Me.Label152)
@@ -2558,6 +2492,7 @@ Partial Class ItemEdit
         Me.Controls.Add(Me.Label49)
         Me.Controls.Add(Me.Label109)
         Me.Controls.Add(Me.Label110)
+        Me.Controls.Add(Me.EditItemLadderCheckBox)
         Me.Controls.Add(Me.Label115)
         Me.Controls.Add(Me.EditItemLevelTEXTBOX)
         Me.Controls.Add(Me.EditItemLevelLABEL)
@@ -2743,35 +2678,11 @@ Partial Class ItemEdit
         Me.MinimumSize = New System.Drawing.Size(810, 640)
         Me.Name = "ItemEdit"
         Me.Text = "Edit Selected Item(s)"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label51 As System.Windows.Forms.Label
-    Friend WithEvents Label50 As System.Windows.Forms.Label
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents EditItemLadderCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents Label163 As System.Windows.Forms.Label
-    Friend WithEvents Label164 As System.Windows.Forms.Label
-    Friend WithEvents Label165 As System.Windows.Forms.Label
-    Friend WithEvents Label166 As System.Windows.Forms.Label
-    Friend WithEvents EditItemRealmCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label167 As System.Windows.Forms.Label
-    Friend WithEvents Label149 As System.Windows.Forms.Label
-    Friend WithEvents Label150 As System.Windows.Forms.Label
-    Friend WithEvents Label155 As System.Windows.Forms.Label
-    Friend WithEvents Label156 As System.Windows.Forms.Label
-    Friend WithEvents EditItemCoreTypeCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label157 As System.Windows.Forms.Label
-    Friend WithEvents EditItemPickitBotLABEL As System.Windows.Forms.Label
-    Friend WithEvents EditMulePassLABEL As System.Windows.Forms.Label
-    Friend WithEvents EditItemMuleAccountLABEL As System.Windows.Forms.Label
-    Friend WithEvents EditItemMuleNameLABEL As System.Windows.Forms.Label
     Friend WithEvents EditItemRunewordCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents Label151 As System.Windows.Forms.Label
     Friend WithEvents Label152 As System.Windows.Forms.Label
@@ -2974,24 +2885,40 @@ Partial Class ItemEdit
     Friend WithEvents EditItemNameTEXTBOX As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents EditItemReqCharCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents Label37 As System.Windows.Forms.Label
-    Friend WithEvents Label38 As System.Windows.Forms.Label
-    Friend WithEvents Label39 As System.Windows.Forms.Label
-    Friend WithEvents EditItemPickitBotCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label31 As System.Windows.Forms.Label
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents EditItemMuleNameCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents EditItemMuleAccountCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents EditItemMulePassCOMBOBOX As System.Windows.Forms.ComboBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents EditItemPickitBotCOMBOBOX As ComboBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents EditItemMuleNameCOMBOBOX As ComboBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents EditItemMuleAccountCOMBOBOX As ComboBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents EditItemMulePassCOMBOBOX As ComboBox
+    Friend WithEvents Label163 As Label
+    Friend WithEvents Label164 As Label
+    Friend WithEvents Label165 As Label
+    Friend WithEvents Label166 As Label
+    Friend WithEvents EditItemRealmCOMBOBOX As ComboBox
+    Friend WithEvents Label167 As Label
+    Friend WithEvents Label149 As Label
+    Friend WithEvents Label150 As Label
+    Friend WithEvents Label155 As Label
+    Friend WithEvents Label156 As Label
+    Friend WithEvents EditItemCoreTypeCOMBOBOX As ComboBox
+    Friend WithEvents Label157 As Label
+    Friend WithEvents EditItemPickitBotLABEL As Label
+    Friend WithEvents EditMulePassLABEL As Label
+    Friend WithEvents EditItemMuleAccountLABEL As Label
+    Friend WithEvents EditItemMuleNameLABEL As Label
 End Class

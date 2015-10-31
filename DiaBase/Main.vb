@@ -231,7 +231,7 @@ Public Class Main
 
 
 
-        UserListFunctions.DisplayUserList() ' Branch to UserFunction module to run sub to display stats for selected user list item
+        UserListFunctions.DisplaySelectedUserListItem() ' Branch to UserFunction module to run sub to display stats for selected user list item
 
 
 
@@ -290,7 +290,39 @@ Public Class Main
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
         DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
+
+        'THIS CHECKS IF AN ITEM IS SELECTED IF NOT IT SELECTS THE FIRST IN THE LIST
+        'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
+        If AllItemsLISTBOX.SelectedIndex = -1 And AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 1 Else If AllItemsLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+
+
+
+
+
+
     End Sub
+
+
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'USER LISTBOX TAB BUTTON HANDLER - Selects Button And Displays the UserLISTBOX
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Private Sub UserRefControlTabBUTTON_Click(sender As Object, e As EventArgs) Handles UserRefControlTabBUTTON.Click
+        ListboxTABCONTROL.SelectTab(3)
+        SearchListControlTabBUTTON.BackgroundImage = Nothing
+        ListControlTabBUTTON.BackgroundImage = Nothing
+        TradesListControlTabBUTTON.BackgroundImage = Nothing
+        UserRefControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
+        ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Entries")
+        DatabaseFileLABEL.Show()
+        DatabaseFileNameTEXTBOX.Show()
+
+        'THIS CHECKS IF AN ITEM IS SELECTED IF NOT IT SELECTS THE FIRST IN THE LIST
+        'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
+        If UserLISTBOX.SelectedIndex = -1 And UserLISTBOX.Items.Count > 0 Then UserLISTBOX.SelectedIndex = 1 Else If UserLISTBOX.SelectedIndex > -1 Then UserListFunctions.DisplaySelectedUserListItem()
+
+
+    End Sub
+
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -328,19 +360,6 @@ Public Class Main
     End Sub
 
 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'USER LISTBOX TAB BUTTON HANDLER - Selects Button And Displays the UserLISTBOX
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub UserRefControlTabBUTTON_Click(sender As Object, e As EventArgs) Handles UserRefControlTabBUTTON.Click
-        ListboxTABCONTROL.SelectTab(3)
-        SearchListControlTabBUTTON.BackgroundImage = Nothing
-        ListControlTabBUTTON.BackgroundImage = Nothing
-        TradesListControlTabBUTTON.BackgroundImage = Nothing
-        UserRefControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
-        ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Entries")
-        DatabaseFileLABEL.Show()
-        DatabaseFileNameTEXTBOX.Show()
-    End Sub
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -712,12 +731,18 @@ Public Class Main
     Private Sub DisplayLineBreaksMainMenu_Click(sender As Object, e As EventArgs) Handles DisplayLineBreaksMainMenu.Click
         If DisplayLineBreaksMainMenu.Checked = True Then
             DisplayLineBreaksMainMenu.Checked = False
-            DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items -") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items -") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
+
+
             Return
         End If
-        If DisplayLineBreaksMainMenu.Checked = False Then
+            If DisplayLineBreaksMainMenu.Checked = False Then
             DisplayLineBreaksMainMenu.Checked = True
-            DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items -") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items -") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
+
+
         End If
 
     End Sub
@@ -974,7 +999,7 @@ Public Class Main
                 ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
                 ErrorHandlerForm.ErrorTrapNoBUTTON.Visible = True
                 ErrorHandlerForm.ErrorTrapNoBUTTON.Text = "Cancel Import"
-                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase cannot export the selected items. The export has failed... " & vbCrLf & vbCrLf & "SYSTEM ERROR:" & vbCrLf & vbCrLf & SystemCode
+                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase cannot export the selected items. The export has failed... " & vbCrLf & vbCrLf & "SYSTEM ERROR:" & vbCrLf & vbCrLf & SystemCode.message & vbCrLf & vbCrLf & "Please report this error if the problem persists."
                 ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
                 DialogResult = ErrorHandlerForm.ShowDialog()
 
@@ -1423,7 +1448,9 @@ Public Class Main
     End Sub
 
     Private Sub SendToUserListItemsCMenu_Click(sender As Object, e As EventArgs) Handles SendToUserListItemsCMenu.Click
-        AllItemsToUserList()
+        SelectedItemsToUserList()
+        If UserLISTBOX.Items.Count > 0 And UserLISTBOX.SelectedIndex = -1 Then UserLISTBOX.SelectedIndex = 0
+
     End Sub
 
     Private Sub SendAllToTradeListSearchMenu_Click(sender As Object, e As EventArgs) Handles SendAllToTradeListSearchMenu.Click
@@ -1512,4 +1539,6 @@ Public Class Main
 
 
     End Sub
+
+
 End Class

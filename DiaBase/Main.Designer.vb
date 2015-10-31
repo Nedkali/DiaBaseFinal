@@ -534,7 +534,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 247)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 232)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -552,7 +552,7 @@ Partial Class Main
         Me.TradesListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.TradesListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.TradesListControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(183, 247)
+        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(183, 232)
         Me.TradesListControlTabBUTTON.Name = "TradesListControlTabBUTTON"
         Me.TradesListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.TradesListControlTabBUTTON.TabIndex = 310
@@ -769,7 +769,7 @@ Partial Class Main
         Me.ListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 247)
+        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 232)
         Me.ListControlTabBUTTON.Name = "ListControlTabBUTTON"
         Me.ListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.ListControlTabBUTTON.TabIndex = 308
@@ -786,7 +786,7 @@ Partial Class Main
         Me.SearchListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.SearchListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(105, 247)
+        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(105, 232)
         Me.SearchListControlTabBUTTON.Name = "SearchListControlTabBUTTON"
         Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.SearchListControlTabBUTTON.TabIndex = 309
@@ -1651,7 +1651,7 @@ Partial Class Main
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(25, 247)
+        Me.Label4.Location = New System.Drawing.Point(25, 232)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(384, 27)
         Me.Label4.TabIndex = 262

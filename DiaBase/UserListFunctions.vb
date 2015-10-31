@@ -1,5 +1,5 @@
 ﻿Module UserListFunctions
-    Public Sub AllItemsToUserList()
+    Public Sub SelectedItemsToUserList()
         If AutoLoggerRunning = True Then Return
 
         Main.ImportTimer.Stop()
@@ -107,7 +107,7 @@
         Main.UserLISTBOX.Items.Add(AddToUserList.ItemName)
     End Sub
 
-    Public Sub DisplayUserList()
+    Public Sub DisplaySelectedUserListItem()
         If Main.UserLISTBOX.SelectedIndex = -1 Then Return
 
         Main.AllItemsLISTBOX.SelectedItem = -1
