@@ -175,7 +175,6 @@ Module DatabaseManagmentFunctions
 
         Main.AllItemsLISTBOX.Items.Clear()
         Main.SearchLISTBOX.Items.Clear()
-        Main.UserLISTBOX.Items.Clear()
         Main.TradeListRICHTEXTBOX.Clear()
 
         'Main.MuleRealmValueTEXTBOX = Nothing

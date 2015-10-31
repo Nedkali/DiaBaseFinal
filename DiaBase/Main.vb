@@ -294,11 +294,7 @@ Public Class Main
         'THIS CHECKS IF AN ITEM IS SELECTED IF NOT IT SELECTS THE FIRST IN THE LIST
         'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
         If AllItemsLISTBOX.SelectedIndex = -1 And AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 1 Else If AllItemsLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
-
-
-
-
-
+        If AllItemsLISTBOX.Items.Count = 0 Then ClearItemStats()
 
     End Sub
 
@@ -319,9 +315,25 @@ Public Class Main
         'THIS CHECKS IF AN ITEM IS SELECTED IF NOT IT SELECTS THE FIRST IN THE LIST
         'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
         If UserLISTBOX.SelectedIndex = -1 And UserLISTBOX.Items.Count > 0 Then UserLISTBOX.SelectedIndex = 1 Else If UserLISTBOX.SelectedIndex > -1 Then UserListFunctions.DisplaySelectedUserListItem()
-
+        If UserLISTBOX.Items.Count = 0 Then ClearItemStats()
 
     End Sub
+
+    'ROUTINE CLEANS OUT THE ITEM STATS CONTROLS FOR WHEN AN ITEM IS NOT SELECTED OR WHEN NO ITEMS EXITS IN A LIST
+    Sub ClearItemStats()
+        Me.MuleRealmTEXTBOX.Clear()
+        Me.MuleAccountTEXTBOX.Clear()
+        Me.MuleNameTEXTBOX.Clear()
+        Me.MulePasswordTEXTBOX.Clear()
+        Me.CoreTypeTEXTBOX.Clear()
+        Me.LadderTEXTBOX.Clear()
+        Me.ItemStatsRICHTEXTBOX.Clear()
+
+        Me.ItemSkinPICTUREBOX.Image = Nothing
+        Me.OpenDatabaseLABEL.Text = ""
+
+    End Sub
+
 
 
 
@@ -731,16 +743,16 @@ Public Class Main
     Private Sub DisplayLineBreaksMainMenu_Click(sender As Object, e As EventArgs) Handles DisplayLineBreaksMainMenu.Click
         If DisplayLineBreaksMainMenu.Checked = True Then
             DisplayLineBreaksMainMenu.Checked = False
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items -") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items -") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
 
 
             Return
         End If
             If DisplayLineBreaksMainMenu.Checked = False Then
             DisplayLineBreaksMainMenu.Checked = True
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items -") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items -") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
+            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
+            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem()
 
 
         End If
