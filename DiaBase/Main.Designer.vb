@@ -32,6 +32,11 @@ Partial Class Main
         Me.ExitApplicarionMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearImportLogMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DisplayLineBreaksMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HideDupesMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.SetNonLadderMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetLadderByDateMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
@@ -187,11 +192,6 @@ Partial Class Main
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
-        Me.HideDupesMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisplayLineBreaksMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ClearImportLogMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -276,6 +276,35 @@ Partial Class Main
         Me.SettingsMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.SettingsMENUITEM.Text = "Settings"
         '
+        'ImportNowMENUITEM
+        '
+        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
+        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.ImportNowMENUITEM.Text = "Import Now"
+        '
+        'ClearImportLogMENUITEM
+        '
+        Me.ClearImportLogMENUITEM.Name = "ClearImportLogMENUITEM"
+        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.ClearImportLogMENUITEM.Text = "Clear Import Log"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(212, 6)
+        '
+        'DisplayLineBreaksMENUITEM
+        '
+        Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
+        Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
+        '
+        'HideDupesMENUITEM
+        '
+        Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
+        Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
+        '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
@@ -291,13 +320,13 @@ Partial Class Main
         'SetLadderByDateMENUITEM
         '
         Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
-        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(123, 22)
         Me.SetLadderByDateMENUITEM.Text = "By Date"
         '
         'SetAllNonLadderMENUITEM
         '
         Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
-        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(123, 22)
         Me.SetAllNonLadderMENUITEM.Text = "All Items"
         '
         'RebuildDefaultDatabaseMENUITEM
@@ -577,7 +606,7 @@ Partial Class Main
         'Label36
         '
         Me.Label36.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label36.Location = New System.Drawing.Point(140, 201)
+        Me.Label36.Location = New System.Drawing.Point(170, 201)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(1, 21)
         Me.Label36.TabIndex = 318
@@ -586,7 +615,7 @@ Partial Class Main
         'Label35
         '
         Me.Label35.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label35.Location = New System.Drawing.Point(269, 201)
+        Me.Label35.Location = New System.Drawing.Point(280, 201)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(1, 21)
         Me.Label35.TabIndex = 284
@@ -594,17 +623,17 @@ Partial Class Main
         'Label34
         '
         Me.Label34.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label34.Location = New System.Drawing.Point(141, 201)
+        Me.Label34.Location = New System.Drawing.Point(170, 201)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(128, 1)
+        Me.Label34.Size = New System.Drawing.Size(111, 1)
         Me.Label34.TabIndex = 285
         '
         'Label33
         '
         Me.Label33.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label33.Location = New System.Drawing.Point(141, 221)
+        Me.Label33.Location = New System.Drawing.Point(170, 221)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(128, 1)
+        Me.Label33.Size = New System.Drawing.Size(111, 1)
         Me.Label33.TabIndex = 317
         Me.Label33.Text = "0"
         '
@@ -1006,10 +1035,10 @@ Partial Class Main
         Me.ItemTallyTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ItemTallyTEXTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.ItemTallyTEXTBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ItemTallyTEXTBOX.Location = New System.Drawing.Point(140, 201)
+        Me.ItemTallyTEXTBOX.Location = New System.Drawing.Point(170, 201)
         Me.ItemTallyTEXTBOX.Name = "ItemTallyTEXTBOX"
         Me.ItemTallyTEXTBOX.ReadOnly = True
-        Me.ItemTallyTEXTBOX.Size = New System.Drawing.Size(129, 21)
+        Me.ItemTallyTEXTBOX.Size = New System.Drawing.Size(110, 21)
         Me.ItemTallyTEXTBOX.TabIndex = 274
         Me.ItemTallyTEXTBOX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1045,11 +1074,11 @@ Partial Class Main
         Me.ListsLABEL.BackColor = System.Drawing.Color.Transparent
         Me.ListsLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListsLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ListsLABEL.Location = New System.Drawing.Point(29, 200)
+        Me.ListsLABEL.Location = New System.Drawing.Point(15, 200)
         Me.ListsLABEL.Name = "ListsLABEL"
-        Me.ListsLABEL.Size = New System.Drawing.Size(101, 20)
+        Me.ListsLABEL.Size = New System.Drawing.Size(152, 20)
         Me.ListsLABEL.TabIndex = 276
-        Me.ListsLABEL.Text = "Lists"
+        Me.ListsLABEL.Text = "Item Lists"
         Me.ListsLABEL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ItemStatsRICHTEXTBOX
@@ -1360,7 +1389,7 @@ Partial Class Main
         Me.EastRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.EastRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EastRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EastRealmCHECKBOX.Location = New System.Drawing.Point(55, 161)
+        Me.EastRealmCHECKBOX.Location = New System.Drawing.Point(34, 158)
         Me.EastRealmCHECKBOX.Name = "EastRealmCHECKBOX"
         Me.EastRealmCHECKBOX.Size = New System.Drawing.Size(47, 17)
         Me.EastRealmCHECKBOX.TabIndex = 328
@@ -1373,7 +1402,7 @@ Partial Class Main
         Me.WestRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.WestRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.WestRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.WestRealmCHECKBOX.Location = New System.Drawing.Point(139, 161)
+        Me.WestRealmCHECKBOX.Location = New System.Drawing.Point(122, 158)
         Me.WestRealmCHECKBOX.Name = "WestRealmCHECKBOX"
         Me.WestRealmCHECKBOX.Size = New System.Drawing.Size(51, 17)
         Me.WestRealmCHECKBOX.TabIndex = 329
@@ -1386,7 +1415,7 @@ Partial Class Main
         Me.AsiaRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.AsiaRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.AsiaRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AsiaRealmCHECKBOX.Location = New System.Drawing.Point(221, 161)
+        Me.AsiaRealmCHECKBOX.Location = New System.Drawing.Point(220, 158)
         Me.AsiaRealmCHECKBOX.Name = "AsiaRealmCHECKBOX"
         Me.AsiaRealmCHECKBOX.Size = New System.Drawing.Size(46, 17)
         Me.AsiaRealmCHECKBOX.TabIndex = 330
@@ -1399,7 +1428,7 @@ Partial Class Main
         Me.EuropeRealmCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.EuropeRealmCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EuropeRealmCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EuropeRealmCHECKBOX.Location = New System.Drawing.Point(293, 161)
+        Me.EuropeRealmCHECKBOX.Location = New System.Drawing.Point(317, 158)
         Me.EuropeRealmCHECKBOX.Name = "EuropeRealmCHECKBOX"
         Me.EuropeRealmCHECKBOX.Size = New System.Drawing.Size(60, 17)
         Me.EuropeRealmCHECKBOX.TabIndex = 331
@@ -1724,35 +1753,6 @@ Partial Class Main
         '
         Me.ButtonTIMER.Enabled = True
         Me.ButtonTIMER.Interval = 25
-        '
-        'HideDupesMENUITEM
-        '
-        Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
-        Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
-        '
-        'DisplayLineBreaksMENUITEM
-        '
-        Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
-        Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
-        '
-        'ImportNowMENUITEM
-        '
-        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
-        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.ImportNowMENUITEM.Text = "Import Now"
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(212, 6)
-        '
-        'ClearImportLogMENUITEM
-        '
-        Me.ClearImportLogMENUITEM.Name = "ClearImportLogMENUITEM"
-        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.ClearImportLogMENUITEM.Text = "Clear Import Log"
         '
         'Main
         '

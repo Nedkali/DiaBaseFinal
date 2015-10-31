@@ -50,12 +50,11 @@ Public Class Main
         If Timercount > TimerSeconds Then
             Timercount = 0
             ImportTimer.Stop()
-            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running..." & vbCrLf & TimeOfDay.Date & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files")
+            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
             AutoLoggerRunning = True
             ImportLogFiles(False)
             AutoLoggerRunning = False
             ImportTimer.Start()
-            ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
         End If
 
         Dim Timerprogress As Integer = Math.Round((Timercount / TimerSeconds) * 100)
@@ -173,9 +172,9 @@ Public Class Main
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
 
-        'Start The Import Timer, Focus the Autologging Timer Button And Then Pass Control Back To The Main Form. App Startup is completed..
+        'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
         StartTimer()
-        AutologgingTimerBUTTON.Select()
+        SearchFieldCOMBOBOX.Select()
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -249,56 +248,10 @@ Public Class Main
             OpenContainingDatabaseToolStripMenuItem.Enabled = False
         End If
 
-
-
-
-
-        UserListFunctions.DisplaySelectedUserListItem() ' Branch to UserFunction module to run sub to display stats for selected user list item
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        'Branch to UserFunction module to run sub to display stats for selected user list item
+        UserListFunctions.DisplaySelectedUserListItem()
 
     End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'ALL ITEMS LISTBOX TAB BUTTON HANDLER - Selects Button And Displays the AllItemsLISTBOX
@@ -476,7 +429,6 @@ Public Class Main
         ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
         ImportLogFiles(False)
         AutoLoggerRunning = False
-        'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
         ListboxTABCONTROL.SelectTab(0)
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Total Items"
