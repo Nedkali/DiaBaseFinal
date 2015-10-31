@@ -33,8 +33,8 @@ Module DatabaseManagmentFunctions
         End Try
 
         'Apply LineBreak Bool Value To Menu Control Checkstate
-        If AppSettings.DisplayLineBreaks = True Then Main.DisplayLineBreaksMainMenu.Checked = True
-        If AppSettings.DisplayLineBreaks = False Then Main.DisplayLineBreaksMainMenu.Checked = False
+        If AppSettings.DisplayLineBreaks = True Then Main.DisplayLineBreaksMENUITEM.Checked = True
+        If AppSettings.DisplayLineBreaks = False Then Main.DisplayLineBreaksMENUITEM.Checked = False
 
         'Apply Realm Search Checkbox Values
         If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True
@@ -59,7 +59,7 @@ Module DatabaseManagmentFunctions
             If Main.EuropeRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "Europe"
 
             'applys the menu option checkstate to its partnered settings clas variable
-            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMainMenu.CheckState
+            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
 
             'Writes the settings to file Settings.CFG Assumes no null entries exist at this point or lines will be skipped during save will crash when attempting to read it later
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
@@ -295,7 +295,7 @@ Module DatabaseManagmentFunctions
     '-----------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub WriteToFile(ByVal itemstart, fName, bAppend)
         Dim CountRecordsForErrorReports As Integer = 0
-        Main.RichTextBox1.AppendText("Saving to file " & fName & vbCrLf)
+        Main.ImportLogRICHTEXTBOX.AppendText("Saving to file " & fName & vbCrLf)
 
         Try
             Dim LogWriter = My.Computer.FileSystem.OpenTextFileWriter(fName, bAppend)
@@ -361,7 +361,7 @@ Module DatabaseManagmentFunctions
             Main.ErrorHandler(601, ex, CountRecordsForErrorReports, 0)
 
         End Try
-        Main.RichTextBox1.AppendText("Items Saved = " & (ItemObjects.Count - itemstart) & vbCrLf)
+        Main.ImportLogRICHTEXTBOX.AppendText("Items Saved = " & (ItemObjects.Count - itemstart) & vbCrLf)
 
     End Sub
 

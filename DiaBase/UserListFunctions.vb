@@ -134,12 +134,10 @@
         If AppSettings.HideMulePass = False Then Main.MulePasswordTEXTBOX.UseSystemPasswordChar = False
         If AppSettings.HideMulePass = True Then Main.MulePasswordTEXTBOX.UseSystemPasswordChar = True
         Main.MulePasswordTEXTBOX.Text = UserObjects(ItemIndex).MulePass
-
         If UserObjects(ItemIndex).HardCore = True Then Main.CoreTypeTEXTBOX.Text = "HardCore"
         If UserObjects(ItemIndex).HardCore = False Then Main.CoreTypeTEXTBOX.Text = "SoftCore"
-
-        If ItemObjects(ItemIndex).Ladder = False Then Main.LadderTEXTBOX.Text = "Non Ladder"
-        If ItemObjects(ItemIndex).Ladder = True Then Main.LadderTEXTBOX.Text = "Ladder"
+        If ItemObjects(ItemIndex).Ladder = False Then Main.LadderTEXTBOX.Text = "Non Ladder" '  <-----------ExportErrorHereOccasionally
+        If ItemObjects(ItemIndex).Ladder = True Then Main.LadderTEXTBOX.Text = "Ladder" '       <-----------ExportErrorHereOccasionally
 
         Main.DatabaseFileNameTEXTBOX.Text = UserObjects(ItemIndex).DatabaseFilename
 
@@ -197,54 +195,56 @@
             Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
 
+        'RuneWord String - Still Not Reporting Right
         If UserObjects(ItemIndex).RuneWord = True Then
             Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
             Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).Stat1 & vbCrLf
         End If
 
-        Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) 'Spacer line after Item Name and class Always 
-
-
-        ColourCount1 = Main.ItemStatsRICHTEXTBOX.TextLength 'Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
+        Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '          Spacer line after Item Name and class Always 
+        ColourCount1 = Main.ItemStatsRICHTEXTBOX.TextLength '   Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
         'White text for basic info Block - Line spaceing added between each section (if needed)
         If UserObjects(ItemIndex).OneHandDamageMax > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("One Hand Damage: " & UserObjects(ItemIndex).OneHandDamageMin & " to " & UserObjects(ItemIndex).OneHandDamageMax & vbCrLf)
         If UserObjects(ItemIndex).TwoHandDamageMax > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Two Hand Damage: " & UserObjects(ItemIndex).TwoHandDamageMin & " to " & UserObjects(ItemIndex).TwoHandDamageMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksMainMenu.Checked = True Then
+        If Main.DisplayLineBreaksMENUITEM.Checked = True Then
             If UserObjects(ItemIndex).OneHandDamageMax > 0 Or UserObjects(ItemIndex).TwoHandDamageMax > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
+        'Item Defensive Values
         If UserObjects(ItemIndex).Defense > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Defense: " & UserObjects(ItemIndex).Defense & vbCrLf)
         If UserObjects(ItemIndex).ChanceToBlock > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Chance To Block: " & UserObjects(ItemIndex).ChanceToBlock & "%" & vbCrLf)
         If UserObjects(ItemIndex).DurabilityMin > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Durability: " & UserObjects(ItemIndex).DurabilityMin & " of " & UserObjects(ItemIndex).DurabilityMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksMainMenu.Checked = True Then
+        If Main.DisplayLineBreaksMENUITEM.Checked = True Then
             If UserObjects(ItemIndex).Defense > 0 Or UserObjects(ItemIndex).ChanceToBlock > 0 Or UserObjects(ItemIndex).DurabilityMin > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
+        'Item Requirement Values
         If UserObjects(ItemIndex).RequiredStrength > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Required Strength: " & UserObjects(ItemIndex).RequiredStrength & vbCrLf)
         If UserObjects(ItemIndex).RequiredDexterity > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Required Dexterity: " & UserObjects(ItemIndex).RequiredDexterity & vbCrLf)
+        If UserObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Required Level: " & UserObjects(ItemIndex).RequiredLevel & vbCrLf)
+
+        'Required Character Displayed Red and in Brackets to copy the ingame D2 themed layout
         If UserObjects(ItemIndex).RequiredCharacter <> Nothing Then
             Main.ItemStatsRICHTEXTBOX.SelectedText = "[" & UserObjects(ItemIndex).RequiredCharacter & " Only]" & vbCrLf
         End If
 
-        If UserObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText("Required Level: " & UserObjects(ItemIndex).RequiredLevel & vbCrLf)
-
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksMainMenu.Checked = True Then
-            If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter <> Nothing And ItemObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+        If Main.DisplayLineBreaksMENUITEM.Checked = True Then
+            If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter <> Nothing And ItemObjects(ItemIndex).RequiredLevel > 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '                                                                                                   <-----------ExportErrorHereOccasionally
         End If
 
+        'Item Attack Class And Speed
         If UserObjects(ItemIndex).AttackClass <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(UserObjects(ItemIndex).AttackClass & " Class") : If UserObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(" - " & UserObjects(ItemIndex).AttackSpeed & vbCrLf) Else Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If Main.DisplayLineBreaksMainMenu.Checked = True Then
-            If ItemObjects(ItemIndex).AttackClass <> Nothing Or ItemObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
-            If ItemObjects(ItemIndex).RequiredLevel > 0 And ItemObjects(ItemIndex).AttackClass = Nothing And ItemObjects(ItemIndex).AttackSpeed = Nothing And ItemObjects(ItemIndex).RequiredCharacter = Nothing And ItemObjects(ItemIndex).RequiredDexterity = 0 And ItemObjects(ItemIndex).RequiredStrength = 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
-
-
+        If Main.DisplayLineBreaksMENUITEM.Checked = True Then
+            If ItemObjects(ItemIndex).AttackClass <> Nothing Or ItemObjects(ItemIndex).AttackSpeed <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '                                                                                                                                                                                                    <-----------ExportErrorHereOccasionally
+            If ItemObjects(ItemIndex).RequiredLevel > 0 And ItemObjects(ItemIndex).AttackClass = Nothing And ItemObjects(ItemIndex).AttackSpeed = Nothing And ItemObjects(ItemIndex).RequiredCharacter = Nothing And ItemObjects(ItemIndex).RequiredDexterity = 0 And ItemObjects(ItemIndex).RequiredStrength = 0 Then Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '<-----------ExportErrorHereOccasionally
         End If
 
         'Colour Above Displayed Basic Info Text Block White

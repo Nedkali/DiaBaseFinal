@@ -1,17 +1,19 @@
 ﻿Imports System.IO
 Module AutoLogger
     Public Sub ImportLogFiles(relog)
-        If AppSettings.CurrentDatabase <> AppSettings.DefaultDatabase Then
-            Main.RichTextBox1.AppendText("Aborting - Default database not loaded")
-            Return
-        End If
+
+        'DEFAULT DATABASE LOADED CHECK
+        'If AppSettings.CurrentDatabase <> AppSettings.DefaultDatabase Then
+        'Main.RichTextBox1.AppendText("Aborting - Default database not loaded")
+        'Return
+        'End If
 
 
         'Assign correct directory to each log search using the REalmPath Var
-        Dim RealmPath = "\scripts\Configs\USEast\AMS\" : Main.RichTextBox1.AppendText("East") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\USWest\AMS\" : Main.RichTextBox1.AppendText("West") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\Asia\AMS\" : Main.RichTextBox1.AppendText("Asia") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\Europe\AMS\" : Main.RichTextBox1.AppendText("Europe") : GetLogs(RealmPath, relog)
+        Dim RealmPath = "\scripts\Configs\USEast\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "East") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\USWest\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "West") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\Asia\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Asia") : GetLogs(RealmPath, relog)
+        RealmPath = "\scripts\Configs\Europe\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Europe") : GetLogs(RealmPath, relog)
 
 
     End Sub
@@ -27,8 +29,8 @@ Module AutoLogger
         'Check Log folder for files to process
         GetLogFiles()
         If LogFilesList.Count = 0 Then
-            Main.RichTextBox1.AppendText(" Realm Has No Logs Ready." & vbCrLf)
-            Main.RichTextBox1.ScrollToCaret()
+            Main.ImportLogRICHTEXTBOX.AppendText(" Realm Has No Logs Ready.")
+            Main.ImportLogRICHTEXTBOX.ScrollToCaret()
             Return 'If There Are no Log Files - exit
         End If
 
@@ -37,15 +39,15 @@ Module AutoLogger
             CreateBackup(AppSettings.CurrentDatabase)
         End If
 
-        Main.RichTextBox1.AppendText(" Realm, Logs To Import = " & LogFilesList.Count & vbCrLf)
+        Main.ImportLogRICHTEXTBOX.AppendText(" Realm, Logs To Import = " & LogFilesList.Count & vbCrLf)
         Pretotal = ItemObjects.Count
         ProcessLogFiles(Relog)
         WriteToFile(0, AppSettings.DefaultDatabase, False)  'saves entire item objects and overwrites file contents
         For ItemIndex = Pretotal To ItemObjects.Count - 1
             Main.AllItemsLISTBOX.Items.Add(ItemObjects(ItemIndex).ItemName)
         Next
-        Main.RichTextBox1.AppendText("Total Items = " & (ItemObjects.Count - Pretotal) & vbCrLf)
-        Main.RichTextBox1.ScrollToCaret()
+        Main.ImportLogRICHTEXTBOX.AppendText(TimeOfDay & " - Import Complete. Total Items = " & (ItemObjects.Count - Pretotal) & vbCrLf)
+        Main.ImportLogRICHTEXTBOX.ScrollToCaret()
     End Sub
 
 
@@ -137,7 +139,7 @@ Module AutoLogger
                                 If thispickbot = "Unknown" And ItemObjects(mc).PickitAccount <> "Unknown" Then thispickbot = ItemObjects(mc).PickitAccount
                                 If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
                                 ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
-                                Main.RichTextBox1.AppendText("Import Date retained" & vbCrLf) 'debug msg
+                                Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
                                 ItemObjects.RemoveAt(mc)
                                 Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
                                 Pretotal = Pretotal - 1
@@ -383,7 +385,7 @@ Module AutoLogger
             Tally = Tally + 1
         Loop
 
-        Main.RichTextBox1.AppendText("Duplicated Items removed = " & itemsremoved & vbCrLf)
+        Main.ImportLogRICHTEXTBOX.AppendText("Duplicated Items removed = " & itemsremoved & vbCrLf)
     End Sub
 
     Function GetRunes(ByVal runename)

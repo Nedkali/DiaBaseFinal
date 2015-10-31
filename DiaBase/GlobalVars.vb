@@ -19,14 +19,16 @@ Module GlobalVars
 
     'DEFINE APP SETTINGS VARIABLES
     Public AppSettings As New AppSetting
-    Public HideSearchDupes As Boolean = False ' global var used to Hide duplicate items during search
+    Public HideSearchDupes As Boolean = False       'Used to Hide duplicate items during search - Is now Saved To Settings File
+    Public SessionStartString As String = Nothing   'Used To Record And Hold The Start Time String Of The Current Session
 
     'DEFINE TIMER VARIABLES
     Public TimerSeconds As Integer = 0                      'Autologging Timer Seconds Counter Value
     Public Timercount As Integer = 0
-    Public TimerRestart As Boolean = False                    'Bool to trigger timer restart after function calls
-
+    Public TimerRestart As Boolean = False                  'Bool to trigger timer restart after function calls
+    Public ButtonFlashCount As Integer = 0                  'Upper value in seconds for button text flashing when time is paused
     Public AutoLoggerRunning As Boolean = False             'Bool to show the autologgers current runtime state - used to confirm imports are idle before running most routines and app functions       TRUE/FALSE
+    Public AutoLoggerReady As Boolean = False               'Bool to reflect if the autologger is paused or counting down True = Counting Down, False = Paused, Default is False To Delay Countdonwe Until Setup Is Completed 
 
     'Define Vars used in autologger routine
     Public MuleLogPath As String = ""

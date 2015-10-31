@@ -116,7 +116,7 @@ Public Class Settings
             AppSettings.DefaultPassword = DefaultPasswordTEXTBOX.Text
             AppSettings.DefaultRealm = SearchRealmCBOX.Text
             AppSettings.ResetDate = ResetDateTEXTBOX.Text
-            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMainMenu.CheckState
+            AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
             SaveSettingsFile()
 
             'Checks only one Check box is checked across all realm search checkboxes - like radio buttons but not as yucky looking

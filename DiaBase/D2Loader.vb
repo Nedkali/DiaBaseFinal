@@ -142,7 +142,7 @@
 
         key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")
         If key Is Nothing Then
-            Main.RichTextBox1.Text = "Error reading registry"
+            Main.ImportLogRICHTEXTBOX.Text = "Error reading registry"
             Return
         End If
 

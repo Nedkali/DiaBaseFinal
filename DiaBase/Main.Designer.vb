@@ -27,48 +27,43 @@ Partial Class Main
         Me.Label40 = New System.Windows.Forms.Label()
         Me.OpenDatabaseLABEL = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.OpenDBManagerMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BackupMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisplayLineBreaksMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HideDupesMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseManagerMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackupDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitApplicarionMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ImportNowMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetLadderByDateMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetAllNonLadderMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RebuildDBaseMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BuildMuleListMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetNonLadderMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetLadderByDateMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetAllNonLadderMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RebuildDefaultDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.LoadMuleMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearTradeListMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearSearchListMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearSearchListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.DeleteItemMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddNewItemMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddNewItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SortItemsMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UndoDeleteMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SelectAllMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditExistingItemMainMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearUserListMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UndoDeleteMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectAllMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditExistingItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearUserListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MainFormSTATUSSTRIP = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.SelectEtalPathDIALOG = New System.Windows.Forms.FolderBrowserDialog()
         Me.AutoLoggerTIMER = New System.Windows.Forms.Timer(Me.components)
-        Me.ItemFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RestoreBackupMainMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestoreBackupMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpButtonMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
         Me.UserRefControlTabBUTTON = New System.Windows.Forms.Button()
         Me.TradesListControlTabBUTTON = New System.Windows.Forms.Button()
@@ -109,13 +104,13 @@ Partial Class Main
         Me.RefineSearchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.StringSearchLABEEL = New System.Windows.Forms.Label()
         Me.HiddenGemPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.TimerControl = New System.Windows.Forms.Button()
+        Me.AutologgingTimerBUTTON = New System.Windows.Forms.Button()
         Me.ExactMatchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.SearchValueLABEL = New System.Windows.Forms.Label()
         Me.SearchOperatorLABEL = New System.Windows.Forms.Label()
         Me.SearchValueNUMERICUPDWN = New System.Windows.Forms.NumericUpDown()
         Me.SearchWordCOMBOBOX = New System.Windows.Forms.ComboBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.ImportLogRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.SearchLABEL = New System.Windows.Forms.Label()
         Me.SearchFieldCOMBOBOX = New System.Windows.Forms.ComboBox()
         Me.SearchOperatorCOMBOBOX = New System.Windows.Forms.ComboBox()
@@ -187,6 +182,16 @@ Partial Class Main
         Me.ClearItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenContainingDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
+        Me.HideDupesMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisplayLineBreaksMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearImportLogMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -236,139 +241,110 @@ Partial Class Main
         Me.Label14.Size = New System.Drawing.Size(373, 1)
         Me.Label14.TabIndex = 247
         '
-        'OpenDBManagerMainMenu
+        'DatabaseManagerMENUITEM
         '
-        Me.OpenDBManagerMainMenu.Name = "OpenDBManagerMainMenu"
-        Me.OpenDBManagerMainMenu.Size = New System.Drawing.Size(177, 22)
-        Me.OpenDBManagerMainMenu.Text = "Database Manager"
+        Me.DatabaseManagerMENUITEM.Name = "DatabaseManagerMENUITEM"
+        Me.DatabaseManagerMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.DatabaseManagerMENUITEM.Text = "Database Manager"
         '
-        'BackupMainMenu
+        'BackupDatabaseMENUITEM
         '
-        Me.BackupMainMenu.Name = "BackupMainMenu"
-        Me.BackupMainMenu.Size = New System.Drawing.Size(177, 22)
-        Me.BackupMainMenu.Text = "Backup"
+        Me.BackupDatabaseMENUITEM.Name = "BackupDatabaseMENUITEM"
+        Me.BackupDatabaseMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.BackupDatabaseMENUITEM.Text = "Backup"
         '
-        'ExitMainMenu
+        'ExitApplicarionMENUITEM
         '
-        Me.ExitMainMenu.Name = "ExitMainMenu"
-        Me.ExitMainMenu.Size = New System.Drawing.Size(177, 22)
-        Me.ExitMainMenu.Text = "Exit"
+        Me.ExitApplicarionMENUITEM.Name = "ExitApplicarionMENUITEM"
+        Me.ExitApplicarionMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.ExitApplicarionMENUITEM.Text = "Exit"
         '
-        'SettingsToolStripMenuItem
+        'SettingsMenuMENUGROUP
         '
-        Me.SettingsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksMainMenu, Me.HideDupesMainMenu, Me.SettingsMainMenu, Me.ToolStripSeparator9, Me.ImportNowMainMenu, Me.ToolStripSeparator7, Me.ToolStripMenuItem2, Me.RebuildDBaseMainMenu, Me.BuildMuleListMainMenu, Me.ToolStripSeparator4, Me.LoadMuleMainMenu})
-        Me.SettingsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.SettingsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.SettingsToolStripMenuItem.Text = "Options"
-        Me.SettingsToolStripMenuItem.ToolTipText = "Set Log Path, Automatic Backups, Import Delay And Hide Password"
+        Me.SettingsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsMENUITEM, Me.ImportNowMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator7, Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ToolStripSeparator9, Me.SetNonLadderMENUGROUP, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator4, Me.LoadItemMuleMENUITEM})
+        Me.SettingsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.SettingsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.SettingsMenuMENUGROUP.Name = "SettingsMenuMENUGROUP"
+        Me.SettingsMenuMENUGROUP.Size = New System.Drawing.Size(62, 20)
+        Me.SettingsMenuMENUGROUP.Text = "Options"
+        Me.SettingsMenuMENUGROUP.ToolTipText = "Set Log Path, Automatic Backups, Import Delay And Hide Password"
         '
-        'DisplayLineBreaksMainMenu
+        'SettingsMENUITEM
         '
-        Me.DisplayLineBreaksMainMenu.Name = "DisplayLineBreaksMainMenu"
-        Me.DisplayLineBreaksMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.DisplayLineBreaksMainMenu.Text = "Display-Insert Blank lines"
-        '
-        'HideDupesMainMenu
-        '
-        Me.HideDupesMainMenu.Name = "HideDupesMainMenu"
-        Me.HideDupesMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.HideDupesMainMenu.Text = "Hide Dupes in search Results"
-        '
-        'SettingsMainMenu
-        '
-        Me.SettingsMainMenu.Name = "SettingsMainMenu"
-        Me.SettingsMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.SettingsMainMenu.Text = "Settings"
+        Me.SettingsMENUITEM.Name = "SettingsMENUITEM"
+        Me.SettingsMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.SettingsMENUITEM.Text = "Settings"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(230, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(212, 6)
         '
-        'ImportNowMainMenu
+        'SetNonLadderMENUGROUP
         '
-        Me.ImportNowMainMenu.Name = "ImportNowMainMenu"
-        Me.ImportNowMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.ImportNowMainMenu.Text = "Import Now"
+        Me.SetNonLadderMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetLadderByDateMENUITEM, Me.SetAllNonLadderMENUITEM})
+        Me.SetNonLadderMENUGROUP.Name = "SetNonLadderMENUGROUP"
+        Me.SetNonLadderMENUGROUP.Size = New System.Drawing.Size(215, 22)
+        Me.SetNonLadderMENUGROUP.Text = "Set to Non Ladder"
         '
-        'ToolStripSeparator7
+        'SetLadderByDateMENUITEM
         '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(230, 6)
+        Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetLadderByDateMENUITEM.Text = "By Date"
         '
-        'ToolStripMenuItem2
+        'SetAllNonLadderMENUITEM
         '
-        Me.ToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetLadderByDateMainMenu, Me.SetAllNonLadderMainMenu})
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(233, 22)
-        Me.ToolStripMenuItem2.Text = "Set to Non Ladder"
+        Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetAllNonLadderMENUITEM.Text = "All Items"
         '
-        'SetLadderByDateMainMenu
+        'RebuildDefaultDatabaseMENUITEM
         '
-        Me.SetLadderByDateMainMenu.Name = "SetLadderByDateMainMenu"
-        Me.SetLadderByDateMainMenu.Size = New System.Drawing.Size(123, 22)
-        Me.SetLadderByDateMainMenu.Text = "By Date"
-        '
-        'SetAllNonLadderMainMenu
-        '
-        Me.SetAllNonLadderMainMenu.Name = "SetAllNonLadderMainMenu"
-        Me.SetAllNonLadderMainMenu.Size = New System.Drawing.Size(123, 22)
-        Me.SetAllNonLadderMainMenu.Text = "All Items"
-        '
-        'RebuildDBaseMainMenu
-        '
-        Me.RebuildDBaseMainMenu.Name = "RebuildDBaseMainMenu"
-        Me.RebuildDBaseMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.RebuildDBaseMainMenu.Text = "Rebuild Default DBase"
-        '
-        'BuildMuleListMainMenu
-        '
-        Me.BuildMuleListMainMenu.Name = "BuildMuleListMainMenu"
-        Me.BuildMuleListMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.BuildMuleListMainMenu.Text = "Build Mule Acc List"
+        Me.RebuildDefaultDatabaseMENUITEM.Name = "RebuildDefaultDatabaseMENUITEM"
+        Me.RebuildDefaultDatabaseMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.RebuildDefaultDatabaseMENUITEM.Text = "Rebuild Default Database"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(230, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
         '
-        'LoadMuleMainMenu
+        'LoadItemMuleMENUITEM
         '
-        Me.LoadMuleMainMenu.Name = "LoadMuleMainMenu"
-        Me.LoadMuleMainMenu.Size = New System.Drawing.Size(233, 22)
-        Me.LoadMuleMainMenu.Text = "Load Mule"
+        Me.LoadItemMuleMENUITEM.Name = "LoadItemMuleMENUITEM"
+        Me.LoadItemMuleMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.LoadItemMuleMENUITEM.Text = "Load Selected Item Mule"
         '
-        'ClearTradeListMainMenu
+        'ClearTradeListMENUITEM
         '
-        Me.ClearTradeListMainMenu.Name = "ClearTradeListMainMenu"
-        Me.ClearTradeListMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.ClearTradeListMainMenu.Text = "Clear Trade List"
+        Me.ClearTradeListMENUITEM.Name = "ClearTradeListMENUITEM"
+        Me.ClearTradeListMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.ClearTradeListMENUITEM.Text = "Clear Trade List"
         '
-        'ClearSearchListMainMenu
+        'ClearSearchListMENUITEM
         '
-        Me.ClearSearchListMainMenu.Name = "ClearSearchListMainMenu"
-        Me.ClearSearchListMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.ClearSearchListMainMenu.Text = "Clear Search List"
+        Me.ClearSearchListMENUITEM.Name = "ClearSearchListMENUITEM"
+        Me.ClearSearchListMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.ClearSearchListMENUITEM.Text = "Clear Search List"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(162, 6)
         '
-        'DeleteItemMainMenu
+        'DeleteItemMENUITEM
         '
-        Me.DeleteItemMainMenu.Name = "DeleteItemMainMenu"
-        Me.DeleteItemMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.DeleteItemMainMenu.Text = "Delete"
+        Me.DeleteItemMENUITEM.Name = "DeleteItemMENUITEM"
+        Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.DeleteItemMENUITEM.Text = "Delete"
         '
-        'AddNewItemMainMenu
+        'AddNewItemMENUITEM
         '
-        Me.AddNewItemMainMenu.Name = "AddNewItemMainMenu"
-        Me.AddNewItemMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.AddNewItemMainMenu.Text = "Add"
+        Me.AddNewItemMENUITEM.Name = "AddNewItemMENUITEM"
+        Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.AddNewItemMENUITEM.Text = "Add"
         '
         'ToolStripSeparator2
         '
@@ -381,47 +357,47 @@ Partial Class Main
         Me.SortItemsMainMenu.Size = New System.Drawing.Size(165, 22)
         Me.SortItemsMainMenu.Text = "Sort List A to Z"
         '
-        'SaveMainMenu
+        'SaveDatabaseMENUITEM
         '
-        Me.SaveMainMenu.Name = "SaveMainMenu"
-        Me.SaveMainMenu.Size = New System.Drawing.Size(177, 22)
-        Me.SaveMainMenu.Text = "Save"
+        Me.SaveDatabaseMENUITEM.Name = "SaveDatabaseMENUITEM"
+        Me.SaveDatabaseMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.SaveDatabaseMENUITEM.Text = "Save"
         '
-        'ItemsToolStripMenuItem
+        'ItemsMenuMENUGROUP
         '
-        Me.ItemsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ItemsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMainMenu, Me.SortItemsMainMenu, Me.ToolStripSeparator2, Me.SelectAllMainMenu, Me.EditExistingItemMainMenu, Me.AddNewItemMainMenu, Me.DeleteItemMainMenu, Me.ToolStripSeparator1, Me.ClearSearchListMainMenu, Me.ClearTradeListMainMenu, Me.ClearUserListMainMenu})
-        Me.ItemsToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.ItemsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.ItemsToolStripMenuItem.Name = "ItemsToolStripMenuItem"
-        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
-        Me.ItemsToolStripMenuItem.Text = "Items"
-        Me.ItemsToolStripMenuItem.ToolTipText = "Import Now And Sort Items. Also Add, Edit And Delete Individual Items"
+        Me.ItemsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ItemsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMENUITEM, Me.SortItemsMainMenu, Me.ToolStripSeparator2, Me.SelectAllMENUITEM, Me.EditExistingItemMENUITEM, Me.AddNewItemMENUITEM, Me.DeleteItemMENUITEM, Me.ToolStripSeparator1, Me.ClearSearchListMENUITEM, Me.ClearTradeListMENUITEM, Me.ClearUserListMENUITEM})
+        Me.ItemsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.ItemsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.ItemsMenuMENUGROUP.Name = "ItemsMenuMENUGROUP"
+        Me.ItemsMenuMENUGROUP.Size = New System.Drawing.Size(51, 20)
+        Me.ItemsMenuMENUGROUP.Text = "Items"
+        Me.ItemsMenuMENUGROUP.ToolTipText = "Import Now And Sort Items. Also Add, Edit And Delete Individual Items"
         '
-        'UndoDeleteMainMenu
+        'UndoDeleteMENUITEM
         '
-        Me.UndoDeleteMainMenu.Enabled = False
-        Me.UndoDeleteMainMenu.Name = "UndoDeleteMainMenu"
-        Me.UndoDeleteMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.UndoDeleteMainMenu.Text = "UnDo Delete"
+        Me.UndoDeleteMENUITEM.Enabled = False
+        Me.UndoDeleteMENUITEM.Name = "UndoDeleteMENUITEM"
+        Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.UndoDeleteMENUITEM.Text = "UnDo Delete"
         '
-        'SelectAllMainMenu
+        'SelectAllMENUITEM
         '
-        Me.SelectAllMainMenu.Name = "SelectAllMainMenu"
-        Me.SelectAllMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.SelectAllMainMenu.Text = "Select All"
+        Me.SelectAllMENUITEM.Name = "SelectAllMENUITEM"
+        Me.SelectAllMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.SelectAllMENUITEM.Text = "Select All"
         '
-        'EditExistingItemMainMenu
+        'EditExistingItemMENUITEM
         '
-        Me.EditExistingItemMainMenu.Name = "EditExistingItemMainMenu"
-        Me.EditExistingItemMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.EditExistingItemMainMenu.Text = "Edit"
+        Me.EditExistingItemMENUITEM.Name = "EditExistingItemMENUITEM"
+        Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.EditExistingItemMENUITEM.Text = "Edit"
         '
-        'ClearUserListMainMenu
+        'ClearUserListMENUITEM
         '
-        Me.ClearUserListMainMenu.Name = "ClearUserListMainMenu"
-        Me.ClearUserListMainMenu.Size = New System.Drawing.Size(165, 22)
-        Me.ClearUserListMainMenu.Text = "Clear User List"
+        Me.ClearUserListMENUITEM.Name = "ClearUserListMENUITEM"
+        Me.ClearUserListMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.ClearUserListMENUITEM.Text = "Clear User List"
         '
         'ToolStripStatusLabel2
         '
@@ -466,27 +442,27 @@ Partial Class Main
         Me.AutoLoggerTIMER.Enabled = True
         Me.AutoLoggerTIMER.Interval = 1000
         '
-        'ItemFileToolStripMenuItem
+        'DatabaseMenuMENUGROUP
         '
-        Me.ItemFileToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ItemFileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenDBManagerMainMenu, Me.SaveMainMenu, Me.ToolStripSeparator5, Me.BackupMainMenu, Me.RestoreBackupMainMenu, Me.ToolStripSeparator6, Me.ExitMainMenu})
-        Me.ItemFileToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ItemFileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.ItemFileToolStripMenuItem.Name = "ItemFileToolStripMenuItem"
-        Me.ItemFileToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.ItemFileToolStripMenuItem.Text = "Database"
-        Me.ItemFileToolStripMenuItem.ToolTipText = "Open, Save, And BAckup Database"
+        Me.DatabaseMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.DatabaseMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseManagerMENUITEM, Me.SaveDatabaseMENUITEM, Me.ToolStripSeparator5, Me.BackupDatabaseMENUITEM, Me.RestoreBackupMENUITEM, Me.ToolStripSeparator6, Me.ExitApplicarionMENUITEM})
+        Me.DatabaseMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DatabaseMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.DatabaseMenuMENUGROUP.Name = "DatabaseMenuMENUGROUP"
+        Me.DatabaseMenuMENUGROUP.Size = New System.Drawing.Size(70, 20)
+        Me.DatabaseMenuMENUGROUP.Text = "Database"
+        Me.DatabaseMenuMENUGROUP.ToolTipText = "Open, Save, And BAckup Database"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(174, 6)
         '
-        'RestoreBackupMainMenu
+        'RestoreBackupMENUITEM
         '
-        Me.RestoreBackupMainMenu.Name = "RestoreBackupMainMenu"
-        Me.RestoreBackupMainMenu.Size = New System.Drawing.Size(177, 22)
-        Me.RestoreBackupMainMenu.Text = "Restore Backup"
+        Me.RestoreBackupMENUITEM.Name = "RestoreBackupMENUITEM"
+        Me.RestoreBackupMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.RestoreBackupMENUITEM.Text = "Restore Backup"
         '
         'ToolStripSeparator6
         '
@@ -502,22 +478,22 @@ Partial Class Main
         Me.Label8.Size = New System.Drawing.Size(382, 4)
         Me.Label8.TabIndex = 196
         '
-        'HelpToolStripMenuItem
+        'HelpButtonMENUITEM
         '
-        Me.HelpToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.HelpToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.HelpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        Me.HelpToolStripMenuItem.ToolTipText = "Everything You Need To Know About DiaBASE"
+        Me.HelpButtonMENUITEM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.HelpButtonMENUITEM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.HelpButtonMENUITEM.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.HelpButtonMENUITEM.Name = "HelpButtonMENUITEM"
+        Me.HelpButtonMENUITEM.Size = New System.Drawing.Size(45, 20)
+        Me.HelpButtonMENUITEM.Text = "Help"
+        Me.HelpButtonMENUITEM.ToolTipText = "Everything You Need To Know About DiaBASE"
         '
         'MainFormMENUBAR
         '
         Me.MainFormMENUBAR.BackColor = System.Drawing.Color.BurlyWood
         Me.MainFormMENUBAR.BackgroundImage = Global.DiaBase.My.Resources.Resources.menubar
         Me.MainFormMENUBAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.MainFormMENUBAR.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItemFileToolStripMenuItem, Me.ItemsToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MainFormMENUBAR.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseMenuMENUGROUP, Me.ItemsMenuMENUGROUP, Me.SettingsMenuMENUGROUP, Me.HelpButtonMENUITEM})
         Me.MainFormMENUBAR.Location = New System.Drawing.Point(0, 0)
         Me.MainFormMENUBAR.Name = "MainFormMENUBAR"
         Me.MainFormMENUBAR.Size = New System.Drawing.Size(794, 24)
@@ -901,21 +877,21 @@ Partial Class Main
         Me.HiddenGemPICTUREBOX.TabIndex = 313
         Me.HiddenGemPICTUREBOX.TabStop = False
         '
-        'TimerControl
+        'AutologgingTimerBUTTON
         '
-        Me.TimerControl.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.TimerControl.BackgroundImage = Global.DiaBase.My.Resources.Resources.ButtonBackground
-        Me.TimerControl.FlatAppearance.BorderSize = 2
-        Me.TimerControl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.TimerControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.TimerControl.ForeColor = System.Drawing.Color.BurlyWood
-        Me.TimerControl.Location = New System.Drawing.Point(695, 30)
-        Me.TimerControl.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
-        Me.TimerControl.Name = "TimerControl"
-        Me.TimerControl.Size = New System.Drawing.Size(73, 25)
-        Me.TimerControl.TabIndex = 311
-        Me.TimerControl.Text = "Pause"
-        Me.TimerControl.UseVisualStyleBackColor = False
+        Me.AutologgingTimerBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.AutologgingTimerBUTTON.BackgroundImage = Global.DiaBase.My.Resources.Resources.ButtonBackground
+        Me.AutologgingTimerBUTTON.FlatAppearance.BorderSize = 2
+        Me.AutologgingTimerBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.AutologgingTimerBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AutologgingTimerBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.AutologgingTimerBUTTON.Location = New System.Drawing.Point(610, 28)
+        Me.AutologgingTimerBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
+        Me.AutologgingTimerBUTTON.Name = "AutologgingTimerBUTTON"
+        Me.AutologgingTimerBUTTON.Size = New System.Drawing.Size(161, 25)
+        Me.AutologgingTimerBUTTON.TabIndex = 311
+        Me.AutologgingTimerBUTTON.Text = "Pause AutoLogger"
+        Me.AutologgingTimerBUTTON.UseVisualStyleBackColor = False
         '
         'ExactMatchCHECKBOX
         '
@@ -974,18 +950,18 @@ Partial Class Main
         Me.SearchWordCOMBOBOX.Size = New System.Drawing.Size(188, 21)
         Me.SearchWordCOMBOBOX.TabIndex = 302
         '
-        'RichTextBox1
+        'ImportLogRICHTEXTBOX
         '
-        Me.RichTextBox1.BackColor = System.Drawing.Color.Black
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.ForeColor = System.Drawing.Color.White
-        Me.RichTextBox1.Location = New System.Drawing.Point(468, 64)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
-        Me.RichTextBox1.Size = New System.Drawing.Size(298, 117)
-        Me.RichTextBox1.TabIndex = 272
-        Me.RichTextBox1.Text = ""
+        Me.ImportLogRICHTEXTBOX.BackColor = System.Drawing.Color.Black
+        Me.ImportLogRICHTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ImportLogRICHTEXTBOX.ForeColor = System.Drawing.Color.White
+        Me.ImportLogRICHTEXTBOX.Location = New System.Drawing.Point(457, 58)
+        Me.ImportLogRICHTEXTBOX.Name = "ImportLogRICHTEXTBOX"
+        Me.ImportLogRICHTEXTBOX.ReadOnly = True
+        Me.ImportLogRICHTEXTBOX.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
+        Me.ImportLogRICHTEXTBOX.Size = New System.Drawing.Size(314, 118)
+        Me.ImportLogRICHTEXTBOX.TabIndex = 272
+        Me.ImportLogRICHTEXTBOX.Text = ""
         '
         'SearchLABEL
         '
@@ -1057,7 +1033,7 @@ Partial Class Main
         Me.StatisticsLABEL.BackColor = System.Drawing.Color.Transparent
         Me.StatisticsLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StatisticsLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.StatisticsLABEL.Location = New System.Drawing.Point(562, 202)
+        Me.StatisticsLABEL.Location = New System.Drawing.Point(562, 201)
         Me.StatisticsLABEL.Name = "StatisticsLABEL"
         Me.StatisticsLABEL.Size = New System.Drawing.Size(205, 20)
         Me.StatisticsLABEL.TabIndex = 275
@@ -1069,7 +1045,7 @@ Partial Class Main
         Me.ListsLABEL.BackColor = System.Drawing.Color.Transparent
         Me.ListsLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListsLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ListsLABEL.Location = New System.Drawing.Point(29, 202)
+        Me.ListsLABEL.Location = New System.Drawing.Point(29, 200)
         Me.ListsLABEL.Name = "ListsLABEL"
         Me.ListsLABEL.Size = New System.Drawing.Size(101, 20)
         Me.ListsLABEL.TabIndex = 276
@@ -1300,11 +1276,11 @@ Partial Class Main
         Me.AutoLoggingLABEL.BackColor = System.Drawing.Color.Black
         Me.AutoLoggingLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AutoLoggingLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AutoLoggingLABEL.Location = New System.Drawing.Point(465, 31)
+        Me.AutoLoggingLABEL.Location = New System.Drawing.Point(451, 29)
         Me.AutoLoggingLABEL.Name = "AutoLoggingLABEL"
-        Me.AutoLoggingLABEL.Size = New System.Drawing.Size(200, 26)
+        Me.AutoLoggingLABEL.Size = New System.Drawing.Size(180, 26)
         Me.AutoLoggingLABEL.TabIndex = 281
-        Me.AutoLoggingLABEL.Text = "Auto Logging"
+        Me.AutoLoggingLABEL.Text = "Import Log"
         '
         'SelectDefaultDatabaseDIALOG
         '
@@ -1712,12 +1688,82 @@ Partial Class Main
         Me.OpenContainingDatabaseToolStripMenuItem.Size = New System.Drawing.Size(220, 22)
         Me.OpenContainingDatabaseToolStripMenuItem.Text = "Open Containing Database"
         '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label29.Location = New System.Drawing.Point(458, 57)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(312, 2)
+        Me.Label29.TabIndex = 424
+        '
+        'Label30
+        '
+        Me.Label30.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label30.Location = New System.Drawing.Point(459, 174)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(312, 2)
+        Me.Label30.TabIndex = 425
+        '
+        'Label31
+        '
+        Me.Label31.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label31.Location = New System.Drawing.Point(456, 57)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(2, 119)
+        Me.Label31.TabIndex = 426
+        '
+        'Label32
+        '
+        Me.Label32.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label32.Location = New System.Drawing.Point(769, 57)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(2, 119)
+        Me.Label32.TabIndex = 427
+        '
+        'ButtonTIMER
+        '
+        Me.ButtonTIMER.Enabled = True
+        Me.ButtonTIMER.Interval = 25
+        '
+        'HideDupesMENUITEM
+        '
+        Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
+        Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
+        '
+        'DisplayLineBreaksMENUITEM
+        '
+        Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
+        Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
+        '
+        'ImportNowMENUITEM
+        '
+        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
+        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.ImportNowMENUITEM.Text = "Import Now"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(212, 6)
+        '
+        'ClearImportLogMENUITEM
+        '
+        Me.ClearImportLogMENUITEM.Name = "ClearImportLogMENUITEM"
+        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.ClearImportLogMENUITEM.Text = "Clear Import Log"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.MainBackground
         Me.ClientSize = New System.Drawing.Size(794, 755)
+        Me.Controls.Add(Me.Label32)
+        Me.Controls.Add(Me.Label31)
+        Me.Controls.Add(Me.Label30)
+        Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.Label39)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.SpecialStatsTABLELAYOUT)
@@ -1763,13 +1809,13 @@ Partial Class Main
         Me.Controls.Add(Me.RefineSearchCHECKBOX)
         Me.Controls.Add(Me.StringSearchLABEEL)
         Me.Controls.Add(Me.HiddenGemPICTUREBOX)
-        Me.Controls.Add(Me.TimerControl)
+        Me.Controls.Add(Me.AutologgingTimerBUTTON)
         Me.Controls.Add(Me.ExactMatchCHECKBOX)
         Me.Controls.Add(Me.SearchValueLABEL)
         Me.Controls.Add(Me.SearchOperatorLABEL)
         Me.Controls.Add(Me.SearchValueNUMERICUPDWN)
         Me.Controls.Add(Me.SearchWordCOMBOBOX)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.ImportLogRICHTEXTBOX)
         Me.Controls.Add(Me.SearchLABEL)
         Me.Controls.Add(Me.SearchFieldCOMBOBOX)
         Me.Controls.Add(Me.SearchOperatorCOMBOBOX)
@@ -1819,32 +1865,32 @@ Partial Class Main
     Friend WithEvents Label40 As System.Windows.Forms.Label
     Friend WithEvents OpenDatabaseLABEL As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents OpenDBManagerMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BackupMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExitMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearTradeListMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearSearchListMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatabaseManagerMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BackupDatabaseMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ExitApplicarionMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingsMenuMENUGROUP As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ClearTradeListMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ClearSearchListMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents DeleteItemMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AddNewItemMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddNewItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SortItemsMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EditExistingItemMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SaveDatabaseMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ItemsMenuMENUGROUP As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EditExistingItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents MainFormSTATUSSTRIP As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents SelectEtalPathDIALOG As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents AutoLoggerTIMER As System.Windows.Forms.Timer
-    Friend WithEvents ItemFileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatabaseMenuMENUGROUP As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RestoreBackupMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RestoreBackupMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HelpButtonMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MainFormMENUBAR As System.Windows.Forms.MenuStrip
     Friend WithEvents UserRefControlTabBUTTON As System.Windows.Forms.Button
     Friend WithEvents TradesListControlTabBUTTON As System.Windows.Forms.Button
@@ -1885,13 +1931,13 @@ Partial Class Main
     Friend WithEvents RefineSearchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents StringSearchLABEEL As System.Windows.Forms.Label
     Friend WithEvents HiddenGemPICTUREBOX As System.Windows.Forms.PictureBox
-    Friend WithEvents TimerControl As System.Windows.Forms.Button
+    Friend WithEvents AutologgingTimerBUTTON As System.Windows.Forms.Button
     Friend WithEvents ExactMatchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents SearchValueLABEL As System.Windows.Forms.Label
     Friend WithEvents SearchOperatorLABEL As System.Windows.Forms.Label
     Friend WithEvents SearchValueNUMERICUPDWN As System.Windows.Forms.NumericUpDown
     Friend WithEvents SearchWordCOMBOBOX As System.Windows.Forms.ComboBox
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents ImportLogRICHTEXTBOX As System.Windows.Forms.RichTextBox
     Friend WithEvents SearchLABEL As System.Windows.Forms.Label
     Friend WithEvents SearchFieldCOMBOBOX As System.Windows.Forms.ComboBox
     Friend WithEvents SearchOperatorCOMBOBOX As System.Windows.Forms.ComboBox
@@ -1917,23 +1963,22 @@ Partial Class Main
     Friend WithEvents SelectAllItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddItemItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SortListItemsCMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DisplayLineBreaksMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DisplayLineBreaksMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EditItemItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SendToTradeListItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SendToUserListItemsCMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HideDupesMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SettingsMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RebuildDBaseMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearUserListMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SelectAllMainMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UndoDeleteMainMenu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HideDupesMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SettingsMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RebuildDefaultDatabaseMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ClearUserListMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SelectAllMENUITEM As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UndoDeleteMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EastRealmCHECKBOX As CheckBox
     Friend WithEvents WestRealmCHECKBOX As CheckBox
     Friend WithEvents AsiaRealmCHECKBOX As CheckBox
     Friend WithEvents EuropeRealmCHECKBOX As CheckBox
-    Friend WithEvents BuildMuleListMainMenu As ToolStripMenuItem
     Friend WithEvents SpecialStatsTABLELAYOUT As TableLayoutPanel
     Friend WithEvents CoreTypeTEXTBOX As TextBox
     Friend WithEvents MulePasswordTEXTBOX As TextBox
@@ -1946,13 +1991,13 @@ Partial Class Main
     Friend WithEvents MuleRealmTEXTBOX As TextBox
     Friend WithEvents MuleRealmLABEL As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents LoadMuleMainMenu As ToolStripMenuItem
+    Friend WithEvents LoadItemMuleMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
-    Friend WithEvents ImportNowMainMenu As ToolStripMenuItem
+    Friend WithEvents ImportNowMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
-    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents SetLadderByDateMainMenu As ToolStripMenuItem
-    Friend WithEvents SetAllNonLadderMainMenu As ToolStripMenuItem
+    Friend WithEvents SetNonLadderMENUGROUP As ToolStripMenuItem
+    Friend WithEvents SetLadderByDateMENUITEM As ToolStripMenuItem
+    Friend WithEvents SetAllNonLadderMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents SearchListCONTEXTMENUSTRIP As ContextMenuStrip
     Friend WithEvents SendToTradeListSearchMenu As ToolStripMenuItem
@@ -1979,4 +2024,10 @@ Partial Class Main
     Friend WithEvents ClearItemsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SelectAllToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents OpenContainingDatabaseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents ButtonTIMER As Timer
+    Friend WithEvents ClearImportLogMENUITEM As ToolStripMenuItem
 End Class

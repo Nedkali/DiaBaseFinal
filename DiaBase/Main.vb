@@ -19,6 +19,8 @@ Public Class Main
     '=====================================================================================================================================================================
     'DEFINES THE ImportTimer AS A GLOBAL SYSTEM TIMER (ONLY FOR AUTO IMPORTS)
     Public WithEvents ImportTimer As New System.Windows.Forms.Timer()
+    Public WithEvents ButtonFlashTimer As New System.Windows.Forms.Timer()
+
 
     Sub StartTimer()
         Timercount = 0
@@ -26,8 +28,20 @@ Public Class Main
         ToolStripProgressBar1.Maximum = 100
         ImportTimer.Interval = 1000
         ImportTimer.Start()
-        RichTextBox1.Text = "AutoLogger Ready" & vbCrLf
+        ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
     End Sub
+
+
+    'Button flashing text effect for when autologger is paused
+    Private Sub ButtonTIMER_Tick(sender As Object, e As EventArgs) Handles ButtonTIMER.Tick
+        If AutologgingTimerBUTTON.Text <> "Pause AutoLogger" Then ButtonFlashCount = ButtonFlashCount + 1
+
+        If ButtonFlashCount = 1 Then AutologgingTimerBUTTON.Text = Nothing
+        If ButtonFlashCount = 10 Then AutologgingTimerBUTTON.Text = "Start AutoLogger"
+        If ButtonFlashCount = 20 Then ButtonFlashCount = 0
+
+    End Sub
+
 
 
     'IMPORT DELAY COUNTER - HANDLES IMPORT DLEAY AUTOLOGGING SYSTEM - BRANCES TO IMPORT ROUTINE WHEN DELAY IS UP
@@ -36,12 +50,12 @@ Public Class Main
         If Timercount > TimerSeconds Then
             Timercount = 0
             ImportTimer.Stop()
-            RichTextBox1.Text = "AutoLogger Running..." & vbCrLf & "Checking for new Log Files" & vbCrLf
+            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running..." & vbCrLf & TimeOfDay.Date & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files")
             AutoLoggerRunning = True
             ImportLogFiles(False)
             AutoLoggerRunning = False
             ImportTimer.Start()
-            RichTextBox1.AppendText("AutoLogger Ready" & vbCrLf)
+            ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
         End If
 
         Dim Timerprogress As Integer = Math.Round((Timercount / TimerSeconds) * 100)
@@ -50,19 +64,23 @@ Public Class Main
     End Sub
 
     'TIMER BUTTON pause & restart routine
-    Private Sub TimerStartPauseButton(sender As Object, e As EventArgs) Handles TimerControl.Click
-        If TimerControl.Text = "Pause" Then
+    Private Sub TimerStartPauseButton(sender As Object, e As EventArgs) Handles AutologgingTimerBUTTON.Click
+        If AutoLoggerReady = False Then
+            ButtonFlashTimer.Start()
             ImportTimer.Stop()
-            TimerRestart = True
-            TimerControl.Text = "Start"
-            RichTextBox1.Text = "AutoLogger Paused" & vbCrLf
+            'TimerRestart = True
+            AutoLoggerReady = True
+            AutologgingTimerBUTTON.Text = "Start AutoLogger"
+            'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Paused")
             Return
         End If
 
-        If TimerControl.Text = "Start" And TimerRestart = True Then
+        If AutoLoggerReady = True Then
+            AutoLoggerReady = False
             ImportTimer.Start()
-            TimerControl.Text = "Pause"
-            RichTextBox1.Text = "AutoLogger Ready" & vbCrLf
+            ButtonFlashTimer.Stop()
+            AutologgingTimerBUTTON.Text = "Pause AutoLogger"
+            'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
         End If
     End Sub
 
@@ -120,7 +138,7 @@ Public Class Main
             UserRefControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             TradesListControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             SearchBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-            TimerControl.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            AutologgingTimerBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
 
         'Set foucus on the main listbox
@@ -140,7 +158,6 @@ Public Class Main
     '====================================================================================================================================================================
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
 
-
         'Verify The current Paths In Settings Are Correct - Auto Open Settings Window If Verify Fails - VERIFYS FOR BOTH PUBLIC AND NEDS ETAL VERSIONS NOW
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False And My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory")) = False Then Settings.ShowDialog()
 
@@ -153,14 +170,13 @@ Public Class Main
         'THIS DETERMINES WHICH ETAL IS CURRENTLY BEING USED (PUBLIC OR NEDS) AND SETS THE NEW AppSettings.EtalVersion var to either "NED" or "PUB" (not to be confused with ned at the pub :)
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
-
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
 
-        StartTimer() 'Start The Import Timer And Pass Control Back To The Main Form...
-
+        'Start The Import Timer, Focus the Autologging Timer Button And Then Pass Control Back To The Main Form. App Startup is completed..
+        StartTimer()
+        AutologgingTimerBUTTON.Select()
     End Sub
-
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MAIN LISTBOX POPUP MENU - ON RIGHT MOUSE CLICK
@@ -389,7 +405,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAY SETTINGS FORM - Settings Window Handles All Global Config Functions for the Entire Application
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs) Handles SettingsMainMenu.Click
+    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs) Handles SettingsMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         Settings.ShowDialog()
@@ -402,7 +418,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - DISPLAY DATABASE MANAGER FORM - Handles Open Create Delete Rename Database files all in one place for (hopefully an improvment)
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub OpenDBManagerMainMenu_Click(sender As Object, e As EventArgs) Handles OpenDBManagerMainMenu.Click
+    Private Sub OpenDBManagerMainMenu_Click(sender As Object, e As EventArgs) Handles DatabaseManagerMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         DatabaseManager.ShowDialog()
@@ -445,7 +461,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR- CLOSE APPLICATION HANDLER - Shuts down main form
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ExitMainMenu_Click(sender As Object, e As EventArgs) Handles ExitMainMenu.Click
+    Private Sub ExitMainMenu_Click(sender As Object, e As EventArgs) Handles ExitApplicarionMENUITEM.Click
         Me.Close()
     End Sub
 
@@ -453,12 +469,14 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - IMPORT NOW FUNCTION - Activated the autologger on demand as opposed to waiting for the delay to time out
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ImportNowMainMenu_Click(sender As Object, e As EventArgs) Handles ImportNowMainMenu.Click
+    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click
+
         AutoLoggerRunning = True
         Timercount = 0
-        RichTextBox1.Text = "AutoLogger Running..." & vbCrLf & "Checking for New Logs" & vbCrLf
+        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
         ImportLogFiles(False)
         AutoLoggerRunning = False
+        'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
         ListboxTABCONTROL.SelectTab(0)
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Total Items"
@@ -468,7 +486,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - SAVE DATABASE FUNCTION - branches to save routine to save the current database 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SaveMainMenu_Click(sender As Object, e As EventArgs) Handles SaveMainMenu.Click
+    Private Sub SaveMainMenu_Click(sender As Object, e As EventArgs) Handles SaveDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         WriteToFile(0, AppSettings.DefaultDatabase, False)
@@ -479,7 +497,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CREATE BACKUP BUTTONPRESS HANDLER - Branches to backup routine to create backup of current file 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub BackupMainMenu_Click(sender As Object, e As EventArgs) Handles BackupMainMenu.Click
+    Private Sub BackupMainMenu_Click(sender As Object, e As EventArgs) Handles BackupDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
 
@@ -518,7 +536,7 @@ Public Class Main
     'MENU BAR - RESTORE FROM BACKUP BUTTON PRESS HANDLER - Branches to backup routine to restore the current file from backup 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub RestoreBackupMainMenu_Click(sender As Object, e As EventArgs) Handles RestoreBackupMainMenu.Click
+    Private Sub RestoreBackupMainMenu_Click(sender As Object, e As EventArgs) Handles RestoreBackupMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         'Setup User Input Form For Use With The Menu Bar Restore Backup Function
@@ -566,7 +584,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - EDIT ITEM FUNCTION - Displays edit item form and broances to EditItem.vb if 1 or more items are selected in the main listbox
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub EditExistingItemMainMenu_Click(sender As Object, e As EventArgs) Handles EditExistingItemMainMenu.Click
+    Private Sub EditExistingItemMainMenu_Click(sender As Object, e As EventArgs) Handles EditExistingItemMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         If AllItemsLISTBOX.SelectedIndex = -1 Then
             ErrorHandler(2, 0, 0, 0) : Return
@@ -596,7 +614,7 @@ Public Class Main
     Private Sub SendToTradeListToolStripMenuItem3_Click(sender As Object, e As EventArgs)
 
         If AutoLoggerRunning = True Then
-            RichTextBox1.AppendText("Please wait Import in progress")
+            ImportLogRICHTEXTBOX.AppendText("Please wait Import in progress")
             Return
         End If
         ImportTimer.Stop()
@@ -649,7 +667,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - SELLECT ALL ITEMS
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SelectAllMainMenu_Click(sender As Object, e As EventArgs) Handles SelectAllMainMenu.Click
+    Private Sub SelectAllMainMenu_Click(sender As Object, e As EventArgs) Handles SelectAllMENUITEM.Click
         SendMessage(AllItemsLISTBOX.Handle, &H185, New IntPtr(1), New IntPtr(-1))
         TriggerUpdate.SetValue(AllItemsLISTBOX.SelectedItems, True)
         TriggerIndexChanged.Invoke(AllItemsLISTBOX, New Object() {New EventArgs})
@@ -660,7 +678,7 @@ Public Class Main
     'MENU BAR - OPENS ADD NEW ITEM FORM
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub AddNewItemMainMenu_Click(sender As Object, e As EventArgs) Handles AddNewItemMainMenu.Click
+    Private Sub AddNewItemMainMenu_Click(sender As Object, e As EventArgs) Handles AddNewItemMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         ItemAdd.ShowDialog()
@@ -670,7 +688,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - DELETE SELECTED ITEM/S
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub DeleteItemMainMenu_Click(sender As Object, e As EventArgs) Handles DeleteItemMainMenu.Click
+    Private Sub DeleteItemMainMenu_Click(sender As Object, e As EventArgs) Handles DeleteItemMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
 
@@ -683,7 +701,7 @@ Public Class Main
             For index = AllItemsLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
                 Dim a As Integer = AllItemsLISTBOX.SelectedIndices(index)
                 AllItemsLISTBOX.Items.RemoveAt(a)
-                UnDo.Add(ItemObjects(a)) : UnDoPos.Add(a) : UndoDeleteMainMenu.Enabled = True
+                UnDo.Add(ItemObjects(a)) : UnDoPos.Add(a) : UndoDeleteMENUITEM.Enabled = True
                 ItemObjects.RemoveAt(a)
 
                 'Removes Item From Search Listbox & Ref List
@@ -719,7 +737,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEAR SEARCH LISTING
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearSearchListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearSearchListMainMenu.Click
+    Private Sub ClearSearchListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearSearchListMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         SearchLISTBOX.Items.Clear()
@@ -731,7 +749,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEARS TRADELIST
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearTradeListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearTradeListMainMenu.Click
+    Private Sub ClearTradeListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearTradeListMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         TradeListRICHTEXTBOX.Clear()
@@ -741,7 +759,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEARS USERLIST
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearUserListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearUserListMainMenu.Click
+    Private Sub ClearUserListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearUserListMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         UserLISTBOX.Items.Clear()
@@ -751,11 +769,11 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Add blank line - Line Breaks to item stats display
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub DisplayLineBreaksMainMenu_Click(sender As Object, e As EventArgs) Handles DisplayLineBreaksMainMenu.Click
+    Private Sub DisplayLineBreaksMainMenu_Click_1(sender As Object, e As EventArgs) Handles DisplayLineBreaksMENUITEM.Click
 
         'Update LineBreaks settings to false
-        If DisplayLineBreaksMainMenu.Checked = True Then
-            DisplayLineBreaksMainMenu.Checked = False
+        If DisplayLineBreaksMENUITEM.Checked = True Then
+            DisplayLineBreaksMENUITEM.Checked = False
 
             'Refresh The Stats Display to apply the False Setting changes relevant to the list selected
             If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
@@ -765,8 +783,8 @@ Public Class Main
         End If
 
         'Update LineBreaks settings to true
-        If DisplayLineBreaksMainMenu.Checked = False Then
-            DisplayLineBreaksMainMenu.Checked = True
+        If DisplayLineBreaksMENUITEM.Checked = False Then
+            DisplayLineBreaksMENUITEM.Checked = True
 
             'Refresh The Stats Display to apply ther True setting changes relevant to the lists selected
             If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
@@ -779,10 +797,10 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Rebuild database from Archived logs
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub RebuildDBaseMainMenu_Click(sender As Object, e As EventArgs) Handles RebuildDBaseMainMenu.Click
+    Private Sub RebuildDBaseMainMenu_Click(sender As Object, e As EventArgs) Handles RebuildDefaultDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
-        RichTextBox1.Text = "Checking for New Logs" & vbCrLf
+        ImportLogRICHTEXTBOX.Text = "Checking for New Logs" & vbCrLf
         ImportLogFiles(True)
         PopulateAllItemsLISTBOX()
         TimerStartPauseButton(sender, e)
@@ -791,14 +809,14 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Hide dupes in search results
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub HideDupesMainMenu_Click(sender As Object, e As EventArgs) Handles HideDupesMainMenu.Click
-        If HideDupesMainMenu.Checked = True Then
-            HideDupesMainMenu.Checked = False
+    Private Sub HideDupesMainMenu_Click(sender As Object, e As EventArgs)
+        If HideDupesMENUITEM.Checked = True Then
+            HideDupesMENUITEM.Checked = False
             AppSettings.HideDupes = False
             Return
         End If
-        If HideDupesMainMenu.Checked = False Then
-            HideDupesMainMenu.Checked = True
+        If HideDupesMENUITEM.Checked = False Then
+            HideDupesMENUITEM.Checked = True
             AppSettings.HideDupes = True
         End If
     End Sub
@@ -807,7 +825,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Undo delete - works but restores one at a time atm
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub UndoDeleteMainMenu_Click(sender As Object, e As EventArgs) Handles UndoDeleteMainMenu.Click
+    Private Sub UndoDeleteMainMenu_Click(sender As Object, e As EventArgs) Handles UndoDeleteMENUITEM.Click
         Dim index = CInt(UnDoCount(UnDoCount.Count - 1))
         If UnDo.Count > 0 Then
             For index = CInt(UnDoCount(UnDoCount.Count - 1)) To 0 Step -1
@@ -822,7 +840,7 @@ Public Class Main
 
         End If
         If UnDo.Count < 1 Then
-            UndoDeleteMainMenu.Enabled = False
+            UndoDeleteMENUITEM.Enabled = False
         End If
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
     End Sub
@@ -1076,10 +1094,8 @@ Public Class Main
         If AppSettings.HideMulePass = False Then MulePasswordTEXTBOX.UseSystemPasswordChar = False
         If AppSettings.HideMulePass = True Then MulePasswordTEXTBOX.UseSystemPasswordChar = True
         MulePasswordTEXTBOX.Text = ItemObjects(ItemIndex).MulePass
-
         If ItemObjects(ItemIndex).HardCore = True Then CoreTypeTEXTBOX.Text = "HardCore"
         If ItemObjects(ItemIndex).HardCore = False Then CoreTypeTEXTBOX.Text = "SoftCore"
-
         If ItemObjects(ItemIndex).Ladder = False Then LadderTEXTBOX.Text = "Non Ladder"
         If ItemObjects(ItemIndex).Ladder = True Then LadderTEXTBOX.Text = "Ladder"
 
@@ -1137,14 +1153,13 @@ Public Class Main
             ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
 
+        'RuneWord String - Still Not Reporting Right
         If ItemObjects(ItemIndex).RuneWord = True Then
             ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
             ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
 
         ItemStatsRICHTEXTBOX.AppendText(vbCrLf) 'Spacer line after Item Name and class Always 
-
-
         ColourCount1 = ItemStatsRICHTEXTBOX.TextLength 'Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
         'White text for basic info Block - Line spaceing added between each section (if needed)
@@ -1152,35 +1167,40 @@ Public Class Main
         If ItemObjects(ItemIndex).TwoHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText("Two Hand Damage: " & ItemObjects(ItemIndex).TwoHandDamageMin & " to " & ItemObjects(ItemIndex).TwoHandDamageMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If DisplayLineBreaksMainMenu.Checked = True Then
+        If DisplayLineBreaksMENUITEM.Checked = True Then
             If ItemObjects(ItemIndex).OneHandDamageMax > 0 Or ItemObjects(ItemIndex).TwoHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
+        'Item Defensive Values
         If ItemObjects(ItemIndex).Defense > 0 Then ItemStatsRICHTEXTBOX.AppendText("Defense: " & ItemObjects(ItemIndex).Defense & vbCrLf)
         If ItemObjects(ItemIndex).ChanceToBlock > 0 Then ItemStatsRICHTEXTBOX.AppendText("Chance To Block: " & ItemObjects(ItemIndex).ChanceToBlock & "%" & vbCrLf)
         If ItemObjects(ItemIndex).DurabilityMin > 0 Then ItemStatsRICHTEXTBOX.AppendText("Durability: " & ItemObjects(ItemIndex).DurabilityMin & " of " & ItemObjects(ItemIndex).DurabilityMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If DisplayLineBreaksMainMenu.Checked = True Then
+        If DisplayLineBreaksMENUITEM.Checked = True Then
             If ItemObjects(ItemIndex).Defense > 0 Or ItemObjects(ItemIndex).ChanceToBlock > 0 Or ItemObjects(ItemIndex).DurabilityMin > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
+        'Item Requirements
         If ItemObjects(ItemIndex).RequiredStrength > 0 Then ItemStatsRICHTEXTBOX.AppendText("Required Strength: " & ItemObjects(ItemIndex).RequiredStrength & vbCrLf)
         If ItemObjects(ItemIndex).RequiredDexterity > 0 Then ItemStatsRICHTEXTBOX.AppendText("Required Dexterity: " & ItemObjects(ItemIndex).RequiredDexterity & vbCrLf)
+        If ItemObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText("Required Level: " & ItemObjects(ItemIndex).RequiredLevel & vbCrLf)
+
+        'Required Character Displayed Red and in Brackets to copy the ingame D2 themed layout
         If ItemObjects(ItemIndex).RequiredCharacter <> Nothing Then
             ItemStatsRICHTEXTBOX.SelectedText = "[" & ItemObjects(ItemIndex).RequiredCharacter & " Only]" & vbCrLf
         End If
 
-        If ItemObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText("Required Level: " & ItemObjects(ItemIndex).RequiredLevel & vbCrLf)
-
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If DisplayLineBreaksMainMenu.Checked = True Then
+        If DisplayLineBreaksMENUITEM.Checked = True Then
             If ItemObjects(ItemIndex).RequiredStrength > 0 Or ItemObjects(ItemIndex).RequiredDexterity > 0 Or ItemObjects(ItemIndex).RequiredCharacter <> Nothing And ItemObjects(ItemIndex).RequiredLevel > 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
 
+        'Item Attack Class And Speed
         If ItemObjects(ItemIndex).AttackClass <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).AttackClass & " Class") : If ItemObjects(ItemIndex).AttackSpeed <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(" - " & ItemObjects(ItemIndex).AttackSpeed & vbCrLf) Else ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
+
         'ADD lINE SPACING BASED ON OPTION SETTING
-        If DisplayLineBreaksMainMenu.Checked = True Then
+        If DisplayLineBreaksMENUITEM.Checked = True Then
             If ItemObjects(ItemIndex).AttackClass <> Nothing Or ItemObjects(ItemIndex).AttackSpeed <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
             If ItemObjects(ItemIndex).RequiredLevel > 0 And ItemObjects(ItemIndex).AttackClass = Nothing And ItemObjects(ItemIndex).AttackSpeed = Nothing And ItemObjects(ItemIndex).RequiredCharacter = Nothing And ItemObjects(ItemIndex).RequiredDexterity = 0 And ItemObjects(ItemIndex).RequiredStrength = 0 Then ItemStatsRICHTEXTBOX.AppendText(vbCrLf)
         End If
@@ -1233,7 +1253,7 @@ Public Class Main
     'lists All Mule Accounts in database and displays attached realm and mule
     '----------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub BuildMuleListMainMenu_Click(sender As Object, e As EventArgs) Handles BuildMuleListMainMenu.Click
+    Private Sub BuildMuleListMainMenu_Click(sender As Object, e As EventArgs)
 
         ' just a tempory listing - may keep as an app feature? Just needed some way of getting muleaccounts back :)
         ' removed previous code as it was working for some reason
@@ -1252,14 +1272,14 @@ Public Class Main
 
     End Sub
 
-    Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadMuleMainMenu.Click
+    Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadItemMuleMENUITEM.Click
         Dim Iindex = AllItemsLISTBOX.SelectedIndex
         If Iindex = -1 Then Return
         WriteLoaderFile(Iindex)
         'loadD2(Iindex)
     End Sub
 
-    Private Sub SetAllNonLadderMainMenu_Click(sender As Object, e As EventArgs) Handles SetAllNonLadderMainMenu.Click
+    Private Sub SetAllNonLadderMainMenu_Click(sender As Object, e As EventArgs) Handles SetAllNonLadderMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
 
@@ -1295,7 +1315,7 @@ Public Class Main
     End Sub
 
     'sub to set to nonladder based on mule logged date
-    Private Sub SetLadderByDateMainMenu_Click(sender As Object, e As EventArgs) Handles SetLadderByDateMainMenu.Click
+    Private Sub SetLadderByDateMainMenu_Click(sender As Object, e As EventArgs) Handles SetLadderByDateMENUITEM.Click
         'may need try catch here
         Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
         Dim temp As Date
@@ -1550,5 +1570,10 @@ Public Class Main
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles HiddenGemPICTUREBOX.Click
         My.Computer.Audio.Play(My.Resources.DiabloTaunt, AudioPlayMode.Background)
         HiddenGemPICTUREBOX.Hide()
+    End Sub
+
+    'CLEARS OUT ALL TEST IN THE IMPORT LOG - Also Refeshes Session Start String At Top Of Log
+    Private Sub ClearImportLogMENUITEM_Click(sender As Object, e As EventArgs) Handles ClearImportLogMENUITEM.Click
+        ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
     End Sub
 End Class

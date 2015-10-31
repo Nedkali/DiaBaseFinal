@@ -23,7 +23,6 @@ Public Class Export
     End Sub
 
     'EXPORT ITEMS TO SECOND DATABASE ROUTINE
-
     Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportNowBUTTON.Click
         If Main.UserLISTBOX.SelectedIndices.Count < 1 Then Return
 
@@ -31,85 +30,74 @@ Public Class Export
         If DatabaseFilenameTEXTBOX.Text <> "" Then
             My.Computer.FileSystem.GetName(DatabaseFilenameTEXTBOX.Text)
             DatabaseFilenameTEXTBOX.Text = Replace(DatabaseFilenameTEXTBOX.Text, ".txt", "")
-
         End If
 
-        Dim x As Integer = 0
-            Dim temp = DatabaseFilenameTEXTBOX.Text
-
-            temp = AppSettings.InstallPath + "\Databases\" + temp + ".txt"
-
-        'Create database file if it doesnt already exist yet
-        'If My.Computer.FileSystem.FileExists(temp) = False Then
-        'Dim CreateFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\DataBases\" & DatabaseFilenameTEXTBOX.Text & " .txt", False)
-        'CreateFile.Close()
-        'End If
+        'Dim x As Integer = 0
+        'Dim Temp = DatabaseFilenameTEXTBOX.Text : Temp = AppSettings.InstallPath + "\Databases\" + Temp + ".txt"
 
         'Run a backup of current database if backup before edits is set to true in app settings class and form
         If AppSettings.BackupBeforeEdits = True Then DatabaseManagmentFunctions.SaveDatabase(AppSettings.InstallPath & "\Databases\Backup\" & Main.OpenDatabaseLABEL.Text & ".BAK")
 
+        Try
+            'Dim LogWriter As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(temp, True)
+            ' For index = 0 To Main.UserLISTBOX.SelectedIndices.Count - 1
+            'x = UserListReferenceList(index)
+            'LogWriter.WriteLine("--------------------")
+            'LogWriter.WriteLine(ItemObjects(x).ItemName)
+            'LogWriter.WriteLine(ItemObjects(x).Itemlevel)
+            'LogWriter.WriteLine(ItemObjects(x).ItemRealm)
+            'LogWriter.WriteLine(ItemObjects(x).ItemBase)
+            'LogWriter.WriteLine(ItemObjects(x).ItemQuality)
+            'LogWriter.WriteLine(ItemObjects(x).RequiredCharacter)
+            'LogWriter.WriteLine(ItemObjects(x).EtherealItem)
+            'LogWriter.WriteLine(ItemObjects(x).Sockets)
+            'LogWriter.WriteLine(ItemObjects(x).RuneWord)
+            'LogWriter.WriteLine(ItemObjects(x).ThrowDamageMin)
+            'LogWriter.WriteLine(ItemObjects(x).ThrowDamageMax)
+            'LogWriter.WriteLine(ItemObjects(x).OneHandDamageMin)
+            'LogWriter.WriteLine(ItemObjects(x).OneHandDamageMax)
+            'LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMin)
+            'LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMax)
+            'LogWriter.WriteLine(ItemObjects(x).Defense)
+            'LogWriter.WriteLine(ItemObjects(x).ChanceToBlock)
+            'LogWriter.WriteLine(ItemObjects(x).QuantityMin)
+            'LogWriter.WriteLine(ItemObjects(x).QuantityMax)
+            'LogWriter.WriteLine(ItemObjects(x).DurabilityMin)
+            'LogWriter.WriteLine(ItemObjects(x).DurabilityMax)
+            'LogWriter.WriteLine(ItemObjects(x).RequiredStrength)
+            'LogWriter.WriteLine(ItemObjects(x).RequiredDexterity)
+            'LogWriter.WriteLine(ItemObjects(x).RequiredLevel)
+            'LogWriter.WriteLine(ItemObjects(x).AttackClass)
+            'LogWriter.WriteLine(ItemObjects(x).AttackSpeed)
+            'LogWriter.WriteLine(ItemObjects(x).Stat1)
+            'LogWriter.WriteLine(ItemObjects(x).Stat2)
+            'LogWriter.WriteLine(ItemObjects(x).Stat3)
+            'LogWriter.WriteLine(ItemObjects(x).Stat4)
+            'LogWriter.WriteLine(ItemObjects(x).Stat5)
+            'LogWriter.WriteLine(ItemObjects(x).Stat6)
+            'LogWriter.WriteLine(ItemObjects(x).Stat7)
+            'LogWriter.WriteLine(ItemObjects(x).Stat8)
+            'LogWriter.WriteLine(ItemObjects(x).Stat9)
+            'LogWriter.WriteLine(ItemObjects(x).Stat10)
+            'LogWriter.WriteLine(ItemObjects(x).Stat11)
+            'LogWriter.WriteLine(ItemObjects(x).Stat12)
+            'LogWriter.WriteLine(ItemObjects(x).Stat13)
+            'LogWriter.WriteLine(ItemObjects(x).Stat14)
+            'LogWriter.WriteLine(ItemObjects(x).Stat15)
+            'LogWriter.WriteLine(ItemObjects(x).MuleName)
+            'LogWriter.WriteLine(ItemObjects(x).MuleAccount)
+            'LogWriter.WriteLine(ItemObjects(x).MulePass)
+            'LogWriter.WriteLine(ItemObjects(x).PickitAccount)
+            'LogWriter.WriteLine(ItemObjects(x).HardCore)
+            'LogWriter.WriteLine(ItemObjects(x).Ladder)
+            'LogWriter.WriteLine(ItemObjects(x).Expansion)
+            'LogWriter.WriteLine(ItemObjects(x).UserField)
+            'LogWriter.WriteLine(ItemObjects(x).ItemImage)
+            'LogWriter.WriteLine(ItemObjects(x).ImportTime)
+            'LogWriter.WriteLine(ItemObjects(x).ImportDate)
+            'Next
+            'LogWriter.Close()
 
-            Try
-                Dim LogWriter As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(temp, True)
-
-            For index = 0 To Main.UserLISTBOX.SelectedIndices.Count - 1
-                x = UserListReferenceList(index)
-                LogWriter.WriteLine("--------------------")
-                LogWriter.WriteLine(ItemObjects(x).ItemName)
-                LogWriter.WriteLine(ItemObjects(x).Itemlevel)
-                LogWriter.WriteLine(ItemObjects(x).ItemRealm)
-                LogWriter.WriteLine(ItemObjects(x).ItemBase)
-                LogWriter.WriteLine(ItemObjects(x).ItemQuality)
-                LogWriter.WriteLine(ItemObjects(x).RequiredCharacter)
-                LogWriter.WriteLine(ItemObjects(x).EtherealItem)
-                LogWriter.WriteLine(ItemObjects(x).Sockets)
-                LogWriter.WriteLine(ItemObjects(x).RuneWord)
-                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).Defense)
-                LogWriter.WriteLine(ItemObjects(x).ChanceToBlock)
-                LogWriter.WriteLine(ItemObjects(x).QuantityMin)
-                LogWriter.WriteLine(ItemObjects(x).QuantityMax)
-                LogWriter.WriteLine(ItemObjects(x).DurabilityMin)
-                LogWriter.WriteLine(ItemObjects(x).DurabilityMax)
-                LogWriter.WriteLine(ItemObjects(x).RequiredStrength)
-                LogWriter.WriteLine(ItemObjects(x).RequiredDexterity)
-                LogWriter.WriteLine(ItemObjects(x).RequiredLevel)
-                LogWriter.WriteLine(ItemObjects(x).AttackClass)
-                LogWriter.WriteLine(ItemObjects(x).AttackSpeed)
-                LogWriter.WriteLine(ItemObjects(x).Stat1)
-                LogWriter.WriteLine(ItemObjects(x).Stat2)
-                LogWriter.WriteLine(ItemObjects(x).Stat3)
-                LogWriter.WriteLine(ItemObjects(x).Stat4)
-                LogWriter.WriteLine(ItemObjects(x).Stat5)
-                LogWriter.WriteLine(ItemObjects(x).Stat6)
-                LogWriter.WriteLine(ItemObjects(x).Stat7)
-                LogWriter.WriteLine(ItemObjects(x).Stat8)
-                LogWriter.WriteLine(ItemObjects(x).Stat9)
-                LogWriter.WriteLine(ItemObjects(x).Stat10)
-                LogWriter.WriteLine(ItemObjects(x).Stat11)
-                LogWriter.WriteLine(ItemObjects(x).Stat12)
-                LogWriter.WriteLine(ItemObjects(x).Stat13)
-                LogWriter.WriteLine(ItemObjects(x).Stat14)
-                LogWriter.WriteLine(ItemObjects(x).Stat15)
-                LogWriter.WriteLine(ItemObjects(x).MuleName)
-                LogWriter.WriteLine(ItemObjects(x).MuleAccount)
-                LogWriter.WriteLine(ItemObjects(x).MulePass)
-                LogWriter.WriteLine(ItemObjects(x).PickitAccount)
-                LogWriter.WriteLine(ItemObjects(x).HardCore)
-                LogWriter.WriteLine(ItemObjects(x).Ladder)
-                LogWriter.WriteLine(ItemObjects(x).Expansion)
-                LogWriter.WriteLine(ItemObjects(x).UserField)
-                LogWriter.WriteLine(ItemObjects(x).ItemImage)
-                LogWriter.WriteLine(ItemObjects(x).ImportTime)
-                LogWriter.WriteLine(ItemObjects(x).ImportDate)
-            Next
-
-            LogWriter.Close()
 
             'Delete imported items from old dtatabase if checkbox IS NOT checked
             If DontDeleteItemsCHECKBOX.Checked = False Then
@@ -118,19 +106,11 @@ Public Class Export
                 Dim CheckResult As Boolean = Nothing
 
                 For Each UserIndex In Main.UserLISTBOX.SelectedIndices
-
                     If Main.UserLISTBOX.Items.Item(UserIndex) = ItemObjects(ItemIndex).ItemName Then VerifyStats(ItemIndex, UserIndex, CheckResult)
-
                     If CheckResult = True Then Main.UserLISTBOX.Items.RemoveAt(ItemIndex)
-
                     ItemIndex = ItemIndex + 1
 
                 Next
-
-
-
-
-
 
                 '  Dim a As Integer
                 '  Dim b As Integer
@@ -143,16 +123,11 @@ Public Class Export
                 '  SearchReferenceList.RemoveAt(a)
                 '  Next
                 Main.SearchLISTBOX.SelectedItem = -1
-                End If
-
-
-
+            End If
 
             'checks open destination database checkbox then save this database and load the destionation database if nessicary
             If OpenDatabaseCHECKBOX.Checked = True Then
                 DatabaseManagmentFunctions.SaveDatabase(AppSettings.CurrentDatabase) 'branch to save routine to save source dbase before loading destination dbase NOTE: I MAY PUT A CHECKBOX IN FOR THIS
-
-
 
                 'clean out old items from the last loaded database
                 DatabaseManagmentFunctions.CloseFile()
@@ -172,19 +147,14 @@ Public Class Export
                 Main.DatabaseFileLABEL.Hide()
                 Main.DatabaseFileNameTEXTBOX.Hide()
                 If Main.AllItemsLISTBOX.Items.Count > 0 Then Main.AllItemsLISTBOX.SelectedIndex = 0
-
-
             End If
 
             Return
-            Catch ex As Exception
+        Catch ex As Exception
             'Pass Failed import error instance to error hanler 
             Main.ErrorHandler(1001, ex, 0, 0) '1001 - 1099 Haldles all expected importing errors (if needed)
             Return
         End Try
-
-
-
 
         Me.Close()
 
@@ -251,29 +221,9 @@ Public Class Export
             If ItemObjects(ItemIndex).ItemImage <> UserObjects(UserIndex).ItemImage Then CheckResult = False
             If ItemObjects(ItemIndex).ImportTime <> UserObjects(UserIndex).ImportTime Then CheckResult = False
             If ItemObjects(ItemIndex).ImportDate <> UserObjects(UserIndex).ImportDate Then CheckResult = False
-
-
             If CheckResult = False Then Return
         Next
-
-
-
     End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     'Updates textbox with selected file and keeps textbox selected ready for new filename 
     Private Sub SavedDatabasesLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SavedDatabasesLISTBOX.SelectedIndexChanged
