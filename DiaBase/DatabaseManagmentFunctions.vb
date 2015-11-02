@@ -144,11 +144,17 @@ Module DatabaseManagmentFunctions
                 NewItem.Stat5 = OpenDatabase.ReadLine
                 NewItem.Stat6 = OpenDatabase.ReadLine
                 NewItem.Stat7 = OpenDatabase.ReadLine
+                If NewItem.Stat7 = " " Then NewItem.Stat7 = Nothing
                 NewItem.Stat8 = OpenDatabase.ReadLine
+                If NewItem.Stat8 = " " Then NewItem.Stat8 = Nothing
                 NewItem.Stat9 = OpenDatabase.ReadLine
+                If NewItem.Stat9 = " " Then NewItem.Stat9 = Nothing
                 NewItem.Stat10 = OpenDatabase.ReadLine
+                If NewItem.Stat10 = " " Then NewItem.Stat10 = Nothing
                 NewItem.Stat11 = OpenDatabase.ReadLine
+                If NewItem.Stat11 = " " Then NewItem.Stat11 = Nothing
                 NewItem.Stat12 = OpenDatabase.ReadLine
+                If NewItem.Stat12 = " " Then NewItem.Stat12 = Nothing
                 NewItem.Stat13 = OpenDatabase.ReadLine
                 NewItem.Stat14 = OpenDatabase.ReadLine
                 NewItem.Stat15 = OpenDatabase.ReadLine

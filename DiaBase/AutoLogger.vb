@@ -393,114 +393,114 @@ Module AutoLogger
         Select Case runename
 
             Case "Eld Rune"
-                runestats = "11, Weapons:, +50 To Attack Rate, +175% Damage To Undead, Armour:, +15% Stamina Drain, Helmets:, +15% Stamina Drain, Shields:, Increased Chance Of Blocking, , , , "
+                runestats = "11, Weapons:, +50 To Attack Rate, +175% Damage To Undead, Armour:, +15% Stamina Drain, Helmets:, +15% Stamina Drain, Shields:, Increased Chance Of Blocking,,,,"
 
             Case "El Rune"
                 runestats = "11, Weapons:, +1 To Light Radius, 50 To Attack Rating,  Armour:, +50 To Attack Rate Vs Undead, +175% Damage Vs Undead, Helmets:, +1 To Light Radius, +15 To Defense, Shields:, +1 to Light Radius, +15 To Defense"
 
             Case "Tir Rune"
-                runestats = "13, Weapons:, +2 Mana After Kill, Armour:, +2 Mana After Kill, Helmets:, +2 Mana After Kill, Shields:, +2 Mana After Kill, , , , "
+                runestats = "13, Weapons:, +2 Mana After Kill, Armour:, +2 Mana After Kill, Helmets:, +2 Mana After Kill, Shields:, +2 Mana After Kill,,,,"
 
             Case "Nef Rune"
-                runestats = "13, Weapons:, Knockback, Armour:, +30 Defense Vs Missiles, Helmets:, +30 Defense Vs Missiles, Shields:, +30 Defense Vs Missiles, , , "
+                runestats = "13, Weapons:, Knockback, Armour:, +30 Defense Vs Missiles, Helmets:, +30 Defense Vs Missiles, Shields:, +30 Defense Vs Missiles,,,"
 
             Case "Eth Rune"
-                runestats = "15, Weapons:, -25% To Targets Defense, Armour:, Regenerate Mana 15%, Helmets:, Regenerate Mana 15%, Shields:, Regenerate Mana 15%, , , "
+                runestats = "15, Weapons:, -25% To Targets Defense, Armour:, Regenerate Mana 15%, Helmets:, Regenerate Mana 15%, Shields:, Regenerate Mana 15%,,,"
 
             Case "Ith Rune"
-                runestats = "15, Weapons:, -25% To Targets Defense, Armour:, Regenerate Mana 15%, Helmets:, Regenerate Mana 15%, Shields:, Regenerate Mana 15%, , , "
+                runestats = "15, Weapons:, -25% To Targets Defense, Armour:, Regenerate Mana 15%, Helmets:, Regenerate Mana 15%, Shields:, Regenerate Mana 15%,,,"
 
             Case "Tal Rune"
-                runestats = "17, Weapons:, +19 Poison Damage for 2 seconds, Armour:, Poison Resistance +30%, Helmets:, Poison Resistance +30%, Shields:, Regenerate Mana 15%, , , , , "
+                runestats = "17, Weapons:, +19 Poison Damage for 2 seconds, Armour:, Poison Resistance +30%, Helmets:, Poison Resistance +30%, Shields:, Regenerate Mana 15%,,,,,"
 
             Case "Ral Rune"
-                runestats = "19, Weapons:, Adds 5 To 30 Fire Damage, Armour:, Fire Resistance +30%, Helmets:, Fire Resistance +30%, Shields:, Fire Resistance +30%, , , , , , , "
+                runestats = "19, Weapons:, Adds 5 To 30 Fire Damage, Armour:, Fire Resistance +30%, Helmets:, Fire Resistance +30%, Shields:, Fire Resistance +30%,,,,,,,"
 
             Case "Ort Rune"
-                runestats = "19, Weapons:, Adds 1 To 50 Light Damage, Armour:, Lightning Resistance +30%, Helmets:, Lightning Resistance +30%, Shields:, Lightning Resistance +30%, , , , , "
+                runestats = "19, Weapons:, Adds 1 To 50 Light Damage, Armour:, Lightning Resistance +30%, Helmets:, Lightning Resistance +30%, Shields:, Lightning Resistance +30%,,,,,"
 
             Case "Thul Rune"
-                runestats = "21, Weapons:, Adds 3 To 14 Cold Damage, Armour:, Cold Resistance +30%, Helmets:, Cold Resistance +30%, Shields:, Cold Resistance +30%, , , ,"
+                runestats = "21, Weapons:, Adds 3 To 14 Cold Damage, Armour:, Cold Resistance +30%, Helmets:, Cold Resistance +30%, Shields:, Cold Resistance +30%,,,,"
 
             Case "Amn Rune"
-                runestats = "23, Weapons:, +7% Life Stolen Per Hit, Armour:, Attacker Takes Damage Of 14, Helmets:, Attacker Takes Damage Of 14, Shields:, Attacker Takes Damage Of 14, , , "
+                runestats = "23, Weapons:, +7% Life Stolen Per Hit, Armour:, Attacker Takes Damage Of 14, Helmets:, Attacker Takes Damage Of 14, Shields:, Attacker Takes Damage Of 14,,,"
 
             Case "Sol Rune"
-                runestats = "25, Weapons:, +9 To Minimum Damage, Armour:, Damage Reduced By 7, Helmets:, Damage Reduced By 7, Shields:, Damage Reduced By 7, , , "
+                runestats = "25, Weapons:, +9 To Minimum Damage, Armour:, Damage Reduced By 7, Helmets:, Damage Reduced By 7, Shields:, Damage Reduced By 7,,,"
 
             Case "Shael Rune"
-                runestats = "27, Weapons:, Increased Attack Speed, Armour:, Faster Hit Recovery, Helmets:, Faster Hit Recovery, Shields:, Faster Block Rate, , , "
+                runestats = "27, Weapons:, Increased Attack Speed, Armour:, Faster Hit Recovery, Helmets:, Faster Hit Recovery, Shields:, Faster Block Rate,,,"
 
             Case "Shae Rune"
-                runestats = "29, Weapons:, Increased Attack Speed, Armour:, Faster Hit Recovery, Helmets:, Faster Hit Recovery, Shields:, Faster Block Rate, , , "
+                runestats = "29, Weapons:, Increased Attack Speed, Armour:, Faster Hit Recovery, Helmets:, Faster Hit Recovery, Shields:, Faster Block Rate,,,"
 
             Case "Dol Rune"
-                runestats = "31, Weapons:, +32% Monster Flees, Armour:, +7 Replenish Life, Helmets:, +7 Replenish Life, Shields:, +7 Replenish Life, , , "
+                runestats = "31, Weapons:, +32% Monster Flees, Armour:, +7 Replenish Life, Helmets:, +7 Replenish Life, Shields:, +7 Replenish Life,,,"
 
             Case "Hel Rune"
-                runestats = "1, Weapons:, -20 Requirements, Armour:, -15 Requirements, Helmets:, -15 Requirements, Shields:, -15 Requirements, , , "
+                runestats = "1, Weapons:, -20 Requirements, Armour:, -15 Requirements, Helmets:, -15 Requirements, Shields:, -15 Requirements,,,"
 
             Case "Po Rune"
-                runestats = "35, Weapons:, +10 To Vitality, Armour:, +10 To Vitality, Helmets:, +10 To Vitality, Shields:, +10 To Vitality, , , "
+                runestats = "35, Weapons:, +10 To Vitality, Armour:, +10 To Vitality, Helmets:, +10 To Vitality, Shields:, +10 To Vitality,,,"
 
             Case "Io Rune"
-                runestats = "35, Weapons:, +10 To Vitality, Armour:, +10 To Vitality, Helmets:, +10 To Vitality, Shields:, +10 To Vitality, , , "
+                runestats = "35, Weapons:, +10 To Vitality, Armour:, +10 To Vitality, Helmets:, +10 To Vitality, Shields:, +10 To Vitality,,,"
 
             Case "Lum Rune"
-                runestats = "37, +10 To Energy, Armour:, +10 To Energy, Helmets:, +10 To Energy, Shields:, +10 To Energy, , , , "
+                runestats = "37, +10 To Energy, Armour:, +10 To Energy, Helmets:, +10 To Energy, Shields:, +10 To Energy,,,,"
 
             Case "Ko Rune"
-                runestats = "39, Weapons:, +10 To Dexterity, Armour:, +10 To Dexterity, Helmets:, +10 To Dexterity, Shields:, +10 To Dexterity, , , "
+                runestats = "39, Weapons:, +10 To Dexterity, Armour:, +10 To Dexterity, Helmets:, +10 To Dexterity, Shields:, +10 To Dexterity,,,"
 
             Case "Fal Rune"
-                runestats = "41, Weapons:, +10 To Strength, Armour:, +10 To Strength, Helmets:, +10 To Strength, Shields:, +10 To Strength, , , "
+                runestats = "41, Weapons:, +10 To Strength, Armour:, +10 To Strength, Helmets:, +10 To Strength, Shields:, +10 To Strength,,,"
 
             Case "Lem Rune"
-                runestats = "43, Weapons:, +75% Extra Gold From Slain Monsters, Armour:, +50% Extra Gold From Slain Monsters, Helmets:, +50% Extra Gold From Slain Monsters, Shields:, +50% Extra Gold From Slain Monsters, , , "
+                runestats = "43, Weapons:, +75% Extra Gold From Slain Monsters, Armour:, +50% Extra Gold From Slain Monsters, Helmets:, +50% Extra Gold From Slain Monsters, Shields:, +50% Extra Gold From Slain Monsters,,,"
 
             Case "Pul Rune"
-                runestats = "45, Weapons:, +100 To Attack Rating Against Demons, +175% Damage Against Demons , Armour:, +30% Enhanced Defense, Helmets:, +30% Enhanced Defense, Shields:, +30% Enhanced Defense, ,"
+                runestats = "45, Weapons:, +100 To Attack Rating Against Demons, +175% Damage Against Demons , Armour:, +30% Enhanced Defense, Helmets:, +30% Enhanced Defense, Shields:, +30% Enhanced Defense,,"
 
             Case "Um Rune"
-                runestats = "47, Weapons:, +25% Chance Of Open Wounds, Armour:, +20 To All Resistances, Helmets:, +10 To All Resistances, Shields:, +20 To All Resistances, , , "
+                runestats = "47, Weapons:, +25% Chance Of Open Wounds, Armour:, +20 To All Resistances, Helmets:, +10 To All Resistances, Shields:, +20 To All Resistances,,,"
 
             Case "Mal Rune"
-                runestats = "49, Weapons:, Prevent Monster Heal, Armour:, -7 To Magic Damage Received, Helmets:, -7 To Magic Damage Received, Shields:, -7 To Magic Damage Received, , , "
+                runestats = "49, Weapons:, Prevent Monster Heal, Armour:, -7 To Magic Damage Received, Helmets:, -7 To Magic Damage Received, Shields:, -7 To Magic Damage Received,,,"
 
             Case "Ist Rune"
-                runestats = "51, Weapons:, +30% To Magic Items, Armour:, +25% To Magic Find, Helmets:, +25% To Magic Items, Shields:, +25% To Magic Items, , , "
+                runestats = "51, Weapons:, +30% To Magic Items, Armour:, +25% To Magic Find, Helmets:, +25% To Magic Items, Shields:, +25% To Magic Items,,,"
 
             Case "Gul Rune"
-                runestats = "53, Weapons:, +20% To Attack Rating, Armour:, +3% To Max Poison Resist, Helmets:, +3% To Max Poison Resist, Shields:, +3% To Max Poison Resist, , , "
+                runestats = "53, Weapons:, +20% To Attack Rating, Armour:, +3% To Max Poison Resist, Helmets:, +3% To Max Poison Resist, Shields:, +3% To Max Poison Resist,,,"
 
             Case "Vex Rune"
-                runestats = "55, Weapons:, +7% Mana Stolen Per Hit, Armour:, +3% To Max Fire Resist, Helmets:, +3% To Max Fire Resist, Shields:, +3% To Max Fire Resist, , , "
+                runestats = "55, Weapons:, +7% Mana Stolen Per Hit, Armour:, +3% To Max Fire Resist, Helmets:, +3% To Max Fire Resist, Shields:, +3% To Max Fire Resist,,,"
 
             Case "Ohm Rune"
-                runestats = "57, Weapons:, +50% Enhanced Damege, Armour:, +3% To Max Cold Resist, Helmets:, +3% To Max Cold Resist, Shields:, +3% To Max Cold Resist, , , "
+                runestats = "57, Weapons:, +50% Enhanced Damege, Armour:, +3% To Max Cold Resist, Helmets:, +3% To Max Cold Resist, Shields:, +3% To Max Cold Resist,,,"
 
             Case "Lo Rune"
-                runestats = "59, Weapons:, +20% Chance Of Deadly Strike, Armour:, +3% To Max Lightning Resist, Helmets:, +3% To Max Lightning Resist, Shields:, +3% To Max Lightning Resist, , , "
+                runestats = "59, Weapons:, +20% Chance Of Deadly Strike, Armour:, +3% To Max Lightning Resist, Helmets:, +3% To Max Lightning Resist, Shields:, +3% To Max Lightning Resist,,,"
 
             Case "Sur Rune"
-                runestats = "61, Weapons:, Hit Blinds Target, Armour:, +5% To Max Mana, Helmets:, +5% To Max Mana, Shields:, +50 To Max Mana, , , "
+                runestats = "61, Weapons:, Hit Blinds Target, Armour:, +5% To Max Mana, Helmets:, +5% To Max Mana, Shields:, +50 To Max Mana,,,"
 
             Case "Jah Rune"
-                runestats = "65, Weapons:, Ignore Target's Defense, Armour:, Increase Maximum Life 5%, Helmets:, Increase Maximum Life 5%, Shields:, +50 To Life, , , "
+                runestats = "65, Weapons:, Ignore Target's Defense, Armour:, Increase Maximum Life 5%, Helmets:, Increase Maximum Life 5%, Shields:, +50 To Life,,,"
             Case "Ber Rune"
-                runestats = "63, Weapons:, +20% Chance Of Crushing Blow, Armour:, -8% To Damage Received, Helmets:, -8% To Damage Received, Shields:, -8% To Damage Received, , , "
+                runestats = "63, Weapons:, +20% Chance Of Crushing Blow, Armour:, -8% To Damage Received, Helmets:, -8% To Damage Received, Shields:, -8% To Damage Received,,,"
 
             Case "Jo Rune"
-                runestats = "65, Weapons:, Slows Target By 25%, Armour:, +5% To Max Life, Helmets:, +5% To Max Life, Shields:, +50 To Life, , , "
+                runestats = "65, Weapons:, Slows Target By 25%, Armour:, +5% To Max Life, Helmets:, +5% To Max Life, Shields:, +50 To Life,,,"
 
             Case "Cho Rune"
-                runestats = "65, Weapons:, Slows Target By 25%, Armour:, +5% To Max Life, Helmets:, +5% To Max Life, Shields:, +50 To Life, , , "
+                runestats = "65, Weapons:, Slows Target By 25%, Armour:, +5% To Max Life, Helmets:, +5% To Max Life, Shields:, +50 To Life,,,"
 
             Case "Cham Rune"
-                runestats = "67, Weapons:, Freeze Target, Armour:, Cannot Be Frozen, Helmets:, Cannot Be Frozen, Shields:, Cannot Be Frozen, , , "
+                runestats = "67, Weapons:, Freeze Target, Armour:, Cannot Be Frozen, Helmets:, Cannot Be Frozen, Shields:, Cannot Be Frozen,,,"
 
             Case "Zod Rune"
-                runestats = "69, Weapons:, Indestructable, Armour:, Indestructable, Helmets:, Indestructable, Shields:, Indestructable, , , "
+                runestats = "69, Weapons:, Indestructable, Armour:, Indestructable, Helmets:, Indestructable, Shields:, Indestructable,,,"
 
         End Select
         Return runestats

@@ -1115,8 +1115,8 @@ Public Class Main
         ColourCount1 = ItemStatsRICHTEXTBOX.TextLength 'Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
         'White text for basic info Block - Line spaceing added between each section (if needed)
-        If ItemObjects(ItemIndex).OneHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText("One Hand Damage: " & ItemObjects(ItemIndex).OneHandDamageMin & " to " & ItemObjects(ItemIndex).OneHandDamageMax & vbCrLf)
-        If ItemObjects(ItemIndex).TwoHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText("Two Hand Damage: " & ItemObjects(ItemIndex).TwoHandDamageMin & " to " & ItemObjects(ItemIndex).TwoHandDamageMax & vbCrLf)
+        If ItemObjects(ItemIndex).OneHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText("One Hand Damage: " & ItemObjects(ItemIndex).OneHandDamageMin & " to" & ItemObjects(ItemIndex).OneHandDamageMax & vbCrLf)
+        If ItemObjects(ItemIndex).TwoHandDamageMax > 0 Then ItemStatsRICHTEXTBOX.AppendText("Two Hand Damage: " & ItemObjects(ItemIndex).TwoHandDamageMin & " to" & ItemObjects(ItemIndex).TwoHandDamageMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
         If DisplayLineBreaksMENUITEM.Checked = True Then
@@ -1126,7 +1126,7 @@ Public Class Main
         'Item Defensive Values
         If ItemObjects(ItemIndex).Defense > 0 Then ItemStatsRICHTEXTBOX.AppendText("Defense: " & ItemObjects(ItemIndex).Defense & vbCrLf)
         If ItemObjects(ItemIndex).ChanceToBlock > 0 Then ItemStatsRICHTEXTBOX.AppendText("Chance To Block: " & ItemObjects(ItemIndex).ChanceToBlock & "%" & vbCrLf)
-        If ItemObjects(ItemIndex).DurabilityMin > 0 Then ItemStatsRICHTEXTBOX.AppendText("Durability: " & ItemObjects(ItemIndex).DurabilityMin & " of " & ItemObjects(ItemIndex).DurabilityMax & vbCrLf)
+        If ItemObjects(ItemIndex).DurabilityMin > 0 Then ItemStatsRICHTEXTBOX.AppendText("Durability: " & ItemObjects(ItemIndex).DurabilityMin & " of" & ItemObjects(ItemIndex).DurabilityMax & vbCrLf)
 
         'ADD lINE SPACING BASED ON OPTION SETTING
         If DisplayLineBreaksMENUITEM.Checked = True Then
@@ -1180,7 +1180,7 @@ Public Class Main
         If ItemObjects(ItemIndex).Stat15 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat15 & vbCrLf)
 
 
-        ItemStatsRICHTEXTBOX.AppendText(vbCrLf & "Item Level: " & ItemObjects(ItemIndex).Itemlevel & vbCrLf)
+        ItemStatsRICHTEXTBOX.AppendText(vbCrLf & "Item Level: " & ItemObjects(ItemIndex).Itemlevel)
 
         'Select All and Center Justify Text Allignment in the ItemStatsRICHTEXTBOX - Display Items Routine is DONE :)
         ItemStatsRICHTEXTBOX.SelectAll()
