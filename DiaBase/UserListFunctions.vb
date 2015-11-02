@@ -125,7 +125,7 @@
         End If
 
         Main.DatabaseFileLABEL.Show()
-        Main.ItemStatsRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
+        Main.ItemStatsRICHTEXTBOX.Clear() : Main.ItemNameRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
         'Display mule details
         Main.MuleRealmTEXTBOX.Text = UserObjects(ItemIndex).ItemRealm

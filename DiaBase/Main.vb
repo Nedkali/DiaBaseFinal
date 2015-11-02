@@ -202,9 +202,9 @@ Public Class Main
         If a > -1 Then
             AllItemsLISTBOX.SelectedIndex = a
             DisplayItemStats(a)
-            If AllItemsLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = AllItemsLISTBOX.SelectedItems.Count & " - Selected Items" : Return
+            If AllItemsLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = AllItemsLISTBOX.SelectedItems.Count & " - Selected" : Return
         End If
-        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -217,9 +217,9 @@ Public Class Main
             AllItemsLISTBOX.SelectedItems.Clear() 'only selected item will be highlighted in both listings
             AllItemsLISTBOX.SelectedIndex = SearchReferenceList(a)
             DisplayItemStats(SearchReferenceList(a))
-            If SearchLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = SearchLISTBOX.SelectedItems.Count & " - Selected Items" : Return
+            If SearchLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = SearchLISTBOX.SelectedItems.Count & " - Selected" : Return
         End If
-        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Items"
     End Sub
 
 
@@ -235,7 +235,7 @@ Public Class Main
 
         'Sets User Items as TallyLabel value when only 1 item is selected else it sets TallyLabel value as SelectedItems.count
         If UserLISTBOX.SelectedItems.Count <= 1 Then
-            ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Items")
+            ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User")
         ElseIf UserLISTBOX.SelectedItems.Count > 1 Then
             ItemTallyTEXTBOX.Text = (UserLISTBOX.SelectedItems.Count & " - Selected")
         End If
@@ -262,7 +262,7 @@ Public Class Main
         SearchListControlTabBUTTON.BackgroundImage = Nothing
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
-        ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
         DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
 
@@ -283,7 +283,7 @@ Public Class Main
         ListControlTabBUTTON.BackgroundImage = Nothing
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
-        ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User Entries")
+        ItemTallyTEXTBOX.Text = (UserLISTBOX.Items.Count & " - User")
         DatabaseFileLABEL.Show()
         DatabaseFileNameTEXTBOX.Show()
 
@@ -305,7 +305,7 @@ Public Class Main
         ListControlTabBUTTON.BackgroundImage = Nothing
         TradesListControlTabBUTTON.BackgroundImage = Nothing
         UserRefControlTabBUTTON.BackgroundImage = Nothing
-        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Matches"
+        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Matches"
         DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
 
@@ -325,6 +325,7 @@ Public Class Main
         Me.CoreTypeTEXTBOX.Clear()
         Me.LadderTEXTBOX.Clear()
         Me.ItemStatsRICHTEXTBOX.Clear()
+        Me.ItemNameRICHTEXTBOX.Clear()
 
         Me.ItemSkinPICTUREBOX.Image = Nothing
         Me.OpenDatabaseLABEL.Text = ""
@@ -349,7 +350,7 @@ Public Class Main
             If item = Nothing Then TradeItemCounter = TradeItemCounter + 1
         Next
         If TradeItemCounter = 0 Then TradeItemCounter = 1
-        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Trade Entries"
+        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
     End Sub
 
 
@@ -431,7 +432,7 @@ Public Class Main
         AutoLoggerRunning = False
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
         ListboxTABCONTROL.SelectTab(0)
-        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
     End Sub
 
 
@@ -611,7 +612,7 @@ Public Class Main
             If item = Nothing Then TradeItemCounter = TradeItemCounter + 1
         Next
         If TradeItemCounter = 0 Then TradeItemCounter = 1
-        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Trade Entries"
+        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
         ImportTimer.Start()
 
     End Sub
@@ -672,7 +673,7 @@ Public Class Main
                     count = count - 1
                 Next
             Next
-            ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
+            ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
 
             'SET THE DELETED OBJECT LOCATION IN THE LIST AS THE HIGHLIGHTED ITEM ON RETURN FROM DETETE
             If FocusOnExit >= (AllItemsLISTBOX.Items.Count) Then FocusOnExit = AllItemsLISTBOX.Items.Count - 1
@@ -694,7 +695,7 @@ Public Class Main
         TimerStartPauseButton(sender, e)
         SearchLISTBOX.Items.Clear()
         SearchReferenceList.Clear()
-        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Items"
         TimerStartPauseButton(sender, e)
     End Sub
 
@@ -728,9 +729,9 @@ Public Class Main
             DisplayLineBreaksMENUITEM.Checked = False
 
             'Refresh The Stats Display to apply the False Setting changes relevant to the list selected
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("User") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
             Return
         End If
 
@@ -739,9 +740,9 @@ Public Class Main
             DisplayLineBreaksMENUITEM.Checked = True
 
             'Refresh The Stats Display to apply ther True setting changes relevant to the lists selected
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
-            If ItemTallyTEXTBOX.Text.IndexOf("Total Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
-            If ItemTallyTEXTBOX.Text.IndexOf("User Items") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Items") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '     If All Items List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("Matches") > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex) '   If Search List Is Selected
+            If ItemTallyTEXTBOX.Text.IndexOf("User") > -1 Then UserListFunctions.DisplaySelectedUserListItem() '      If User List Is Selected
             Return
         End If
     End Sub
@@ -794,7 +795,7 @@ Public Class Main
         If UnDo.Count < 1 Then
             UndoDeleteMENUITEM.Enabled = False
         End If
-        ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
+        ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
     End Sub
 
 
@@ -1037,7 +1038,7 @@ Public Class Main
 
         If ItemIndex < 0 Or ItemIndex >= ItemObjects.Count Then ClearItemStats() : Return
 
-        ItemStatsRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
+        ItemStatsRICHTEXTBOX.Clear() : ItemNameRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
         'Display mule details
         MuleRealmTEXTBOX.Text = ItemObjects(ItemIndex).ItemRealm
@@ -1055,63 +1056,76 @@ Public Class Main
         Dim ColourCount1 As Integer = ItemObjects(ItemIndex).ItemQuality.Length
 
 
-        'Normal And SAuperior - White
+
+
+
+
+
+
+        'Normal And Superior - White
         If (DisplayColour = "Normal" Or DisplayColour = "Superior") And ItemObjects(ItemIndex).RuneWord = False Then
             If ItemObjects(ItemIndex).ItemBase = "Rune" Then
-                ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-                ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+                ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
+                ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
             End If
 
             'Quest and Special Items - Orange
             If ItemObjects(ItemIndex).ItemBase = "Quest" Then
-                ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-                ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+                ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
+                ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
             End If
 
             'Runeword Items - White
             If ItemObjects(ItemIndex).ItemName.IndexOf("Rune") = -1 And ItemObjects(ItemIndex).ItemBase <> "Quest" Then
-                ItemStatsRICHTEXTBOX.SelectionColor = Color.White
-                ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+                ItemNameRICHTEXTBOX.SelectionColor = Color.White
+                ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
             End If
         End If
 
         'Magic items - Blue
         If DisplayColour = "Magic" Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.DodgerBlue
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectionColor = Color.DodgerBlue
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Rares - Yellow
         If DisplayColour = "Rare" Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.Yellow
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectionColor = Color.Yellow
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Crafted - Gold
         If DisplayColour = "Crafted" Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.DarkGoldenrod
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectionColor = Color.DarkGoldenrod
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Set Items - Green
         If DisplayColour = "Set" Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.Green
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectionColor = Color.Green
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Uniques - Light Gold
         If DisplayColour = "Unique" Or ItemObjects(ItemIndex).RuneWord = True Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.BurlyWood
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
         End If
+
+        ItemNameRICHTEXTBOX.SelectAll() : ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
+
+
+
+
+
 
         'RuneWord String - Still Not Reporting Right
-        If ItemObjects(ItemIndex).RuneWord = True Then
-            ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-            ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).Stat1 & vbCrLf
-        End If
+        'If ItemObjects(ItemIndex).RuneWord = True Then
+        'ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
+        'ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).Stat1 & vbCrLf
+        'End If
+        'ItemStatsRICHTEXTBOX.AppendText(vbCrLf) 'Spacer line after Item Name and class Always 
 
-        ItemStatsRICHTEXTBOX.AppendText(vbCrLf) 'Spacer line after Item Name and class Always 
         ColourCount1 = ItemStatsRICHTEXTBOX.TextLength 'Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
         'White text for basic info Block - Line spaceing added between each section (if needed)
@@ -1309,7 +1323,7 @@ Public Class Main
         ListboxTABCONTROL.SelectTab(2)
 
 
-        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Trade Entries" ' simpler way to indicate count
+        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Entries" ' simpler way to indicate count
         ImportTimer.Start()
 
     End Sub
@@ -1456,7 +1470,7 @@ Public Class Main
         ListboxTABCONTROL.SelectTab(2)
 
 
-        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Trade Entries" ' simpler way to indicate count
+        ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Entries" ' simpler way to indicate count
         ImportTimer.Start()
     End Sub
 
@@ -1528,4 +1542,6 @@ Public Class Main
     Private Sub ClearImportLogMENUITEM_Click(sender As Object, e As EventArgs) Handles ClearImportLogMENUITEM.Click
         ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
     End Sub
+
+
 End Class

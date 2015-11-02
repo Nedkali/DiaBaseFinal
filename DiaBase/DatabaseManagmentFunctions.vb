@@ -199,7 +199,7 @@ Module DatabaseManagmentFunctions
         For ItemIndex = 0 To ItemObjects.Count - 1
             Main.AllItemsLISTBOX.Items.Add(ItemObjects(ItemIndex).ItemName)
         Next
-        Main.ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Total Items"
+        Main.ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
 
     End Sub
 
@@ -222,7 +222,7 @@ Module DatabaseManagmentFunctions
         Main.SearchListControlTabBUTTON.BackgroundImage = Nothing
         Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
         Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
-        Main.ItemTallyTEXTBOX.Text = Main.AllItemsLISTBOX.Items.Count & " - Total Items"
+        Main.ItemTallyTEXTBOX.Text = Main.AllItemsLISTBOX.Items.Count & " - Items"
         Main.DatabaseFileLABEL.Hide()
         Main.DatabaseFileNameTEXTBOX.Hide()
 

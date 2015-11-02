@@ -192,6 +192,7 @@ Partial Class Main
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
+        Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -539,7 +540,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(333, 247)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(292, 246)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -557,7 +558,7 @@ Partial Class Main
         Me.TradesListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.TradesListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.TradesListControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(183, 247)
+        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(203, 246)
         Me.TradesListControlTabBUTTON.Name = "TradesListControlTabBUTTON"
         Me.TradesListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.TradesListControlTabBUTTON.TabIndex = 310
@@ -774,7 +775,7 @@ Partial Class Main
         Me.ListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 247)
+        Me.ListControlTabBUTTON.Location = New System.Drawing.Point(27, 246)
         Me.ListControlTabBUTTON.Name = "ListControlTabBUTTON"
         Me.ListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.ListControlTabBUTTON.TabIndex = 308
@@ -791,7 +792,7 @@ Partial Class Main
         Me.SearchListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.SearchListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(105, 247)
+        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(115, 246)
         Me.SearchListControlTabBUTTON.Name = "SearchListControlTabBUTTON"
         Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.SearchListControlTabBUTTON.TabIndex = 309
@@ -1091,10 +1092,10 @@ Partial Class Main
         Me.ItemStatsRICHTEXTBOX.CausesValidation = False
         Me.ItemStatsRICHTEXTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ItemStatsRICHTEXTBOX.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 259)
+        Me.ItemStatsRICHTEXTBOX.Location = New System.Drawing.Point(556, 292)
         Me.ItemStatsRICHTEXTBOX.Name = "ItemStatsRICHTEXTBOX"
         Me.ItemStatsRICHTEXTBOX.ReadOnly = True
-        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 458)
+        Me.ItemStatsRICHTEXTBOX.Size = New System.Drawing.Size(214, 425)
         Me.ItemStatsRICHTEXTBOX.TabIndex = 277
         Me.ItemStatsRICHTEXTBOX.Text = ""
         '
@@ -1754,12 +1755,25 @@ Partial Class Main
         Me.ButtonTIMER.Enabled = True
         Me.ButtonTIMER.Interval = 25
         '
+        'ItemNameRICHTEXTBOX
+        '
+        Me.ItemNameRICHTEXTBOX.BackColor = System.Drawing.Color.Black
+        Me.ItemNameRICHTEXTBOX.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ItemNameRICHTEXTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ItemNameRICHTEXTBOX.ForeColor = System.Drawing.Color.White
+        Me.ItemNameRICHTEXTBOX.Location = New System.Drawing.Point(552, 241)
+        Me.ItemNameRICHTEXTBOX.Name = "ItemNameRICHTEXTBOX"
+        Me.ItemNameRICHTEXTBOX.Size = New System.Drawing.Size(215, 45)
+        Me.ItemNameRICHTEXTBOX.TabIndex = 428
+        Me.ItemNameRICHTEXTBOX.Text = ""
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.MainBackground
         Me.ClientSize = New System.Drawing.Size(794, 755)
+        Me.Controls.Add(Me.ItemNameRICHTEXTBOX)
         Me.Controls.Add(Me.Label32)
         Me.Controls.Add(Me.Label31)
         Me.Controls.Add(Me.Label30)
@@ -2030,4 +2044,5 @@ Partial Class Main
     Friend WithEvents Label32 As Label
     Friend WithEvents ButtonTIMER As Timer
     Friend WithEvents ClearImportLogMENUITEM As ToolStripMenuItem
+    Friend WithEvents ItemNameRICHTEXTBOX As RichTextBox
 End Class

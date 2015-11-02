@@ -169,7 +169,7 @@
             Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
 
         End If
-        Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Total Matches"
+        Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Matches"
 
 
     End Sub
