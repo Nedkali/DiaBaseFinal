@@ -1173,7 +1173,7 @@ Public Class Main
         End If
 
         'Colour Above Displayed Basic Info Text Block White
-        Dim ColourCount2 As Integer = ItemStatsRICHTEXTBOX.TextLength - ColourCount1 'Calculate difference between Basic Info Block and Other Stats to Color Basic Info - this var represents the finishing point to colour (rob: adding a ditty to avoid colouring the ilevel blue, keeping it white so its clearly seperate from the stats block)
+        Dim ColourCount2 As Integer = ItemStatsRICHTEXTBOX.TextLength - ColourCount1 'Calculate difference between Basic Info Block and Other Stats to Color Basic Info - this var represents the finishing point to colour
         ItemStatsRICHTEXTBOX.Select(ColourCount1, ColourCount2)
         ItemStatsRICHTEXTBOX.SelectionColor = Color.White
 
@@ -1203,8 +1203,10 @@ Public Class Main
 
         ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
 
-        'THIS DITTY CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
-        'NOTE TO MYSELF: is something not right with the runes display, seems to add extra spaces, only does it to runes, atm nfi wtf, perhaps logging differs to other unique attribs blocks is my guess REMEMBER TO FIX!
+        'THIS CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
+        '
+        'Note To Myself: Ned ROCKS!!!!
+        '
         Dim linecount As Integer = 0
         For Each Line In ItemStatsRICHTEXTBOX.Lines
             If Line.IndexOf("Item Level:") > -1 Then ItemStatsRICHTEXTBOX.Select(ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))

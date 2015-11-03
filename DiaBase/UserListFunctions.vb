@@ -145,63 +145,72 @@
         Dim ColourCount1 As Integer = UserObjects(ItemIndex).ItemQuality.Length
 
 
-        'Normal And SAuperior - White
+
+
+
+
+        'Normal And Superior - White
         If (DisplayColour = "Normal" Or DisplayColour = "Superior") And UserObjects(ItemIndex).RuneWord = False Then
             If UserObjects(ItemIndex).ItemBase = "Rune" Then
-                Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-                Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+                Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
+                Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
             End If
 
             'Quest and Special Items - Orange
             If UserObjects(ItemIndex).ItemBase = "Quest" Then
-                Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-                Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+                Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
+                Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
             End If
 
             'Runeword Items - White
             If UserObjects(ItemIndex).ItemName.IndexOf("Rune") = -1 And UserObjects(ItemIndex).ItemBase <> "Quest" Then
-                Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.White
-                Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+                Main.ItemNameRICHTEXTBOX.SelectionColor = Color.White
+                Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
             End If
         End If
 
         'Magic items - Blue
         If DisplayColour = "Magic" Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.DodgerBlue
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+            Main.ItemNameRICHTEXTBOX.SelectionColor = Color.DodgerBlue
+            Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Rares - Yellow
         If DisplayColour = "Rare" Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Yellow
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+            Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Yellow
+            Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Crafted - Gold
         If DisplayColour = "Crafted" Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.DarkGoldenrod
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+            Main.ItemNameRICHTEXTBOX.SelectionColor = Color.DarkGoldenrod
+            Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Set Items - Green
         If DisplayColour = "Set" Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Green
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+            Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Green
+            Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
 
         'Uniques - Light Gold
         If DisplayColour = "Unique" Or UserObjects(ItemIndex).RuneWord = True Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.BurlyWood
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
+            Main.ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
+            Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).ItemName & vbCrLf
         End If
+
+        Main.ItemNameRICHTEXTBOX.SelectAll() : Main.ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
+
+
+        'NEXT JOB>>> FIX RUNEWORD STRING!
 
         'RuneWord String - Still Not Reporting Right
-        If UserObjects(ItemIndex).RuneWord = True Then
-            Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-            Main.ItemStatsRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).Stat1 & vbCrLf
-        End If
+        'If UserObjects(ItemIndex).RuneWord = True Then
+        'Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
+        'Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).Stat1 & vbCrLf
+        'End If
 
-        Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '          Spacer line after Item Name and class Always 
+        ' Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '          Spacer line after Item Name and class Always 
         ColourCount1 = Main.ItemStatsRICHTEXTBOX.TextLength '   Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
         'White text for basic info Block - Line spaceing added between each section (if needed)
@@ -278,13 +287,14 @@
 
         Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
 
-        'THIS DITTY CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
-        'NOTE TO MYSELF: is something not right with the runes display, seems to add extra spaces, only does it to runes, atm nfi wtf, perhaps logging differs to other unique attribs blocks is my guess REMEMBER TO FIX!
+        'THIS CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
         Dim linecount As Integer = 0
         For Each Line In Main.ItemStatsRICHTEXTBOX.Lines
-            If Line.IndexOf("Item Level:") > -1 Then Main.ItemStatsRICHTEXTBOX.Select(Main.ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))
+            If Line.IndexOf("Item Level: ") > -1 Then Main.ItemStatsRICHTEXTBOX.Select(Main.ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))
             linecount = linecount + 1
         Next
+
+
         Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.White
     End Sub
 End Module
