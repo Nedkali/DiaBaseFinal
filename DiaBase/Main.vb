@@ -34,11 +34,11 @@ Public Class Main
 
     'Button flashing text effect for when autologger is paused
     Private Sub ButtonTIMER_Tick(sender As Object, e As EventArgs) Handles ButtonTIMER.Tick
-        If AutologgingTimerBUTTON.Text <> "Pause AutoLogger" Then ButtonFlashCount = ButtonFlashCount + 1
+        If AutologgingTimerBUTTON.Text <> "Pause AutoLogger" = True Then ButtonFlashCount = ButtonFlashCount + 1
 
         If ButtonFlashCount = 1 Then AutologgingTimerBUTTON.Text = Nothing
-        If ButtonFlashCount = 10 Then AutologgingTimerBUTTON.Text = "Start AutoLogger"
-        If ButtonFlashCount = 20 Then ButtonFlashCount = 0
+        If ButtonFlashCount = 5 Then AutologgingTimerBUTTON.Text = "Start AutoLogger"
+        If ButtonFlashCount = 30 Then ButtonFlashCount = 0
 
     End Sub
 
@@ -50,7 +50,7 @@ Public Class Main
         If Timercount > TimerSeconds Then
             Timercount = 0
             ImportTimer.Stop()
-            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
+            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
             AutoLoggerRunning = True
             ImportLogFiles(False)
             AutoLoggerRunning = False
@@ -65,21 +65,21 @@ Public Class Main
     'TIMER BUTTON pause & restart routine
     Private Sub TimerStartPauseButton(sender As Object, e As EventArgs) Handles AutologgingTimerBUTTON.Click
         If AutoLoggerReady = False Then
-            ButtonFlashTimer.Start()
             ImportTimer.Stop()
-            'TimerRestart = True
+            TimerRestart = True
             AutoLoggerReady = True
+            ButtonFlashCount = 0
+            ButtonFlashTimer.Start()
             AutologgingTimerBUTTON.Text = "Start AutoLogger"
-            'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Paused")
             Return
         End If
 
         If AutoLoggerReady = True Then
             AutoLoggerReady = False
-            ImportTimer.Start()
             ButtonFlashTimer.Stop()
+            ImportTimer.Start()
             AutologgingTimerBUTTON.Text = "Pause AutoLogger"
-            'ImportLogRICHTEXTBOX.AppendText(vbCrLf & vbCrLf & "AutoLogger Ready")
+
         End If
     End Sub
 
@@ -141,7 +141,7 @@ Public Class Main
         End If
 
         'Set foucus on the main listbox
-        AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Total Items"
+        AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
 
         'Play the introduction laugh
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.BigDLaugh, AudioPlayMode.Background)
@@ -428,7 +428,7 @@ Public Class Main
 
         AutoLoggerRunning = True
         Timercount = 0
-        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
+        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
         ImportLogFiles(False)
         AutoLoggerRunning = False
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
