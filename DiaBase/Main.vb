@@ -198,6 +198,7 @@ Public Class Main
     '                                           - Tallys items or selected items depending on the number of items selected
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub AllItemsInDatabaseListBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AllItemsLISTBOX.SelectedIndexChanged
+        If AllItemsLISTBOX.Focused = False Then Return
         Dim a As Integer = AllItemsLISTBOX.SelectedIndex
         If a > -1 Then
             AllItemsLISTBOX.SelectedIndex = a
@@ -1543,5 +1544,17 @@ Public Class Main
         ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
     End Sub
 
+    Private Sub HideDupesMENUITEM_Click(sender As Object, e As EventArgs) Handles HideDupesMENUITEM.Click
+        If HideDupesMENUITEM.Checked = True Then
+            HideDupesMENUITEM.Checked = False
+            AppSettings.HideDupes = False
+            Return
+        End If
 
+        'Update LineBreaks settings to true
+        If HideDupesMENUITEM.Checked = False Then
+            HideDupesMENUITEM.Checked = True
+            AppSettings.HideDupes = True
+        End If
+    End Sub
 End Class
