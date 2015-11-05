@@ -17,8 +17,28 @@ Public Class ExitApplication
             ExitApplicationConfirmBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
 
+
+
+
+
+        '=======================================================================================
+        '                        APP DROPPING OUT HERE NFI WHY???????
+        '=======================================================================================
+        'remmed these out for now till i figure it out
+
+        'ExitApplicationSaveDatabaseCHECKBOX.CheckState = AppSettings.SaveOnExit
+        'ExitApplicationBackupDatabaseCHECKBOX.CheckState = AppSettings.BackupOnExit
+
+
+
+
+
         Me.Left = Main.Left + 200 : Me.Top = Main.Top + 150         'Set Central window location
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+
+        'If AppSettings.SaveOnExit = True Then ExitApplicationSaveDatabaseCHECKBOX.CheckState = True Else ExitApplicationSaveDatabaseCHECKBOX.CheckState = False
+        'If AppSettings.BackupOnExit = True Then ExitApplicationBackupDatabaseCHECKBOX.CheckState = True Else ExitApplicationBackupDatabaseCHECKBOX.CheckState = False
+
 
     End Sub
 
@@ -39,4 +59,6 @@ Public Class ExitApplication
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
         DialogResult = Windows.Forms.DialogResult.Yes
     End Sub
+
+
 End Class

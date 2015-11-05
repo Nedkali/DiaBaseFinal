@@ -262,6 +262,7 @@ Partial Class ItemAdd
         Me.EditMulePassLABEL = New System.Windows.Forms.Label()
         Me.EditItemMuleAccountLABEL = New System.Windows.Forms.Label()
         Me.EditItemMuleNameLABEL = New System.Windows.Forms.Label()
+        Me.InitalizeFieldsBUTTON = New System.Windows.Forms.Button()
         CType(Me.AddItemSocketsNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -339,7 +340,7 @@ Partial Class ItemAdd
         Me.Label121.BackColor = System.Drawing.Color.BurlyWood
         Me.Label121.Location = New System.Drawing.Point(339, 483)
         Me.Label121.Name = "Label121"
-        Me.Label121.Size = New System.Drawing.Size(80, 2)
+        Me.Label121.Size = New System.Drawing.Size(218, 2)
         Me.Label121.TabIndex = 1910
         '
         'Label7
@@ -381,7 +382,7 @@ Partial Class ItemAdd
         Me.AddItemImportDateTEXTBOX.Location = New System.Drawing.Point(659, 468)
         Me.AddItemImportDateTEXTBOX.Name = "AddItemImportDateTEXTBOX"
         Me.AddItemImportDateTEXTBOX.Size = New System.Drawing.Size(112, 20)
-        Me.AddItemImportDateTEXTBOX.TabIndex = 50
+        Me.AddItemImportDateTEXTBOX.TabIndex = 49
         '
         'Label35
         '
@@ -422,7 +423,7 @@ Partial Class ItemAdd
         Me.AddItemImportTimeTEXTBOX.Location = New System.Drawing.Point(658, 498)
         Me.AddItemImportTimeTEXTBOX.Name = "AddItemImportTimeTEXTBOX"
         Me.AddItemImportTimeTEXTBOX.Size = New System.Drawing.Size(113, 20)
-        Me.AddItemImportTimeTEXTBOX.TabIndex = 51
+        Me.AddItemImportTimeTEXTBOX.TabIndex = 50
         '
         'EditImportTimeLABEL
         '
@@ -647,7 +648,7 @@ Partial Class ItemAdd
         Me.Label120.BackColor = System.Drawing.Color.BurlyWood
         Me.Label120.Location = New System.Drawing.Point(339, 501)
         Me.Label120.Name = "Label120"
-        Me.Label120.Size = New System.Drawing.Size(80, 2)
+        Me.Label120.Size = New System.Drawing.Size(218, 2)
         Me.Label120.TabIndex = 1876
         '
         'Label122
@@ -661,7 +662,7 @@ Partial Class ItemAdd
         'Label123
         '
         Me.Label123.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label123.Location = New System.Drawing.Point(417, 483)
+        Me.Label123.Location = New System.Drawing.Point(555, 483)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(3, 20)
         Me.Label123.TabIndex = 1874
@@ -1377,8 +1378,8 @@ Partial Class ItemAdd
         Me.AddItemImageTEXTBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemImageTEXTBOX.Location = New System.Drawing.Point(339, 483)
         Me.AddItemImageTEXTBOX.Name = "AddItemImageTEXTBOX"
-        Me.AddItemImageTEXTBOX.Size = New System.Drawing.Size(80, 20)
-        Me.AddItemImageTEXTBOX.TabIndex = 0
+        Me.AddItemImageTEXTBOX.Size = New System.Drawing.Size(219, 20)
+        Me.AddItemImageTEXTBOX.TabIndex = 42
         '
         'EditItemImageLABEL
         '
@@ -1397,10 +1398,10 @@ Partial Class ItemAdd
         Me.AddItemImageBUTTON.BackgroundImage = CType(resources.GetObject("AddItemImageBUTTON.BackgroundImage"), System.Drawing.Image)
         Me.AddItemImageBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddItemImageBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemImageBUTTON.Location = New System.Drawing.Point(455, 481)
+        Me.AddItemImageBUTTON.Location = New System.Drawing.Point(576, 578)
         Me.AddItemImageBUTTON.Name = "AddItemImageBUTTON"
         Me.AddItemImageBUTTON.Size = New System.Drawing.Size(102, 23)
-        Me.AddItemImageBUTTON.TabIndex = 0
+        Me.AddItemImageBUTTON.TabIndex = 53
         Me.AddItemImageBUTTON.Text = "Change Image"
         Me.AddItemImageBUTTON.UseVisualStyleBackColor = False
         '
@@ -1496,7 +1497,7 @@ Partial Class ItemAdd
         Me.AddItemCancelBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.AddItemCancelBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddItemCancelBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemCancelBUTTON.Location = New System.Drawing.Point(510, 578)
+        Me.AddItemCancelBUTTON.Location = New System.Drawing.Point(698, 578)
         Me.AddItemCancelBUTTON.Name = "AddItemCancelBUTTON"
         Me.AddItemCancelBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.AddItemCancelBUTTON.TabIndex = 54
@@ -1596,7 +1597,7 @@ Partial Class ItemAdd
         Me.AddItemUserReferenceTEXTBOX.Location = New System.Drawing.Point(94, 534)
         Me.AddItemUserReferenceTEXTBOX.Name = "AddItemUserReferenceTEXTBOX"
         Me.AddItemUserReferenceTEXTBOX.Size = New System.Drawing.Size(679, 20)
-        Me.AddItemUserReferenceTEXTBOX.TabIndex = 52
+        Me.AddItemUserReferenceTEXTBOX.TabIndex = 51
         '
         'AddItemSaveChangesBUTTON
         '
@@ -1604,10 +1605,10 @@ Partial Class ItemAdd
         Me.AddItemSaveChangesBUTTON.BackgroundImage = CType(resources.GetObject("AddItemSaveChangesBUTTON.BackgroundImage"), System.Drawing.Image)
         Me.AddItemSaveChangesBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddItemSaveChangesBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AddItemSaveChangesBUTTON.Location = New System.Drawing.Point(229, 578)
+        Me.AddItemSaveChangesBUTTON.Location = New System.Drawing.Point(458, 578)
         Me.AddItemSaveChangesBUTTON.Name = "AddItemSaveChangesBUTTON"
         Me.AddItemSaveChangesBUTTON.Size = New System.Drawing.Size(99, 23)
-        Me.AddItemSaveChangesBUTTON.TabIndex = 53
+        Me.AddItemSaveChangesBUTTON.TabIndex = 52
         Me.AddItemSaveChangesBUTTON.Text = "Add Item"
         Me.AddItemSaveChangesBUTTON.UseVisualStyleBackColor = False
         '
@@ -2091,7 +2092,7 @@ Partial Class ItemAdd
         'Label36
         '
         Me.Label36.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label36.Location = New System.Drawing.Point(598, 422)
+        Me.Label36.Location = New System.Drawing.Point(606, 428)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(165, 3)
         Me.Label36.TabIndex = 1911
@@ -2099,7 +2100,7 @@ Partial Class ItemAdd
         'Label37
         '
         Me.Label37.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label37.Location = New System.Drawing.Point(598, 404)
+        Me.Label37.Location = New System.Drawing.Point(606, 410)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(165, 3)
         Me.Label37.TabIndex = 1929
@@ -2107,7 +2108,7 @@ Partial Class ItemAdd
         'Label38
         '
         Me.Label38.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label38.Location = New System.Drawing.Point(761, 404)
+        Me.Label38.Location = New System.Drawing.Point(769, 410)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(3, 21)
         Me.Label38.TabIndex = 1930
@@ -2115,7 +2116,7 @@ Partial Class ItemAdd
         'Label39
         '
         Me.Label39.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label39.Location = New System.Drawing.Point(595, 404)
+        Me.Label39.Location = New System.Drawing.Point(603, 410)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(3, 21)
         Me.Label39.TabIndex = 1931
@@ -2128,15 +2129,15 @@ Partial Class ItemAdd
         Me.AddItemPickitBotCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemPickitBotCOMBOBOX.FormattingEnabled = True
         Me.AddItemPickitBotCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemPickitBotCOMBOBOX.Location = New System.Drawing.Point(595, 404)
+        Me.AddItemPickitBotCOMBOBOX.Location = New System.Drawing.Point(603, 410)
         Me.AddItemPickitBotCOMBOBOX.Name = "AddItemPickitBotCOMBOBOX"
         Me.AddItemPickitBotCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemPickitBotCOMBOBOX.TabIndex = 1946
+        Me.AddItemPickitBotCOMBOBOX.TabIndex = 48
         '
         'Label31
         '
         Me.Label31.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label31.Location = New System.Drawing.Point(598, 299)
+        Me.Label31.Location = New System.Drawing.Point(606, 289)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(165, 3)
         Me.Label31.TabIndex = 1932
@@ -2144,7 +2145,7 @@ Partial Class ItemAdd
         'Label32
         '
         Me.Label32.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label32.Location = New System.Drawing.Point(598, 281)
+        Me.Label32.Location = New System.Drawing.Point(606, 271)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(165, 3)
         Me.Label32.TabIndex = 1933
@@ -2152,7 +2153,7 @@ Partial Class ItemAdd
         'Label33
         '
         Me.Label33.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label33.Location = New System.Drawing.Point(761, 281)
+        Me.Label33.Location = New System.Drawing.Point(769, 271)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(3, 21)
         Me.Label33.TabIndex = 1928
@@ -2160,7 +2161,7 @@ Partial Class ItemAdd
         'Label34
         '
         Me.Label34.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label34.Location = New System.Drawing.Point(595, 281)
+        Me.Label34.Location = New System.Drawing.Point(603, 271)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(3, 21)
         Me.Label34.TabIndex = 1935
@@ -2173,15 +2174,15 @@ Partial Class ItemAdd
         Me.AddItemMuleNameCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMuleNameCOMBOBOX.FormattingEnabled = True
         Me.AddItemMuleNameCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(595, 281)
+        Me.AddItemMuleNameCOMBOBOX.Location = New System.Drawing.Point(603, 271)
         Me.AddItemMuleNameCOMBOBOX.Name = "AddItemMuleNameCOMBOBOX"
         Me.AddItemMuleNameCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMuleNameCOMBOBOX.TabIndex = 1944
+        Me.AddItemMuleNameCOMBOBOX.TabIndex = 46
         '
         'Label25
         '
         Me.Label25.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label25.Location = New System.Drawing.Point(598, 173)
+        Me.Label25.Location = New System.Drawing.Point(606, 147)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(165, 3)
         Me.Label25.TabIndex = 1937
@@ -2189,7 +2190,7 @@ Partial Class ItemAdd
         'Label27
         '
         Me.Label27.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label27.Location = New System.Drawing.Point(598, 155)
+        Me.Label27.Location = New System.Drawing.Point(606, 129)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(165, 3)
         Me.Label27.TabIndex = 1938
@@ -2197,7 +2198,7 @@ Partial Class ItemAdd
         'Label28
         '
         Me.Label28.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label28.Location = New System.Drawing.Point(761, 155)
+        Me.Label28.Location = New System.Drawing.Point(769, 129)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(3, 21)
         Me.Label28.TabIndex = 1939
@@ -2205,7 +2206,7 @@ Partial Class ItemAdd
         'Label29
         '
         Me.Label29.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label29.Location = New System.Drawing.Point(595, 155)
+        Me.Label29.Location = New System.Drawing.Point(603, 129)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(3, 21)
         Me.Label29.TabIndex = 1940
@@ -2218,15 +2219,15 @@ Partial Class ItemAdd
         Me.AddItemMuleAccountCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMuleAccountCOMBOBOX.FormattingEnabled = True
         Me.AddItemMuleAccountCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(595, 155)
+        Me.AddItemMuleAccountCOMBOBOX.Location = New System.Drawing.Point(603, 129)
         Me.AddItemMuleAccountCOMBOBOX.Name = "AddItemMuleAccountCOMBOBOX"
         Me.AddItemMuleAccountCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMuleAccountCOMBOBOX.TabIndex = 1942
+        Me.AddItemMuleAccountCOMBOBOX.TabIndex = 44
         '
         'Label20
         '
         Me.Label20.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label20.Location = New System.Drawing.Point(598, 236)
+        Me.Label20.Location = New System.Drawing.Point(606, 218)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(165, 3)
         Me.Label20.TabIndex = 1934
@@ -2234,7 +2235,7 @@ Partial Class ItemAdd
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label21.Location = New System.Drawing.Point(598, 218)
+        Me.Label21.Location = New System.Drawing.Point(606, 200)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(165, 3)
         Me.Label21.TabIndex = 1926
@@ -2242,7 +2243,7 @@ Partial Class ItemAdd
         'Label22
         '
         Me.Label22.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label22.Location = New System.Drawing.Point(761, 218)
+        Me.Label22.Location = New System.Drawing.Point(769, 200)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(3, 21)
         Me.Label22.TabIndex = 1927
@@ -2250,7 +2251,7 @@ Partial Class ItemAdd
         'Label23
         '
         Me.Label23.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label23.Location = New System.Drawing.Point(595, 218)
+        Me.Label23.Location = New System.Drawing.Point(603, 200)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(3, 21)
         Me.Label23.TabIndex = 1924
@@ -2263,15 +2264,15 @@ Partial Class ItemAdd
         Me.AddItemMulePassCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemMulePassCOMBOBOX.FormattingEnabled = True
         Me.AddItemMulePassCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemMulePassCOMBOBOX.Location = New System.Drawing.Point(595, 218)
+        Me.AddItemMulePassCOMBOBOX.Location = New System.Drawing.Point(603, 200)
         Me.AddItemMulePassCOMBOBOX.Name = "AddItemMulePassCOMBOBOX"
         Me.AddItemMulePassCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemMulePassCOMBOBOX.TabIndex = 1943
+        Me.AddItemMulePassCOMBOBOX.TabIndex = 45
         '
         'Label163
         '
         Me.Label163.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label163.Location = New System.Drawing.Point(598, 114)
+        Me.Label163.Location = New System.Drawing.Point(606, 80)
         Me.Label163.Name = "Label163"
         Me.Label163.Size = New System.Drawing.Size(165, 3)
         Me.Label163.TabIndex = 1923
@@ -2279,7 +2280,7 @@ Partial Class ItemAdd
         'Label164
         '
         Me.Label164.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label164.Location = New System.Drawing.Point(598, 96)
+        Me.Label164.Location = New System.Drawing.Point(606, 62)
         Me.Label164.Name = "Label164"
         Me.Label164.Size = New System.Drawing.Size(165, 3)
         Me.Label164.TabIndex = 1922
@@ -2287,7 +2288,7 @@ Partial Class ItemAdd
         'Label165
         '
         Me.Label165.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label165.Location = New System.Drawing.Point(761, 96)
+        Me.Label165.Location = New System.Drawing.Point(769, 62)
         Me.Label165.Name = "Label165"
         Me.Label165.Size = New System.Drawing.Size(3, 21)
         Me.Label165.TabIndex = 1921
@@ -2295,7 +2296,7 @@ Partial Class ItemAdd
         'Label166
         '
         Me.Label166.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label166.Location = New System.Drawing.Point(595, 96)
+        Me.Label166.Location = New System.Drawing.Point(603, 62)
         Me.Label166.Name = "Label166"
         Me.Label166.Size = New System.Drawing.Size(3, 21)
         Me.Label166.TabIndex = 1920
@@ -2308,17 +2309,17 @@ Partial Class ItemAdd
         Me.AddItemRealmCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemRealmCOMBOBOX.FormattingEnabled = True
         Me.AddItemRealmCOMBOBOX.Items.AddRange(New Object() {"USWest", "USEast", "Europe", "Asia"})
-        Me.AddItemRealmCOMBOBOX.Location = New System.Drawing.Point(595, 96)
+        Me.AddItemRealmCOMBOBOX.Location = New System.Drawing.Point(603, 62)
         Me.AddItemRealmCOMBOBOX.Name = "AddItemRealmCOMBOBOX"
         Me.AddItemRealmCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemRealmCOMBOBOX.TabIndex = 1941
+        Me.AddItemRealmCOMBOBOX.TabIndex = 43
         '
         'Label167
         '
         Me.Label167.AutoSize = True
         Me.Label167.BackColor = System.Drawing.Color.Transparent
         Me.Label167.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label167.Location = New System.Drawing.Point(591, 76)
+        Me.Label167.Location = New System.Drawing.Point(599, 42)
         Me.Label167.Name = "Label167"
         Me.Label167.Size = New System.Drawing.Size(37, 13)
         Me.Label167.TabIndex = 1919
@@ -2327,7 +2328,7 @@ Partial Class ItemAdd
         'Label149
         '
         Me.Label149.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label149.Location = New System.Drawing.Point(597, 362)
+        Me.Label149.Location = New System.Drawing.Point(605, 360)
         Me.Label149.Name = "Label149"
         Me.Label149.Size = New System.Drawing.Size(165, 3)
         Me.Label149.TabIndex = 1918
@@ -2335,7 +2336,7 @@ Partial Class ItemAdd
         'Label150
         '
         Me.Label150.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label150.Location = New System.Drawing.Point(597, 344)
+        Me.Label150.Location = New System.Drawing.Point(605, 342)
         Me.Label150.Name = "Label150"
         Me.Label150.Size = New System.Drawing.Size(165, 3)
         Me.Label150.TabIndex = 1917
@@ -2343,7 +2344,7 @@ Partial Class ItemAdd
         'Label155
         '
         Me.Label155.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label155.Location = New System.Drawing.Point(760, 344)
+        Me.Label155.Location = New System.Drawing.Point(768, 342)
         Me.Label155.Name = "Label155"
         Me.Label155.Size = New System.Drawing.Size(3, 21)
         Me.Label155.TabIndex = 1916
@@ -2351,7 +2352,7 @@ Partial Class ItemAdd
         'Label156
         '
         Me.Label156.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label156.Location = New System.Drawing.Point(594, 344)
+        Me.Label156.Location = New System.Drawing.Point(602, 342)
         Me.Label156.Name = "Label156"
         Me.Label156.Size = New System.Drawing.Size(3, 21)
         Me.Label156.TabIndex = 1915
@@ -2363,17 +2364,17 @@ Partial Class ItemAdd
         Me.AddItemCoreTypeCOMBOBOX.ForeColor = System.Drawing.Color.White
         Me.AddItemCoreTypeCOMBOBOX.FormattingEnabled = True
         Me.AddItemCoreTypeCOMBOBOX.Items.AddRange(New Object() {"HardCore", "SoftCore"})
-        Me.AddItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(594, 344)
+        Me.AddItemCoreTypeCOMBOBOX.Location = New System.Drawing.Point(602, 342)
         Me.AddItemCoreTypeCOMBOBOX.Name = "AddItemCoreTypeCOMBOBOX"
         Me.AddItemCoreTypeCOMBOBOX.Size = New System.Drawing.Size(168, 21)
-        Me.AddItemCoreTypeCOMBOBOX.TabIndex = 1945
+        Me.AddItemCoreTypeCOMBOBOX.TabIndex = 47
         '
         'Label157
         '
         Me.Label157.AutoSize = True
         Me.Label157.BackColor = System.Drawing.Color.Transparent
         Me.Label157.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label157.Location = New System.Drawing.Point(591, 325)
+        Me.Label157.Location = New System.Drawing.Point(599, 323)
         Me.Label157.Name = "Label157"
         Me.Label157.Size = New System.Drawing.Size(56, 13)
         Me.Label157.TabIndex = 1914
@@ -2384,7 +2385,7 @@ Partial Class ItemAdd
         Me.EditItemPickitBotLABEL.AutoSize = True
         Me.EditItemPickitBotLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemPickitBotLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemPickitBotLABEL.Location = New System.Drawing.Point(591, 386)
+        Me.EditItemPickitBotLABEL.Location = New System.Drawing.Point(599, 392)
         Me.EditItemPickitBotLABEL.Name = "EditItemPickitBotLABEL"
         Me.EditItemPickitBotLABEL.Size = New System.Drawing.Size(76, 13)
         Me.EditItemPickitBotLABEL.TabIndex = 1913
@@ -2395,7 +2396,7 @@ Partial Class ItemAdd
         Me.EditMulePassLABEL.AutoSize = True
         Me.EditMulePassLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditMulePassLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditMulePassLABEL.Location = New System.Drawing.Point(591, 200)
+        Me.EditMulePassLABEL.Location = New System.Drawing.Point(599, 182)
         Me.EditMulePassLABEL.Name = "EditMulePassLABEL"
         Me.EditMulePassLABEL.Size = New System.Drawing.Size(79, 13)
         Me.EditMulePassLABEL.TabIndex = 1912
@@ -2406,7 +2407,7 @@ Partial Class ItemAdd
         Me.EditItemMuleAccountLABEL.AutoSize = True
         Me.EditItemMuleAccountLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemMuleAccountLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(591, 139)
+        Me.EditItemMuleAccountLABEL.Location = New System.Drawing.Point(599, 113)
         Me.EditItemMuleAccountLABEL.Name = "EditItemMuleAccountLABEL"
         Me.EditItemMuleAccountLABEL.Size = New System.Drawing.Size(73, 13)
         Me.EditItemMuleAccountLABEL.TabIndex = 1925
@@ -2417,11 +2418,24 @@ Partial Class ItemAdd
         Me.EditItemMuleNameLABEL.AutoSize = True
         Me.EditItemMuleNameLABEL.BackColor = System.Drawing.Color.Transparent
         Me.EditItemMuleNameLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(591, 263)
+        Me.EditItemMuleNameLABEL.Location = New System.Drawing.Point(599, 253)
         Me.EditItemMuleNameLABEL.Name = "EditItemMuleNameLABEL"
         Me.EditItemMuleNameLABEL.Size = New System.Drawing.Size(61, 13)
         Me.EditItemMuleNameLABEL.TabIndex = 1936
         Me.EditItemMuleNameLABEL.Text = "Mule Name"
+        '
+        'InitalizeFieldsBUTTON
+        '
+        Me.InitalizeFieldsBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InitalizeFieldsBUTTON.BackgroundImage = CType(resources.GetObject("InitalizeFieldsBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InitalizeFieldsBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InitalizeFieldsBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InitalizeFieldsBUTTON.Location = New System.Drawing.Point(93, 578)
+        Me.InitalizeFieldsBUTTON.Name = "InitalizeFieldsBUTTON"
+        Me.InitalizeFieldsBUTTON.Size = New System.Drawing.Size(99, 23)
+        Me.InitalizeFieldsBUTTON.TabIndex = 1941
+        Me.InitalizeFieldsBUTTON.Text = "Clear All Fields"
+        Me.InitalizeFieldsBUTTON.UseVisualStyleBackColor = False
         '
         'ItemAdd
         '
@@ -2432,6 +2446,7 @@ Partial Class ItemAdd
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(790, 625)
         Me.ControlBox = False
+        Me.Controls.Add(Me.InitalizeFieldsBUTTON)
         Me.Controls.Add(Me.Label36)
         Me.Controls.Add(Me.Label37)
         Me.Controls.Add(Me.Label38)
@@ -2677,7 +2692,7 @@ Partial Class ItemAdd
         Me.MaximumSize = New System.Drawing.Size(810, 668)
         Me.MinimumSize = New System.Drawing.Size(810, 640)
         Me.Name = "ItemAdd"
-        Me.Text = "Manually Add A New Item(s)"
+        Me.Text = "Manually Add New Item(s)"
         CType(Me.AddItemSocketsNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -2922,4 +2937,5 @@ Partial Class ItemAdd
     Friend WithEvents EditMulePassLABEL As Label
     Friend WithEvents EditItemMuleAccountLABEL As Label
     Friend WithEvents EditItemMuleNameLABEL As Label
+    Friend WithEvents InitalizeFieldsBUTTON As Button
 End Class

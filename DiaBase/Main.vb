@@ -140,12 +140,28 @@ Public Class Main
             AutologgingTimerBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
 
+        'Position and Size Main Form Using co-ordinates saved on closing last session
+        Me.Height = AppSettings.XSize
+        Me.Width = AppSettings.YSize
+
+        Me.Location = New Point(AppSettings.XPos, AppSettings.YPos)
+
+
+
+
+
+
+
         'Set foucus on the main listbox
         AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
 
         'Play the introduction laugh
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.BigDLaugh, AudioPlayMode.Background)
 
+    End Sub
+
+    Private Sub MainFormSize(v1 As Integer, v2 As Integer)
+        Throw New NotImplementedException()
     End Sub
 
 
@@ -212,6 +228,8 @@ Public Class Main
     'SEARCH LISTBOX INDEX CHANGED HANDLER       - Focuses Main Listbox Selected Item to Match the Serch Lists Currently Selected Item 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SearchLISTBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchLISTBOX.SelectedIndexChanged
+
+
         'this needs more work to be have more functionality eg multi selected items
         Dim a As Integer = SearchLISTBOX.SelectedIndex
         If a > -1 Then
@@ -312,6 +330,10 @@ Public Class Main
 
         If SearchLISTBOX.SelectedIndex = -1 And SearchLISTBOX.Items.Count > 0 Then SearchLISTBOX.SelectedIndex = 1 Else If SearchLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
         If SearchLISTBOX.Items.Count = 0 Then ClearItemStats()
+        DisplaySelectedUserListItem()
+
+        If SearchLISTBOX.SelectedIndex <> -1 Then AllItemsLISTBOX.SelectedIndex = -1 : AllItemsLISTBOX.SelectedIndex = SearchReferenceList(SearchLISTBOX.SelectedIndex) : DisplayItemStats(AllItemsLISTBOX.SelectedIndex) ' if an item is selected in search list then select the same item in the all items list to display that items stats
+
 
     End Sub
 
@@ -398,10 +420,15 @@ Public Class Main
             If ExitApplication.DialogResult = Windows.Forms.DialogResult.Yes Then
 
                 'Check The Automated Backup On Exit Checkbox And Branch To Backup Sub If Nessicary
-                If ExitApplication.ExitApplicationBackupDatabaseCHRCKBOX.Checked = True Then CreateBackup(AppSettings.CurrentDatabase)
+                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then CreateBackup(AppSettings.CurrentDatabase)
 
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
+
+
+                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then AppSettings.SaveOnExit = True Else AppSettings.SaveOnExit = False
+                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then AppSettings.BackupOnExit = True Else AppSettings.BackupOnExit = False
+
 
                 'Updates Realm Checkboxes and Display Line Breaks In Stats CheckStates To Settings File
                 SaveSettingsFile()
@@ -410,6 +437,9 @@ Public Class Main
         Else
             e.Cancel = True 'Automatically cancels Exit Event If Autologger Is Running (Avoids Potential Import Errors)
         End If
+
+
+
     End Sub
 
 
@@ -829,7 +859,21 @@ Public Class Main
     Private Sub SearchBUTTON_Click(sender As Object, e As EventArgs) Handles SearchBUTTON.Click
 
         If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
-        SearchRoutine()
+        SearchRoutine(SuccessfulSearch)
+
+        'POPULATES SEARCHES QUICK SELECTION DROP DOWN COLLECTIONS after successful search entries (Item Name, User Reference, Unique Attribs Strings)
+        If SuccessfulSearch = True Then
+            If UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM NAME" Then
+                If Me.SearchWordCOMBOBOX.Text <> "" And ItemNamePulldownList.Contains(Me.SearchWordCOMBOBOX.Text) = False Then ItemNamePulldownList.Add(Me.SearchWordCOMBOBOX.Text) : Me.SearchWordCOMBOBOX.Items.Add(Me.SearchWordCOMBOBOX.Text)
+            End If
+            If UCase(Me.SearchFieldCOMBOBOX.Text) = "UNIQUE ATTRIBUTES" Then
+                If Me.SearchWordCOMBOBOX.Text <> "" And UniqueAttribsPulldownList.Contains(Me.SearchWordCOMBOBOX.Text) = False Then UniqueAttribsPulldownList.Add(Me.SearchWordCOMBOBOX.Text) : Me.SearchWordCOMBOBOX.Items.Add(Me.SearchWordCOMBOBOX.Text)
+            End If
+            If UCase(Me.SearchFieldCOMBOBOX.Text) = "USER REFERENCE" Then
+                If Me.SearchWordCOMBOBOX.Text <> "" And UserReferencePulldownList.Contains(Me.SearchWordCOMBOBOX.Text) = False Then UserReferencePulldownList.Add(Me.SearchWordCOMBOBOX.Text) : Me.SearchWordCOMBOBOX.Items.Add(Me.SearchWordCOMBOBOX.Text)
+            End If
+            SuccessfulSearch = False
+        End If
     End Sub
 
 
@@ -993,7 +1037,16 @@ Public Class Main
                 DialogResult = ErrorHandlerForm.ShowDialog()
 
 
+            Case 1100
 
+
+                ErrorHandlerForm.ErrorTrapHeaderLABEL.Text = "ERROR ADDING NEW ITEM TO DATABASE"
+                ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Visible = True
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Text = "Continue"
+                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "You must supply a valid Item Name before this item can be added to the current database." & vbCrLf & vbCrLf & "Please return to the Add Item form and enter a valid Item Name."
+                ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
+                DialogResult = ErrorHandlerForm.ShowDialog()
 
         End Select
     End Sub
@@ -1384,28 +1437,129 @@ Public Class Main
         TriggerIndexChanged.Invoke(SearchLISTBOX, New Object() {New EventArgs})
     End Sub
 
+    'link to sent to user list sub
     Private Sub SendAllItemsToUserListSearchMenu_Click(sender As Object, e As EventArgs) Handles SendAllItemsToUserListSearchMenu.Click
         SearchItemsToUserList()
     End Sub
 
 
-    'Populate search dropdown routine - triggers when field value changes (Third Time Lucky??)
+    'Gosub to Populate search dropdown routine - triggers when field value changes
     Private Sub SearchFieldCOMBOBOX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SearchFieldCOMBOBOX.SelectedIndexChanged
-        Me.SearchWordCOMBOBOX.Items.Clear() 'clear old list out ready for new selection
+        'QUICKLY SETUP SOME SEARCH STUFF FIRST 
 
-        Select Case (SearchFieldCOMBOBOX.Text)
-            Case "Item Quality"
-                SearchWordCOMBOBOX.Items.Add("Normal")
-                SearchWordCOMBOBOX.Items.Add("Superior")
-                SearchWordCOMBOBOX.Items.Add("Set")
-                SearchWordCOMBOBOX.Items.Add("Rare")
-                SearchWordCOMBOBOX.Items.Add("Magic")
-                SearchWordCOMBOBOX.Items.Add("Unique")
-                SearchWordCOMBOBOX.Items.Add("Crafted")
+        'THIS ADDS ALL ITEM NAME SEARCHED AND MATCHED THIS SESSION (SAVED IN ItemNamePullDownList) TO THE SEARCH STRING  
+        'COMBOBOX DROPDOWN. THIS SYSTEM IS ONLY USED FOR THE  ITEM NAME FIELD... 
+        'As There is no point adding the entire Item Name list to the dropdown this wil be a compromise of sorts
+        'The reference array is not saved so a new list is created each runtime session (could add save to file option as improvment idea l8r)
 
-        End Select
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM NAME" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each item In ItemNamePulldownList
+                If item <> Nothing Then Me.SearchWordCOMBOBOX.Items.Add(item)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
 
+        'populate for unique attributes block FOR THE SAME REASONS AS FOR THE ITEM NAME FIELD ABOVE?/\
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "UNIQUE ATTRIBUTES" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each item In UniqueAttribsPulldownList
+                If item <> Nothing Then Me.SearchWordCOMBOBOX.Items.Add(item)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL ITEM BASE ENTRYS WHEN ITEM BASE IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM BASE" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.ItemBase <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.ItemBase) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.ItemBase)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL ITEM QUALITY ENTRYS WHEN ITEM QUALITY IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM QUALITY" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.ItemQuality <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.ItemQuality) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.ItemQuality)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL USER REFERENCE ENTRYS WHEN USER REF IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "USER REFERENCE" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each item In UserReferencePulldownList
+                If item <> Nothing Then Me.SearchWordCOMBOBOX.Items.Add(item)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL MULE ACCOUNT ENTRYS WHEN MULE ACCOUNT IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "MULE ACCOUNT" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.MuleAccount <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.MuleAccount) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.MuleAccount)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL MULE NAME ENTRYS WHEN MULE NAME IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "MULE NAME" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.MuleName <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.MuleName) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.MuleName)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL MULE PASS ENTRYS WHEN MULE PASS IS SELECTED FOR SEARCH
+        'BUT ONLY WHEN HIDE PASWORDS CHECKBOX IN SETTINGS IS UNCHECKED. A BLANK DROPDOWN IS RETURNED IF HIDE PASSWORDS IS CHECKED
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "MULE PASS" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            If AppSettings.HideMulePass = True Then
+                For Each ItemObjectItem As ItemDatabase In ItemObjects
+                    If ItemObjectItem.MulePass <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.MulePass) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.MulePass)
+                Next
+                Me.SearchWordCOMBOBOX.Select()
+            End If
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL ATTACK CLASS ENTRYS WHEN ATTACK CLASS IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ATTACK CLASS" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.AttackClass <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.AttackClass) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.AttackClass)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL ATTACK SPEED ENTRYS WHEN ATTACK SPEED IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ATTACK SPEED" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.AttackSpeed <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.AttackSpeed) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.AttackSpeed)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'POPULATE WORD SEARCH DROPDOWN WITH ALL RUNEWORD ENTRYS WHEN RUNEWORD IS SELECTED FOR SEARCH
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "RUNEWORD" Then
+            Me.SearchWordCOMBOBOX.Items.Clear()
+            For Each ItemObjectItem As ItemDatabase In ItemObjects
+                If ItemObjectItem.RuneWord <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.RuneWord) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.RuneWord)
+            Next
+            Me.SearchWordCOMBOBOX.Select()
+        End If
+
+        'Clear out the word pulldowns if var searches apply also clears out word search entry and select value box ready for input
+        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ONE HAND DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "ONE HAND DAMAGE MAX" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "TWO HAND DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "TWO HAND DAMAGE MAX" _
+             Or UCase(Me.SearchFieldCOMBOBOX.Text) = "THROW DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "THROW DAMAGE MAX" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED LEVEL" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED STRENGTH" _
+              Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED DEXTERITY" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "CHANCE TO BLOCK" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM DEFENSE" Then Me.SearchWordCOMBOBOX.Items.Clear() : Me.SearchWordCOMBOBOX.Text = "" : Me.SearchValueNUMERICUPDWN.Select() ' Else me.SearchWordCOMBOBOX.Select() ??
     End Sub
+
+
 
 
     Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged

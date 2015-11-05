@@ -24,6 +24,17 @@ Module DatabaseManagmentFunctions
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
                 AppSettings.DisplayLineBreaks = ReadFile.ReadLine       'Stat display spaceing 
+                AppSettings.SaveOnExit = ReadFile.ReadLine              'Save current database as app closes operator
+                AppSettings.BackupOnExit = ReadFile.ReadLine            'Backup current database as app closes operator
+                AppSettings.XSize = ReadFile.ReadLine
+                AppSettings.YSize = ReadFile.ReadLine
+                AppSettings.XPos = ReadFile.ReadLine
+                AppSettings.YPos = ReadFile.ReadLine
+
+
+                'Add Exit App Backup and Save Vars
+                'Add Form1 X,Y size and X,Y location 
+
                 ReadFile.Close()
             Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler - pass to error handler
             End If
@@ -61,6 +72,13 @@ Module DatabaseManagmentFunctions
             'applys the menu option checkstate to its partnered settings clas variable
             AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
 
+            'Applys Size and position from form state to appSettings vars
+            AppSettings.XPos = Main.Location.X : AppSettings.YPos = Main.Location.Y
+            AppSettings.XSize = Main.Height : AppSettings.YSize = Main.Width
+
+            'Applys SaveAndBackup On Exit Bool Operators to AppSettings Vars
+
+
             'Writes the settings to file Settings.CFG Assumes no null entries exist at this point or lines will be skipped during save will crash when attempting to read it later
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
             WriteFile.WriteLine(AppSettings.EtalPath)
@@ -75,6 +93,17 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
             WriteFile.WriteLine(AppSettings.DisplayLineBreaks)
+            WriteFile.WriteLine(AppSettings.SaveOnExit)
+            WriteFile.WriteLine(AppSettings.BackupOnExit)
+            WriteFile.WriteLine(AppSettings.XSize)
+            WriteFile.WriteLine(AppSettings.YSize)
+            WriteFile.WriteLine(AppSettings.XPos)
+            WriteFile.WriteLine(AppSettings.YPos)
+
+
+            'Add Exit App Backup and Save Vars
+            'Add Form1 X,Y size and X,Y location 
+
             WriteFile.Close()
         Catch ex As Exception
             'Branch to error handler with unique code and system error code if save fails for whatever reason
@@ -443,5 +472,9 @@ Module DatabaseManagmentFunctions
         'Writes the new file by copying the current with an new .BAK extension
         My.Computer.FileSystem.CopyFile(DatabaseFile, backupFileName)
     End Sub
+
+
+
+
     '=====================================================================================================================================================================
 End Module

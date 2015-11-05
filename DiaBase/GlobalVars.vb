@@ -44,6 +44,17 @@ Module GlobalVars
     Public UnDoPos As List(Of String) = New List(Of String) 'stores location where deleted from
     Public UnDoCount As List(Of String) = New List(Of String) 'stores number deleted on each occasion
 
+    'Search Pulldown Reference Lists Used to hold fields and entry values that exist in the database at runtime
+    'this way lists are smaller, itterate quicker, and only have entries that will lead to valid searches
+    'these must refersh every session as well as every database edit. Will setup routine in DatabaseManagmentFunctions module
+
+    Public ItemNamePulldownList As List(Of String) = New List(Of String)
+    Public UniqueAttribsPulldownList As List(Of String) = New List(Of String)
+    Public UserReferencePulldownList As List(Of String) = New List(Of String)
+
+
+    Public SuccessfulSearch As Boolean = False
+
 
     'itemedit var
     Public iEdit As Integer = 0

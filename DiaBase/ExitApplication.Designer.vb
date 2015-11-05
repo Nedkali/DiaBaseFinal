@@ -26,7 +26,7 @@ Partial Class ExitApplication
         Me.ExitApplicationHeaderLABEL = New System.Windows.Forms.Label()
         Me.ExitApplicationInformationLABEL = New System.Windows.Forms.Label()
         Me.ExitApplicationSaveDatabaseCHECKBOX = New System.Windows.Forms.CheckBox()
-        Me.ExitApplicationBackupDatabaseCHRCKBOX = New System.Windows.Forms.CheckBox()
+        Me.ExitApplicationBackupDatabaseCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.ExitApplicationConfirmBUTTON = New System.Windows.Forms.Button()
         Me.ExitApplicationCancelBUTTON = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -57,8 +57,6 @@ Partial Class ExitApplication
         '
         Me.ExitApplicationSaveDatabaseCHECKBOX.AutoSize = True
         Me.ExitApplicationSaveDatabaseCHECKBOX.BackColor = System.Drawing.Color.Black
-        Me.ExitApplicationSaveDatabaseCHECKBOX.Checked = True
-        Me.ExitApplicationSaveDatabaseCHECKBOX.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ExitApplicationSaveDatabaseCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
         Me.ExitApplicationSaveDatabaseCHECKBOX.Location = New System.Drawing.Point(40, 150)
         Me.ExitApplicationSaveDatabaseCHECKBOX.Name = "ExitApplicationSaveDatabaseCHECKBOX"
@@ -67,17 +65,17 @@ Partial Class ExitApplication
         Me.ExitApplicationSaveDatabaseCHECKBOX.Text = "Save Database"
         Me.ExitApplicationSaveDatabaseCHECKBOX.UseVisualStyleBackColor = False
         '
-        'ExitApplicationBackupDatabaseCHRCKBOX
+        'ExitApplicationBackupDatabaseCHECKBOX
         '
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.AutoSize = True
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.BackColor = System.Drawing.Color.Black
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.Location = New System.Drawing.Point(40, 173)
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.Name = "ExitApplicationBackupDatabaseCHRCKBOX"
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.Size = New System.Drawing.Size(112, 17)
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.TabIndex = 6
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.Text = "Backup Database"
-        Me.ExitApplicationBackupDatabaseCHRCKBOX.UseVisualStyleBackColor = False
+        Me.ExitApplicationBackupDatabaseCHECKBOX.AutoSize = True
+        Me.ExitApplicationBackupDatabaseCHECKBOX.BackColor = System.Drawing.Color.Black
+        Me.ExitApplicationBackupDatabaseCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
+        Me.ExitApplicationBackupDatabaseCHECKBOX.Location = New System.Drawing.Point(40, 173)
+        Me.ExitApplicationBackupDatabaseCHECKBOX.Name = "ExitApplicationBackupDatabaseCHECKBOX"
+        Me.ExitApplicationBackupDatabaseCHECKBOX.Size = New System.Drawing.Size(112, 17)
+        Me.ExitApplicationBackupDatabaseCHECKBOX.TabIndex = 6
+        Me.ExitApplicationBackupDatabaseCHECKBOX.Text = "Backup Database"
+        Me.ExitApplicationBackupDatabaseCHECKBOX.UseVisualStyleBackColor = False
         '
         'ExitApplicationConfirmBUTTON
         '
@@ -118,7 +116,7 @@ Partial Class ExitApplication
         Me.Controls.Add(Me.ExitApplicationConfirmBUTTON)
         Me.Controls.Add(Me.ExitApplicationCancelBUTTON)
         Me.Controls.Add(Me.ExitApplicationSaveDatabaseCHECKBOX)
-        Me.Controls.Add(Me.ExitApplicationBackupDatabaseCHRCKBOX)
+        Me.Controls.Add(Me.ExitApplicationBackupDatabaseCHECKBOX)
         Me.MaximumSize = New System.Drawing.Size(414, 262)
         Me.MinimumSize = New System.Drawing.Size(414, 262)
         Me.Name = "ExitApplication"
@@ -132,5 +130,5 @@ Partial Class ExitApplication
     Friend WithEvents ExitApplicationConfirmBUTTON As System.Windows.Forms.Button
     Friend WithEvents ExitApplicationCancelBUTTON As System.Windows.Forms.Button
     Friend WithEvents ExitApplicationSaveDatabaseCHECKBOX As System.Windows.Forms.CheckBox
-    Friend WithEvents ExitApplicationBackupDatabaseCHRCKBOX As System.Windows.Forms.CheckBox
+    Friend WithEvents ExitApplicationBackupDatabaseCHECKBOX As System.Windows.Forms.CheckBox
 End Class

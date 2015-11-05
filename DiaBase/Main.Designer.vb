@@ -1147,7 +1147,7 @@ Partial Class Main
         Me.SearchListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.SearchListTABPAGE.Name = "SearchListTABPAGE"
         Me.SearchListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.SearchListTABPAGE.Size = New System.Drawing.Size(373, 448)
+        Me.SearchListTABPAGE.Size = New System.Drawing.Size(373, 357)
         Me.SearchListTABPAGE.TabIndex = 1
         Me.SearchListTABPAGE.Text = "Search List"
         '
@@ -1162,7 +1162,7 @@ Partial Class Main
         Me.SearchLISTBOX.Location = New System.Drawing.Point(3, 3)
         Me.SearchLISTBOX.Name = "SearchLISTBOX"
         Me.SearchLISTBOX.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.SearchLISTBOX.Size = New System.Drawing.Size(365, 440)
+        Me.SearchLISTBOX.Size = New System.Drawing.Size(365, 349)
         Me.SearchLISTBOX.TabIndex = 0
         '
         'SearchListCONTEXTMENUSTRIP
@@ -1223,7 +1223,7 @@ Partial Class Main
         Me.TradeListTABPAGE.Controls.Add(Me.TradeListRICHTEXTBOX)
         Me.TradeListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.TradeListTABPAGE.Name = "TradeListTABPAGE"
-        Me.TradeListTABPAGE.Size = New System.Drawing.Size(373, 448)
+        Me.TradeListTABPAGE.Size = New System.Drawing.Size(373, 357)
         Me.TradeListTABPAGE.TabIndex = 2
         Me.TradeListTABPAGE.Text = "Trade List"
         '
@@ -1235,7 +1235,7 @@ Partial Class Main
         Me.TradeListRICHTEXTBOX.ForeColor = System.Drawing.SystemColors.Menu
         Me.TradeListRICHTEXTBOX.Location = New System.Drawing.Point(0, 0)
         Me.TradeListRICHTEXTBOX.Name = "TradeListRICHTEXTBOX"
-        Me.TradeListRICHTEXTBOX.Size = New System.Drawing.Size(373, 448)
+        Me.TradeListRICHTEXTBOX.Size = New System.Drawing.Size(373, 357)
         Me.TradeListRICHTEXTBOX.TabIndex = 0
         Me.TradeListRICHTEXTBOX.Text = ""
         '
@@ -1269,7 +1269,7 @@ Partial Class Main
         Me.UserListTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.UserListTABPAGE.Name = "UserListTABPAGE"
         Me.UserListTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.UserListTABPAGE.Size = New System.Drawing.Size(373, 448)
+        Me.UserListTABPAGE.Size = New System.Drawing.Size(373, 357)
         Me.UserListTABPAGE.TabIndex = 3
         Me.UserListTABPAGE.Text = "User List"
         Me.UserListTABPAGE.UseVisualStyleBackColor = True
@@ -1282,7 +1282,7 @@ Partial Class Main
         Me.UserLISTBOX.Location = New System.Drawing.Point(3, 3)
         Me.UserLISTBOX.Name = "UserLISTBOX"
         Me.UserLISTBOX.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.UserLISTBOX.Size = New System.Drawing.Size(367, 442)
+        Me.UserLISTBOX.Size = New System.Drawing.Size(367, 351)
         Me.UserLISTBOX.TabIndex = 0
         '
         'ItemAndMuleLABEL

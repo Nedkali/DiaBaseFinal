@@ -108,9 +108,7 @@
     End Sub
 
     Public Sub DisplaySelectedUserListItem()
-        If Main.UserLISTBOX.SelectedIndex = -1 Then Return
-
-        Main.AllItemsLISTBOX.SelectedItem = -1
+        If Main.UserLISTBOX.SelectedIndex = -1 Then Return Else Main.AllItemsLISTBOX.SelectedItem = -1
 
         Dim ItemIndex = Main.UserLISTBOX.SelectedIndex
 

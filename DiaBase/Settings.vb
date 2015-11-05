@@ -70,6 +70,10 @@ Public Class Settings
         ResetDateTEXTBOX.Text = AppSettings.ResetDate
         CheckSettingsPaths()                                        'Verify current paths are correct and update ticks (should only throw to actual error message when exiting with invalid settings)
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+
+        'Add Exit App Backup and Save Vars
+        'Add Form1 X,Y size and X,Y location 
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -117,6 +121,11 @@ Public Class Settings
             AppSettings.DefaultRealm = SearchRealmCBOX.Text
             AppSettings.ResetDate = ResetDateTEXTBOX.Text
             AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
+
+            'Add Exit App Backup and Save Vars
+            'Add Form1 X,Y size and X,Y location 
+
+
             SaveSettingsFile()
 
             'Checks only one Check box is checked across all realm search checkboxes - like radio buttons but not as yucky looking

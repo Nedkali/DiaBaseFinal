@@ -74,6 +74,18 @@ Public Class AppSetting
     Public DefaultPassword As String = "Unknown"            'variable used to replace Unknown passwords
     Public DefaultRealm As String = ""                      'variable used for setting default search realm
     Public DisplayLineBreaks As Boolean = False             'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
+    Public XSize As Integer = Nothing                       ' X,Y size co-ordinates for main form
+    Public YSize As Integer = Nothing
+    Public XPos As Integer = Nothing                        ' X,Y Position co-ordinates for main form
+    Public YPos As Integer = Nothing
+
+
+
+
+
+
+
+
     Public EtalVersion As String = "---"                    'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public
 End Class
 
