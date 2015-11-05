@@ -130,11 +130,14 @@
 
 
     End Sub
+    '-------------------------------------------------------------------------------------------------------------------------------------------
+    'SAVES THE NEWLY CRETED ITEM TO DATABASE AND ADDS IT TO THE ALL ITEMS LIST
+    '-------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub AddItemSaveChangesBUTTON_Click(sender As Object, e As EventArgs) Handles AddItemSaveChangesBUTTON.Click
 
         If AddItemNameTEXTBOX.Text <> "" Then
 
-            Dim NewItem As New ItemDatabase '                           Define NewItem As A New Object for ItemDatabase Class
+            Dim NewItem As New ItemDatabase '                           Defines NewItem As A New Object for ItemDatabase Class
             NewItem.ItemName = AddItemNameTEXTBOX.Text
             NewItem.ItemBase = AddItemBaseCOMBOBOX.Text
             NewItem.ItemQuality = AddItemQualityCOMBOBOX.Text
@@ -191,14 +194,14 @@
             Main.AllItemsLISTBOX.Items.Add(NewItem.ItemName)
             Me.Close()
 
-            'selects the newly added item to make the added item clearly visible and so easier to user verify
-            Main.AllItemsLISTBOX.SelectedIndex = Main.AllItemsLISTBOX.Items.Count - 1
+            'Selects the newly added item to make the added item clearly visible and so easier to user verify
+            Main.AllItemsLISTBOX.SelectedIndex = -1 : Main.AllItemsLISTBOX.SelectedIndex = Main.AllItemsLISTBOX.Items.Count - 1
             Main.DisplayItemStats(Main.AllItemsLISTBOX.Items.Count - 1)
 
         Else
 
             'If No Item Name Entry Then Pass to Error Handler - ROBS NOTE TO MYSLEF: Also check for any other required fields ned has added
-            Main.ErrorHandler(1100, 0, 0, 0)
+            Main.ErrorHandler(1101, 0, 0, 0)
 
             AddItemNameTEXTBOX.Select()
 

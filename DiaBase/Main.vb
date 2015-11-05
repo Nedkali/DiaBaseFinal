@@ -974,14 +974,18 @@ Public Class Main
                     ErrorHandlerForm.ErrorTrapMessageTEXTBOX.ScrollBars = ScrollBars.None
                 End If
                 DatabaseManagmentFunctions.CloseFile() ' Close and clear file
-            '-----------------------------------------------------------------------------------------
 
 
 
             Case 502 'FROM OPEN DATABASE ROUTINE - Read File Is Out Of Sync and May Be Corrupted
-                MessageBox.Show("FROM OPEN DATABASE ROUTINE - DATABASE FILE BEING OPENED IS OUT OF SYNC - MAY BE CORRUPTED AND NEED A BACKUP RESTORE -")
-                End
-
+                ErrorHandlerForm.ErrorTrapHeaderLABEL.Text = "DATABASE FILE ERROR - PROGRAM TERMINATION"
+                ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Visible = True
+                ErrorHandlerForm.ErrorTrapNoBUTTON.Text = "Exit DiaBASE"
+                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase has encountered a critical error while trying to open the " & Chr(34) & DatabaseManager.ManagerDatabasesLISTBOX.SelectedItem & Chr(34) & " database file." & vbCrLf & vbCrLf & "The items fields appear to be out of sync and cannot be read correctly. You will need to restore this database from backup or rebuild it to make it useable again."
+                ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
+                DialogResult = ErrorHandlerForm.ShowDialog()
+                End '<--------------------------------------------------------------------ROBS NOTE TO HIMSELF: THIS CAN BE RESCUED FCOL!!!!!! FIX THIS SO IT REBUILDS OR RESTORES FROM ERROR HANDLER ALSO ADD THE ITEM TRACKING VARS SO THE FAULTY ITEM OR LINE CAN BE DISPLAYED doh!
 
             Case 601 ' DATABASE MANAGEMENT FUNCTIONS MODULE - Unexpected Error Saving Database file
 
@@ -1037,8 +1041,7 @@ Public Class Main
                 DialogResult = ErrorHandlerForm.ShowDialog()
 
 
-            Case 1100
-
+            Case 1101 'NO ITEM NAME EXISTS WHEN SAVING NEW ITEM TO DATABASE - Returns Control To Add Item Form For User Correction
 
                 ErrorHandlerForm.ErrorTrapHeaderLABEL.Text = "ERROR ADDING NEW ITEM TO DATABASE"
                 ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
