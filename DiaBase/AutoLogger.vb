@@ -376,6 +376,14 @@ Module AutoLogger
                         NewObject.Stat1 = "Right-click to reset Stat/Skill Points"
                     End If
 
+                    ' Handles set to nonladder if date set before last b.net reset
+                    Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                    Dim tempdate As Date
+                    tempdate = Date.ParseExact(NewObject.ImportDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                    If tempdate > resetdate And NewObject.Ladder = True Then
+                        NewObject.Ladder = False
+                    End If
+
                     ItemObjects.Add(NewObject)
 
                 Loop Until LogFile.EndOfStream

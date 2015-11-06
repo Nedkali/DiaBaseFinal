@@ -26,8 +26,8 @@ Public Class ExitApplication
         '=======================================================================================
         'remmed these out for now till i figure it out
 
-        'ExitApplicationSaveDatabaseCHECKBOX.CheckState = AppSettings.SaveOnExit
-        'ExitApplicationBackupDatabaseCHECKBOX.CheckState = AppSettings.BackupOnExit
+        ExitApplicationSaveDatabaseCHECKBOX.Checked = AppSettings.SaveOnExit
+        ExitApplicationBackupDatabaseCHECKBOX.Checked = AppSettings.BackupOnExit
 
 
 

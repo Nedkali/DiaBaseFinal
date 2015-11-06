@@ -62,6 +62,8 @@ Public Class Settings
         AutoBackupEditsCHECKBOX.Checked = AppSettings.BackupBeforeEdits         'Backup before item edits bool
         RemoveMuleDupeCHECKBOX.Checked = AppSettings.RemoveMuleDupes            'Remove mule dupe bool
         SoundMuteCHECKBOX.Checked = AppSettings.SoundMute                       'Sound Setting bool
+        SaveOnExit.Checked = AppSettings.SaveOnExit
+        BackupOnExit.Checked = AppSettings.BackupOnExit
         If AppSettings.DefaultRealm <> "" Then
             SearchRealmCBOX.SelectedItem = AppSettings.DefaultRealm
         Else SearchRealmCBOX.SelectedIndex = 0
@@ -116,6 +118,8 @@ Public Class Settings
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
             AppSettings.BackupBeforeEdits = AutoBackupEditsCHECKBOX.CheckState
+            AppSettings.SaveOnExit = SaveOnExit.Checked
+            AppSettings.BackupOnExit = BackupOnExit.Checked
             AppSettings.AutoLoggingDelay = AutoLogingDelayNUMERICUPDOWN.Value
             AppSettings.DefaultPassword = DefaultPasswordTEXTBOX.Text
             AppSettings.DefaultRealm = SearchRealmCBOX.Text

@@ -40,7 +40,9 @@ Module DatabaseManagmentFunctions
             End If
 
         Catch ex As Exception                                           'All Other Unforseen System Error Handler - pass to error handler
-            Main.ErrorHandler(101, ex, 0, 0)
+            AppSettings = New AppSetting
+            Return
+            'Main.ErrorHandler(101, ex, 0, 0)
         End Try
 
         'Apply LineBreak Bool Value To Menu Control Checkstate
