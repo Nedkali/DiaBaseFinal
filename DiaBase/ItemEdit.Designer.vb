@@ -2446,7 +2446,7 @@ Partial Class ItemEdit
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.D2BACKGROUNDPIC
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(794, 601)
+        Me.ClientSize = New System.Drawing.Size(794, 602)
         Me.ControlBox = False
         Me.Controls.Add(Me.EditItemUndoChangesBUTTON)
         Me.Controls.Add(Me.Label36)

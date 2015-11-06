@@ -258,4 +258,10 @@ Public Class ItemEdit
         PopulateEditComboboxes()
 
     End Sub
+
+    Private Sub EditItemImageBUTTON_Click(sender As Object, e As EventArgs) Handles EditItemImageBUTTON.Click
+        SkinSelector.ShowDialog()
+        Dim ItemIndexNumber = Main.AllItemsLISTBOX.SelectedIndex
+        EditItemImageTEXTBOX.Text = ItemObjects(ItemIndexNumber).ItemImage
+    End Sub
 End Class

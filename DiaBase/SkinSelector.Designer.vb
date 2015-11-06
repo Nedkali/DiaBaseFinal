@@ -30,35 +30,36 @@ Partial Class SkinSelector
         Me.SkinSelectorPICTUREBOX = New System.Windows.Forms.PictureBox()
         Me.SkinSelectorSelectBUTTON = New System.Windows.Forms.Button()
         Me.SkinSelectorCancelBUTTON = New System.Windows.Forms.Button()
-        Me.SkinNameTEXTBOX = New System.Windows.Forms.TextBox()
         Me.SkinSelectorInfoTEXTBOX = New System.Windows.Forms.TextBox()
         Me.SkinSelectorHeadingLABEL = New System.Windows.Forms.Label()
         Me.SkinSelectorUpBUTTON = New System.Windows.Forms.Button()
         Me.SkinSelectorDownBUTTON = New System.Windows.Forms.Button()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         CType(Me.SkinSelectorPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(140, 246)
+        Me.Label2.Location = New System.Drawing.Point(135, 243)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(2, 20)
+        Me.Label2.Size = New System.Drawing.Size(2, 22)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "0"
         '
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label8.Location = New System.Drawing.Point(49, 246)
+        Me.Label8.Location = New System.Drawing.Point(44, 243)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(2, 20)
+        Me.Label8.Size = New System.Drawing.Size(2, 22)
         Me.Label8.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(51, 264)
+        Me.Label1.Location = New System.Drawing.Point(46, 265)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(90, 2)
         Me.Label1.TabIndex = 0
@@ -66,7 +67,7 @@ Partial Class SkinSelector
         'Label128
         '
         Me.Label128.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label128.Location = New System.Drawing.Point(51, 246)
+        Me.Label128.Location = New System.Drawing.Point(46, 243)
         Me.Label128.Name = "Label128"
         Me.Label128.Size = New System.Drawing.Size(90, 2)
         Me.Label128.TabIndex = 0
@@ -77,11 +78,11 @@ Partial Class SkinSelector
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SkinSelectorPICTUREBOX.BackColor = System.Drawing.SystemColors.ControlText
         Me.SkinSelectorPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.ImageBackground
-        Me.SkinSelectorPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.SkinSelectorPICTUREBOX.Location = New System.Drawing.Point(29, 82)
+        Me.SkinSelectorPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SkinSelectorPICTUREBOX.Location = New System.Drawing.Point(42, 76)
         Me.SkinSelectorPICTUREBOX.Name = "SkinSelectorPICTUREBOX"
-        Me.SkinSelectorPICTUREBOX.Padding = New System.Windows.Forms.Padding(11, 9, 0, 0)
-        Me.SkinSelectorPICTUREBOX.Size = New System.Drawing.Size(133, 132)
+        Me.SkinSelectorPICTUREBOX.Padding = New System.Windows.Forms.Padding(5, 5, 0, 0)
+        Me.SkinSelectorPICTUREBOX.Size = New System.Drawing.Size(97, 129)
         Me.SkinSelectorPICTUREBOX.TabIndex = 885
         Me.SkinSelectorPICTUREBOX.TabStop = False
         '
@@ -110,14 +111,6 @@ Partial Class SkinSelector
         Me.SkinSelectorCancelBUTTON.TabIndex = 5
         Me.SkinSelectorCancelBUTTON.Text = "Cancel"
         Me.SkinSelectorCancelBUTTON.UseVisualStyleBackColor = False
-        '
-        'SkinNameTEXTBOX
-        '
-        Me.SkinNameTEXTBOX.BackColor = System.Drawing.Color.Black
-        Me.SkinNameTEXTBOX.Location = New System.Drawing.Point(49, 246)
-        Me.SkinNameTEXTBOX.Name = "SkinNameTEXTBOX"
-        Me.SkinNameTEXTBOX.Size = New System.Drawing.Size(93, 20)
-        Me.SkinNameTEXTBOX.TabIndex = 3
         '
         'SkinSelectorInfoTEXTBOX
         '
@@ -171,6 +164,14 @@ Partial Class SkinSelector
         Me.SkinSelectorDownBUTTON.Text = "\/"
         Me.SkinSelectorDownBUTTON.UseVisualStyleBackColor = False
         '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(46, 245)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {659, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(89, 20)
+        Me.NumericUpDown1.TabIndex = 893
+        '
         'SkinSelector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -179,6 +180,7 @@ Partial Class SkinSelector
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(469, 310)
         Me.ControlBox = False
+        Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.SkinSelectorDownBUTTON)
         Me.Controls.Add(Me.SkinSelectorUpBUTTON)
         Me.Controls.Add(Me.SkinSelectorHeadingLABEL)
@@ -190,10 +192,10 @@ Partial Class SkinSelector
         Me.Controls.Add(Me.SkinSelectorPICTUREBOX)
         Me.Controls.Add(Me.SkinSelectorSelectBUTTON)
         Me.Controls.Add(Me.SkinSelectorCancelBUTTON)
-        Me.Controls.Add(Me.SkinNameTEXTBOX)
         Me.Name = "SkinSelector"
         Me.Text = "Item Skin Selector"
         CType(Me.SkinSelectorPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -206,9 +208,9 @@ Partial Class SkinSelector
     Friend WithEvents SkinSelectorPICTUREBOX As PictureBox
     Friend WithEvents SkinSelectorSelectBUTTON As Button
     Friend WithEvents SkinSelectorCancelBUTTON As Button
-    Friend WithEvents SkinNameTEXTBOX As TextBox
     Friend WithEvents SkinSelectorInfoTEXTBOX As TextBox
     Friend WithEvents SkinSelectorHeadingLABEL As Label
     Friend WithEvents SkinSelectorUpBUTTON As Button
     Friend WithEvents SkinSelectorDownBUTTON As Button
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class
