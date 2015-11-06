@@ -48,14 +48,14 @@ Module GlobalVars
 
     'Search Pulldown Reference Lists Used to hold fields and entry values that exist in the database at runtime
     'this way lists are smaller, itterate quicker, and only have entries that will lead to valid searches
-    'these must refersh every session as well as every database edit. Will setup routine in DatabaseManagmentFunctions module
+    'these must refersh every session as well as every database edit.
 
-    Public ItemNamePulldownList As List(Of String) = New List(Of String)
-    Public UniqueAttribsPulldownList As List(Of String) = New List(Of String)
-    Public UserReferencePulldownList As List(Of String) = New List(Of String)
+    Public ItemNamePulldownList As List(Of String) = New List(Of String)            'Holds successful search values for Item Name Field
+    Public UniqueAttribsPulldownList As List(Of String) = New List(Of String)       'Holds successful search values for Unique Attributes Fields
+    Public UserReferencePulldownList As List(Of String) = New List(Of String)       'Holds successful search values for UserReference Field
 
 
-    Public SuccessfulSearch As Boolean = False
+    Public SuccessfulSearch As Boolean = False  'used to trigger routine to add new successfull search entries into search combobox lists and above reference lists
 
 
     'itemedit var
