@@ -11,6 +11,8 @@ Module GlobalVars
 
     Public SearchReferenceList As List(Of String) = New List(Of String)                 'Stores searched items main list index values - used to focus on correct item in the main list
     Public RefineSearchReferenceList As List(Of String) = New List(Of String)           'Stores temporary list of searched items index values - used when refining search lists
+    Public UndoSearchList As List(Of String) = New List(Of String)
+    Public UndoRefineSearchList As List(Of String) = New List(Of String)
     Public UserListReferenceList As List(Of String) = New List(Of String)               'Stores list of user item index values - used to focus on correct item when the containing database is open
     Public StringMatches As List(Of String) = New List(Of String)                       'Stores a list of item index values that match string searches  - used by search routine
     Public IntegerMatches As List(Of String) = New List(Of String)                      'Stores a list of item index values that match integer searches - used by search routine

@@ -859,6 +859,10 @@ Public Class Main
     Private Sub SearchBUTTON_Click(sender As Object, e As EventArgs) Handles SearchBUTTON.Click
 
         If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
+        'If RefineSearchReferenceList.Count > 0 Then UndoRefineSearchList = RefineSearchReferenceList
+        If SearchReferenceList.Count > 0 Then UndoSearchList = SearchReferenceList
+        If UndoSearchList.Count > 0 Then UndoSearchMenuItem.Enabled = True
+
         SearchRoutine(SuccessfulSearch)
 
         'POPULATES SEARCHES QUICK SELECTION DROP DOWN COLLECTIONS after successful search entries (Item Name, User Reference, Unique Attribs Strings)
@@ -1715,5 +1719,17 @@ Public Class Main
             HideDupesMENUITEM.Checked = True
             AppSettings.HideDupes = True
         End If
+    End Sub
+
+    Private Sub UndoSearchMenuItem_Click(sender As Object, e As EventArgs) Handles UndoSearchMenuItem.Click
+        If UndoSearchList.Count > 0 Then
+            SearchReferenceList = UndoSearchList
+            SearchLISTBOX.Items.Clear()
+            For index = 0 To SearchReferenceList.Count - 1
+                SearchLISTBOX.Items.Add(ItemObjects(index).ItemName)
+            Next
+        End If
+        UndoSearchMenuItem.Enabled = False
+        UndoSearchList.Clear()
     End Sub
 End Class
