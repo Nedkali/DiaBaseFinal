@@ -2,7 +2,7 @@
 Module GlobalVars
     'Attempt to keep globals to a minimum
 
-    Public VersionAndRevision As String = "DiaBASE Version 10"               'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
+    Public VersionAndRevision As String = "DIABASE 1.0"                         'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
     Public pfc As New PrivateFontCollection()                                   'Defines Custom Font Collection pfc As Global (Diablo Game Font)
 
     'DEFINE OBJECT ARRAY LISTS

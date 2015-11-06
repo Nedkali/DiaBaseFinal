@@ -142,8 +142,8 @@ Public Class Settings
             'Update etal version info..
             If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
             If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
-            If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
-            If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
+            If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - RD Mode"
+            If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - BE Mode"
 
         End If
     End Sub

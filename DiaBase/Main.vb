@@ -185,8 +185,8 @@ Public Class Main
         'THIS DETERMINES WHICH ETAL IS CURRENTLY BEING USED (PUBLIC OR NEDS) AND SETS THE NEW AppSettings.EtalVersion var to either "NED" or "PUB" (not to be confused with ned at the pub :)
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
-        If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
-        If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
+        If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - RD Mode"
+        If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - BE Mode"
 
         'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
         StartTimer()
