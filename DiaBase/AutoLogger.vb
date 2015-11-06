@@ -7,14 +7,17 @@ Module AutoLogger
         'Main.RichTextBox1.AppendText("Aborting - Default database not loaded")
         'Return
         'End If
-
-
-        'Assign correct directory to each log search using the REalmPath Var
-        Dim RealmPath = "\scripts\Configs\USEast\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "East") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\USWest\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "West") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\Asia\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Asia") : GetLogs(RealmPath, relog)
-        RealmPath = "\scripts\Configs\Europe\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Europe") : GetLogs(RealmPath, relog)
-
+        Dim RealmPath = ""
+        If AppSettings.EtalVersion = "NED" Then
+            'Assign correct directory to each log search using the REalmPath Var
+            RealmPath = "\scripts\Configs\USEast\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "East") : GetLogs(RealmPath, relog)
+            RealmPath = "\scripts\Configs\USWest\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "West") : GetLogs(RealmPath, relog)
+            RealmPath = "\scripts\Configs\Asia\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Asia") : GetLogs(RealmPath, relog)
+            RealmPath = "\scripts\Configs\Europe\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Europe") : GetLogs(RealmPath, relog)
+            Return
+        End If
+        RealmPath = "\scripts\AMS"
+        GetLogs(RealmPath, relog)
 
     End Sub
 
@@ -29,24 +32,23 @@ Module AutoLogger
         'Check Log folder for files to process
         GetLogFiles()
         If LogFilesList.Count = 0 Then
-            Main.ImportLogRICHTEXTBOX.AppendText(" Realm Has No Logs Ready.")
-            Main.ImportLogRICHTEXTBOX.ScrollToCaret()
-            Return 'If There Are no Log Files - exit
+            If AppSettings.EtalVersion = "NED" Then Main.ImportLogRICHTEXTBOX.AppendText(" Realm Has No Logs Ready.") : Main.ImportLogRICHTEXTBOX.ScrollToCaret() : Return 'If There Are no Log Files - exit
+            Main.ImportLogRICHTEXTBOX.AppendText("No Logs Ready.") : Main.ImportLogRICHTEXTBOX.ScrollToCaret() : Return
         End If
 
-        'Backup the database
-        If AppSettings.BackupBeforeImports = True Then
-            CreateBackup(AppSettings.CurrentDatabase)
-        End If
+            'Backup the database
+            If AppSettings.BackupBeforeImports = True Then
+                CreateBackup(AppSettings.CurrentDatabase)
+            End If
 
-        Main.ImportLogRICHTEXTBOX.AppendText(" Realm, Logs To Import = " & LogFilesList.Count & vbCrLf)
-        Pretotal = ItemObjects.Count
-        ProcessLogFiles(Relog)
-        WriteToFile(0, AppSettings.DefaultDatabase, False)  'saves entire item objects and overwrites file contents
-        For ItemIndex = Pretotal To ItemObjects.Count - 1
-            Main.AllItemsLISTBOX.Items.Add(ItemObjects(ItemIndex).ItemName)
-        Next
-        Main.ImportLogRICHTEXTBOX.AppendText(TimeOfDay & " - Import Complete. Total Items = " & (ItemObjects.Count - Pretotal) & vbCrLf)
+            Main.ImportLogRICHTEXTBOX.AppendText(" Realm, Logs To Import = " & LogFilesList.Count & vbCrLf)
+            Pretotal = ItemObjects.Count
+            ProcessLogFiles(Relog)
+            WriteToFile(0, AppSettings.DefaultDatabase, False)  'saves entire item objects and overwrites file contents
+            For ItemIndex = Pretotal To ItemObjects.Count - 1
+                Main.AllItemsLISTBOX.Items.Add(ItemObjects(ItemIndex).ItemName)
+            Next
+            Main.ImportLogRICHTEXTBOX.AppendText(TimeOfDay & " - Import Complete. Total Items = " & (ItemObjects.Count - Pretotal) & vbCrLf)
         Main.ImportLogRICHTEXTBOX.ScrollToCaret()
     End Sub
 
