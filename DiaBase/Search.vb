@@ -3,7 +3,6 @@
 
         SuccessfulSearch = False                                 'Reset 'Found Matches' Flag - Is used to trigger routine to populate search combolists on successful searches only - adds succesfull word to relvant referece list -that is all
 
-
         RefineSearchReferenceList.Clear()                       'Clear out old refine list
         If SearchReferenceList.Count > 0 Then                   'Can only run a refined search if items exist already in the search lisbox
             For Each item In SearchReferenceList
@@ -12,6 +11,7 @@
                 '                                               'Refine searches will use this list to look for matches as opposed all items list
             Next
         End If
+
 
         SearchReferenceList.Clear()                             'Clear Out old Item Search Reference List (Holds location in database of each matched item)
         Main.SearchLISTBOX.Items.Clear()                        'Clear out old search matches

@@ -54,6 +54,7 @@ Partial Class Main
         Me.SaveDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItemsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoDeleteMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UndoSearchMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditExistingItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearUserListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
@@ -193,7 +194,6 @@ Partial Class Main
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
-        Me.UndoSearchMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -411,6 +411,13 @@ Partial Class Main
         Me.UndoDeleteMENUITEM.Name = "UndoDeleteMENUITEM"
         Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(165, 22)
         Me.UndoDeleteMENUITEM.Text = "UnDo Delete"
+        '
+        'UndoSearchMenuItem
+        '
+        Me.UndoSearchMenuItem.Enabled = False
+        Me.UndoSearchMenuItem.Name = "UndoSearchMenuItem"
+        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.UndoSearchMenuItem.Text = "Undo Search"
         '
         'SelectAllMENUITEM
         '
@@ -1767,13 +1774,6 @@ Partial Class Main
         Me.ItemNameRICHTEXTBOX.Size = New System.Drawing.Size(219, 45)
         Me.ItemNameRICHTEXTBOX.TabIndex = 428
         Me.ItemNameRICHTEXTBOX.Text = ""
-        '
-        'UndoSearchMenuItem
-        '
-        Me.UndoSearchMenuItem.Enabled = False
-        Me.UndoSearchMenuItem.Name = "UndoSearchMenuItem"
-        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.UndoSearchMenuItem.Text = "Undo Search"
         '
         'Main
         '

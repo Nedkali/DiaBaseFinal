@@ -151,7 +151,7 @@ Public Class UserListDatabase
     '                   I first started with just a public array like the search list reference file but it wasnt enough, once a new database is 
     '                   loaded the user items would have no object reference and crash the app. 
     'another note from ned :) - the object array would be sepatated im sure by doing
-    '                   Public UserObjects As List(Of UserListDatabase) = New List(Of ItemDatabase)
+    '                   Public UserObjects As List(Of ItemDatabase) = New List(Of ItemDatabase)
 
     Public DatabaseFilename As String 'This field is unique to this class - Used to link items back to thier containing database in the user list.
 End Class

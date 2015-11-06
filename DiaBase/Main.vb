@@ -859,9 +859,10 @@ Public Class Main
     Private Sub SearchBUTTON_Click(sender As Object, e As EventArgs) Handles SearchBUTTON.Click
 
         If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
-        'If RefineSearchReferenceList.Count > 0 Then UndoRefineSearchList = RefineSearchReferenceList
-        If SearchReferenceList.Count > 0 Then UndoSearchList = SearchReferenceList
-        If UndoSearchList.Count > 0 Then UndoSearchMenuItem.Enabled = True
+        UndoSearchList.Clear()
+        For Each item In SearchReferenceList
+            UndoSearchList.Add(item)
+        Next
 
         SearchRoutine(SuccessfulSearch)
 
@@ -878,9 +879,24 @@ Public Class Main
             End If
             SuccessfulSearch = False
         End If
+
+        If UndoSearchList.Count > 0 Then
+            UndoSearchMenuItem.Enabled = True
+        End If
     End Sub
 
+    'UNDO LAST SEARCH
+    Private Sub UndoSearchMenuItem_Click(sender As Object, e As EventArgs) Handles UndoSearchMenuItem.Click
 
+        SearchLISTBOX.Items.Clear()
+        SearchReferenceList.Clear()
+        For index = 0 To UndoSearchList.Count - 1
+            SearchReferenceList.Add(UndoSearchList(index))
+            SearchLISTBOX.Items.Add(ItemObjects(SearchReferenceList(index)).ItemName)
+        Next
+        UndoSearchMenuItem.Enabled = False
+        SearchListControlTabBUTTON_Click(sender, e)
+    End Sub
     '=====================================================================================================================================================================
     'ERROR TRAP EVENT HANDLER - Handles all errors for application. If Possible all trapping handlers should terminate here.
     '=====================================================================================================================================================================
@@ -1721,15 +1737,5 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub UndoSearchMenuItem_Click(sender As Object, e As EventArgs) Handles UndoSearchMenuItem.Click
-        If UndoSearchList.Count > 0 Then
-            SearchReferenceList = UndoSearchList
-            SearchLISTBOX.Items.Clear()
-            For index = 0 To SearchReferenceList.Count - 1
-                SearchLISTBOX.Items.Add(ItemObjects(index).ItemName)
-            Next
-        End If
-        UndoSearchMenuItem.Enabled = False
-        UndoSearchList.Clear()
-    End Sub
+
 End Class
