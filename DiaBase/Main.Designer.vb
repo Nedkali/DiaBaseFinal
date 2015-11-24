@@ -44,6 +44,11 @@ Partial Class Main
         Me.RebuildDefaultDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MulesAccsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.USWestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.USEastToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EuropeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSearchListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -264,7 +269,7 @@ Partial Class Main
         'SettingsMenuMENUGROUP
         '
         Me.SettingsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsMENUITEM, Me.ImportNowMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator7, Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ToolStripSeparator9, Me.SetNonLadderMENUGROUP, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator4, Me.LoadItemMuleMENUITEM})
+        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsMENUITEM, Me.ImportNowMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator7, Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ToolStripSeparator9, Me.SetNonLadderMENUGROUP, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator4, Me.LoadItemMuleMENUITEM, Me.MulesAccsToolStripMenuItem})
         Me.SettingsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.SettingsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SettingsMenuMENUGROUP.Name = "SettingsMenuMENUGROUP"
@@ -347,6 +352,37 @@ Partial Class Main
         Me.LoadItemMuleMENUITEM.Name = "LoadItemMuleMENUITEM"
         Me.LoadItemMuleMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.LoadItemMuleMENUITEM.Text = "Load Selected Item Mule"
+        '
+        'MulesAccsToolStripMenuItem
+        '
+        Me.MulesAccsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USWestToolStripMenuItem, Me.USEastToolStripMenuItem, Me.AsiaToolStripMenuItem, Me.EuropeToolStripMenuItem})
+        Me.MulesAccsToolStripMenuItem.Name = "MulesAccsToolStripMenuItem"
+        Me.MulesAccsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.MulesAccsToolStripMenuItem.Text = "Mules Accs"
+        '
+        'USWestToolStripMenuItem
+        '
+        Me.USWestToolStripMenuItem.Name = "USWestToolStripMenuItem"
+        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USWestToolStripMenuItem.Text = "USWest"
+        '
+        'USEastToolStripMenuItem
+        '
+        Me.USEastToolStripMenuItem.Name = "USEastToolStripMenuItem"
+        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USEastToolStripMenuItem.Text = "USEast"
+        '
+        'AsiaToolStripMenuItem
+        '
+        Me.AsiaToolStripMenuItem.Name = "AsiaToolStripMenuItem"
+        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AsiaToolStripMenuItem.Text = "Asia"
+        '
+        'EuropeToolStripMenuItem
+        '
+        Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
+        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EuropeToolStripMenuItem.Text = "Europe"
         '
         'ClearTradeListMENUITEM
         '
@@ -2054,4 +2090,9 @@ Partial Class Main
     Friend WithEvents ClearImportLogMENUITEM As ToolStripMenuItem
     Friend WithEvents ItemNameRICHTEXTBOX As RichTextBox
     Friend WithEvents UndoSearchMenuItem As ToolStripMenuItem
+    Friend WithEvents MulesAccsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents USWestToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents USEastToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AsiaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EuropeToolStripMenuItem As ToolStripMenuItem
 End Class

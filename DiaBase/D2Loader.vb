@@ -99,8 +99,8 @@
             WriteFile.WriteLine("           break;")
 
             WriteFile.WriteLine("       case 8:")
-            WriteFile.WriteLine("           ClickScreen(0, 295, 315);") ' SinglePlayer
-            'WriteFile.WriteLine("           SelectRealm(""" & ItemObjects(x).ItemRealm & """);")
+            'WriteFile.WriteLine("           ClickScreen(0, 295, 315);") ' SinglePlayer
+            WriteFile.WriteLine("           SelectRealm(""" & ItemObjects(x).ItemRealm & """);")
             WriteFile.WriteLine("           Sleep(1000);")
             WriteFile.WriteLine("           break;")
 
@@ -110,8 +110,8 @@
             WriteFile.WriteLine("           break;")
 
             WriteFile.WriteLine("       case 12:")
-            WriteFile.WriteLine("           SelectChar(""SugarLips"");")
-            'WriteFile.WriteLine("           SelectChar(""" & ItemObjects(x).MuleName & """);")
+            'WriteFile.WriteLine("           SelectChar(""SugarLips"");")
+            WriteFile.WriteLine("           SelectChar(""" & ItemObjects(x).MuleName & """);")
             WriteFile.WriteLine("           Sleep(1000);")
             WriteFile.WriteLine("           break;")
 
@@ -153,18 +153,52 @@
         ' load routine
 
 
-        Dim myProcess As Process = New Process
-        myProcess.StartInfo.FileName = D2Path
-        Dim ApArgs As String = ""
-        ApArgs = ApArgs & "-w"
-        myProcess.StartInfo.Arguments = ApArgs
-        'need someway to multi load TODO		 
-        myProcess.Start()
-        Dim AppName = Process.GetProcessesByName("Game")
-        If AppName.Length = 0 Then
+        Dim myprocess As Process = New Process()
+        myprocess.EnableRaisingEvents = True
+        Dim ApArgs As String = "-w"
+
+        myprocess.StartInfo.Arguments = ApArgs
+        myprocess.StartInfo.FileName = D2Path
+        myprocess.StartInfo.UseShellExecute = False
+
+        Dim p As Process = New Process()
+        Dim d2RelPath = Replace(D2Path, "Game.exe", "")
+        myprocess.StartInfo.WorkingDirectory = d2RelPath
+
+        p = PInvoke.Extensions.StartSuspended(p, myprocess.StartInfo) 'loads D2 into memory
+
+        'blocks 2nd instance check
+        Dim oldValue(1) As Byte
+        Dim newvalue() As Byte = {&HEB, &H45}
+        Dim address As New IntPtr(&H6FA80000 + &HB6B0)
+        Try 'a287
+            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, d2RelPath & "D2Gfx.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx")
+            If Not PInvoke.Kernel32.ReadProcessMemory(p, address, oldValue) Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to read window fix")
+            If PInvoke.Kernel32.WriteProcessMemory(p, address, newvalue) = 0 Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to write window fix")
+        Catch
+            Main.ImportLogRICHTEXTBOX.AppendText(" error on window fix " & address.ToString)
+            myprocess.Kill()
             Return
-        End If
-        Inject(AppName(0).Id)
+        End Try
+
+        If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\CloBot.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
+
+        PInvoke.Kernel32.ResumeProcess(p)
+        p.WaitForInputIdle()
+
+
+        'Dim myProcess As Process = New Process
+        'myProcess.StartInfo.FileName = D2Path
+        'Dim ApArgs As String = ""
+        'ApArgs = ApArgs & "-w"
+        'myProcess.StartInfo.Arguments = ApArgs
+        ''need someway to multi load TODO		 
+        'myProcess.Start()
+        'Dim AppName = Process.GetProcessesByName("Game")
+        'If AppName.Length = 0 Then
+        '    Return
+        'End If
+        'Inject(AppName(0).Id)
 
     End Sub
 

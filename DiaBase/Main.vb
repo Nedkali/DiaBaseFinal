@@ -1737,5 +1737,33 @@ Public Class Main
         End If
     End Sub
 
+    'Generates list of mule accounts and passwords - this is for neds use atm - wont be included in final release
+    Private Sub USWestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles USWestToolStripMenuItem.Click
+        MuleListing("USWest")
+    End Sub
+
+    Private Sub AsiaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsiaToolStripMenuItem.Click
+        MuleListing("Asia")
+    End Sub
+
+    Private Sub USEastToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles USEastToolStripMenuItem.Click
+        MuleListing("USEast")
+    End Sub
+
+    Private Sub EuropeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EuropeToolStripMenuItem.Click
+        MuleListing("Europe")
+    End Sub
+    Private Sub MuleListing(ByVal str)
+        TradeListRICHTEXTBOX.Clear()
+        Dim temp As String = ""
+        For index = 0 To ItemObjects.Count - 1
+            If ItemObjects(index).ItemRealm = str Then
+                temp = ItemObjects(index).MuleAccount & "/" & ItemObjects(index).MulePass
+                If TradeListRICHTEXTBOX.Text.Contains(temp) = True Then Continue For
+                TradeListRICHTEXTBOX.AppendText(temp & vbCrLf)
+            End If
+        Next
+
+    End Sub
 
 End Class
