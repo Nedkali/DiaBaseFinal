@@ -585,6 +585,9 @@ Public Class Main
     Private Sub SortItemsMainMenu_Click(sender As Object, e As EventArgs) Handles SortItemsMainMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
+        SearchLISTBOX.Items.Clear()
+        RefineSearchReferenceList.Clear()
+        SearchReferenceList.Clear()
         ItemTallyTEXTBOX.Text = ("Sorting A to Z)")
         ItemObjects.Sort(Function(x, y) x.ItemName.CompareTo(y.ItemName))
         PopulateAllItemsLISTBOX()
@@ -626,7 +629,7 @@ Public Class Main
             Next
             AllItemsLISTBOX.SelectedIndex = -1
         End If
-
+        DupesList(True)
         'DupeCountProgressForm.Close()
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
@@ -1361,16 +1364,16 @@ Public Class Main
 
     'sub to set to nonladder based on mule logged date
     Private Sub SetLadderByDateMainMenu_Click(sender As Object, e As EventArgs) Handles SetLadderByDateMENUITEM.Click
-        'may need try catch here
-        Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
-        Dim temp As Date
 
+        'may need try catch here
+
+        Dim temp As Date
+        Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
         For index = 0 To ItemObjects.Count - 1
             ItemObjects(index).ImportDate = ItemObjects(index).ImportDate.Replace("\", "/")
-            temp = Date.ParseExact(ItemObjects(index).ImportDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
-            If temp > resetdate And ItemObjects(index).Ladder = True Then
-                ItemObjects(index).Ladder = False
-            End If
+            temp = Date.ParseExact(ItemObjects(index).ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+            If temp < resetdate Then ItemObjects(index).Ladder = False : Continue For
+            ItemObjects(index).Ladder = True
         Next
 
     End Sub
@@ -1397,6 +1400,7 @@ Public Class Main
             Next
 
         End If
+        DupesList(True)
 
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
         ListboxTABCONTROL.SelectTab(2)
@@ -1646,6 +1650,8 @@ Public Class Main
 
         End If
 
+        DupesList(True)
+
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
         ListboxTABCONTROL.SelectTab(2)
 
@@ -1764,6 +1770,19 @@ Public Class Main
             End If
         Next
 
+        ListboxTABCONTROL.SelectTab(2)
+        TradesListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
+        SearchListControlTabBUTTON.BackgroundImage = Nothing
+        ListControlTabBUTTON.BackgroundImage = Nothing
+        UserRefControlTabBUTTON.BackgroundImage = Nothing
+
+        'SHORT ROUTINE TO COUNT TRADE ITEMS IN RICHTEXT3 BY COUNTING THE GAPS BETWEEN THE ITEMS (SUBTRACTS 1 DUE TO EMPTY LINE AT END OF TEXT) 
+        Dim TradeItemCounter As Integer = 0
+        For Each item In TradeListRICHTEXTBOX.Lines
+            If item = Nothing Then TradeItemCounter = TradeItemCounter + 1
+        Next
+        If TradeItemCounter = 0 Then TradeItemCounter = 1
+        ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
     End Sub
 
 End Class

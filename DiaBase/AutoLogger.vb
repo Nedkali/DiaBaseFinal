@@ -379,12 +379,10 @@ Module AutoLogger
                     End If
 
                     ' Handles set to nonladder if date set before last b.net reset
-                    Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                    Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
                     Dim tempdate As Date
-                    tempdate = Date.ParseExact(NewObject.ImportDate, "d/m/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
-                    If tempdate > resetdate And NewObject.Ladder = True Then
-                        NewObject.Ladder = False
-                    End If
+                    tempdate = Date.ParseExact(NewObject.ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                    If Date.Compare(tempdate, resetdate) < 0 Then NewObject.Ladder = False
 
                     ItemObjects.Add(NewObject)
 

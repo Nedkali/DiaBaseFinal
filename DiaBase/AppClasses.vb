@@ -48,7 +48,7 @@ Public Class ItemDatabase
     Public MulePass As String
     Public PickitAccount As String
     Public HardCore As Boolean
-    Public Ladder As Boolean
+    Public Ladder As Boolean = False
     Public Expansion As Boolean
     Public UserField As String
     Public ItemImage As Integer

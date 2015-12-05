@@ -187,19 +187,6 @@
         p.WaitForInputIdle()
 
 
-        'Dim myProcess As Process = New Process
-        'myProcess.StartInfo.FileName = D2Path
-        'Dim ApArgs As String = ""
-        'ApArgs = ApArgs & "-w"
-        'myProcess.StartInfo.Arguments = ApArgs
-        ''need someway to multi load TODO		 
-        'myProcess.Start()
-        'Dim AppName = Process.GetProcessesByName("Game")
-        'If AppName.Length = 0 Then
-        '    Return
-        'End If
-        'Inject(AppName(0).Id)
-
     End Sub
 
 

@@ -358,30 +358,30 @@ Partial Class Main
         Me.MulesAccsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USWestToolStripMenuItem, Me.USEastToolStripMenuItem, Me.AsiaToolStripMenuItem, Me.EuropeToolStripMenuItem})
         Me.MulesAccsToolStripMenuItem.Name = "MulesAccsToolStripMenuItem"
         Me.MulesAccsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.MulesAccsToolStripMenuItem.Text = "Mules Accs"
+        Me.MulesAccsToolStripMenuItem.Text = "List Mules Accs"
         '
         'USWestToolStripMenuItem
         '
         Me.USWestToolStripMenuItem.Name = "USWestToolStripMenuItem"
-        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.USWestToolStripMenuItem.Text = "USWest"
         '
         'USEastToolStripMenuItem
         '
         Me.USEastToolStripMenuItem.Name = "USEastToolStripMenuItem"
-        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.USEastToolStripMenuItem.Text = "USEast"
         '
         'AsiaToolStripMenuItem
         '
         Me.AsiaToolStripMenuItem.Name = "AsiaToolStripMenuItem"
-        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.AsiaToolStripMenuItem.Text = "Asia"
         '
         'EuropeToolStripMenuItem
         '
         Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
-        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.EuropeToolStripMenuItem.Text = "Europe"
         '
         'ClearTradeListMENUITEM
