@@ -1785,4 +1785,47 @@ Public Class Main
         ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
     End Sub
 
+    Private Sub VerifyLoggingFilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerifyLoggingFilesToolStripMenuItem.Click
+        Dim TempPath As String = ""
+        Dim TempPath2 As String = ""
+        Dim sourcefile As String = ""
+        Dim sourcefile2 As String = ""
+        'Rd version file verify and copy if incorrect version
+        If AppSettings.EtalVersion = "NED" Then
+            TempPath = AppSettings.EtalPath + "\scripts\Common\CPickUp.ntj"
+            TempPath2 = AppSettings.EtalPath + "\scripts\Common\Bots\CBMuleLogging.ntj"
+            sourcefile = Application.StartupPath + "\Extras\CPickUp.ntj"
+            sourcefile2 = Application.StartupPath + "\Extras\CBMuleLogging.ntj"
+        End If
+        If AppSettings.EtalVersion = "BE" Then
+            TempPath = AppSettings.EtalPath + "\scripts\NTAms\NTPickUp.ntj"
+            TempPath2 = AppSettings.EtalPath + "\scripts\NTBot\bots\NTMuleLogging.ntj"
+            sourcefile = Application.StartupPath + "\Extras\NTPickUp.ntj"
+            sourcefile2 = Application.StartupPath + "\Extras\NTMuleLogging.ntj"
+        End If
+
+        If TempPath = Nothing Then Return
+
+
+        If My.Computer.FileSystem.FileExists(TempPath) = True Then
+            Dim ReadFile As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(TempPath)
+            Dim temp = ReadFile.ReadLine()
+            ReadFile.Close()
+            If temp.Contains("1.0") = False Then
+                My.Computer.FileSystem.CopyFile(sourcefile, TempPath, True)
+                MessageBox.Show(TempPath, "file replaced")
+            End If
+        End If
+
+        If My.Computer.FileSystem.FileExists(TempPath2) = True Then
+            Dim ReadFile As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(TempPath2)
+            Dim temp = ReadFile.ReadLine()
+            ReadFile.Close()
+            If temp.Contains("1.0") = False Then
+                My.Computer.FileSystem.CopyFile(sourcefile2, TempPath2, True)
+                MessageBox.Show(TempPath2, "file replaced")
+            End If
+        End If
+
+    End Sub
 End Class

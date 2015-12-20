@@ -199,6 +199,7 @@ Partial Class Main
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
+        Me.VerifyLoggingFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -269,7 +270,7 @@ Partial Class Main
         'SettingsMenuMENUGROUP
         '
         Me.SettingsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsMENUITEM, Me.ImportNowMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator7, Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ToolStripSeparator9, Me.SetNonLadderMENUGROUP, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator4, Me.LoadItemMuleMENUITEM, Me.MulesAccsToolStripMenuItem})
+        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsMENUITEM, Me.ImportNowMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator7, Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ToolStripSeparator9, Me.SetNonLadderMENUGROUP, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator4, Me.LoadItemMuleMENUITEM, Me.MulesAccsToolStripMenuItem, Me.VerifyLoggingFilesToolStripMenuItem})
         Me.SettingsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.SettingsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SettingsMenuMENUGROUP.Name = "SettingsMenuMENUGROUP"
@@ -1811,6 +1812,12 @@ Partial Class Main
         Me.ItemNameRICHTEXTBOX.TabIndex = 428
         Me.ItemNameRICHTEXTBOX.Text = ""
         '
+        'VerifyLoggingFilesToolStripMenuItem
+        '
+        Me.VerifyLoggingFilesToolStripMenuItem.Name = "VerifyLoggingFilesToolStripMenuItem"
+        Me.VerifyLoggingFilesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.VerifyLoggingFilesToolStripMenuItem.Text = "Verify Logging Files"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2095,4 +2102,5 @@ Partial Class Main
     Friend WithEvents USEastToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AsiaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EuropeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VerifyLoggingFilesToolStripMenuItem As ToolStripMenuItem
 End Class
