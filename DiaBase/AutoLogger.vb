@@ -114,281 +114,303 @@ Module AutoLogger
         Dim myarray As Array
         Dim itemsremoved = 0
 
+        Dim thispickbot As String = ""
+        Dim thislogmuleacc As String = ""
+        Dim thislogmulename As String = ""
+        Dim thislogpass As String = ""
+        Dim ThislogRealm As String = ""
+        Dim ThislogCore As Boolean
+        Dim ThislogLadder As Boolean
+        Dim Thislogexpansion As Boolean
+        Dim ThislogTime As String = ""
+        Dim ThislogDate As String = ""
+
+
         Do Until Tally = LogFilesList.Count
             If My.Computer.FileSystem.FileExists(MuleLogPath & LogFilesList(Tally)) = True Then 'Verify the log Exists
                 Dim LogFile = My.Computer.FileSystem.OpenTextFileReader(MuleLogPath & LogFilesList(Tally))
+                Try 'Should catch most issues ??
+                    thispickbot = LogFile.ReadLine() 'these lines should exist for each log
+                    thislogmuleacc = LogFile.ReadLine()
+                    thislogmulename = LogFile.ReadLine()
+                    thislogpass = LogFile.ReadLine()
+                    ThislogRealm = LogFile.ReadLine()
+                    ThislogCore = LogFile.ReadLine()
+                    ThislogLadder = LogFile.ReadLine()
+                    Thislogexpansion = LogFile.ReadLine()
+                    ThislogTime = LogFile.ReadLine()
+                    ThislogDate = LogFile.ReadLine()
+                    LogFile.ReadLine()
 
-                Dim thispickbot = LogFile.ReadLine() 'these lines should exist for each log
-                Dim thislogmuleacc = LogFile.ReadLine()
-                Dim thislogmulename = LogFile.ReadLine()
-                Dim thislogpass = LogFile.ReadLine()
-                Dim ThislogRealm = LogFile.ReadLine()
-                Dim ThislogCore = LogFile.ReadLine()
-                Dim ThislogLadder = LogFile.ReadLine() 'temporary add untill method to set this is found
-                Dim Thislogexpansion = LogFile.ReadLine()
-                Dim ThislogTime = LogFile.ReadLine()
-                Dim ThislogDate = LogFile.ReadLine()
-                LogFile.ReadLine()
 
-
-
+                    '------------------------------------------------------------------------------------------------------------------------------------------------
+                    ' May need to move this section closer to end of routine to catch other errors ? find end section :)
+                    ' Note we dont want to remove duplicates on error - try to retain items instead
+                    '------------------------------------------------------------------------------------------------------------------------------------------------
+                Catch ex As Exception
+                    LogFile.Close()
+                    My.Computer.FileSystem.MoveFile(MuleLogPath & LogFilesList(Tally), ArchiveFolder + "\Faulty\" & LogFilesList(Tally), True)
+                    ' Need to display this error somewhere
+                    Main.ImportLogRICHTEXTBOX.AppendText("Error in file " & LogFilesList(Tally) & vbCrLf)
+                    Tally = Tally + 1
+                    Continue Do ' need to continue through next files
+                End Try
 
                 If AppSettings.RemoveMuleDupes = True Then 'Adding in remove duplicated mule option (Ned)
-                    Try
-                        For mc = ItemObjects.Count - 1 To 0 Step -1
-                            If Pretotal > 0 And ItemObjects(mc).MuleName = thislogmulename And ItemObjects(mc).ItemRealm = ThislogRealm Then ' added realm into this check in case same mule name exists on more than 1 realm
-                                ' maybe recover password and pickitbot here? from previous item info before delete
-                                If thispickbot = "Unknown" And ItemObjects(mc).PickitAccount <> "Unknown" Then thispickbot = ItemObjects(mc).PickitAccount
-                                If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
-                                ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
-                                Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
-                                ItemObjects.RemoveAt(mc)
-                                Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
-                                Pretotal = Pretotal - 1
-                                itemsremoved = itemsremoved + 1
-                            End If
-                        Next
-                    Catch ex As Exception
-                        'Mymessages = "Could Not Removed Duped Mule..." : MyMessageBox()    'Fail Message to notify user - Is probably not really nessicary
-                        '                                                                   'saying something that wasnt there wasnt removed, lol.
-                        '                                                                   'Will Comment This Out For Now :)
-                    End Try
+
+                    For mc = ItemObjects.Count - 1 To 0 Step -1
+                        If Pretotal > 0 And ItemObjects(mc).MuleName = thislogmulename And ItemObjects(mc).ItemRealm = ThislogRealm Then ' added realm into this check in case same mule name exists on more than 1 realm
+                            ' maybe recover password and pickitbot here? from previous item info before delete
+                            If thispickbot = "Unknown" And ItemObjects(mc).PickitAccount <> "Unknown" Then thispickbot = ItemObjects(mc).PickitAccount
+                            If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
+                            ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
+                            Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
+                            ItemObjects.RemoveAt(mc)
+                            Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
+                            Pretotal = Pretotal - 1
+                            itemsremoved = itemsremoved + 1
+                        End If
+                    Next
                 End If
 
-                '------------------------------------------------------------------------------------------------------------------------------------------------
                 'If unable to recover pickit bot and password from above - try to recover from etal log files
                 If (thispickbot = "Unknown" Or thislogpass = "Unknown") Then 'lets try to find them
-                    Dim result As String = GetMulePass(thislogmuleacc)
-                    myarray = result.Split(",")
-                    If (myarray(0) <> "") Then
-                        thispickbot = myarray(0)
+                        Dim result As String = GetMulePass(thislogmuleacc)
+                        myarray = result.Split(",")
+                        If (myarray(0) <> "") Then
+                            thispickbot = myarray(0)
+                        End If
+                        If (myarray(1) <> "") Then
+                            thislogpass = myarray(1)
+                        End If
                     End If
-                    If (myarray(1) <> "") Then
-                        thislogpass = myarray(1)
-                    End If
-                End If
 
                 'Assign password if all else failed to get from above from app settings
                 If thislogpass = "Unknown" And AppSettings.DefaultPassword.Length > 0 Then thislogpass = AppSettings.DefaultPassword
 
+                '------------------------------------------------------------------------------------------------------------------------------------------------
+                'end section
+                '------------------------------------------------------------------------------------------------------------------------------------------------
+
                 Do
-                    Dim NewObject As New ItemDatabase
-                    NewObject.PickitAccount = thispickbot
-                    NewObject.MuleAccount = thislogmuleacc
-                    NewObject.MuleName = thislogmulename
-                    NewObject.MulePass = thislogpass
-                    NewObject.ItemRealm = ThislogRealm
-                    NewObject.HardCore = ThislogCore
-                    NewObject.Ladder = ThislogLadder
-                    NewObject.Expansion = Thislogexpansion
-                    NewObject.ImportTime = ThislogTime
-                    NewObject.ImportDate = ThislogDate
+                        Dim NewObject As New ItemDatabase
+                        NewObject.PickitAccount = thispickbot
+                        NewObject.MuleAccount = thislogmuleacc
+                        NewObject.MuleName = thislogmulename
+                        NewObject.MulePass = thislogpass
+                        NewObject.ItemRealm = ThislogRealm
+                        NewObject.HardCore = ThislogCore
+                        NewObject.Ladder = ThislogLadder
+                        NewObject.Expansion = Thislogexpansion
+                        NewObject.ImportTime = ThislogTime
+                        NewObject.ImportDate = ThislogDate
 
-                    For x = 0 To 4 '     just in case of extra blank lines
-                        If LogFile.EndOfStream = True Then Exit Do
+                        For x = 0 To 4 '     just in case of extra blank lines
+                            If LogFile.EndOfStream = True Then Exit Do
+                            temp = LogFile.ReadLine()
+                            If temp <> "" Then Exit For
+                        Next
+                        NewObject.ItemName = temp 'these 5 lines should exist for each item
                         temp = LogFile.ReadLine()
-                        If temp <> "" Then Exit For
-                    Next
-                    NewObject.ItemName = temp 'these 5 lines should exist for each item
-                    temp = LogFile.ReadLine()
-                    NewObject.Itemlevel = temp.Replace("Item Level ", "")
-                    temp = LogFile.ReadLine()
-                    NewObject.ItemBase = temp.Replace("Item Base ", "")
-                    temp = LogFile.ReadLine() : myarray = Split(temp, " ")
-                    NewObject.ItemQuality = myarray(2)
-                    temp = LogFile.ReadLine() : myarray = Split(temp, " ")
-                    NewObject.ItemImage = myarray(2)
-                    NewObject.RuneWord = LogFile.ReadLine()
-
-
-                    While LogFile.EndOfStream = False   'attempt to read item added information and exit if end of stream/file
+                        NewObject.Itemlevel = temp.Replace("Item Level ", "")
                         temp = LogFile.ReadLine()
+                        NewObject.ItemBase = temp.Replace("Item Base ", "")
+                        temp = LogFile.ReadLine() : myarray = Split(temp, " ")
+                        NewObject.ItemQuality = myarray(2)
+                        temp = LogFile.ReadLine() : myarray = Split(temp, " ")
+                        NewObject.ItemImage = myarray(2)
+                        NewObject.RuneWord = LogFile.ReadLine()
 
-                        If temp = Nothing Then Exit While 'breaks while loop if we find blank line then move onto next item
-                        myarray = Split(temp, ": ", 0)  ' gathers most basic stats
 
-                        Select Case myarray(0) + ":"
-                            Case "Throw Damage:"
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                temp1 = Replace(temp1, "to ", "")
-                                myarray = Split(temp1, " ", 0)
-                                NewObject.ThrowDamageMin = myarray(0)
-                                NewObject.ThrowDamageMax = myarray(myarray.Length - 1)
+                        While LogFile.EndOfStream = False   'attempt to read item added information and exit if end of stream/file
+                            temp = LogFile.ReadLine()
 
-                            Case "One-Hand Damage:"
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                temp1 = Replace(temp1, "to ", "")
-                                myarray = Split(temp1, " ", 0)
-                                NewObject.OneHandDamageMin = myarray(0)
-                                NewObject.OneHandDamageMax = myarray(myarray.Length - 1)
+                            If temp = Nothing Then Exit While 'breaks while loop if we find blank line then move onto next item
+                            myarray = Split(temp, ": ", 0)  ' gathers most basic stats
 
-                            Case "Two-Hand Damage:"
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                temp1 = Replace(temp1, "to ", "")
-                                myarray = Split(temp1, " ", 0)
-                                NewObject.TwoHandDamageMin = myarray(0)
-                                NewObject.TwoHandDamageMax = myarray(myarray.Length - 1)
+                            Select Case myarray(0) + ":"
+                                Case "Throw Damage:"
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    temp1 = Replace(temp1, "to ", "")
+                                    myarray = Split(temp1, " ", 0)
+                                    NewObject.ThrowDamageMin = myarray(0)
+                                    NewObject.ThrowDamageMax = myarray(myarray.Length - 1)
 
-                            Case "Quantity:"
-                                myarray = Split(temp, ": ", 0)
-                                NewObject.QuantityMin = myarray(myarray.Length - 1)
+                                Case "One-Hand Damage:"
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    temp1 = Replace(temp1, "to ", "")
+                                    myarray = Split(temp1, " ", 0)
+                                    NewObject.OneHandDamageMin = myarray(0)
+                                    NewObject.OneHandDamageMax = myarray(myarray.Length - 1)
 
-                            Case "Durability:"
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                temp1 = Replace(temp1, "of ", "")
-                                myarray = Split(temp1, " ", 0)
-                                NewObject.DurabilityMin = myarray(0)
-                                NewObject.DurabilityMax = myarray(myarray.Length - 1)
+                                Case "Two-Hand Damage:"
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    temp1 = Replace(temp1, "to ", "")
+                                    myarray = Split(temp1, " ", 0)
+                                    NewObject.TwoHandDamageMin = myarray(0)
+                                    NewObject.TwoHandDamageMax = myarray(myarray.Length - 1)
 
-                            Case "Defense:"
-                                myarray = Split(temp, ": ", 0)
-                                NewObject.Defense = myarray(myarray.Length - 1)
+                                Case "Quantity:"
+                                    myarray = Split(temp, ": ", 0)
+                                    NewObject.QuantityMin = myarray(myarray.Length - 1)
 
-                            Case "Chance to Block:"
-                                myarray = Split(temp, ": ", 0)
-                                temp = myarray(myarray.Length - 1)
-                                temp = temp.Replace("%", "")
-                                NewObject.ChanceToBlock = temp
+                                Case "Durability:"
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    temp1 = Replace(temp1, "of ", "")
+                                    myarray = Split(temp1, " ", 0)
+                                    NewObject.DurabilityMin = myarray(0)
+                                    NewObject.DurabilityMax = myarray(myarray.Length - 1)
 
-                            Case "Required Strength:"
-                                myarray = Split(temp, ": ", 0)
-                                NewObject.RequiredStrength = myarray(myarray.Length - 1)
+                                Case "Defense:"
+                                    myarray = Split(temp, ": ", 0)
+                                    NewObject.Defense = myarray(myarray.Length - 1)
 
-                            Case "Required Level:"
-                                myarray = Split(temp, ": ", 0)
-                                NewObject.RequiredLevel = myarray(myarray.Length - 1)
+                                Case "Chance to Block:"
+                                    myarray = Split(temp, ": ", 0)
+                                    temp = myarray(myarray.Length - 1)
+                                    temp = temp.Replace("%", "")
+                                    NewObject.ChanceToBlock = temp
 
-                            Case "Required Dexterity:"
-                                myarray = Split(temp, ": ", 0)
-                                NewObject.RequiredDexterity = myarray(myarray.Length - 1)
+                                Case "Required Strength:"
+                                    myarray = Split(temp, ": ", 0)
+                                    NewObject.RequiredStrength = myarray(myarray.Length - 1)
 
-                            Case Else
-                                found = False
+                                Case "Required Level:"
+                                    myarray = Split(temp, ": ", 0)
+                                    NewObject.RequiredLevel = myarray(myarray.Length - 1)
 
-                        End Select
+                                Case "Required Dexterity:"
+                                    myarray = Split(temp, ": ", 0)
+                                    NewObject.RequiredDexterity = myarray(myarray.Length - 1)
 
-                        ' if not basic item stat then we need to set it to stat1 stat2 etc
-                        If found = False Then
-                            If temp.IndexOf("Class - ") <> -1 Then
-                                myarray = Split(temp, "Class - ", 0)
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                NewObject.AttackSpeed = temp1
-                                NewObject.AttackClass = NewObject.ItemBase
+                                Case Else
+                                    found = False
+
+                            End Select
+
+                            ' if not basic item stat then we need to set it to stat1 stat2 etc
+                            If found = False Then
+                                If temp.IndexOf("Class - ") <> -1 Then
+                                    myarray = Split(temp, "Class - ", 0)
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    NewObject.AttackSpeed = temp1
+                                    NewObject.AttackClass = NewObject.ItemBase
+                                End If
+
+                                If temp.IndexOf("Socketed") <> -1 Then
+                                    myarray = Split(temp, "Socketed (", 0)
+                                    Dim temp1 = myarray(myarray.Length - 1)
+                                    myarray = Split(temp1, ")", 0)
+                                    NewObject.Sockets = myarray(0)
+                                End If
+
+                                If temp.IndexOf("Ethereal") <> -1 Then
+                                    NewObject.EtherealItem = True
+                                End If
+
+                                If temp = "(Paladin Only)" Then
+                                    NewObject.RequiredCharacter = "Paladin"
+                                    found = True
+                                End If
+
+                                If temp = "(Sorceress Only)" Then
+                                    NewObject.RequiredCharacter = "Sorceress"
+                                    found = True
+                                End If
+
+                                If temp = "(Necromancer Only)" Then
+                                    NewObject.RequiredCharacter = "Necromancer"
+                                    found = True
+                                End If
+
+                                If temp = "(Amazon Only)" Then
+                                    NewObject.RequiredCharacter = "Amazon"
+                                    found = True
+                                End If
+
+                                If temp = "(Assassin Only)" Then
+                                    NewObject.RequiredCharacter = "Assassin"
+                                    found = True
+                                End If
+
+                                If temp = "(Druid Only)" Then
+                                    NewObject.RequiredCharacter = "Druid"
+                                    found = True
+                                End If
+                                ' check for fix for item class
+                                If temp.IndexOf("Class") > -1 Then
+                                    myarray = temp.Split(" ")
+                                    NewObject.AttackClass = myarray(0)
+                                    myarray = temp.Split("- ")
+                                    NewObject.AttackSpeed = LTrim(myarray(1))
+                                    Continue While
+                                End If
+                                If found = False And NewObject.Stat1 = "" Then NewObject.Stat1 = temp : found = True
+                                If found = False And NewObject.Stat2 = "" Then NewObject.Stat2 = temp : found = True
+                                If found = False And NewObject.Stat3 = "" Then NewObject.Stat3 = temp : found = True
+                                If found = False And NewObject.Stat4 = "" Then NewObject.Stat4 = temp : found = True
+                                If found = False And NewObject.Stat5 = "" Then NewObject.Stat5 = temp : found = True
+                                If found = False And NewObject.Stat6 = "" Then NewObject.Stat6 = temp : found = True
+                                If found = False And NewObject.Stat7 = "" Then NewObject.Stat7 = temp : found = True
+                                If found = False And NewObject.Stat8 = "" Then NewObject.Stat8 = temp : found = True
+                                If found = False And NewObject.Stat9 = "" Then NewObject.Stat9 = temp : found = True
+                                If found = False And NewObject.Stat10 = "" Then NewObject.Stat10 = temp : found = True
+                                If found = False And NewObject.Stat11 = "" Then NewObject.Stat11 = temp : found = True
+                                If found = False And NewObject.Stat12 = "" Then NewObject.Stat12 = temp : found = True
+                                If found = False And NewObject.Stat13 = "" Then NewObject.Stat13 = temp : found = True
+                                If found = False And NewObject.Stat14 = "" Then NewObject.Stat14 = temp : found = True
+                                If found = False And NewObject.Stat15 = "" Then NewObject.Stat15 = temp : found = True
                             End If
+                        End While
 
-                            If temp.IndexOf("Socketed") <> -1 Then
-                                myarray = Split(temp, "Socketed (", 0)
-                                Dim temp1 = myarray(myarray.Length - 1)
-                                myarray = Split(temp1, ")", 0)
-                                NewObject.Sockets = myarray(0)
-                            End If
+                        ' fixes area - correcting item imports
+                        If NewObject.ItemName.IndexOf("Large Charm") > -1 Then NewObject.ItemBase = "Large Charm" ' torches misread as medium ????? weird maybe valid ???
+                        If NewObject.ItemName.IndexOf("Grand Charm") > -1 Then NewObject.ItemBase = "Grand Charm" ' this also as above
 
-                            If temp.IndexOf("Ethereal") <> -1 Then
-                                NewObject.EtherealItem = True
-                            End If
+                        If NewObject.ItemBase = "Rune" Then
+                            temp = GetRunes(NewObject.ItemName)
+                            myarray = Split(temp, ",")
+                            NewObject.RequiredLevel = myarray(0)
+                            NewObject.Stat1 = myarray(1)
+                            NewObject.Stat2 = myarray(2)
+                            NewObject.Stat3 = myarray(3)
+                            NewObject.Stat4 = myarray(4)
+                            NewObject.Stat5 = myarray(5)
+                            NewObject.Stat6 = myarray(6)
+                            NewObject.Stat7 = myarray(7)
+                            NewObject.Stat8 = myarray(8)
+                            NewObject.Stat9 = myarray(9)
+                            NewObject.Stat10 = myarray(10)
+                            NewObject.Stat11 = myarray(11)
 
-                            If temp = "(Paladin Only)" Then
-                                NewObject.RequiredCharacter = "Paladin"
-                                found = True
-                            End If
-
-                            If temp = "(Sorceress Only)" Then
-                                NewObject.RequiredCharacter = "Sorceress"
-                                found = True
-                            End If
-
-                            If temp = "(Necromancer Only)" Then
-                                NewObject.RequiredCharacter = "Necromancer"
-                                found = True
-                            End If
-
-                            If temp = "(Amazon Only)" Then
-                                NewObject.RequiredCharacter = "Amazon"
-                                found = True
-                            End If
-
-                            If temp = "(Assassin Only)" Then
-                                NewObject.RequiredCharacter = "Assassin"
-                                found = True
-                            End If
-
-                            If temp = "(Druid Only)" Then
-                                NewObject.RequiredCharacter = "Druid"
-                                found = True
-                            End If
-                            ' check for fix for item class
-                            If temp.IndexOf("Class") > -1 Then
-                                myarray = temp.Split(" ")
-                                NewObject.AttackClass = myarray(0)
-                                myarray = temp.Split("- ")
-                                NewObject.AttackSpeed = LTrim(myarray(1))
-                                Continue While
-                            End If
-                            If found = False And NewObject.Stat1 = "" Then NewObject.Stat1 = temp : found = True
-                            If found = False And NewObject.Stat2 = "" Then NewObject.Stat2 = temp : found = True
-                            If found = False And NewObject.Stat3 = "" Then NewObject.Stat3 = temp : found = True
-                            If found = False And NewObject.Stat4 = "" Then NewObject.Stat4 = temp : found = True
-                            If found = False And NewObject.Stat5 = "" Then NewObject.Stat5 = temp : found = True
-                            If found = False And NewObject.Stat6 = "" Then NewObject.Stat6 = temp : found = True
-                            If found = False And NewObject.Stat7 = "" Then NewObject.Stat7 = temp : found = True
-                            If found = False And NewObject.Stat8 = "" Then NewObject.Stat8 = temp : found = True
-                            If found = False And NewObject.Stat9 = "" Then NewObject.Stat9 = temp : found = True
-                            If found = False And NewObject.Stat10 = "" Then NewObject.Stat10 = temp : found = True
-                            If found = False And NewObject.Stat11 = "" Then NewObject.Stat11 = temp : found = True
-                            If found = False And NewObject.Stat12 = "" Then NewObject.Stat12 = temp : found = True
-                            If found = False And NewObject.Stat13 = "" Then NewObject.Stat13 = temp : found = True
-                            If found = False And NewObject.Stat14 = "" Then NewObject.Stat14 = temp : found = True
-                            If found = False And NewObject.Stat15 = "" Then NewObject.Stat15 = temp : found = True
                         End If
-                    End While
+                        If NewObject.ItemBase = "Gem" Then
+                            temp = GetGemsStats(NewObject.ItemName)
+                            myarray = Split(temp, ",")
+                            NewObject.RequiredLevel = myarray(0)
+                            NewObject.Stat1 = myarray(1)
+                            NewObject.Stat2 = myarray(2)
+                            NewObject.Stat3 = myarray(3)
+                            NewObject.Stat4 = myarray(4)
+                        End If
 
-                    ' fixes area - correcting item imports
-                    If NewObject.ItemName.IndexOf("Large Charm") > -1 Then NewObject.ItemBase = "Large Charm" ' torches misread as medium ????? weird maybe valid ???
-                    If NewObject.ItemName.IndexOf("Grand Charm") > -1 Then NewObject.ItemBase = "Grand Charm" ' this also as above
+                        If NewObject.ItemName.IndexOf("Token of Absolution") <> -1 Then
+                            NewObject.ItemName = "Token of Absolution"
+                            NewObject.Stat1 = "Right-click to reset Stat/Skill Points"
+                        End If
 
-                    If NewObject.ItemBase = "Rune" Then
-                        temp = GetRunes(NewObject.ItemName)
-                        myarray = Split(temp, ",")
-                        NewObject.RequiredLevel = myarray(0)
-                        NewObject.Stat1 = myarray(1)
-                        NewObject.Stat2 = myarray(2)
-                        NewObject.Stat3 = myarray(3)
-                        NewObject.Stat4 = myarray(4)
-                        NewObject.Stat5 = myarray(5)
-                        NewObject.Stat6 = myarray(6)
-                        NewObject.Stat7 = myarray(7)
-                        NewObject.Stat8 = myarray(8)
-                        NewObject.Stat9 = myarray(9)
-                        NewObject.Stat10 = myarray(10)
-                        NewObject.Stat11 = myarray(11)
+                        ' Handles set to nonladder if date set before last b.net reset
+                        Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                        Dim tempdate As Date
+                        tempdate = Date.ParseExact(NewObject.ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                        If Date.Compare(tempdate, resetdate) < 0 Then NewObject.Ladder = False
 
-                    End If
-                    If NewObject.ItemBase = "Gem" Then
-                        temp = GetGemsStats(NewObject.ItemName)
-                        myarray = Split(temp, ",")
-                        NewObject.RequiredLevel = myarray(0)
-                        NewObject.Stat1 = myarray(1)
-                        NewObject.Stat2 = myarray(2)
-                        NewObject.Stat3 = myarray(3)
-                        NewObject.Stat4 = myarray(4)
-                    End If
+                        ItemObjects.Add(NewObject)
 
-                    If NewObject.ItemName.IndexOf("Token of Absolution") <> -1 Then
-                        NewObject.ItemName = "Token of Absolution"
-                        NewObject.Stat1 = "Right-click to reset Stat/Skill Points"
-                    End If
+                    Loop Until LogFile.EndOfStream
+                    LogFile.Close()
+                    If relog = False Then My.Computer.FileSystem.MoveFile(MuleLogPath & LogFilesList(Tally), ArchiveFolder & LogFilesList(Tally), True)
 
-                    ' Handles set to nonladder if date set before last b.net reset
-                    Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
-                    Dim tempdate As Date
-                    tempdate = Date.ParseExact(NewObject.ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
-                    If Date.Compare(tempdate, resetdate) < 0 Then NewObject.Ladder = False
-
-                    ItemObjects.Add(NewObject)
-
-                Loop Until LogFile.EndOfStream
-                LogFile.Close()
-                If relog = False Then My.Computer.FileSystem.MoveFile(MuleLogPath & LogFilesList(Tally), ArchiveFolder & LogFilesList(Tally), True)
             End If
             Tally = Tally + 1
         Loop

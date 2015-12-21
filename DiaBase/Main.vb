@@ -105,8 +105,9 @@ Public Class Main
 
         If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Extras") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Extras") '                       'Verify Extras Directory
         If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Databases") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Databases") '                 'Verify Databases Directory
-        If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Databases\Backup") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Databases\Backup") '   'Verify Backup Directory
-        If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Archive") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Archive") '               'Verify Archive Directory
+        If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Databases\Backup") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Databases\Backup")     'Verify Backup Directory
+        If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Archive") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Archive") '                     'Verify Archive Directory
+        If My.Computer.FileSystem.DirectoryExists(AppSettings.InstallPath + "\Archive\Faulty") = False Then My.Computer.FileSystem.CreateDirectory(AppSettings.InstallPath + "\Archive\Faulty")         'Verify Faulty Directory
 
         'Verifys the Default.txt database file
         If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\Default.txt") = False Then
