@@ -130,14 +130,11 @@ Public Class Settings
             'Add Form1 X,Y size and X,Y location 
 
 
-            SaveSettingsFile()
-
             'Checks only one Check box is checked across all realm search checkboxes - like radio buttons but not as yucky looking
             If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "USWest" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = True : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "Asia" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = True : Main.EuropeRealmCHECKBOX.Checked = False
             If AppSettings.DefaultRealm = "Europe" Then Main.EastRealmCHECKBOX.Checked = False : Main.WestRealmCHECKBOX.Checked = False : Main.AsiaRealmCHECKBOX.Checked = False : Main.EuropeRealmCHECKBOX.Checked = True
-            Me.Close()
 
             'Update etal version info..
             If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
@@ -145,6 +142,8 @@ Public Class Settings
             If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - RD Mode"
             If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - BE Mode"
 
+            SaveSettingsFile()
+            Me.Close()
         End If
     End Sub
 

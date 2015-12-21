@@ -829,6 +829,12 @@ Public Class Main
         If UnDo.Count < 1 Then
             UndoDeleteMENUITEM.Enabled = False
         End If
+        'need to clear any searched item listing as search list will no longer reference items correctly
+        SearchLISTBOX.Items.Clear()
+        SearchReferenceList.Clear()
+        RefineSearchReferenceList.Clear()
+
+
         ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
     End Sub
 
@@ -1437,25 +1443,28 @@ Public Class Main
         Dim a As Integer
         Dim b As Integer
         Dim FocusOnExit As Integer = SearchLISTBOX.SelectedIndex
-
+        UnDoCount.Add(SearchLISTBOX.SelectedIndices.Count - 1)
         For index = SearchLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
             a = SearchLISTBOX.SelectedIndices(index)
             b = SearchReferenceList(a)
             SearchLISTBOX.Items.RemoveAt(a)
+            'add item to undo
+            UnDo.Add(ItemObjects(b)) : UnDoPos.Add(b) : UndoDeleteMENUITEM.Enabled = True
             AllItemsLISTBOX.Items.RemoveAt(b)
             ItemObjects.RemoveAt(b)
             SearchReferenceList.RemoveAt(a)
-            'For x = a To SearchReferenceList.Count - 1' redundant ?
-            '    SearchReferenceList(x) = SearchReferenceList(x) - 1
-            'Next
+            For x = a To SearchReferenceList.Count - 1
+                SearchReferenceList(x) = SearchReferenceList(x) - 1
+            Next
         Next
-        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
+
 
         'SET THE DELETED OBJECT LOCATION IN THE LIST AS THE HIGHLIGHTED ITEM ON RETURN FROM DETETE
         If FocusOnExit >= (SearchLISTBOX.Items.Count) Then FocusOnExit = SearchLISTBOX.Items.Count - 1
         If SearchLISTBOX.Items.Count = 1 Then FocusOnExit = 0
         If SearchLISTBOX.Items.Count = 0 Then FocusOnExit = -1
         SearchLISTBOX.SelectedIndex = FocusOnExit
+        ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
     End Sub
 
     Private Sub SelectAllSearchCMenu_Click(sender As Object, e As EventArgs) Handles SelectAllSearchCMenu.Click

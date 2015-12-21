@@ -65,12 +65,6 @@ Module DatabaseManagmentFunctions
             'Check for valid entrys (avoid potential crash with null entries) and swap app runstate values (where nessicary) to settings class variables
             If AppSettings.DefaultDatabase = Nothing Then AppSettings.DefaultDatabase = AppSettings.InstallPath & "\Databases\Default.TXT"
 
-            'technically only one of the following checkboxes should be checked, but not on first run i dont think.
-            If Main.EastRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "USEast"
-            If Main.WestRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "USWest"
-            If Main.AsiaRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "Asia"
-            If Main.EuropeRealmCHECKBOX.Checked = True Then AppSettings.DefaultRealm = "Europe"
-
             'applys the menu option checkstate to its partnered settings clas variable
             AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
 
@@ -112,11 +106,6 @@ Module DatabaseManagmentFunctions
             Main.ErrorHandler(301, ex, 0, 0)
         End Try
 
-        'Update Working Vars...
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
-        If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - Running Red Dragon Compataibility Mode"
-        If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - Running Black Empress Compatibility Mode"
     End Sub
 
 

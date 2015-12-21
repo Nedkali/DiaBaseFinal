@@ -49,6 +49,7 @@ Partial Class Main
         Me.USEastToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EuropeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerifyLoggingFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSearchListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -199,7 +200,6 @@ Partial Class Main
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
-        Me.VerifyLoggingFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -384,6 +384,12 @@ Partial Class Main
         Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
         Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.EuropeToolStripMenuItem.Text = "Europe"
+        '
+        'VerifyLoggingFilesToolStripMenuItem
+        '
+        Me.VerifyLoggingFilesToolStripMenuItem.Name = "VerifyLoggingFilesToolStripMenuItem"
+        Me.VerifyLoggingFilesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.VerifyLoggingFilesToolStripMenuItem.Text = "Verify Logging Files"
         '
         'ClearTradeListMENUITEM
         '
@@ -1214,7 +1220,7 @@ Partial Class Main
         '
         Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.ToolStripSeparator10, Me.SelectAllSearchCMenu})
         Me.SearchListCONTEXTMENUSTRIP.Name = "SearchListContextMenuStrip1"
-        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(183, 148)
+        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(183, 170)
         '
         'SendToTradeListSearchMenu
         '
@@ -1811,12 +1817,6 @@ Partial Class Main
         Me.ItemNameRICHTEXTBOX.Size = New System.Drawing.Size(219, 45)
         Me.ItemNameRICHTEXTBOX.TabIndex = 428
         Me.ItemNameRICHTEXTBOX.Text = ""
-        '
-        'VerifyLoggingFilesToolStripMenuItem
-        '
-        Me.VerifyLoggingFilesToolStripMenuItem.Name = "VerifyLoggingFilesToolStripMenuItem"
-        Me.VerifyLoggingFilesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.VerifyLoggingFilesToolStripMenuItem.Text = "Verify Logging Files"
         '
         'Main
         '
