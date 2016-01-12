@@ -94,14 +94,6 @@ Public Class DatabaseManager
         If AutoLoggerRunning = False And ManagerDatabasesLISTBOX.SelectedIndex > -1 Then
             If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") = True Then
 
-                'VERIFYS THE SELECTED is really a diabase data file by looking for the exact "--------------------" item spacer (20 x -) on the first line
-                Dim FileVerify = My.Computer.FileSystem.OpenTextFileReader(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt")
-                Dim TempLine = FileVerify.ReadLine
-                If TempLine <> "--------------------" And TempLine <> Nothing Then
-                    Main.ErrorHandler(402, 0, 0, 0)   'File is not a valid DiabaseFile Branch To Error Handler
-                End If
-
-                FileVerify.Close()
                 OpenDatabase(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") 'Branch To Open Database Routine
                 Me.Close()
             Else
@@ -109,6 +101,8 @@ Public Class DatabaseManager
 
             End If
         End If
+        If ItemObjects.Count > 0 Then Main.AllItemsLISTBOX.SelectedIndex = 0
+        Me.Close()
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------
@@ -233,6 +227,9 @@ FileExistsErrorLoop:
         End If
     End Sub
 
-
-
+    Private Sub ManagerSummaryBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerSummaryBUTTON.Click
+        Dim filename = AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt"
+        Dim temp = My.Computer.FileSystem.GetFileInfo(filename)
+        MessageBox.Show(temp.Length)
+    End Sub
 End Class

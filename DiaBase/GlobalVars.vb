@@ -54,9 +54,6 @@ Module GlobalVars
     Public UserReferencePulldownList As List(Of String) = New List(Of String)       'Holds successful search values for UserReference Field
 
 
-    Public SuccessfulSearch As Boolean = False  'used to trigger routine to add new successfull search entries into search combobox lists and above reference lists
-
-
     'itemedit var
     Public iEdit As Integer = 0
     'Skin Reference Array - Used to quick reference item skins as needed

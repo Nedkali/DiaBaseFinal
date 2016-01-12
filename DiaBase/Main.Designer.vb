@@ -143,7 +143,6 @@ Partial Class Main
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ClearItemSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllSearchCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.TradeListTABPAGE = New System.Windows.Forms.TabPage()
         Me.TradeListRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
@@ -200,6 +199,8 @@ Partial Class Main
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
+        Me.EportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1218,9 +1219,9 @@ Partial Class Main
         '
         'SearchListCONTEXTMENUSTRIP
         '
-        Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.ToolStripSeparator10, Me.SelectAllSearchCMenu})
+        Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.SelectAllSearchCMenu, Me.ToolStripSeparator10, Me.EportToolStripMenuItem})
         Me.SearchListCONTEXTMENUSTRIP.Name = "SearchListContextMenuStrip1"
-        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(183, 170)
+        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(183, 192)
         '
         'SendToTradeListSearchMenu
         '
@@ -1256,11 +1257,6 @@ Partial Class Main
         Me.DeleteItemSearchCMenu.Name = "DeleteItemSearchCMenu"
         Me.DeleteItemSearchCMenu.Size = New System.Drawing.Size(182, 22)
         Me.DeleteItemSearchCMenu.Text = "Delete Selected"
-        '
-        'ToolStripSeparator10
-        '
-        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(179, 6)
         '
         'SelectAllSearchCMenu
         '
@@ -1818,6 +1814,17 @@ Partial Class Main
         Me.ItemNameRICHTEXTBOX.TabIndex = 428
         Me.ItemNameRICHTEXTBOX.Text = ""
         '
+        'EportToolStripMenuItem
+        '
+        Me.EportToolStripMenuItem.Name = "EportToolStripMenuItem"
+        Me.EportToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.EportToolStripMenuItem.Text = "Eport"
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(179, 6)
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2070,7 +2077,6 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents ClearItemSearchCMenu As ToolStripMenuItem
     Friend WithEvents DeleteItemSearchCMenu As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents SelectAllSearchCMenu As ToolStripMenuItem
     Friend WithEvents SendAllItemsToUserListSearchMenu As ToolStripMenuItem
     Friend WithEvents LadderTEXTBOX As TextBox
@@ -2103,4 +2109,6 @@ Partial Class Main
     Friend WithEvents AsiaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EuropeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerifyLoggingFilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents EportToolStripMenuItem As ToolStripMenuItem
 End Class

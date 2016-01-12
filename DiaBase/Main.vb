@@ -474,7 +474,7 @@ Public Class Main
     Private Sub SaveMainMenu_Click(sender As Object, e As EventArgs) Handles SaveDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
-        WriteToFile(0, AppSettings.DefaultDatabase, False)
+        WriteToFile(0, AppSettings.CurrentDatabase, False)
         TimerStartPauseButton(sender, e)
     End Sub
 
@@ -577,6 +577,7 @@ Public Class Main
         iEdit = AllItemsLISTBOX.SelectedIndex
         TimerStartPauseButton(sender, e)
         ItemEdit.ShowDialog()
+        DisplayItemStats(iEdit) 'update item display
         TimerStartPauseButton(sender, e)
     End Sub
 
@@ -874,10 +875,10 @@ Public Class Main
             UndoSearchList.Add(item)
         Next
 
-        SearchRoutine(SuccessfulSearch)
+        SearchRoutine()
 
         'POPULATES SEARCHES QUICK SELECTION DROP DOWN COLLECTIONS after successful search entries (Item Name, User Reference, Unique Attribs Strings)
-        If SuccessfulSearch = True Then
+        If SearchReferenceList.Count > 0 Then
             If UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM NAME" Then
                 If Me.SearchWordCOMBOBOX.Text <> "" And ItemNamePulldownList.Contains(Me.SearchWordCOMBOBOX.Text) = False Then ItemNamePulldownList.Add(Me.SearchWordCOMBOBOX.Text) : Me.SearchWordCOMBOBOX.Items.Add(Me.SearchWordCOMBOBOX.Text)
             End If
@@ -887,7 +888,6 @@ Public Class Main
             If UCase(Me.SearchFieldCOMBOBOX.Text) = "USER REFERENCE" Then
                 If Me.SearchWordCOMBOBOX.Text <> "" And UserReferencePulldownList.Contains(Me.SearchWordCOMBOBOX.Text) = False Then UserReferencePulldownList.Add(Me.SearchWordCOMBOBOX.Text) : Me.SearchWordCOMBOBOX.Items.Add(Me.SearchWordCOMBOBOX.Text)
             End If
-            SuccessfulSearch = False
         End If
 
         If UndoSearchList.Count > 0 Then
@@ -1003,7 +1003,6 @@ Public Class Main
                     DialogResult = ErrorHandlerForm.ShowDialog()
                     ErrorHandlerForm.ErrorTrapMessageTEXTBOX.ScrollBars = ScrollBars.None
                 End If
-                DatabaseManagmentFunctions.CloseFile() ' Close and clear file
 
 
 
@@ -1330,7 +1329,9 @@ Public Class Main
     Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadItemMuleMENUITEM.Click
         Dim Iindex = AllItemsLISTBOX.SelectedIndex
         If Iindex = -1 Then Return
-        WriteLoaderFile(Iindex)
+        'WriteLoaderFile(Iindex)
+
+        If MemFile2(Iindex) = True Then loadD2(Iindex)
         'loadD2(Iindex)
     End Sub
 
@@ -1581,19 +1582,20 @@ Public Class Main
             Me.SearchWordCOMBOBOX.Select()
         End If
 
-        'POPULATE WORD SEARCH DROPDOWN WITH ALL RUNEWORD ENTRYS WHEN RUNEWORD IS SELECTED FOR SEARCH
-        If UCase(Me.SearchFieldCOMBOBOX.Text) = "RUNEWORD" Then
-            Me.SearchWordCOMBOBOX.Items.Clear()
-            For Each ItemObjectItem As ItemDatabase In ItemObjects
-                If ItemObjectItem.RuneWord <> Nothing Then If Me.SearchWordCOMBOBOX.Items.Contains(ItemObjectItem.RuneWord) = False Then Me.SearchWordCOMBOBOX.Items.Add(ItemObjectItem.RuneWord)
-            Next
-            Me.SearchWordCOMBOBOX.Select()
-        End If
 
-        'Clear out the word pulldowns if var searches apply also clears out word search entry and select value box ready for input
-        If UCase(Me.SearchFieldCOMBOBOX.Text) = "ONE HAND DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "ONE HAND DAMAGE MAX" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "TWO HAND DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "TWO HAND DAMAGE MAX" _
-             Or UCase(Me.SearchFieldCOMBOBOX.Text) = "THROW DAMAGE MIN" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "THROW DAMAGE MAX" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED LEVEL" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED STRENGTH" _
-              Or UCase(Me.SearchFieldCOMBOBOX.Text) = "REQUIRED DEXTERITY" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "CHANCE TO BLOCK" Or UCase(Me.SearchFieldCOMBOBOX.Text) = "ITEM DEFENSE" Then Me.SearchWordCOMBOBOX.Items.Clear() : Me.SearchWordCOMBOBOX.Text = "" : Me.SearchValueNUMERICUPDWN.Select() ' Else me.SearchWordCOMBOBOX.Select() ??
+        Select Case (UCase(Me.SearchFieldCOMBOBOX.Text))
+            'True or False searches -> clear word search box and options - not needed - uses equal to etc for matches
+            Case "RUNEWORD", "LADDER", "ETHEREAL", "HARDCORE", "EXPANSION"
+                Me.SearchWordCOMBOBOX.Text = Nothing
+                Me.SearchWordCOMBOBOX.Items.Clear()
+
+            'Clear out the word pulldowns if var searches apply also clears out word search entry and select value box ready for input
+            Case "ONE HAND DAMAGE MIN", "ONE HAND DAMAGE MAX", "TWO HAND DAMAGE MIN", "TWO HAND DAMAGE MAX", "THROW DAMAGE MIN",
+                 "THROW DAMAGE MAX", "REQUIRED LEVEL", "REQUIRED STRENGTH", "REQUIRED DEXTERITY", "CHANCE TO BLOCK", "ITEM DEFENSE"
+                Me.SearchWordCOMBOBOX.Items.Clear() : Me.SearchWordCOMBOBOX.Text = "" : Me.SearchValueNUMERICUPDWN.Select()
+
+        End Select
+
     End Sub
 
 
@@ -1700,7 +1702,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub ExportItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportItemsToolStripMenuItem.Click
+    Private Sub ExportItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportItemsToolStripMenuItem.Click, EportToolStripMenuItem.Click
         ImportTimer.Stop()
         Export.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)

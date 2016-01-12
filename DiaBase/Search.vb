@@ -1,7 +1,6 @@
 ﻿Module Search
-    Sub SearchRoutine(SuccessfulSearch)
+    Sub SearchRoutine()
 
-        SuccessfulSearch = False                                 'Reset 'Found Matches' Flag - Is used to trigger routine to populate search combolists on successful searches only - adds succesfull word to relvant referece list -that is all
 
         RefineSearchReferenceList.Clear()                       'Clear out old refine list
         If SearchReferenceList.Count > 0 Then                   'Can only run a refined search if items exist already in the search lisbox
@@ -23,6 +22,7 @@
             'text based searches atributes handled elsewhere
             '--------------------------------------------------------------------------
             Case "Item Name", "Item Quality", "Item Base", "Mule Name", "Mule Account", "Mule Pass", "Realm", "User Reference", "Attack Class", "Attack Speed"
+                If Main.SearchWordCOMBOBOX.Text = Nothing Then Main.ListboxTABCONTROL.SelectTab(1) : Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Matches" : Return
                 If Main.RefineSearchCHECKBOX.Checked = False Then
                     If searchtype = "Item Name" Then For index = 0 To ItemObjects.Count - 1 : TextDecipher(index, ItemObjects(index).ItemName) : Next
                     If searchtype = "Item Base" Then For index = 0 To ItemObjects.Count - 1 : TextDecipher(index, ItemObjects(index).ItemBase) : Next
@@ -36,7 +36,7 @@
                 End If
 
                 If Main.RefineSearchCHECKBOX.Checked = True Then
-
+                    If Main.SearchWordCOMBOBOX.Text = Nothing Then Main.ListboxTABCONTROL.SelectTab(1) : Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Matches" : Return
                     For chck = 0 To RefineSearchReferenceList.Count - 1
                         a = CInt(RefineSearchReferenceList(chck))
                         If searchtype = "Item Name" Then TextDecipher(a, ItemObjects(a).ItemName)
@@ -165,13 +165,13 @@
 
         If SearchReferenceList.Count > 0 Then
             Main.SearchLISTBOX.SelectedIndex = 0
-            Main.ListboxTABCONTROL.SelectTab(1)
             Main.SearchListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
             Main.ListControlTabBUTTON.BackgroundImage = Nothing
             Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
             Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
 
         End If
+        Main.ListboxTABCONTROL.SelectTab(1)
         Main.ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Matches"
 
 
@@ -191,11 +191,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval).Contains(LCase(Main.SearchWordCOMBOBOX.Text)) = True Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval.Contains(Main.SearchWordCOMBOBOX.Text) = True Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
             End If
         End If
 
@@ -203,11 +203,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Not Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) <> LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And Main.SearchWordCOMBOBOX.Text <> txtval Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
             End If
         End If
 
@@ -215,11 +215,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Greater Than" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) > LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval > Main.SearchWordCOMBOBOX.Text Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
             End If
         End If
 
@@ -227,11 +227,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Less Than" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) < LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval < Main.SearchWordCOMBOBOX.Text Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
             End If
         End If
 
@@ -247,17 +247,13 @@
         If Main.WestRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "USWest" Then Return
         If Main.EuropeRealmCHECKBOX.Checked = True And ItemObjects(index).ItemRealm <> "Europe" Then Return
 
-        Dim temp = Main.SearchWordCOMBOBOX.Text
-        If temp = "" Then temp = True 'if nothing assume search wanted is for true comparison
-        If temp <> "True" Then temp = False 'if true not entered assume search wanted is for false comparison
 
-
-        If Main.SearchOperatorCOMBOBOX.Text = "Equal To" And bCheck = temp Then
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+        If Main.SearchOperatorCOMBOBOX.Text = "Equal To" And bCheck = True Then ' returns true results
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
-        If Main.SearchOperatorCOMBOBOX.Text <> "Equal To" And bCheck <> temp Then ' handles greater or less than as well ???
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+        If Main.SearchOperatorCOMBOBOX.Text <> "Equal To" And bCheck <> True Then 'returns false results
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
     End Sub
@@ -275,19 +271,19 @@
         Dim iCompare As Integer = Main.SearchValueNUMERICUPDWN.Value
 
         If Main.SearchOperatorCOMBOBOX.Text = "Equal To" And iValue = iCompare Then
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
         If Main.SearchOperatorCOMBOBOX.Text = "Not Equal To" And iValue <> iCompare Then
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
         If Main.SearchOperatorCOMBOBOX.Text = "Greater Than" And iValue > iCompare Then
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
         If Main.SearchOperatorCOMBOBOX.Text = "Less Than" And iValue < iCompare Then
-            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return
+            Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return
         End If
 
     End Sub
@@ -304,11 +300,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval).Contains(LCase(Main.SearchWordCOMBOBOX.Text)) = True Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval.Contains(Main.SearchWordCOMBOBOX.Text) = True Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
             End If
             Return False
         End If
@@ -317,11 +313,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Not Equal To" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) <> LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And Main.SearchWordCOMBOBOX.Text <> txtval Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
             End If
             Return False
         End If
@@ -330,11 +326,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Greater Than" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) > LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval > Main.SearchWordCOMBOBOX.Text Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
             End If
             Return False
         End If
@@ -343,11 +339,11 @@
         If Main.SearchOperatorCOMBOBOX.Text = "Less Than" Then
             If Main.ExactMatchCHECKBOX.Checked = False Then 'not case sensitive
                 If LCase(txtval) < LCase(Main.SearchWordCOMBOBOX.Text) Then
-                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                    Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
                 End If
             End If
             If Main.ExactMatchCHECKBOX.Checked = True And txtval < Main.SearchWordCOMBOBOX.Text Then 'IS case sensitive
-                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : SuccessfulSearch = True : Return True
+                Main.SearchLISTBOX.Items.Add(ItemObjects(index).ItemName) : SearchReferenceList.Add(index) : Return True
             End If
             Return False
         End If

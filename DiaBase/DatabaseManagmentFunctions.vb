@@ -118,12 +118,25 @@ Module DatabaseManagmentFunctions
     '                       -
     '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub OpenDatabase(DatabaseFilePath)
+        'cleanup everything before reading file
+        Main.AllItemsLISTBOX.SelectedIndex = -1
+        ItemObjects.Clear()
+        Main.AllItemsLISTBOX.Items.Clear()
+        Main.SearchLISTBOX.Items.Clear()
+        Main.TradeListRICHTEXTBOX.Clear()
+        Main.ListboxTABCONTROL.SelectTab(0)
+        UndoSearchList.Clear()
+        UnDo.Clear()
+        UnDoCount.Clear()
+        UnDoPos.Clear()
+
+        'end of cleanup
+
         Dim OpenDatabase As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(DatabaseFilePath)
         AppSettings.CurrentDatabase = DatabaseFilePath
         Dim CheckSpacerFlag As String = "--------------------"
         Dim temp As String = "" 'using this for debugging purposes
         Dim CountRecordsForErrorEvents As Integer = 0
-        CloseFile()
 
         Try
             Do While OpenDatabase.EndOfStream = False
@@ -223,30 +236,6 @@ Module DatabaseManagmentFunctions
 
     End Sub
 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'CLOSE FILE ROUTINE - clears Item Database and all main form controls
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Public Sub CloseFile()
-        ItemObjects.Clear()
-
-        Main.AllItemsLISTBOX.Items.Clear()
-        Main.SearchLISTBOX.Items.Clear()
-        Main.TradeListRICHTEXTBOX.Clear()
-
-        Main.ClearItemStats()
-        Main.OpenDatabaseLABEL.Text = ""
-
-        Main.AllItemsLISTBOX.Select()
-        Main.ListboxTABCONTROL.SelectTab(0)
-        Main.ListControlTabBUTTON.BackgroundImage = My.Resources.ButtonBackground
-        Main.SearchListControlTabBUTTON.BackgroundImage = Nothing
-        Main.TradesListControlTabBUTTON.BackgroundImage = Nothing
-        Main.UserRefControlTabBUTTON.BackgroundImage = Nothing
-        Main.ItemTallyTEXTBOX.Text = Main.AllItemsLISTBOX.Items.Count & " - Items"
-        Main.DatabaseFileLABEL.Hide()
-        Main.DatabaseFileNameTEXTBOX.Hide()
-
-    End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'SAVES THE CURRENT DATABASE TO FILE ROUTINE 

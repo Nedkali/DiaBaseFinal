@@ -27,7 +27,7 @@ Module AutoLogger
         MuleDataPath = AppSettings.EtalPath + RealmPath + "\MuleLogs\"
         ArchiveFolder = Application.StartupPath + "\Archive\"
         If Relog = False Then MuleLogPath = AppSettings.EtalPath + RealmPath + "\MuleInventory\"
-        If Relog = True Then MuleLogPath = AppSettings.InstallPath + "\Archive\"
+        If Relog = True Then MuleLogPath = AppSettings.InstallPath + "\Archive\" : Main.AllItemsLISTBOX.Items.Clear()
 
         'Check Log folder for files to process
         GetLogFiles()
@@ -157,16 +157,16 @@ Module AutoLogger
                 End Try
 
                 If AppSettings.RemoveMuleDupes = True Then 'Adding in remove duplicated mule option (Ned)
-
-                    For mc = ItemObjects.Count - 1 To 0 Step -1
+                    Dim range = ItemObjects.Count - 1
+                    For mc = range To 0 Step -1
                         If Pretotal > 0 And ItemObjects(mc).MuleName = thislogmulename And ItemObjects(mc).ItemRealm = ThislogRealm Then ' added realm into this check in case same mule name exists on more than 1 realm
                             ' maybe recover password and pickitbot here? from previous item info before delete
                             If thispickbot = "Unknown" And ItemObjects(mc).PickitAccount <> "Unknown" Then thispickbot = ItemObjects(mc).PickitAccount
                             If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
                             ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
-                            Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
+                            'Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
+                            'Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
                             ItemObjects.RemoveAt(mc)
-                            Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
                             Pretotal = Pretotal - 1
                             itemsremoved = itemsremoved + 1
                         End If
@@ -405,9 +405,10 @@ Module AutoLogger
                         tempdate = Date.ParseExact(NewObject.ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
                         If Date.Compare(tempdate, resetdate) < 0 Then NewObject.Ladder = False
 
-                        ItemObjects.Add(NewObject)
-
-                    Loop Until LogFile.EndOfStream
+                    ItemObjects.Add(NewObject)
+                    'Dim a = ItemObjects.Count - 1
+                    'Main.AllItemsLISTBOX.Items.Add(ItemObjects(a).ItemName)
+                Loop Until LogFile.EndOfStream
                     LogFile.Close()
                     If relog = False Then My.Computer.FileSystem.MoveFile(MuleLogPath & LogFilesList(Tally), ArchiveFolder & LogFilesList(Tally), True)
 

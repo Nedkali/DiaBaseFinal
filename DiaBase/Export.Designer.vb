@@ -29,8 +29,7 @@ Partial Class Export
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SavedDatabasesLISTBOX = New System.Windows.Forms.ListBox()
-        Me.OpenDatabaseCHECKBOX = New System.Windows.Forms.CheckBox()
-        Me.DontDeleteItemsCHECKBOX = New System.Windows.Forms.CheckBox()
+        Me.DeleteItemsCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.ExportCancelBUTTON = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -94,31 +93,18 @@ Partial Class Export
         Me.SavedDatabasesLISTBOX.Size = New System.Drawing.Size(288, 173)
         Me.SavedDatabasesLISTBOX.TabIndex = 928
         '
-        'OpenDatabaseCHECKBOX
+        'DeleteItemsCHECKBOX
         '
-        Me.OpenDatabaseCHECKBOX.BackColor = System.Drawing.Color.Black
-        Me.OpenDatabaseCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
-        Me.OpenDatabaseCHECKBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenDatabaseCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.OpenDatabaseCHECKBOX.Location = New System.Drawing.Point(359, 160)
-        Me.OpenDatabaseCHECKBOX.Name = "OpenDatabaseCHECKBOX"
-        Me.OpenDatabaseCHECKBOX.Size = New System.Drawing.Size(249, 60)
-        Me.OpenDatabaseCHECKBOX.TabIndex = 927
-        Me.OpenDatabaseCHECKBOX.Text = "Open Desination Database Once Items Are Exported"
-        Me.OpenDatabaseCHECKBOX.UseVisualStyleBackColor = False
-        '
-        'DontDeleteItemsCHECKBOX
-        '
-        Me.DontDeleteItemsCHECKBOX.BackColor = System.Drawing.Color.Black
-        Me.DontDeleteItemsCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
-        Me.DontDeleteItemsCHECKBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DontDeleteItemsCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DontDeleteItemsCHECKBOX.Location = New System.Drawing.Point(359, 219)
-        Me.DontDeleteItemsCHECKBOX.Name = "DontDeleteItemsCHECKBOX"
-        Me.DontDeleteItemsCHECKBOX.Size = New System.Drawing.Size(249, 52)
-        Me.DontDeleteItemsCHECKBOX.TabIndex = 926
-        Me.DontDeleteItemsCHECKBOX.Text = "DO NOT Delete Exported Items From The Source Database"
-        Me.DontDeleteItemsCHECKBOX.UseVisualStyleBackColor = False
+        Me.DeleteItemsCHECKBOX.BackColor = System.Drawing.Color.Black
+        Me.DeleteItemsCHECKBOX.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
+        Me.DeleteItemsCHECKBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteItemsCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
+        Me.DeleteItemsCHECKBOX.Location = New System.Drawing.Point(359, 219)
+        Me.DeleteItemsCHECKBOX.Name = "DeleteItemsCHECKBOX"
+        Me.DeleteItemsCHECKBOX.Size = New System.Drawing.Size(249, 52)
+        Me.DeleteItemsCHECKBOX.TabIndex = 926
+        Me.DeleteItemsCHECKBOX.Text = "Delete Exported Items From The Source Database"
+        Me.DeleteItemsCHECKBOX.UseVisualStyleBackColor = False
         '
         'ExportCancelBUTTON
         '
@@ -220,8 +206,7 @@ Partial Class Export
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.SavedDatabasesLISTBOX)
-        Me.Controls.Add(Me.OpenDatabaseCHECKBOX)
-        Me.Controls.Add(Me.DontDeleteItemsCHECKBOX)
+        Me.Controls.Add(Me.DeleteItemsCHECKBOX)
         Me.Controls.Add(Me.ExportCancelBUTTON)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
@@ -243,8 +228,7 @@ Partial Class Export
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents SavedDatabasesLISTBOX As ListBox
-    Friend WithEvents OpenDatabaseCHECKBOX As CheckBox
-    Friend WithEvents DontDeleteItemsCHECKBOX As CheckBox
+    Friend WithEvents DeleteItemsCHECKBOX As CheckBox
     Friend WithEvents ExportCancelBUTTON As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label8 As Label

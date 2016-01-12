@@ -24,13 +24,16 @@ function NTMain()
 
     if(!CLTM_CheckAct()) { CLC_SendMsgToScript("TLInventory.ntj", "CLTM_CheckAct()"); return; }
 	
-	if(DiaBaseSupport)
-		Log_DoIt(true);
+	if(DiaBaseSupport){
+		CBML_GetMuleInfo();
+		Delay(500);
+		CBML_LogIt(true);
+	}
 	else
 		CLU_TLIDoIt(verboseLogging);
 	
 	Delay(5000);
-	CLC_SendLogToOOG(0, COLOR_8 + "Successfully logged: "+MyRealm+"/"+me.account+"/"+me.charname, 0); 
+	CLC_SendLogToOOG(0, COLOR_8 + "Successfully logged: "+MyRealm+"/"+me.charname, 0); 
 
 	while(true)
 		Delay(300);
@@ -38,7 +41,7 @@ function NTMain()
     CLC_SendMsgToScript("CScriptControl.ntj", "SCRIPT_END");
 }
 
-function Log_DoIt(verbose) {
+function CBML_LogIt(verbose) {
 	var CTC_MyTime = new Date().toLocaleFormat("%H:%M:%S");
 	var mydate = new Date()
 	Print;
@@ -81,7 +84,11 @@ function Log_DoIt(verbose) {
 				_file.WriteLine(me.realm);
 				if(me.playertype){_file.WriteLine("True");}
 				if(!me.playertype){_file.WriteLine("False");}
-				_file.WriteLine("True");// ladder/non-ladder unable to find a method of correctly setting this
+				if(ladderType)
+					_file.WriteLine("True");// ladder/non-ladder unable to find a method of correctly setting this
+				if(!ladderType)
+					_file.WriteLine("False");// ladder/non-ladder unable to find a method of correctly setting this					
+					
 				if(me.gametype){_file.WriteLine("True");}
 				if(!me.gametype){_file.WriteLine("False");}
 				_file.WriteLine(CTC_MyTime);
@@ -276,21 +283,17 @@ function GetItemBase(id)
 	return "Unknown";
 }
 
-function getmuleinfo(){
+function CBML_GetMuleInfo(){
 
-	Myfile = FileOpen("Configs/"+MyRealm+"/AMS/MuleLogs/" + me.account + "_muleaccount.txt",0);
+	Myfile = FileOpen("Configs/"+MyRealm+"/AMS/MuleInventory/" + me.account + "_" + me.name + ".txt",0);
 	if(!Myfile)
 		return;
 	var temp = Myfile.ReadLine();
-	while(temp != ""){
-		temp = temp.split("/")
-		if(temp[0] == muleAccount){			
-			mypass = temp[1];
-			if(temp.length > 2){ladderType = temp[2];}
-		}
-		temp = Myfile.ReadLine();
-	}
+	if(temp == "true")
+		ladderType = true;
+		
 
 	Myfile.Close();
 
+	
 }

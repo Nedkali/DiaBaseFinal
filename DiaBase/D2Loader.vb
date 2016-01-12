@@ -1,4 +1,7 @@
-﻿Module D2Loader
+﻿Imports System.IO
+Imports System.IO.MemoryMappedFiles
+
+Module D2Loader
 
     Private TargetProcessHandle As Integer
     Private pfnStartAddr As Integer
@@ -181,7 +184,10 @@
             Return
         End Try
 
-        If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\CloBot.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
+        'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\CloBot.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
+        If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\DBase.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
+
+
 
         PInvoke.Kernel32.ResumeProcess(p)
         p.WaitForInputIdle()
@@ -189,5 +195,43 @@
 
     End Sub
 
+    Function MemFile2(ByVal x)
+        Try
+            Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateOrOpen("D2NT Profile", 82)
+            Dim Stream As MemoryMappedViewStream = mmf.CreateViewStream()
+            Dim writer As BinaryWriter = New BinaryWriter(Stream)
+
+            For y = 0 To ItemObjects(x).MuleAccount.Length - 1 : writer.Write(ItemObjects(x).MuleAccount(y)) : Next
+            For a = writer.BaseStream.Position To 23 : writer.Write(Chr(0)) : Next
+
+            For y = 0 To ItemObjects(x).MulePass.Length - 1 : writer.Write(ItemObjects(x).MulePass(y)) : Next
+            For a = writer.BaseStream.Position To 35 : writer.Write(Chr(0)) : Next
+
+            For y = 0 To ItemObjects(x).MuleName.Length - 1 : writer.Write(ItemObjects(x).MuleName(y)) : Next
+            For a = writer.BaseStream.Position To 51 : writer.Write(Chr(0)) : Next
+
+            Dim temp = 0
+            If ItemObjects(x).ItemRealm = "USWest" Then temp = 1
+            If ItemObjects(x).ItemRealm = "USEast" Then temp = 2
+            If ItemObjects(x).ItemRealm = "Asia" Then temp = 3
+            If ItemObjects(x).ItemRealm = "Europe" Then temp = 4
+
+            writer.Write(Chr(temp))
+            writer.Write(Chr(0)) 'difficulty
+
+            Dim temp1 = "Mulelogger.ntj"
+            For y = 0 To temp1.Length - 1 : writer.Write(temp1(y)) : Next
+            For a = writer.BaseStream.Position To 84 : writer.Write("") : Next
+
+            writer.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error mmf - ?mmf still open")
+            Return False
+
+        End Try
+
+        Return True
+
+    End Function
 
 End Module

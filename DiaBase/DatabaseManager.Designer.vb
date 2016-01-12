@@ -247,7 +247,7 @@ Partial Class DatabaseManager
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.BigSettings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(440, 362)
+        Me.ClientSize = New System.Drawing.Size(440, 384)
         Me.ControlBox = False
         Me.Controls.Add(Me.KeepManagerOpenCHECKBOX)
         Me.Controls.Add(Me.ManagerRefreshBUTTON)
