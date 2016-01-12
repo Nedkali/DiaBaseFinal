@@ -29,13 +29,14 @@ Public Class Export
         Temp = AppSettings.InstallPath + "\Databases\" + Temp + ".txt"
 
         Dim x As Integer = 0
+        Dim count As Integer = 1
 
         'Run a backup of current database if backup before edits Is set to true in app settings class And form
         If AppSettings.BackupBeforeEdits = True Then DatabaseManagmentFunctions.SaveDatabase(AppSettings.InstallPath & "\Databases\Backup\" & Main.OpenDatabaseLABEL.Text & ".BAK")
 
         Try
             Dim LogWriter As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(Temp, True)
-            Main.SearchLISTBOX.SelectedIndex = -1 ' disables display updating between item saves = faster
+
             For index = Main.SearchLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
                 x = SearchReferenceList(index)
 
@@ -93,17 +94,17 @@ Public Class Export
                 LogWriter.WriteLine(ItemObjects(x).ImportTime)
                 LogWriter.WriteLine(ItemObjects(x).ImportDate)
 
-                Main.SearchLISTBOX.Items.RemoveAt(index)
+
                 'Delete imported items from old dtatabase if checkbox IS NOT checked
                 If DeleteItemsCHECKBOX.Checked = True Then
                     Main.AllItemsLISTBOX.Items.RemoveAt(x)
                     ItemObjects.RemoveAt(x)
                 End If
-
+                count = count + 1
 
             Next
             LogWriter.Close()
-
+            Main.ImportLogRICHTEXTBOX.AppendText("Items Exported =" & count & vbCrLf)
         Catch ex As Exception
             'Pass Failed import error instance to error hanler 
             Main.ErrorHandler(1001, ex, 0, 0) '1001 - 1099 Haldles all expected importing errors (if needed)
