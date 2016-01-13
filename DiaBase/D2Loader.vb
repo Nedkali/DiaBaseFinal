@@ -186,11 +186,11 @@ Module D2Loader
 
         'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\CloBot.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
         If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\DBase.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
-
+        'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\D2BS.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2BS.dll")
 
 
         PInvoke.Kernel32.ResumeProcess(p)
-        p.WaitForInputIdle()
+        p.WaitForInputIdle(10000)
 
 
     End Sub

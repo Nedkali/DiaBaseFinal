@@ -383,7 +383,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAY SETTINGS FORM - Settings Window Handles All Global Config Functions for the Entire Application
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs) Handles SettingsMENUITEM.Click
+    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs)
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         Settings.ShowDialog()
@@ -455,7 +455,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - IMPORT NOW FUNCTION - Activated the autologger on demand as opposed to waiting for the delay to time out
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click
+    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click, SettingsMENUITEM.Click
 
         AutoLoggerRunning = True
         Timercount = 0
@@ -798,7 +798,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - Hide dupes in search results
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub HideDupesMainMenu_Click(sender As Object, e As EventArgs)
+    Private Sub HideDupesMainMenu_Click(sender As Object, e As EventArgs) Handles HideDupesMENUITEM.Click
         If HideDupesMENUITEM.Checked = True Then
             HideDupesMENUITEM.Checked = False
             AppSettings.HideDupes = False
@@ -1741,7 +1741,7 @@ Public Class Main
         ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
     End Sub
 
-    Private Sub HideDupesMENUITEM_Click(sender As Object, e As EventArgs) Handles HideDupesMENUITEM.Click
+    Private Sub HideDupesMENUITEM_Click(sender As Object, e As EventArgs)
         If HideDupesMENUITEM.Checked = True Then
             HideDupesMENUITEM.Checked = False
             AppSettings.HideDupes = False
