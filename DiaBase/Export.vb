@@ -29,7 +29,7 @@ Public Class Export
         Temp = AppSettings.InstallPath + "\Databases\" + Temp + ".txt"
 
         Dim x As Integer = 0
-        Dim count As Integer = 1
+        Dim count As Integer = 0
 
         'Run a backup of current database if backup before edits Is set to true in app settings class And form
         If AppSettings.BackupBeforeEdits = True Then DatabaseManagmentFunctions.SaveDatabase(AppSettings.InstallPath & "\Databases\Backup\" & Main.OpenDatabaseLABEL.Text & ".BAK")

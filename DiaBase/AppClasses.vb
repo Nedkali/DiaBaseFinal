@@ -1,5 +1,6 @@
 ﻿'Defines the main three... Database Fields, UserList Fields and Application Settings all as class objects, and their subsequent fields
 'NOTHING ELSE WILL GO HERE
+Imports System.Runtime.InteropServices
 
 Public Class ItemDatabase
     Public ItemName As String
@@ -155,3 +156,10 @@ Public Class UserListDatabase
 
     Public DatabaseFilename As String 'This field is unique to this class - Used to link items back to thier containing database in the user list.
 End Class
+
+<StructLayout(LayoutKind.Sequential)>
+Friend Structure CopyData
+    Public dwData As IntPtr
+    Public cbData As Integer
+    Public lpData As IntPtr
+End Structure

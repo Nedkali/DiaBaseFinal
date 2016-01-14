@@ -140,7 +140,7 @@ Module D2Loader
     End Sub
 
     Public Sub loadD2(ByVal x)
-
+        ErrMessage = ""
         Dim key As Microsoft.Win32.RegistryKey
 
         key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")

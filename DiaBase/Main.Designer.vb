@@ -31,9 +31,12 @@ Partial Class Main
         Me.BackupDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitApplicarionMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisplayLineBreaksMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HideDupesMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearSearchListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.DeleteItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddNewItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,7 +48,6 @@ Partial Class Main
         Me.UndoSearchMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditExistingItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearUserListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MainFormSTATUSSTRIP = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -58,7 +60,18 @@ Partial Class Main
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.UtilitiesButtonMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetNonLadderMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetLadderByDateMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetAllNonLadderMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MulesAccsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.USWestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.USEastToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EuropeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserRefControlTabBUTTON = New System.Windows.Forms.Button()
         Me.TradesListControlTabBUTTON = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -183,25 +196,17 @@ Partial Class Main
         Me.Label32 = New System.Windows.Forms.Label()
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VerifyLoggingFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MulesAccsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.USWestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.USEastToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EuropeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetNonLadderMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetLadderByDateMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SetAllNonLadderMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.RebuildDefaultDatabaseMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisplayLineBreaksMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HideDupesMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerifyLoggingFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearImportLogMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearSearchListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearUserListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -272,7 +277,7 @@ Partial Class Main
         'SettingsMenuMENUGROUP
         '
         Me.SettingsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ClearImportLogMENUITEM, Me.ToolStripSeparator4, Me.ImportNowMENUITEM, Me.ToolStripSeparator7, Me.SettingsMENUITEM})
+        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ClearToolStripMenuItem, Me.ToolStripSeparator4, Me.ImportNowMENUITEM, Me.ToolStripSeparator7, Me.SettingsMENUITEM, Me.ToolStripSeparator12})
         Me.SettingsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.SettingsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SettingsMenuMENUGROUP.Name = "SettingsMenuMENUGROUP"
@@ -280,49 +285,66 @@ Partial Class Main
         Me.SettingsMenuMENUGROUP.Text = "Options"
         Me.SettingsMenuMENUGROUP.ToolTipText = "Set Log Path, Automatic Backups, Import Delay And Hide Password"
         '
+        'DisplayLineBreaksMENUITEM
+        '
+        Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
+        Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
+        '
+        'HideDupesMENUITEM
+        '
+        Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
+        Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
+        '
+        'ImportNowMENUITEM
+        '
+        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
+        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.ImportNowMENUITEM.Text = "Import Now"
+        '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(212, 6)
         '
-        'ClearTradeListMENUITEM
+        'SettingsMENUITEM
         '
-        Me.ClearTradeListMENUITEM.Name = "ClearTradeListMENUITEM"
-        Me.ClearTradeListMENUITEM.Size = New System.Drawing.Size(165, 22)
-        Me.ClearTradeListMENUITEM.Text = "Clear Trade List"
-        '
-        'ClearSearchListMENUITEM
-        '
-        Me.ClearSearchListMENUITEM.Name = "ClearSearchListMENUITEM"
-        Me.ClearSearchListMENUITEM.Size = New System.Drawing.Size(165, 22)
-        Me.ClearSearchListMENUITEM.Text = "Clear Search List"
+        Me.SettingsMENUITEM.Name = "SettingsMENUITEM"
+        Me.SettingsMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.SettingsMENUITEM.Text = "Settings"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(162, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(153, 6)
         '
         'DeleteItemMENUITEM
         '
         Me.DeleteItemMENUITEM.Name = "DeleteItemMENUITEM"
-        Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.DeleteItemMENUITEM.Text = "Delete"
         '
         'AddNewItemMENUITEM
         '
         Me.AddNewItemMENUITEM.Name = "AddNewItemMENUITEM"
-        Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.AddNewItemMENUITEM.Text = "Add"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(162, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(153, 6)
         '
         'SortItemsMainMenu
         '
         Me.SortItemsMainMenu.Name = "SortItemsMainMenu"
-        Me.SortItemsMainMenu.Size = New System.Drawing.Size(165, 22)
+        Me.SortItemsMainMenu.Size = New System.Drawing.Size(156, 22)
         Me.SortItemsMainMenu.Text = "Sort List A to Z"
         '
         'SaveDatabaseMENUITEM
@@ -334,7 +356,7 @@ Partial Class Main
         'ItemsMenuMENUGROUP
         '
         Me.ItemsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ItemsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMENUITEM, Me.UndoSearchMenuItem, Me.SortItemsMainMenu, Me.ToolStripSeparator2, Me.SelectAllMENUITEM, Me.EditExistingItemMENUITEM, Me.AddNewItemMENUITEM, Me.DeleteItemMENUITEM, Me.ToolStripSeparator1, Me.ClearSearchListMENUITEM, Me.ClearTradeListMENUITEM, Me.ClearUserListMENUITEM})
+        Me.ItemsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMENUITEM, Me.UndoSearchMenuItem, Me.SortItemsMainMenu, Me.ToolStripSeparator2, Me.SelectAllMENUITEM, Me.EditExistingItemMENUITEM, Me.AddNewItemMENUITEM, Me.DeleteItemMENUITEM, Me.ToolStripSeparator1})
         Me.ItemsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ItemsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ItemsMenuMENUGROUP.Name = "ItemsMenuMENUGROUP"
@@ -346,33 +368,27 @@ Partial Class Main
         '
         Me.UndoDeleteMENUITEM.Enabled = False
         Me.UndoDeleteMENUITEM.Name = "UndoDeleteMENUITEM"
-        Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.UndoDeleteMENUITEM.Text = "UnDo Delete"
         '
         'UndoSearchMenuItem
         '
         Me.UndoSearchMenuItem.Enabled = False
         Me.UndoSearchMenuItem.Name = "UndoSearchMenuItem"
-        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.UndoSearchMenuItem.Text = "Undo Search"
         '
         'SelectAllMENUITEM
         '
         Me.SelectAllMENUITEM.Name = "SelectAllMENUITEM"
-        Me.SelectAllMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.SelectAllMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.SelectAllMENUITEM.Text = "Select All"
         '
         'EditExistingItemMENUITEM
         '
         Me.EditExistingItemMENUITEM.Name = "EditExistingItemMENUITEM"
-        Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(165, 22)
+        Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.EditExistingItemMENUITEM.Text = "Edit"
-        '
-        'ClearUserListMENUITEM
-        '
-        Me.ClearUserListMENUITEM.Name = "ClearUserListMENUITEM"
-        Me.ClearUserListMENUITEM.Size = New System.Drawing.Size(165, 22)
-        Me.ClearUserListMENUITEM.Text = "Clear User List"
         '
         'ToolStripStatusLabel2
         '
@@ -456,13 +472,74 @@ Partial Class Main
         'UtilitiesButtonMENUITEM
         '
         Me.UtilitiesButtonMENUITEM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RebuildDefaultDatabaseMENUITEM, Me.SetNonLadderMENUGROUP, Me.VerifyLoggingFilesToolStripMenuItem, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM})
+        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13})
         Me.UtilitiesButtonMENUITEM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.UtilitiesButtonMENUITEM.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.UtilitiesButtonMENUITEM.Name = "UtilitiesButtonMENUITEM"
         Me.UtilitiesButtonMENUITEM.Size = New System.Drawing.Size(62, 20)
         Me.UtilitiesButtonMENUITEM.Text = "Utilities"
         Me.UtilitiesButtonMENUITEM.ToolTipText = "Everything You Need To Know About DiaBASE"
+        '
+        'SetNonLadderMENUGROUP
+        '
+        Me.SetNonLadderMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetLadderByDateMENUITEM, Me.SetAllNonLadderMENUITEM})
+        Me.SetNonLadderMENUGROUP.Name = "SetNonLadderMENUGROUP"
+        Me.SetNonLadderMENUGROUP.Size = New System.Drawing.Size(215, 22)
+        Me.SetNonLadderMENUGROUP.Text = "Set to Non Ladder"
+        '
+        'SetLadderByDateMENUITEM
+        '
+        Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetLadderByDateMENUITEM.Text = "By Date"
+        '
+        'SetAllNonLadderMENUITEM
+        '
+        Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetAllNonLadderMENUITEM.Text = "All Items"
+        '
+        'MulesAccsToolStripMenuItem
+        '
+        Me.MulesAccsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USWestToolStripMenuItem, Me.USEastToolStripMenuItem, Me.AsiaToolStripMenuItem, Me.EuropeToolStripMenuItem})
+        Me.MulesAccsToolStripMenuItem.Name = "MulesAccsToolStripMenuItem"
+        Me.MulesAccsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.MulesAccsToolStripMenuItem.Text = "List Mules Accs"
+        '
+        'USWestToolStripMenuItem
+        '
+        Me.USWestToolStripMenuItem.Name = "USWestToolStripMenuItem"
+        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USWestToolStripMenuItem.Text = "USWest"
+        '
+        'USEastToolStripMenuItem
+        '
+        Me.USEastToolStripMenuItem.Name = "USEastToolStripMenuItem"
+        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.USEastToolStripMenuItem.Text = "USEast"
+        '
+        'AsiaToolStripMenuItem
+        '
+        Me.AsiaToolStripMenuItem.Name = "AsiaToolStripMenuItem"
+        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AsiaToolStripMenuItem.Text = "Asia"
+        '
+        'EuropeToolStripMenuItem
+        '
+        Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
+        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EuropeToolStripMenuItem.Text = "Europe"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(212, 6)
+        '
+        'LoadItemMuleMENUITEM
+        '
+        Me.LoadItemMuleMENUITEM.Name = "LoadItemMuleMENUITEM"
+        Me.LoadItemMuleMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.LoadItemMuleMENUITEM.Text = "Load Selected Item Mule"
         '
         'MainFormMENUBAR
         '
@@ -475,6 +552,14 @@ Partial Class Main
         Me.MainFormMENUBAR.Size = New System.Drawing.Size(794, 24)
         Me.MainFormMENUBAR.TabIndex = 242
         Me.MainFormMENUBAR.Text = "MenuStrip1"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HelpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'UserRefControlTabBUTTON
         '
@@ -1719,13 +1804,11 @@ Partial Class Main
         Me.ItemNameRICHTEXTBOX.TabIndex = 428
         Me.ItemNameRICHTEXTBOX.Text = ""
         '
-        'HelpToolStripMenuItem
+        'RebuildDefaultDatabaseMENUITEM
         '
-        Me.HelpToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HelpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.RebuildDefaultDatabaseMENUITEM.Name = "RebuildDefaultDatabaseMENUITEM"
+        Me.RebuildDefaultDatabaseMENUITEM.Size = New System.Drawing.Size(215, 22)
+        Me.RebuildDefaultDatabaseMENUITEM.Text = "Rebuild Default Database"
         '
         'VerifyLoggingFilesToolStripMenuItem
         '
@@ -1733,107 +1816,57 @@ Partial Class Main
         Me.VerifyLoggingFilesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.VerifyLoggingFilesToolStripMenuItem.Text = "Verify Logging Files"
         '
-        'MulesAccsToolStripMenuItem
+        'ToolStripSeparator11
         '
-        Me.MulesAccsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.USWestToolStripMenuItem, Me.USEastToolStripMenuItem, Me.AsiaToolStripMenuItem, Me.EuropeToolStripMenuItem})
-        Me.MulesAccsToolStripMenuItem.Name = "MulesAccsToolStripMenuItem"
-        Me.MulesAccsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.MulesAccsToolStripMenuItem.Text = "List Mules Accs"
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(212, 6)
         '
-        'USWestToolStripMenuItem
+        'ToolStripMenuItem1
         '
-        Me.USWestToolStripMenuItem.Name = "USWestToolStripMenuItem"
-        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.USWestToolStripMenuItem.Text = "USWest"
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.ToolStripMenuItem1.Text = "Clear"
         '
-        'USEastToolStripMenuItem
+        'ClearToolStripMenuItem
         '
-        Me.USEastToolStripMenuItem.Name = "USEastToolStripMenuItem"
-        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.USEastToolStripMenuItem.Text = "USEast"
-        '
-        'AsiaToolStripMenuItem
-        '
-        Me.AsiaToolStripMenuItem.Name = "AsiaToolStripMenuItem"
-        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AsiaToolStripMenuItem.Text = "Asia"
-        '
-        'EuropeToolStripMenuItem
-        '
-        Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
-        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EuropeToolStripMenuItem.Text = "Europe"
-        '
-        'LoadItemMuleMENUITEM
-        '
-        Me.LoadItemMuleMENUITEM.Name = "LoadItemMuleMENUITEM"
-        Me.LoadItemMuleMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.LoadItemMuleMENUITEM.Text = "Load Selected Item Mule"
-        '
-        'SetNonLadderMENUGROUP
-        '
-        Me.SetNonLadderMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetLadderByDateMENUITEM, Me.SetAllNonLadderMENUITEM})
-        Me.SetNonLadderMENUGROUP.Name = "SetNonLadderMENUGROUP"
-        Me.SetNonLadderMENUGROUP.Size = New System.Drawing.Size(215, 22)
-        Me.SetNonLadderMENUGROUP.Text = "Set to Non Ladder"
-        '
-        'SetLadderByDateMENUITEM
-        '
-        Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
-        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
-        Me.SetLadderByDateMENUITEM.Text = "By Date"
-        '
-        'SetAllNonLadderMENUITEM
-        '
-        Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
-        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
-        Me.SetAllNonLadderMENUITEM.Text = "All Items"
-        '
-        'RebuildDefaultDatabaseMENUITEM
-        '
-        Me.RebuildDefaultDatabaseMENUITEM.Name = "RebuildDefaultDatabaseMENUITEM"
-        Me.RebuildDefaultDatabaseMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.RebuildDefaultDatabaseMENUITEM.Text = "Rebuild Default Database"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
-        '
-        'ImportNowMENUITEM
-        '
-        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
-        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.ImportNowMENUITEM.Text = "Import Now"
-        '
-        'DisplayLineBreaksMENUITEM
-        '
-        Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
-        Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
-        '
-        'HideDupesMENUITEM
-        '
-        Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
-        Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
-        '
-        'SettingsMENUITEM
-        '
-        Me.SettingsMENUITEM.Name = "SettingsMENUITEM"
-        Me.SettingsMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.SettingsMENUITEM.Text = "Settings"
+        Me.ClearToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClearImportLogMENUITEM, Me.ClearSearchListMENUITEM, Me.ClearTradeListMENUITEM, Me.ClearUserListMENUITEM})
+        Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ClearToolStripMenuItem.Text = "Clear"
         '
         'ClearImportLogMENUITEM
         '
         Me.ClearImportLogMENUITEM.Name = "ClearImportLogMENUITEM"
-        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.ClearImportLogMENUITEM.Text = "Clear Import Log"
+        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.ClearImportLogMENUITEM.Text = "Import Log"
         '
-        'ToolStripSeparator9
+        'ClearSearchListMENUITEM
         '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(212, 6)
+        Me.ClearSearchListMENUITEM.Name = "ClearSearchListMENUITEM"
+        Me.ClearSearchListMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.ClearSearchListMENUITEM.Text = "Search List"
+        '
+        'ClearTradeListMENUITEM
+        '
+        Me.ClearTradeListMENUITEM.Name = "ClearTradeListMENUITEM"
+        Me.ClearTradeListMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.ClearTradeListMENUITEM.Text = "Trade List"
+        '
+        'ClearUserListMENUITEM
+        '
+        Me.ClearUserListMENUITEM.Name = "ClearUserListMENUITEM"
+        Me.ClearUserListMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.ClearUserListMENUITEM.Text = "User List"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(212, 6)
+        '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(212, 6)
         '
         'Main
         '
@@ -1951,8 +1984,6 @@ Partial Class Main
     Friend WithEvents BackupDatabaseMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitApplicarionMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SettingsMenuMENUGROUP As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearTradeListMENUITEM As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearSearchListMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents DeleteItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddNewItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
@@ -2050,7 +2081,6 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SendToTradeListItemsCMenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SendToUserListItemsCMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClearUserListMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SelectAllMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UndoDeleteMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EastRealmCHECKBOX As CheckBox
@@ -2104,11 +2134,9 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents EportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RebuildDefaultDatabaseMENUITEM As ToolStripMenuItem
     Friend WithEvents SetNonLadderMENUGROUP As ToolStripMenuItem
     Friend WithEvents SetLadderByDateMENUITEM As ToolStripMenuItem
     Friend WithEvents SetAllNonLadderMENUITEM As ToolStripMenuItem
-    Friend WithEvents VerifyLoggingFilesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MulesAccsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents USWestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents USEastToolStripMenuItem As ToolStripMenuItem
@@ -2117,9 +2145,19 @@ Partial Class Main
     Friend WithEvents LoadItemMuleMENUITEM As ToolStripMenuItem
     Friend WithEvents DisplayLineBreaksMENUITEM As ToolStripMenuItem
     Friend WithEvents HideDupesMENUITEM As ToolStripMenuItem
-    Friend WithEvents ClearImportLogMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents ImportNowMENUITEM As ToolStripMenuItem
     Friend WithEvents SettingsMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents ClearToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClearImportLogMENUITEM As ToolStripMenuItem
+    Friend WithEvents ClearSearchListMENUITEM As ToolStripMenuItem
+    Friend WithEvents ClearTradeListMENUITEM As ToolStripMenuItem
+    Friend WithEvents ClearUserListMENUITEM As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents VerifyLoggingFilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RebuildDefaultDatabaseMENUITEM As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class

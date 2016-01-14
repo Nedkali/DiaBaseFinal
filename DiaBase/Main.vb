@@ -5,9 +5,10 @@
 '**                                                                          **
 '******************************************************************************
 
-Imports System.IO
-Imports System.Drawing.Text
-Imports System.Globalization
+'Imports System.Runtime.InteropServices
+
+Imports System.Runtime.InteropServices
+
 Public Class Main
     'Trial - Setup Select All Function and support vars
     Declare Auto Function SendMessage Lib "user32.dll" (ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As IntPtr
@@ -21,6 +22,33 @@ Public Class Main
     Public WithEvents ImportTimer As New System.Windows.Forms.Timer()
     Public WithEvents ButtonFlashTimer As New System.Windows.Forms.Timer()
 
+    'For catching receiving messages from the autologin dll
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+
+        Select Case m.Msg
+            Case WM_COPYDATA
+                Dim cds As CopyData
+                Dim nOption As Integer = Fix(m.WParam.ToInt32)
+                cds = Marshal.PtrToStructure(m.LParam, cds.GetType())
+                Dim nLength As Integer = cds.cbData
+                Dim temp As String = Marshal.PtrToStringAnsi(cds.lpData, nLength)
+                Dim y As Integer = cds.dwData
+                Dim a As Integer = m.WParam
+
+                Select Case y
+                    Case 10 'Login Error
+                        If ErrMessage = "" Then
+                            ErrMessage = temp
+                            LoginHandler.Show()
+                        End If
+                    Case Else
+                        MessageBox.Show("Int" & y & " Data" & temp)
+                End Select
+
+
+        End Select
+        MyBase.WndProc(m)
+    End Sub
 
     Sub StartTimer()
         Timercount = 0
@@ -383,7 +411,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAY SETTINGS FORM - Settings Window Handles All Global Config Functions for the Entire Application
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs)
+    Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs) Handles SettingsMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         Settings.ShowDialog()
@@ -455,7 +483,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - IMPORT NOW FUNCTION - Activated the autologger on demand as opposed to waiting for the delay to time out
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click, SettingsMENUITEM.Click
+    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click
 
         AutoLoggerRunning = True
         Timercount = 0
@@ -748,7 +776,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - CLEARS USERLIST
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ClearUserListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearUserListMENUITEM.Click
+    Private Sub ClearUserListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearUserListMENUITEM.DropDownClosed
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
         UserLISTBOX.Items.Clear()
