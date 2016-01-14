@@ -165,7 +165,7 @@ Module AutoLogger
                             If thislogpass = "Unknown" And ItemObjects(mc).MulePass <> "Unknown" Then thislogpass = ItemObjects(mc).MulePass
                             ThislogDate = ItemObjects(mc).ImportDate ' retain original date - usefull for sorting ladder/nonladder
                             'Main.ImportLogRICHTEXTBOX.AppendText("Import Date retained" & vbCrLf) 'debug msg
-                            'Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
+                            If relog = False Then Main.AllItemsLISTBOX.Items.RemoveAt(mc) 'remove from displayed list
                             ItemObjects.RemoveAt(mc)
                             Pretotal = Pretotal - 1
                             itemsremoved = itemsremoved + 1
