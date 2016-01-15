@@ -449,18 +449,10 @@ Public Class Main
             If ExitApplication.DialogResult = Windows.Forms.DialogResult.Yes Then
 
                 'Check The Automated Backup On Exit Checkbox And Branch To Backup Sub If Nessicary
-                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then CreateBackup(AppSettings.CurrentDatabase)
+                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Or AppSettings.BackupOnExit = True Then CreateBackup(AppSettings.CurrentDatabase)
 
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
-                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
-
-
-                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then AppSettings.SaveOnExit = True Else AppSettings.SaveOnExit = False
-                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then AppSettings.BackupOnExit = True Else AppSettings.BackupOnExit = False
-
-
-                'Updates Realm Checkboxes and Display Line Breaks In Stats CheckStates To Settings File
-                SaveSettingsFile()
+                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
             End If
         Else
@@ -1474,6 +1466,8 @@ Public Class Main
         Dim b As Integer
         Dim FocusOnExit As Integer = SearchLISTBOX.SelectedIndex
         UnDoCount.Add(SearchLISTBOX.SelectedIndices.Count - 1)
+        UndoSearchList.Clear() 'need to do this or if undo search will cause errors as list no longer match
+        UndoSearchMenuItem.Enabled = False
         For index = SearchLISTBOX.SelectedIndices.Count - 1 To 0 Step -1
             a = SearchLISTBOX.SelectedIndices(index)
             b = SearchReferenceList(a)
