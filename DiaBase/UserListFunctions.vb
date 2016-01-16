@@ -199,15 +199,6 @@
 
         Main.ItemNameRICHTEXTBOX.SelectAll() : Main.ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
-
-        'NEXT JOB>>> FIX RUNEWORD STRING!
-
-        'RuneWord String - Still Not Reporting Right
-        'If UserObjects(ItemIndex).RuneWord = True Then
-        'Main.ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
-        'Main.ItemNameRICHTEXTBOX.SelectedText = UserObjects(ItemIndex).Stat1 & vbCrLf
-        'End If
-
         ' Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf) '          Spacer line after Item Name and class Always 
         ColourCount1 = Main.ItemStatsRICHTEXTBOX.TextLength '   Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
@@ -276,18 +267,13 @@
         If UserObjects(ItemIndex).Stat14 <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(UserObjects(ItemIndex).Stat14 & vbCrLf)
         If UserObjects(ItemIndex).Stat15 <> Nothing Then Main.ItemStatsRICHTEXTBOX.AppendText(UserObjects(ItemIndex).Stat15 & vbCrLf)
 
-
         Main.ItemStatsRICHTEXTBOX.AppendText(vbCrLf & "Item Level: " & UserObjects(ItemIndex).Itemlevel & vbCrLf)
 
         'Select All and Center Justify Text Allignment in the ItemStatsRICHTEXTBOX - Display Items Routine is DONE :)
         Main.ItemStatsRICHTEXTBOX.SelectAll()
         Main.ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
-        Try
-            Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
-        Catch ex As Exception
-            'Skips skin load if skin file cannot be found or accessed
-        End Try
+        If My.Computer.FileSystem.FileExists("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg") = True Then Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
 
         'THIS CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
         Dim linecount As Integer = 0
@@ -295,7 +281,6 @@
             If Line.IndexOf("Item Level: ") > -1 Then Main.ItemStatsRICHTEXTBOX.Select(Main.ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))
             linecount = linecount + 1
         Next
-
 
         Main.ItemStatsRICHTEXTBOX.SelectionColor = Color.White
     End Sub

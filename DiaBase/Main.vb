@@ -1137,15 +1137,12 @@ Public Class Main
     End Sub
 
 
-
     '-----------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAYS THE STATISTICS FOR THE CURRNETLY SELECTED ITEM IN THE ALL ITMES LIST (user list has its own routine in UserListFunctions)
     '-----------------------------------------------------------------------------------------------------------------------------------------
 
     Sub DisplayItemStats(ItemIndex)
-
         If ItemIndex < 0 Or ItemIndex >= ItemObjects.Count Then ClearItemStats() : Return
-
         ItemStatsRICHTEXTBOX.Clear() : ItemNameRICHTEXTBOX.Clear() 'moved this here as occassionally getting double display nfi why
 
         'Display mule details
@@ -1162,12 +1159,6 @@ Public Class Main
 
         Dim DisplayColour As String = ItemObjects(ItemIndex).ItemQuality
         Dim ColourCount1 As Integer = ItemObjects(ItemIndex).ItemQuality.Length
-
-
-
-
-
-
 
 
         'Normal And Superior - White
@@ -1221,18 +1212,6 @@ Public Class Main
         End If
 
         ItemNameRICHTEXTBOX.SelectAll() : ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
-
-
-
-
-
-
-        'RuneWord String - Still Not Reporting Right
-        'If ItemObjects(ItemIndex).RuneWord = True Then
-        'ItemStatsRICHTEXTBOX.SelectionColor = Color.Orange
-        'ItemStatsRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).Stat1 & vbCrLf
-        'End If
-        'ItemStatsRICHTEXTBOX.AppendText(vbCrLf) 'Spacer line after Item Name and class Always 
 
         ColourCount1 = ItemStatsRICHTEXTBOX.TextLength 'Used to Count number of lines to calculate selection to colour text selection for the Basic Info Block - this var represents the starting point to colour
 
@@ -1308,14 +1287,7 @@ Public Class Main
         ItemStatsRICHTEXTBOX.SelectAll()
         ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
-        Try
-            ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
-        Catch ex As Exception
-            'EXCEPTION CATCH HERE SHOULD AVOID CRASHES IF THE SKIN FILES DONT EXIST OR CANNOT BE FOUND - dont think we need anything else here, if iTs missing or inaccessable it cant 
-            'really be fixed anyway. Instead this handler should just skip the load attempt and let the app continue on with out displaying any skins at all
-
-        End Try
-
+        If My.Computer.FileSystem.FileExists("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg") = True Then ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
 
         Dim linecount As Integer = 0
         For Each Line In ItemStatsRICHTEXTBOX.Lines

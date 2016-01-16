@@ -24,14 +24,16 @@
         NumericUpDown1.Value = a
         Dim filename = ImageArray(a)
 
-        SkinSelectorPICTUREBOX.Load("Skins\" + filename + ".jpg")
+        If My.Computer.FileSystem.FileExists("Skins\" + filename + ".jpg") = True Then SkinSelectorPICTUREBOX.Load("Skins\" + filename + ".jpg")
+
     End Sub
 
     Private Sub SkinSelector_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim a = Main.AllItemsLISTBOX.SelectedIndex
         NumericUpDown1.Value = ItemObjects(a).ItemImage
         Dim filename As String = ImageArray(NumericUpDown1.Value)
-        SkinSelectorPICTUREBOX.Load("Skins\" + filename + ".jpg")
+
+        If My.Computer.FileSystem.FileExists("Skins\" + filename + ".jpg") = True Then SkinSelectorPICTUREBOX.Load("Skins\" + filename + ".jpg")
 
     End Sub
 
