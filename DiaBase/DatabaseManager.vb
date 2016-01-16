@@ -212,7 +212,7 @@ FileExistsErrorLoop:
 
             Try
 
-                'databse dir
+                'database dir
                 My.Computer.FileSystem.DeleteFile(DatabaseFile)
 
                 'Backup dir
@@ -227,9 +227,16 @@ FileExistsErrorLoop:
         End If
     End Sub
 
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'BRANCH TO DATABASE INFO FORM ON INFO BUTTON PRESS - Evaluation Routines are Within the Database Info Forms module
+    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     Private Sub ManagerSummaryBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerSummaryBUTTON.Click
-        Dim filename = AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt"
-        Dim temp = My.Computer.FileSystem.GetFileInfo(filename)
-        MessageBox.Show(temp.Length)
+
+        'Dim filename = AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt"
+        'Dim temp = My.Computer.FileSystem.GetFileInfo(filename)
+        'MessageBox.Show(temp.Length)
+
+        DatabaseInfo.ShowDialog()
     End Sub
 End Class

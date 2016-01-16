@@ -1258,7 +1258,7 @@ Partial Class Main
         '
         Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.SelectAllSearchCMenu, Me.ToolStripSeparator10, Me.EportToolStripMenuItem})
         Me.SearchListCONTEXTMENUSTRIP.Name = "SearchListContextMenuStrip1"
-        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(186, 192)
+        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(186, 170)
         '
         'SendToTradeListSearchMenu
         '
@@ -1430,53 +1430,53 @@ Partial Class Main
         Me.ItemListboxCONTEXTMENUSTRIP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ItemListboxCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectAllItemsCMenu, Me.AddItemItemsCMenu, Me.EditItemItemsCMenu, Me.DeleteItemsCMenu, Me.SortListItemsCMenu, Me.ToolStripSeparator3, Me.SendToTradeListItemsCMenu, Me.SendToUserListItemsCMenu})
         Me.ItemListboxCONTEXTMENUSTRIP.Name = "ItemListboxCONTEXTMENUSTRIP"
-        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(177, 164)
+        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(175, 164)
         '
         'SelectAllItemsCMenu
         '
         Me.SelectAllItemsCMenu.Name = "SelectAllItemsCMenu"
-        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SelectAllItemsCMenu.Text = "Select All"
         '
         'AddItemItemsCMenu
         '
         Me.AddItemItemsCMenu.Name = "AddItemItemsCMenu"
-        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.AddItemItemsCMenu.Text = "Add"
         '
         'EditItemItemsCMenu
         '
         Me.EditItemItemsCMenu.Name = "EditItemItemsCMenu"
-        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.EditItemItemsCMenu.Text = "Edit"
         '
         'DeleteItemsCMenu
         '
         Me.DeleteItemsCMenu.Name = "DeleteItemsCMenu"
-        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.DeleteItemsCMenu.Text = "Delete"
         '
         'SortListItemsCMenu
         '
         Me.SortListItemsCMenu.Name = "SortListItemsCMenu"
-        Me.SortListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SortListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SortListItemsCMenu.Text = "Sort List A to Z"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(171, 6)
         '
         'SendToTradeListItemsCMenu
         '
         Me.SendToTradeListItemsCMenu.Name = "SendToTradeListItemsCMenu"
-        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SendToTradeListItemsCMenu.Text = "Send To Trade List"
         '
         'SendToUserListItemsCMenu
         '
         Me.SendToUserListItemsCMenu.Name = "SendToUserListItemsCMenu"
-        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SendToUserListItemsCMenu.Text = "Send To User List"
         '
         'EastRealmCHECKBOX
@@ -1775,27 +1775,27 @@ Partial Class Main
         '
         Me.SendToTradeListToolStripMenuItem1.Enabled = False
         Me.SendToTradeListToolStripMenuItem1.Name = "SendToTradeListToolStripMenuItem1"
-        Me.SendToTradeListToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.SendToTradeListToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.SendToTradeListToolStripMenuItem1.Text = "Send To Trade List"
         '
         'DeleteItemsToolStripMenuItem1
         '
         Me.DeleteItemsToolStripMenuItem1.Enabled = False
         Me.DeleteItemsToolStripMenuItem1.Name = "DeleteItemsToolStripMenuItem1"
-        Me.DeleteItemsToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.DeleteItemsToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.DeleteItemsToolStripMenuItem1.Text = "Delete Items"
         '
         'ExportItemsToolStripMenuItem
         '
         Me.ExportItemsToolStripMenuItem.Enabled = False
         Me.ExportItemsToolStripMenuItem.Name = "ExportItemsToolStripMenuItem"
-        Me.ExportItemsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.ExportItemsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ExportItemsToolStripMenuItem.Text = "Export Items"
         '
         'ClearItemsToolStripMenuItem
         '
         Me.ClearItemsToolStripMenuItem.Name = "ClearItemsToolStripMenuItem"
-        Me.ClearItemsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.ClearItemsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ClearItemsToolStripMenuItem.Text = "Clear Items"
         '
         'SelectAllToolStripMenuItem2

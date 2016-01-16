@@ -104,6 +104,12 @@
   <ItemGroup>
     <Compile Include="AutoLogger.vb" />
     <Compile Include="D2Loader.vb" />
+    <Compile Include="DatabaseInfo.Designer.vb">
+      <DependentUpon>DatabaseInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DatabaseManagmentFunctions.vb" />
     <Compile Include="ErrorHandlerForm.Designer.vb">
       <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
@@ -201,6 +207,9 @@
     <Compile Include="UserListFunctions.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DatabaseInfo.resx">
+      <DependentUpon>DatabaseInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorHandlerForm.resx">
       <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
     </EmbeddedResource>
