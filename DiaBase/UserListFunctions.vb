@@ -283,7 +283,11 @@
         Main.ItemStatsRICHTEXTBOX.SelectAll()
         Main.ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
-        Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
+        Try
+            Main.ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(UserObjects(ItemIndex).ItemImage) + ".jpg")
+        Catch ex As Exception
+            'Skips skin load if skin file cannot be found or accessed
+        End Try
 
         'THIS CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
         Dim linecount As Integer = 0

@@ -56,10 +56,10 @@ Public Class DatabaseManager
     '---------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub ManagerRenameBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerRenameBUTTON.Click
         If AutoLoggerRunning = False Then
-            If ManagerDatabasesLISTBOX.SelectedItem <> Nothing Then
-                If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") = True Then
+            If DatabaseManagerSavedDatabasesLISTBOX.SelectedItem <> Nothing Then
+                If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt") = True Then
                     If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-                    RenameDatabase(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt")
+                    RenameDatabase(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt")
                 End If
 
                 RefreshDatabaseList()
@@ -72,9 +72,9 @@ Public Class DatabaseManager
     '---------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub ManagerDeleteBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerDeleteBUTTON.Click
         If AutoLoggerRunning = False Then
-            If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") = True And Main.OpenDatabaseLABEL.Text <> ManagerDatabasesLISTBOX.SelectedItem Then
+            If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt") = True And Main.OpenDatabaseLABEL.Text <> DatabaseManagerSavedDatabasesLISTBOX.SelectedItem Then
                 If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-                DeleteDatabase(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt")
+                DeleteDatabase(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt")
                 RefreshDatabaseList()
             End If
         End If
@@ -91,10 +91,10 @@ Public Class DatabaseManager
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub ManagerOpenBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerOpenBUTTON.Click
 
-        If AutoLoggerRunning = False And ManagerDatabasesLISTBOX.SelectedIndex > -1 Then
-            If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") = True Then
+        If AutoLoggerRunning = False And DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex > -1 Then
+            If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt") = True Then
 
-                OpenDatabase(AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt") 'Branch To Open Database Routine
+                OpenDatabase(AppSettings.InstallPath + "\Databases\" + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".txt") 'Branch To Open Database Routine
                 Me.Close()
             Else
                 Main.ErrorHandler(401, 0, 0, 0)       'File Does Not Exist Error Branch To Error Handler
@@ -121,11 +121,11 @@ Public Class DatabaseManager
         AllSavedDatabaseFileNames = Directory.GetFiles(AppSettings.InstallPath + "\Databases\", "*").Select(Function(p) Path.GetFileName(p)).ToArray()
 
         'Populate Listbox items and Combobox Drop Down List items
-        ManagerDatabasesLISTBOX.Items.Clear() '                                                                             Delete old database file name lists
+        DatabaseManagerSavedDatabasesLISTBOX.Items.Clear() '                                                                             Delete old database file name lists
         For Each DatabaseFileName In AllSavedDatabaseFileNames
             If DatabaseFileName.indexof(".txt") > -1 Then '                        Check for correct .TXT or .txt file extension
                 If DatabaseFileName.indexof(".txt") > -1 Then DatabaseFileName = Replace(DatabaseFileName, ".txt", "") '    Remove lower case extension if there is one
-                ManagerDatabasesLISTBOX.Items.Add(DatabaseFileName)  '                                                      Apply Cropped Database File Name to lists
+                DatabaseManagerSavedDatabasesLISTBOX.Items.Add(DatabaseFileName)  '                                                      Apply Cropped Database File Name to lists
             End If
         Next
     End Sub
@@ -155,7 +155,7 @@ FileExistsErrorLoop:
 
         UserInput.UserInputNoBUTTON.Text = "Cancel"
         UserInput.UserInputYesBUTTON.Text = "Create"
-        
+
 
         UserInput.DatabaseManagerBorder1LABEL.Visible = True
         UserInput.DatabaseManagerBorder2LABEL.Visible = True
@@ -195,10 +195,11 @@ FileExistsErrorLoop:
         'Setup User Input Form For Use With Confirm Delete Database Function
         UserInput.Text = "Delete Selected Database"
         UserInput.UserInputHeaderLABEL.Text = "DELETE DATABASE CONFIRMATION"
-        UserInput.UserInputMessageLABEL.Text = "DATA LOSS WARNING:" + vbCrLf + vbCrLf + "You are about to delete the " + Chr(34) + ManagerDatabasesLISTBOX.SelectedItem + Chr(34) + " database file and its associated backup file." + vbCrLf + vbCrLf + " Please select DELETE to continue or CANCEL to abort."
+        UserInput.UserInputMessageLABEL.Text = "DATA LOSS WARNING:" + vbCrLf + vbCrLf + "You are about to delete the " + Chr(34) + DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + Chr(34) + " database file and its associated backup file." + vbCrLf + vbCrLf + " Please select DELETE to continue or CANCEL to abort."
         UserInput.UserInputNoBUTTON.Text = "Cancel"
         UserInput.UserInputYesBUTTON.Text = "Delete"
 
+        'Hide Unused Controls
         UserInput.DatabaseManagerBorder1LABEL.Visible = False
         UserInput.DatabaseManagerBorder2LABEL.Visible = False
         UserInput.DatabaseManagerBorder3LABEL.Visible = False
@@ -212,10 +213,10 @@ FileExistsErrorLoop:
 
             Try
 
-                'database dir
+                'Database Dir
                 My.Computer.FileSystem.DeleteFile(DatabaseFile)
 
-                'Backup dir
+                'Backup Dir
                 If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Databases\Backup\" + Replace(My.Computer.FileSystem.GetName(DatabaseFile), ".txt", ".bak")) = True Then
                     My.Computer.FileSystem.DeleteFile(AppSettings.InstallPath + "\Databases\Backup\" + Replace(My.Computer.FileSystem.GetName(DatabaseFile), ".txt", ".bak"))
                 End If
@@ -233,10 +234,14 @@ FileExistsErrorLoop:
 
     Private Sub ManagerSummaryBUTTON_Click(sender As Object, e As EventArgs) Handles ManagerSummaryBUTTON.Click
 
-        'Dim filename = AppSettings.InstallPath + "\Databases\" + ManagerDatabasesLISTBOX.SelectedItem + ".txt"
-        'Dim temp = My.Computer.FileSystem.GetFileInfo(filename)
-        'MessageBox.Show(temp.Length)
+        'Branch to DatabaseInfo Form & routines if a database is selected if not do nothing
+        If DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
+            DatabaseInfo.ClearOldData()
+            DatabaseInfo.Show()
+            DatabaseInfo.DatabaseInfoTABCONTROL.SelectTab(0)
+            DatabaseInfo.DatabaseInfoCloseBUTTON.Select()
+        End If
 
-        DatabaseInfo.ShowDialog()
+
     End Sub
 End Class

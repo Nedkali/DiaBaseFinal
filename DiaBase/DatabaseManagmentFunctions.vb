@@ -396,7 +396,7 @@ Module DatabaseManagmentFunctions
         UserInput.UserInputMessageLABEL.Text = "Please type a new file name into the text box below to continue."
         UserInput.UserInputNoBUTTON.Text = "Cancel"
         UserInput.UserInputYesBUTTON.Text = "Rename"
-        UserInput.UserInputTEXTBOX.Text = DatabaseManager.ManagerDatabasesLISTBOX.SelectedItem
+        UserInput.UserInputTEXTBOX.Text = DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem
         UserInput.UserInputTEXTBOX.Select()
 
         UserInput.DatabaseManagerBorder1LABEL.Visible = True

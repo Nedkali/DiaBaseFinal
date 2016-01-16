@@ -27,7 +27,7 @@ Partial Class DatabaseManager
         Me.ManagerOpenBUTTON = New System.Windows.Forms.Button()
         Me.ManagerCancelBUTTON = New System.Windows.Forms.Button()
         Me.ManagerHeaderLABEL = New System.Windows.Forms.Label()
-        Me.ManagerDatabasesLISTBOX = New System.Windows.Forms.ListBox()
+        Me.DatabaseManagerSavedDatabasesLISTBOX = New System.Windows.Forms.ListBox()
         Me.ManagerDeleteBUTTON = New System.Windows.Forms.Button()
         Me.ManagerRenameBUTTON = New System.Windows.Forms.Button()
         Me.ManagerMergeBUTTON = New System.Windows.Forms.Button()
@@ -103,22 +103,22 @@ Partial Class DatabaseManager
         Me.ManagerHeaderLABEL.Text = "DATABASE FILE MANAGER "
         Me.ManagerHeaderLABEL.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'ManagerDatabasesLISTBOX
+        'DatabaseManagerSavedDatabasesLISTBOX
         '
-        Me.ManagerDatabasesLISTBOX.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.DatabaseManagerSavedDatabasesLISTBOX.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ManagerDatabasesLISTBOX.BackColor = System.Drawing.Color.Black
-        Me.ManagerDatabasesLISTBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ManagerDatabasesLISTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ManagerDatabasesLISTBOX.ForeColor = System.Drawing.Color.White
-        Me.ManagerDatabasesLISTBOX.FormattingEnabled = True
-        Me.ManagerDatabasesLISTBOX.ItemHeight = 16
-        Me.ManagerDatabasesLISTBOX.Location = New System.Drawing.Point(48, 76)
-        Me.ManagerDatabasesLISTBOX.Name = "ManagerDatabasesLISTBOX"
-        Me.ManagerDatabasesLISTBOX.ScrollAlwaysVisible = True
-        Me.ManagerDatabasesLISTBOX.Size = New System.Drawing.Size(238, 194)
-        Me.ManagerDatabasesLISTBOX.TabIndex = 896
+        Me.DatabaseManagerSavedDatabasesLISTBOX.BackColor = System.Drawing.Color.Black
+        Me.DatabaseManagerSavedDatabasesLISTBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DatabaseManagerSavedDatabasesLISTBOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DatabaseManagerSavedDatabasesLISTBOX.ForeColor = System.Drawing.Color.White
+        Me.DatabaseManagerSavedDatabasesLISTBOX.FormattingEnabled = True
+        Me.DatabaseManagerSavedDatabasesLISTBOX.ItemHeight = 16
+        Me.DatabaseManagerSavedDatabasesLISTBOX.Location = New System.Drawing.Point(48, 76)
+        Me.DatabaseManagerSavedDatabasesLISTBOX.Name = "DatabaseManagerSavedDatabasesLISTBOX"
+        Me.DatabaseManagerSavedDatabasesLISTBOX.ScrollAlwaysVisible = True
+        Me.DatabaseManagerSavedDatabasesLISTBOX.Size = New System.Drawing.Size(238, 194)
+        Me.DatabaseManagerSavedDatabasesLISTBOX.TabIndex = 896
         '
         'ManagerDeleteBUTTON
         '
@@ -260,7 +260,7 @@ Partial Class DatabaseManager
         Me.Controls.Add(Me.ManagerOpenBUTTON)
         Me.Controls.Add(Me.ManagerCancelBUTTON)
         Me.Controls.Add(Me.ManagerHeaderLABEL)
-        Me.Controls.Add(Me.ManagerDatabasesLISTBOX)
+        Me.Controls.Add(Me.DatabaseManagerSavedDatabasesLISTBOX)
         Me.MaximumSize = New System.Drawing.Size(665, 665)
         Me.MinimumSize = New System.Drawing.Size(400, 400)
         Me.Name = "DatabaseManager"
@@ -273,7 +273,7 @@ Partial Class DatabaseManager
     Friend WithEvents ManagerOpenBUTTON As System.Windows.Forms.Button
     Friend WithEvents ManagerCancelBUTTON As System.Windows.Forms.Button
     Friend WithEvents ManagerHeaderLABEL As System.Windows.Forms.Label
-    Friend WithEvents ManagerDatabasesLISTBOX As System.Windows.Forms.ListBox
+    Friend WithEvents DatabaseManagerSavedDatabasesLISTBOX As System.Windows.Forms.ListBox
     Friend WithEvents ManagerDeleteBUTTON As System.Windows.Forms.Button
     Friend WithEvents ManagerRenameBUTTON As System.Windows.Forms.Button
     Friend WithEvents ManagerMergeBUTTON As System.Windows.Forms.Button

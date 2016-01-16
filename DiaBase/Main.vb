@@ -427,7 +427,9 @@ Public Class Main
     Private Sub OpenDBManagerMainMenu_Click(sender As Object, e As EventArgs) Handles DatabaseManagerMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
-        DatabaseManager.ShowDialog()
+
+        DatabaseManager.Show()
+
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
         TimerStartPauseButton(sender, e)
 
@@ -1031,7 +1033,7 @@ Public Class Main
                 ErrorHandlerForm.ErrorTrapYesBUTTON.Visible = False
                 ErrorHandlerForm.ErrorTrapNoBUTTON.Visible = True
                 ErrorHandlerForm.ErrorTrapNoBUTTON.Text = "Exit DiaBASE"
-                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase has encountered a critical error while trying to open the " & Chr(34) & DatabaseManager.ManagerDatabasesLISTBOX.SelectedItem & Chr(34) & " database file." & vbCrLf & vbCrLf & "The items fields appear to be out of sync and cannot be read correctly. You will need to restore this database from backup or rebuild it to make it useable again."
+                ErrorHandlerForm.ErrorTrapMessageTEXTBOX.Text = "DiaBase has encountered a critical error while trying to open the " & Chr(34) & DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem & Chr(34) & " database file." & vbCrLf & vbCrLf & "The items fields appear to be out of sync and cannot be read correctly. You will need to restore this database from backup or rebuild it to make it useable again."
                 ErrorHandlerForm.StartPosition = FormStartPosition.CenterParent
                 DialogResult = ErrorHandlerForm.ShowDialog()
                 End '<--------------------------------------------------------------------ROBS NOTE TO HIMSELF: THIS CAN BE RESCUED FCOL!!!!!! FIX THIS SO IT REBUILDS OR RESTORES FROM ERROR HANDLER ALSO ADD THE ITEM TRACKING VARS SO THE FAULTY ITEM OR LINE CAN BE DISPLAYED doh!
@@ -1306,12 +1308,15 @@ Public Class Main
         ItemStatsRICHTEXTBOX.SelectAll()
         ItemStatsRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
 
-        ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
+        Try
+            ItemSkinPICTUREBOX.Load("Skins\" + ImageArray(ItemObjects(ItemIndex).ItemImage) + ".jpg")
+        Catch ex As Exception
+            'EXCEPTION CATCH HERE SHOULD AVOID CRASHES IF THE SKIN FILES DONT EXIST OR CANNOT BE FOUND - dont think we need anything else here, if iTs missing or inaccessable it cant 
+            'really be fixed anyway. Instead this handler should just skip the load attempt and let the app continue on with out displaying any skins at all
 
-        'THIS CHANGES THE "Item Level: 00" LINE FROM BLUE TO WHITE (looks nicer and seperates it from the unique attribs block)
-        '
-        'Note To Myself: Ned ROCKS!!!!
-        '
+        End Try
+
+
         Dim linecount As Integer = 0
         For Each Line In ItemStatsRICHTEXTBOX.Lines
             If Line.IndexOf("Item Level:") > -1 Then ItemStatsRICHTEXTBOX.Select(ItemStatsRICHTEXTBOX.Text.Length - Len(Line), Len(Line))

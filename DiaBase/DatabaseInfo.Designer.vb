@@ -22,10 +22,10 @@ Partial Class DatabaseInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DatabaseInfo))
         Me.DatabaseInfoDATAGRIDVIEW = New System.Windows.Forms.DataGridView()
         Me.ItemBaseCOLUMN = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,52 +61,52 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToAddRows = False
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle1.Format = "N1"
-        DataGridViewCellStyle1.NullValue = Nothing
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle5.Format = "N1"
+        DataGridViewCellStyle5.NullValue = Nothing
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DatabaseInfoDATAGRIDVIEW.BackgroundColor = System.Drawing.Color.Black
         Me.DatabaseInfoDATAGRIDVIEW.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle2.Format = "N1"
-        DataGridViewCellStyle2.NullValue = Nothing
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle6.Format = "N1"
+        DataGridViewCellStyle6.NullValue = Nothing
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DatabaseInfoDATAGRIDVIEW.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemBaseCOLUMN, Me.TotalCOLUMN, Me.RatioCOLUMN})
         Me.DatabaseInfoDATAGRIDVIEW.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DatabaseInfoDATAGRIDVIEW.GridColor = System.Drawing.Color.Gray
         Me.DatabaseInfoDATAGRIDVIEW.Location = New System.Drawing.Point(3, 3)
         Me.DatabaseInfoDATAGRIDVIEW.Name = "DatabaseInfoDATAGRIDVIEW"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle3.Format = "N1"
-        DataGridViewCellStyle3.NullValue = Nothing
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle7.Format = "N1"
+        DataGridViewCellStyle7.NullValue = Nothing
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DatabaseInfoDATAGRIDVIEW.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle4.Format = "N1"
-        DataGridViewCellStyle4.NullValue = Nothing
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle8.Format = "N1"
+        DataGridViewCellStyle8.NullValue = Nothing
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DatabaseInfoDATAGRIDVIEW.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DatabaseInfoDATAGRIDVIEW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DatabaseInfoDATAGRIDVIEW.ShowCellErrors = False
@@ -384,7 +384,7 @@ Partial Class DatabaseInfo
         Me.Controls.Add(Me.Label122)
         Me.Controls.Add(Me.Label123)
         Me.Controls.Add(Me.DatabaseInfoSelectedTEXTBOX)
-        Me.MaximumSize = New System.Drawing.Size(870, 630)
+        Me.MaximumSize = New System.Drawing.Size(870, 1036)
         Me.MinimumSize = New System.Drawing.Size(440, 320)
         Me.Name = "DatabaseInfo"
         Me.ShowIcon = False
