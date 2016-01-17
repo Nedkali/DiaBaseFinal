@@ -456,6 +456,22 @@ Public Class Main
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
+
+
+                'Save settings file to update x,y position as well as menu list check states and both save on exit check states
+                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then AppSettings.SaveOnExit = True Else AppSettings.SaveOnExit = False
+                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then AppSettings.BackupOnExit = True Else AppSettings.BackupOnExit = False
+                If HideDupesMENUITEM.Checked = True Then AppSettings.HideDupes = True Else AppSettings.HideDupes = False
+                If DisplayLineBreaksMENUITEM.Checked = True Then AppSettings.DisplayLineBreaks = True Else AppSettings.DisplayLineBreaks = False
+
+                DatabaseManagmentFunctions.SaveSettingsFile()
+
+
+
+
+
+
+
             End If
         Else
             e.Cancel = True 'Automatically cancels Exit Event If Autologger Is Running (Avoids Potential Import Errors)

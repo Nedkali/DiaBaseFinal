@@ -24,17 +24,13 @@ Module DatabaseManagmentFunctions
                 AppSettings.DefaultPassword = ReadFile.ReadLine
                 AppSettings.ResetDate = ReadFile.ReadLine               'Mute Sound Setting bool
                 AppSettings.DisplayLineBreaks = ReadFile.ReadLine       'Stat display spaceing 
+                AppSettings.HideDupes = ReadFile.ReadLine       'Stat display spaceing 
                 AppSettings.SaveOnExit = ReadFile.ReadLine              'Save current database as app closes operator
                 AppSettings.BackupOnExit = ReadFile.ReadLine            'Backup current database as app closes operator
                 AppSettings.XSize = ReadFile.ReadLine
                 AppSettings.YSize = ReadFile.ReadLine
                 AppSettings.XPos = ReadFile.ReadLine
                 AppSettings.YPos = ReadFile.ReadLine
-
-
-                'Add Exit App Backup and Save Vars
-                'Add Form1 X,Y size and X,Y location 
-
                 ReadFile.Close()
             Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler - pass to error handler
             End If
@@ -48,6 +44,10 @@ Module DatabaseManagmentFunctions
         'Apply LineBreak Bool Value To Menu Control Checkstate
         If AppSettings.DisplayLineBreaks = True Then Main.DisplayLineBreaksMENUITEM.Checked = True
         If AppSettings.DisplayLineBreaks = False Then Main.DisplayLineBreaksMENUITEM.Checked = False
+
+        'Apply Hide Dupes Bool Value To Menu Control Checkstate
+        If AppSettings.HideDupes = True Then Main.HideDupesMENUITEM.Checked = True
+        If AppSettings.HideDupes = False Then Main.HideDupesMENUITEM.Checked = False
 
         'Apply Realm Search Checkbox Values
         If AppSettings.DefaultRealm = "USEast" Then Main.EastRealmCHECKBOX.Checked = True
@@ -89,6 +89,7 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.DefaultPassword)
             WriteFile.WriteLine(AppSettings.ResetDate)
             WriteFile.WriteLine(AppSettings.DisplayLineBreaks)
+            WriteFile.WriteLine(AppSettings.HideDupes)
             WriteFile.WriteLine(AppSettings.SaveOnExit)
             WriteFile.WriteLine(AppSettings.BackupOnExit)
             WriteFile.WriteLine(AppSettings.XSize)
