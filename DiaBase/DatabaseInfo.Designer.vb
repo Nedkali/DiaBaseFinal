@@ -22,10 +22,10 @@ Partial Class DatabaseInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DatabaseInfo))
         Me.DatabaseInfoDATAGRIDVIEW = New System.Windows.Forms.DataGridView()
         Me.ItemBaseCOLUMN = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,9 +45,11 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoTotalLABEL = New System.Windows.Forms.Label()
         Me.DatabaseInfoTABCONTROL = New System.Windows.Forms.TabControl()
         Me.DatabaseInfoItemBaseTABPAGE = New System.Windows.Forms.TabPage()
-        Me.DatabaseInfoRealmsTABPAGE = New System.Windows.Forms.TabPage()
+        Me.DatabaseInfoItemQualityTABPAGE = New System.Windows.Forms.TabPage()
+        Me.DatabaseInfoRunesTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoMulesTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoAccountsTABPAGE = New System.Windows.Forms.TabPage()
+        Me.DatabaseInfoRealmsTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoDatabaseTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoCloseBUTTON = New System.Windows.Forms.Button()
         Me.DatabaseInfoRefreshBUTTON = New System.Windows.Forms.Button()
@@ -61,52 +63,52 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToAddRows = False
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle5.Format = "N1"
-        DataGridViewCellStyle5.NullValue = Nothing
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle1.Format = "N1"
+        DataGridViewCellStyle1.NullValue = Nothing
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DatabaseInfoDATAGRIDVIEW.BackgroundColor = System.Drawing.Color.Black
         Me.DatabaseInfoDATAGRIDVIEW.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle6.Format = "N1"
-        DataGridViewCellStyle6.NullValue = Nothing
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle2.Format = "N1"
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DatabaseInfoDATAGRIDVIEW.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemBaseCOLUMN, Me.TotalCOLUMN, Me.RatioCOLUMN})
         Me.DatabaseInfoDATAGRIDVIEW.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DatabaseInfoDATAGRIDVIEW.GridColor = System.Drawing.Color.Gray
         Me.DatabaseInfoDATAGRIDVIEW.Location = New System.Drawing.Point(3, 3)
         Me.DatabaseInfoDATAGRIDVIEW.Name = "DatabaseInfoDATAGRIDVIEW"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle7.Format = "N1"
-        DataGridViewCellStyle7.NullValue = Nothing
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle3.Format = "N1"
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DatabaseInfoDATAGRIDVIEW.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle8.Format = "N1"
-        DataGridViewCellStyle8.NullValue = Nothing
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle4.Format = "N1"
+        DataGridViewCellStyle4.NullValue = Nothing
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DatabaseInfoDATAGRIDVIEW.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DatabaseInfoDATAGRIDVIEW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DatabaseInfoDATAGRIDVIEW.ShowCellErrors = False
@@ -119,12 +121,12 @@ Partial Class DatabaseInfo
         'ItemBaseCOLUMN
         '
         Me.ItemBaseCOLUMN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ItemBaseCOLUMN.HeaderText = "Item Base Groups"
+        Me.ItemBaseCOLUMN.HeaderText = "Item Base"
         Me.ItemBaseCOLUMN.Name = "ItemBaseCOLUMN"
         '
         'TotalCOLUMN
         '
-        Me.TotalCOLUMN.HeaderText = "Total Items"
+        Me.TotalCOLUMN.HeaderText = "Total"
         Me.TotalCOLUMN.Name = "TotalCOLUMN"
         Me.TotalCOLUMN.Width = 60
         '
@@ -257,9 +259,11 @@ Partial Class DatabaseInfo
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoItemBaseTABPAGE)
-        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoRealmsTABPAGE)
+        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoItemQualityTABPAGE)
+        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoRunesTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoMulesTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoAccountsTABPAGE)
+        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoRealmsTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoDatabaseTABPAGE)
         Me.DatabaseInfoTABCONTROL.Location = New System.Drawing.Point(41, 103)
         Me.DatabaseInfoTABCONTROL.Name = "DatabaseInfoTABCONTROL"
@@ -275,18 +279,26 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoItemBaseTABPAGE.Padding = New System.Windows.Forms.Padding(3)
         Me.DatabaseInfoItemBaseTABPAGE.Size = New System.Drawing.Size(523, 258)
         Me.DatabaseInfoItemBaseTABPAGE.TabIndex = 0
-        Me.DatabaseInfoItemBaseTABPAGE.Text = "Item Bases"
+        Me.DatabaseInfoItemBaseTABPAGE.Text = "Item Base"
         Me.DatabaseInfoItemBaseTABPAGE.UseVisualStyleBackColor = True
         '
-        'DatabaseInfoRealmsTABPAGE
+        'DatabaseInfoItemQualityTABPAGE
         '
-        Me.DatabaseInfoRealmsTABPAGE.Location = New System.Drawing.Point(4, 22)
-        Me.DatabaseInfoRealmsTABPAGE.Name = "DatabaseInfoRealmsTABPAGE"
-        Me.DatabaseInfoRealmsTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(523, 258)
-        Me.DatabaseInfoRealmsTABPAGE.TabIndex = 1
-        Me.DatabaseInfoRealmsTABPAGE.Text = "Realms"
-        Me.DatabaseInfoRealmsTABPAGE.UseVisualStyleBackColor = True
+        Me.DatabaseInfoItemQualityTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.DatabaseInfoItemQualityTABPAGE.Name = "DatabaseInfoItemQualityTABPAGE"
+        Me.DatabaseInfoItemQualityTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoItemQualityTABPAGE.TabIndex = 6
+        Me.DatabaseInfoItemQualityTABPAGE.Text = "Item Quality"
+        Me.DatabaseInfoItemQualityTABPAGE.UseVisualStyleBackColor = True
+        '
+        'DatabaseInfoRunesTABPAGE
+        '
+        Me.DatabaseInfoRunesTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.DatabaseInfoRunesTABPAGE.Name = "DatabaseInfoRunesTABPAGE"
+        Me.DatabaseInfoRunesTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoRunesTABPAGE.TabIndex = 5
+        Me.DatabaseInfoRunesTABPAGE.Text = "Runes"
+        Me.DatabaseInfoRunesTABPAGE.UseVisualStyleBackColor = True
         '
         'DatabaseInfoMulesTABPAGE
         '
@@ -305,6 +317,16 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoAccountsTABPAGE.TabIndex = 3
         Me.DatabaseInfoAccountsTABPAGE.Text = "Accounts"
         Me.DatabaseInfoAccountsTABPAGE.UseVisualStyleBackColor = True
+        '
+        'DatabaseInfoRealmsTABPAGE
+        '
+        Me.DatabaseInfoRealmsTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.DatabaseInfoRealmsTABPAGE.Name = "DatabaseInfoRealmsTABPAGE"
+        Me.DatabaseInfoRealmsTABPAGE.Padding = New System.Windows.Forms.Padding(3)
+        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoRealmsTABPAGE.TabIndex = 1
+        Me.DatabaseInfoRealmsTABPAGE.Text = "Realms"
+        Me.DatabaseInfoRealmsTABPAGE.UseVisualStyleBackColor = True
         '
         'DatabaseInfoDatabaseTABPAGE
         '
@@ -399,9 +421,6 @@ Partial Class DatabaseInfo
     End Sub
 
     Friend WithEvents DatabaseInfoDATAGRIDVIEW As DataGridView
-    Friend WithEvents ItemBaseCOLUMN As DataGridViewTextBoxColumn
-    Friend WithEvents TotalCOLUMN As DataGridViewTextBoxColumn
-    Friend WithEvents RatioCOLUMN As DataGridViewTextBoxColumn
     Friend WithEvents Label121 As Label
     Friend WithEvents Label120 As Label
     Friend WithEvents Label122 As Label
@@ -423,4 +442,9 @@ Partial Class DatabaseInfo
     Friend WithEvents DatabaseInfoCloseBUTTON As Button
     Friend WithEvents DatabaseInfoRefreshBUTTON As Button
     Friend WithEvents DatabaseInfoOpenContainingBUTTON As Button
+    Friend WithEvents DatabaseInfoItemQualityTABPAGE As TabPage
+    Friend WithEvents DatabaseInfoRunesTABPAGE As TabPage
+    Friend WithEvents ItemBaseCOLUMN As DataGridViewTextBoxColumn
+    Friend WithEvents TotalCOLUMN As DataGridViewTextBoxColumn
+    Friend WithEvents RatioCOLUMN As DataGridViewTextBoxColumn
 End Class

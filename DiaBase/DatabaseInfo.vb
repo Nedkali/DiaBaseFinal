@@ -11,31 +11,22 @@
     Dim ItemBaseValues As List(Of String) = New List(Of String) '   List of  tallied percentile ratios for each item base group found
     Dim TotalItemsInSelected As Integer = 0 '                       Total Items Tally Var, is mainly used for header tally
 
-    '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'Show Handler - Used to clear out old data and run evaluation on forms first open
-    '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub DatabaseInfo_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-
-        'Call Evaluation Routines for first run...
-
-        ClearOldData() 'Delete form of old data routine
-        GetItemTotal() 'Tally all items in selected             (for header)
-        GetItemBases() 'Base Values For Each Item In Database   (for header)
-
-
-        '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        'UPDATES HEADER INFORMATION - Database Filename and Total Items
-        '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'UPDATES HEADER INFORMATION - Database Filename and Total Items
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    Sub GetHeaderInfo()
         If DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
             DatabaseInfoSelectedTEXTBOX.Text = DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem ' Database filename
             DatabaseInfoTotalTEXTBOX.Text = TotalItemsInSelected
         End If
     End Sub
 
+
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'Clear out old data rows and textboxes from last selected database evaluation
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Sub ClearOldData()
+
         DatabaseInfoDATAGRIDVIEW.Rows.Clear()
         DatabaseInfoSelectedTEXTBOX.Text = Nothing
         DatabaseInfoTotalTEXTBOX.Text = Nothing
@@ -46,6 +37,7 @@
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Sub GetItemTotal()
         Dim CountItems = My.Computer.FileSystem.OpenTextFileReader(AppSettings.InstallPath + "\Databases\" + DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".TXT")
+        TotalItemsInSelected = 0
         Do Until CountItems.EndOfStream
             If CountItems.ReadLine = "--------------------" Then TotalItemsInSelected = TotalItemsInSelected + 1
         Loop
@@ -67,7 +59,7 @@
 
         'START - Open Database File. Uses Database Manager Listbox Selected item as filename selector.
         '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        Count = 0
+        Count = 0 : ItemBaseList.Clear() : ItemBaseGroups.Clear() : ItemBaseValues.Clear()
         Dim CheckBases = My.Computer.FileSystem.OpenTextFileReader(AppSettings.InstallPath + "\Databases\" + DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem + ".TXT")
         CheckBases.ReadLine() '                                                                     Skip Checkflag / Record Seperator Line
 
@@ -108,5 +100,21 @@
     'Closes Database Info Form
     Private Sub DatabaseInfoCloseBUTTON_Click(sender As Object, e As EventArgs) Handles DatabaseInfoCloseBUTTON.Click
         Me.Close()
+    End Sub
+
+    'Refresh Database Info Form
+    Private Sub DatabaseInfoRefreshBUTTON_Click(sender As Object, e As EventArgs) Handles DatabaseInfoRefreshBUTTON.Click
+
+        'Branch to DatabaseInfo Form & routines if a database is selected if not do nothing
+        If DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
+            Me.Show()
+            Me.ClearOldData()
+            Me.GetItemTotal() 'item total must come before header info for it to be displayed correctly
+            Me.GetHeaderInfo()
+            Me.GetItemBases()
+            Me.DatabaseInfoTABCONTROL.SelectTab(0)
+            Me.DatabaseInfoCloseBUTTON.Select()
+        End If
+
     End Sub
 End Class

@@ -236,8 +236,11 @@ FileExistsErrorLoop:
 
         'Branch to DatabaseInfo Form & routines if a database is selected if not do nothing
         If DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
-            DatabaseInfo.ClearOldData()
             DatabaseInfo.Show()
+            DatabaseInfo.ClearOldData()
+            DatabaseInfo.GetItemTotal() 'item total must come before header info for it to be displayed correctly
+            DatabaseInfo.GetHeaderInfo()
+            DatabaseInfo.GetItemBases()
             DatabaseInfo.DatabaseInfoTABCONTROL.SelectTab(0)
             DatabaseInfo.DatabaseInfoCloseBUTTON.Select()
         End If
