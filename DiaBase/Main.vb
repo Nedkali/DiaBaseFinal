@@ -261,30 +261,44 @@ Public Class Main
 
         If DatabaseInfo.Visible = True Then
 
-            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True Then
+            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True And DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text Then
 
+                'ItemBase
 
-                Dim Matched As Boolean = False
+                Dim Matched As Integer = 0
                 Dim Count As Integer = 0
 
+                For Each item In ItemBaseGroups
+                    If item = ItemObjects(a).ItemBase Then Matched = Count
+                    DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Count).Selected = False
+                    Count = Count + 1
+                Next
 
-                'DatabaseInfo.DatabaseInfoDATAGRIDVIEW.SelectedRow
-                ' Do Until Matched = True
+                If Matched > 0 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
 
-                'For Each item In DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(0)
-                'Next
 
-                ' Loop
+
+                'DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Cursor()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             End If
-
-
         End If
-
-
-
-
-
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
