@@ -261,7 +261,7 @@ Public Class Main
 
         If DatabaseInfo.Visible = True Then
 
-            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True And DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text Then
+            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True And DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text And a <> -1 Then
 
                 'ItemBase
 
@@ -275,7 +275,7 @@ Public Class Main
                 Next
 
                 If Matched > 0 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
-
+                DatabaseInfo.DatabaseInfoDATAGRIDVIEW.FirstDisplayedScrollingRowIndex = Matched
 
 
                 'DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Cursor()
