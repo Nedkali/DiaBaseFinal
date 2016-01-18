@@ -22,6 +22,10 @@ Public Class Main
     Public WithEvents ImportTimer As New System.Windows.Forms.Timer()
     Public WithEvents ButtonFlashTimer As New System.Windows.Forms.Timer()
 
+
+
+
+
     'For catching receiving messages from the autologin dll
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
 
@@ -251,6 +255,36 @@ Public Class Main
             If AllItemsLISTBOX.SelectedItems.Count > 1 Then ItemTallyTEXTBOX.Text = AllItemsLISTBOX.SelectedItems.Count & " - Selected" : Return
         End If
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
+
+        'New Idea Im Testing - Focus on relevant record entry in database info form if it is open and on the currently loaded database
+        'not will also need to add something swomewhere to update databaseinfo form on database changes... if viable
+
+        If DatabaseInfo.Visible = True Then
+
+            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True Then
+
+
+                Dim Matched As Boolean = False
+                Dim Count As Integer = 0
+
+
+                'DatabaseInfo.DatabaseInfoDATAGRIDVIEW.SelectedRow
+                ' Do Until Matched = True
+
+                'For Each item In DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(0)
+                'Next
+
+                ' Loop
+
+            End If
+
+
+        End If
+
+
+
+
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------

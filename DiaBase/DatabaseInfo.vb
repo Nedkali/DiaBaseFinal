@@ -4,12 +4,7 @@
     'SETUP LOCAL VARS AND ARRAY LISTS
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Dim Count As Integer '                                          Index Tracker Var, Used Within FOR/NEXT And DO/LOOP Routines
-    Dim Temp As String '                                            Temporary memory location For easier use of raw file data
-    Dim ItemBaseList As List(Of String) = New List(Of String) '     List of all item bases
-    Dim ItemBaseGroups As List(Of String) = New List(Of String) '   List of all item bases with duplicates removed
-    Dim ItemBaseValues As List(Of String) = New List(Of String) '   List of  tallied percentile ratios for each item base group found
-    Dim TotalItemsInSelected As Integer = 0 '                       Total Items Tally Var, is mainly used for header tally
+
 
     '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'UPDATES HEADER INFORMATION - Database Filename and Total Items

@@ -54,6 +54,25 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoCloseBUTTON = New System.Windows.Forms.Button()
         Me.DatabaseInfoRefreshBUTTON = New System.Windows.Forms.Button()
         Me.DatabaseInfoOpenContainingBUTTON = New System.Windows.Forms.Button()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.InfoBaseBUTTON = New System.Windows.Forms.Button()
+        Me.InfoQualityBUTTON = New System.Windows.Forms.Button()
+        Me.IntoRuneBUTTON = New System.Windows.Forms.Button()
+        Me.InfoRealmBUTTON = New System.Windows.Forms.Button()
+        Me.InfoMuleBUTTON = New System.Windows.Forms.Button()
+        Me.InfoAccountBUTTON = New System.Windows.Forms.Button()
+        Me.InfoFileBUTTON = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.DatabaseInfoDATAGRIDVIEW, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DatabaseInfoTABCONTROL.SuspendLayout()
         Me.DatabaseInfoItemBaseTABPAGE.SuspendLayout()
@@ -115,7 +134,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoDATAGRIDVIEW.ShowCellToolTips = False
         Me.DatabaseInfoDATAGRIDVIEW.ShowEditingIcon = False
         Me.DatabaseInfoDATAGRIDVIEW.ShowRowErrors = False
-        Me.DatabaseInfoDATAGRIDVIEW.Size = New System.Drawing.Size(517, 252)
+        Me.DatabaseInfoDATAGRIDVIEW.Size = New System.Drawing.Size(516, 271)
         Me.DatabaseInfoDATAGRIDVIEW.TabIndex = 0
         '
         'ItemBaseCOLUMN
@@ -141,9 +160,9 @@ Partial Class DatabaseInfo
         Me.Label121.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label121.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label121.Location = New System.Drawing.Point(41, 55)
+        Me.Label121.Location = New System.Drawing.Point(41, 43)
         Me.Label121.Name = "Label121"
-        Me.Label121.Size = New System.Drawing.Size(389, 2)
+        Me.Label121.Size = New System.Drawing.Size(388, 2)
         Me.Label121.TabIndex = 1915
         '
         'Label120
@@ -151,15 +170,15 @@ Partial Class DatabaseInfo
         Me.Label120.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label120.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label120.Location = New System.Drawing.Point(41, 73)
+        Me.Label120.Location = New System.Drawing.Point(41, 61)
         Me.Label120.Name = "Label120"
-        Me.Label120.Size = New System.Drawing.Size(389, 2)
+        Me.Label120.Size = New System.Drawing.Size(388, 2)
         Me.Label120.TabIndex = 1914
         '
         'Label122
         '
         Me.Label122.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label122.Location = New System.Drawing.Point(41, 55)
+        Me.Label122.Location = New System.Drawing.Point(41, 43)
         Me.Label122.Name = "Label122"
         Me.Label122.Size = New System.Drawing.Size(3, 20)
         Me.Label122.TabIndex = 1913
@@ -168,7 +187,7 @@ Partial Class DatabaseInfo
         '
         Me.Label123.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label123.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label123.Location = New System.Drawing.Point(428, 55)
+        Me.Label123.Location = New System.Drawing.Point(427, 43)
         Me.Label123.Name = "Label123"
         Me.Label123.Size = New System.Drawing.Size(3, 20)
         Me.Label123.TabIndex = 1912
@@ -179,16 +198,16 @@ Partial Class DatabaseInfo
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DatabaseInfoSelectedTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.DatabaseInfoSelectedTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.DatabaseInfoSelectedTEXTBOX.Location = New System.Drawing.Point(41, 55)
+        Me.DatabaseInfoSelectedTEXTBOX.Location = New System.Drawing.Point(41, 43)
         Me.DatabaseInfoSelectedTEXTBOX.Name = "DatabaseInfoSelectedTEXTBOX"
-        Me.DatabaseInfoSelectedTEXTBOX.Size = New System.Drawing.Size(389, 20)
+        Me.DatabaseInfoSelectedTEXTBOX.Size = New System.Drawing.Size(388, 20)
         Me.DatabaseInfoSelectedTEXTBOX.TabIndex = 1911
         '
         'Label35
         '
         Me.Label35.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label35.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label35.Location = New System.Drawing.Point(459, 73)
+        Me.Label35.Location = New System.Drawing.Point(458, 61)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(113, 2)
         Me.Label35.TabIndex = 1916
@@ -197,7 +216,7 @@ Partial Class DatabaseInfo
         '
         Me.Label142.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label142.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label142.Location = New System.Drawing.Point(459, 55)
+        Me.Label142.Location = New System.Drawing.Point(458, 43)
         Me.Label142.Name = "Label142"
         Me.Label142.Size = New System.Drawing.Size(113, 2)
         Me.Label142.TabIndex = 1917
@@ -206,7 +225,7 @@ Partial Class DatabaseInfo
         '
         Me.Label147.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label147.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label147.Location = New System.Drawing.Point(569, 55)
+        Me.Label147.Location = New System.Drawing.Point(568, 43)
         Me.Label147.Name = "Label147"
         Me.Label147.Size = New System.Drawing.Size(3, 20)
         Me.Label147.TabIndex = 1918
@@ -215,7 +234,7 @@ Partial Class DatabaseInfo
         '
         Me.Label148.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label148.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label148.Location = New System.Drawing.Point(458, 55)
+        Me.Label148.Location = New System.Drawing.Point(457, 43)
         Me.Label148.Name = "Label148"
         Me.Label148.Size = New System.Drawing.Size(3, 20)
         Me.Label148.TabIndex = 1919
@@ -225,7 +244,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoTotalTEXTBOX.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DatabaseInfoTotalTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.DatabaseInfoTotalTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.DatabaseInfoTotalTEXTBOX.Location = New System.Drawing.Point(458, 55)
+        Me.DatabaseInfoTotalTEXTBOX.Location = New System.Drawing.Point(457, 43)
         Me.DatabaseInfoTotalTEXTBOX.Name = "DatabaseInfoTotalTEXTBOX"
         Me.DatabaseInfoTotalTEXTBOX.Size = New System.Drawing.Size(113, 20)
         Me.DatabaseInfoTotalTEXTBOX.TabIndex = 1920
@@ -235,7 +254,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoSelectedLABEL.AutoSize = True
         Me.DatabaseInfoSelectedLABEL.BackColor = System.Drawing.Color.Transparent
         Me.DatabaseInfoSelectedLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseInfoSelectedLABEL.Location = New System.Drawing.Point(38, 41)
+        Me.DatabaseInfoSelectedLABEL.Location = New System.Drawing.Point(38, 29)
         Me.DatabaseInfoSelectedLABEL.Name = "DatabaseInfoSelectedLABEL"
         Me.DatabaseInfoSelectedLABEL.Size = New System.Drawing.Size(103, 13)
         Me.DatabaseInfoSelectedLABEL.TabIndex = 1921
@@ -247,7 +266,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoTotalLABEL.AutoSize = True
         Me.DatabaseInfoTotalLABEL.BackColor = System.Drawing.Color.Transparent
         Me.DatabaseInfoTotalLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseInfoTotalLABEL.Location = New System.Drawing.Point(455, 41)
+        Me.DatabaseInfoTotalLABEL.Location = New System.Drawing.Point(454, 29)
         Me.DatabaseInfoTotalLABEL.Name = "DatabaseInfoTotalLABEL"
         Me.DatabaseInfoTotalLABEL.Size = New System.Drawing.Size(59, 13)
         Me.DatabaseInfoTotalLABEL.TabIndex = 1922
@@ -265,10 +284,10 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoAccountsTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoRealmsTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoDatabaseTABPAGE)
-        Me.DatabaseInfoTABCONTROL.Location = New System.Drawing.Point(41, 103)
+        Me.DatabaseInfoTABCONTROL.Location = New System.Drawing.Point(41, 91)
         Me.DatabaseInfoTABCONTROL.Name = "DatabaseInfoTABCONTROL"
         Me.DatabaseInfoTABCONTROL.SelectedIndex = 0
-        Me.DatabaseInfoTABCONTROL.Size = New System.Drawing.Size(531, 284)
+        Me.DatabaseInfoTABCONTROL.Size = New System.Drawing.Size(530, 303)
         Me.DatabaseInfoTABCONTROL.TabIndex = 1923
         '
         'DatabaseInfoItemBaseTABPAGE
@@ -277,7 +296,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoItemBaseTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoItemBaseTABPAGE.Name = "DatabaseInfoItemBaseTABPAGE"
         Me.DatabaseInfoItemBaseTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.DatabaseInfoItemBaseTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoItemBaseTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoItemBaseTABPAGE.TabIndex = 0
         Me.DatabaseInfoItemBaseTABPAGE.Text = "Item Base"
         Me.DatabaseInfoItemBaseTABPAGE.UseVisualStyleBackColor = True
@@ -286,7 +305,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoItemQualityTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoItemQualityTABPAGE.Name = "DatabaseInfoItemQualityTABPAGE"
-        Me.DatabaseInfoItemQualityTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoItemQualityTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoItemQualityTABPAGE.TabIndex = 6
         Me.DatabaseInfoItemQualityTABPAGE.Text = "Item Quality"
         Me.DatabaseInfoItemQualityTABPAGE.UseVisualStyleBackColor = True
@@ -295,7 +314,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoRunesTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoRunesTABPAGE.Name = "DatabaseInfoRunesTABPAGE"
-        Me.DatabaseInfoRunesTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoRunesTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoRunesTABPAGE.TabIndex = 5
         Me.DatabaseInfoRunesTABPAGE.Text = "Runes"
         Me.DatabaseInfoRunesTABPAGE.UseVisualStyleBackColor = True
@@ -304,7 +323,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoMulesTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoMulesTABPAGE.Name = "DatabaseInfoMulesTABPAGE"
-        Me.DatabaseInfoMulesTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoMulesTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoMulesTABPAGE.TabIndex = 2
         Me.DatabaseInfoMulesTABPAGE.Text = "Mules"
         Me.DatabaseInfoMulesTABPAGE.UseVisualStyleBackColor = True
@@ -313,7 +332,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoAccountsTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoAccountsTABPAGE.Name = "DatabaseInfoAccountsTABPAGE"
-        Me.DatabaseInfoAccountsTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoAccountsTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoAccountsTABPAGE.TabIndex = 3
         Me.DatabaseInfoAccountsTABPAGE.Text = "Accounts"
         Me.DatabaseInfoAccountsTABPAGE.UseVisualStyleBackColor = True
@@ -323,7 +342,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoRealmsTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoRealmsTABPAGE.Name = "DatabaseInfoRealmsTABPAGE"
         Me.DatabaseInfoRealmsTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoRealmsTABPAGE.TabIndex = 1
         Me.DatabaseInfoRealmsTABPAGE.Text = "Realms"
         Me.DatabaseInfoRealmsTABPAGE.UseVisualStyleBackColor = True
@@ -332,7 +351,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoDatabaseTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoDatabaseTABPAGE.Name = "DatabaseInfoDatabaseTABPAGE"
-        Me.DatabaseInfoDatabaseTABPAGE.Size = New System.Drawing.Size(523, 258)
+        Me.DatabaseInfoDatabaseTABPAGE.Size = New System.Drawing.Size(522, 296)
         Me.DatabaseInfoDatabaseTABPAGE.TabIndex = 4
         Me.DatabaseInfoDatabaseTABPAGE.Text = "Database"
         Me.DatabaseInfoDatabaseTABPAGE.UseVisualStyleBackColor = True
@@ -345,7 +364,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoCloseBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.DatabaseInfoCloseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DatabaseInfoCloseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseInfoCloseBUTTON.Location = New System.Drawing.Point(497, 410)
+        Me.DatabaseInfoCloseBUTTON.Location = New System.Drawing.Point(496, 416)
         Me.DatabaseInfoCloseBUTTON.Name = "DatabaseInfoCloseBUTTON"
         Me.DatabaseInfoCloseBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.DatabaseInfoCloseBUTTON.TabIndex = 1924
@@ -360,7 +379,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoRefreshBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.DatabaseInfoRefreshBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DatabaseInfoRefreshBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseInfoRefreshBUTTON.Location = New System.Drawing.Point(411, 410)
+        Me.DatabaseInfoRefreshBUTTON.Location = New System.Drawing.Point(410, 416)
         Me.DatabaseInfoRefreshBUTTON.Name = "DatabaseInfoRefreshBUTTON"
         Me.DatabaseInfoRefreshBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.DatabaseInfoRefreshBUTTON.TabIndex = 1925
@@ -375,21 +394,258 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoOpenContainingBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.DatabaseInfoOpenContainingBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DatabaseInfoOpenContainingBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DatabaseInfoOpenContainingBUTTON.Location = New System.Drawing.Point(41, 410)
+        Me.DatabaseInfoOpenContainingBUTTON.Location = New System.Drawing.Point(41, 416)
         Me.DatabaseInfoOpenContainingBUTTON.Name = "DatabaseInfoOpenContainingBUTTON"
         Me.DatabaseInfoOpenContainingBUTTON.Size = New System.Drawing.Size(154, 23)
         Me.DatabaseInfoOpenContainingBUTTON.TabIndex = 1926
         Me.DatabaseInfoOpenContainingBUTTON.Text = "Open Database Directory"
         Me.DatabaseInfoOpenContainingBUTTON.UseVisualStyleBackColor = False
         '
+        'Label29
+        '
+        Me.Label29.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label29.Location = New System.Drawing.Point(41, 111)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(530, 2)
+        Me.Label29.TabIndex = 1927
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label1.Location = New System.Drawing.Point(41, 391)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(530, 3)
+        Me.Label1.TabIndex = 1928
+        '
+        'Label32
+        '
+        Me.Label32.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label32.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label32.Location = New System.Drawing.Point(41, 112)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(2, 282)
+        Me.Label32.TabIndex = 1929
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label2.Location = New System.Drawing.Point(569, 112)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(2, 282)
+        Me.Label2.TabIndex = 1930
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.BackColor = System.Drawing.Color.Moccasin
+        Me.Label3.Location = New System.Drawing.Point(43, 113)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(525, 2)
+        Me.Label3.TabIndex = 1931
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.BackColor = System.Drawing.Color.Moccasin
+        Me.Label4.Location = New System.Drawing.Point(43, 389)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(525, 2)
+        Me.Label4.TabIndex = 1932
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.BackColor = System.Drawing.Color.Moccasin
+        Me.Label5.Location = New System.Drawing.Point(565, 113)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(3, 278)
+        Me.Label5.TabIndex = 1933
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label6.BackColor = System.Drawing.Color.Moccasin
+        Me.Label6.Location = New System.Drawing.Point(43, 113)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(3, 278)
+        Me.Label6.TabIndex = 1934
+        '
+        'Label7
+        '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label7.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label7.Location = New System.Drawing.Point(46, 387)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(520, 2)
+        Me.Label7.TabIndex = 1935
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label8.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label8.Location = New System.Drawing.Point(46, 115)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(2, 272)
+        Me.Label8.TabIndex = 1936
+        '
+        'InfoBaseBUTTON
+        '
+        Me.InfoBaseBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoBaseBUTTON.BackgroundImage = CType(resources.GetObject("InfoBaseBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoBaseBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoBaseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoBaseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoBaseBUTTON.Location = New System.Drawing.Point(41, 85)
+        Me.InfoBaseBUTTON.Name = "InfoBaseBUTTON"
+        Me.InfoBaseBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoBaseBUTTON.TabIndex = 1937
+        Me.InfoBaseBUTTON.Text = "Base"
+        Me.InfoBaseBUTTON.UseVisualStyleBackColor = False
+        '
+        'InfoQualityBUTTON
+        '
+        Me.InfoQualityBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoQualityBUTTON.BackgroundImage = CType(resources.GetObject("InfoQualityBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoQualityBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoQualityBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoQualityBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoQualityBUTTON.Location = New System.Drawing.Point(118, 85)
+        Me.InfoQualityBUTTON.Name = "InfoQualityBUTTON"
+        Me.InfoQualityBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoQualityBUTTON.TabIndex = 1938
+        Me.InfoQualityBUTTON.Text = "Quality"
+        Me.InfoQualityBUTTON.UseVisualStyleBackColor = False
+        '
+        'IntoRuneBUTTON
+        '
+        Me.IntoRuneBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.IntoRuneBUTTON.BackgroundImage = CType(resources.GetObject("IntoRuneBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.IntoRuneBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.IntoRuneBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IntoRuneBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.IntoRuneBUTTON.Location = New System.Drawing.Point(195, 85)
+        Me.IntoRuneBUTTON.Name = "IntoRuneBUTTON"
+        Me.IntoRuneBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.IntoRuneBUTTON.TabIndex = 1939
+        Me.IntoRuneBUTTON.Text = "Rune"
+        Me.IntoRuneBUTTON.UseVisualStyleBackColor = False
+        '
+        'InfoRealmBUTTON
+        '
+        Me.InfoRealmBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoRealmBUTTON.BackgroundImage = CType(resources.GetObject("InfoRealmBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoRealmBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoRealmBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoRealmBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoRealmBUTTON.Location = New System.Drawing.Point(272, 85)
+        Me.InfoRealmBUTTON.Name = "InfoRealmBUTTON"
+        Me.InfoRealmBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoRealmBUTTON.TabIndex = 1940
+        Me.InfoRealmBUTTON.Text = "Realm"
+        Me.InfoRealmBUTTON.UseVisualStyleBackColor = False
+        '
+        'InfoMuleBUTTON
+        '
+        Me.InfoMuleBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoMuleBUTTON.BackgroundImage = CType(resources.GetObject("InfoMuleBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoMuleBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoMuleBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoMuleBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoMuleBUTTON.Location = New System.Drawing.Point(349, 85)
+        Me.InfoMuleBUTTON.Name = "InfoMuleBUTTON"
+        Me.InfoMuleBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoMuleBUTTON.TabIndex = 1941
+        Me.InfoMuleBUTTON.Text = "Mule"
+        Me.InfoMuleBUTTON.UseVisualStyleBackColor = False
+        '
+        'InfoAccountBUTTON
+        '
+        Me.InfoAccountBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoAccountBUTTON.BackgroundImage = CType(resources.GetObject("InfoAccountBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoAccountBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoAccountBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoAccountBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoAccountBUTTON.Location = New System.Drawing.Point(426, 85)
+        Me.InfoAccountBUTTON.Name = "InfoAccountBUTTON"
+        Me.InfoAccountBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoAccountBUTTON.TabIndex = 1942
+        Me.InfoAccountBUTTON.Text = "Account"
+        Me.InfoAccountBUTTON.UseVisualStyleBackColor = False
+        '
+        'InfoFileBUTTON
+        '
+        Me.InfoFileBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.InfoFileBUTTON.BackgroundImage = CType(resources.GetObject("InfoFileBUTTON.BackgroundImage"), System.Drawing.Image)
+        Me.InfoFileBUTTON.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.InfoFileBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.InfoFileBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.InfoFileBUTTON.Location = New System.Drawing.Point(503, 85)
+        Me.InfoFileBUTTON.Name = "InfoFileBUTTON"
+        Me.InfoFileBUTTON.Size = New System.Drawing.Size(68, 23)
+        Me.InfoFileBUTTON.TabIndex = 1943
+        Me.InfoFileBUTTON.Text = "File"
+        Me.InfoFileBUTTON.UseVisualStyleBackColor = False
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.BackColor = System.Drawing.Color.Black
+        Me.Label9.Location = New System.Drawing.Point(39, 91)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(530, 20)
+        Me.Label9.TabIndex = 1944
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.BackColor = System.Drawing.Color.Black
+        Me.Label10.Location = New System.Drawing.Point(48, 115)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(517, 2)
+        Me.Label10.TabIndex = 1945
+        '
         'DatabaseInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.BigSettings
+        Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.BiggerSettings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(612, 466)
+        Me.ClientSize = New System.Drawing.Size(611, 485)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.InfoFileBUTTON)
+        Me.Controls.Add(Me.InfoAccountBUTTON)
+        Me.Controls.Add(Me.InfoMuleBUTTON)
+        Me.Controls.Add(Me.InfoRealmBUTTON)
+        Me.Controls.Add(Me.IntoRuneBUTTON)
+        Me.Controls.Add(Me.InfoQualityBUTTON)
+        Me.Controls.Add(Me.InfoBaseBUTTON)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label32)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.DatabaseInfoOpenContainingBUTTON)
         Me.Controls.Add(Me.DatabaseInfoRefreshBUTTON)
         Me.Controls.Add(Me.DatabaseInfoCloseBUTTON)
@@ -407,11 +663,11 @@ Partial Class DatabaseInfo
         Me.Controls.Add(Me.Label123)
         Me.Controls.Add(Me.DatabaseInfoSelectedTEXTBOX)
         Me.MaximumSize = New System.Drawing.Size(870, 1036)
-        Me.MinimumSize = New System.Drawing.Size(440, 320)
+        Me.MinimumSize = New System.Drawing.Size(627, 330)
         Me.Name = "DatabaseInfo"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Database Information Breakdown"
+        Me.Text = "Database Information "
         CType(Me.DatabaseInfoDATAGRIDVIEW, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DatabaseInfoTABCONTROL.ResumeLayout(False)
         Me.DatabaseInfoItemBaseTABPAGE.ResumeLayout(False)
@@ -447,4 +703,23 @@ Partial Class DatabaseInfo
     Friend WithEvents ItemBaseCOLUMN As DataGridViewTextBoxColumn
     Friend WithEvents TotalCOLUMN As DataGridViewTextBoxColumn
     Friend WithEvents RatioCOLUMN As DataGridViewTextBoxColumn
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents InfoBaseBUTTON As Button
+    Friend WithEvents InfoQualityBUTTON As Button
+    Friend WithEvents IntoRuneBUTTON As Button
+    Friend WithEvents InfoRealmBUTTON As Button
+    Friend WithEvents InfoMuleBUTTON As Button
+    Friend WithEvents InfoAccountBUTTON As Button
+    Friend WithEvents InfoFileBUTTON As Button
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
 End Class

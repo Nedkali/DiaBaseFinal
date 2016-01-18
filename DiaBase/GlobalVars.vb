@@ -90,4 +90,12 @@ Module GlobalVars
                                     "r29", "r30", "r31", "r32", "r33", "jew", "ice", "nia", "tr2", "pk1", "pk2", "pk3", "dhn", "bey", "mbr", "toa", "tes", "ceh", "bet", "fed", "std"}
 
 
+
+    Public Count As Integer '                                          Index Tracker Var, Used Within FOR/NEXT And DO/LOOP Routines
+    Public Temp As String '                                            Temporary memory location For easier use of raw file data
+    Public ItemBaseList As List(Of String) = New List(Of String) '     List of all item bases
+    Public ItemBaseGroups As List(Of String) = New List(Of String) '   List of all item bases with duplicates removed
+    Public ItemBaseValues As List(Of String) = New List(Of String) '   List of  tallied percentile ratios for each item base group found
+    Public TotalItemsInSelected As Integer = 0 '                       Total Items Tally Var, is mainly used for header tally
+
 End Module
