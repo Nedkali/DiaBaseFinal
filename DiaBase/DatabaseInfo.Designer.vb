@@ -50,7 +50,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoMulesTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoAccountsTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoRealmsTABPAGE = New System.Windows.Forms.TabPage()
-        Me.DatabaseInfoDatabaseTABPAGE = New System.Windows.Forms.TabPage()
+        Me.DatabaseInfoFileTABPAGE = New System.Windows.Forms.TabPage()
         Me.DatabaseInfoCloseBUTTON = New System.Windows.Forms.Button()
         Me.DatabaseInfoRefreshBUTTON = New System.Windows.Forms.Button()
         Me.DatabaseInfoOpenContainingBUTTON = New System.Windows.Forms.Button()
@@ -283,7 +283,7 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoMulesTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoAccountsTABPAGE)
         Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoRealmsTABPAGE)
-        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoDatabaseTABPAGE)
+        Me.DatabaseInfoTABCONTROL.Controls.Add(Me.DatabaseInfoFileTABPAGE)
         Me.DatabaseInfoTABCONTROL.Location = New System.Drawing.Point(41, 91)
         Me.DatabaseInfoTABCONTROL.Name = "DatabaseInfoTABCONTROL"
         Me.DatabaseInfoTABCONTROL.SelectedIndex = 0
@@ -305,7 +305,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoItemQualityTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoItemQualityTABPAGE.Name = "DatabaseInfoItemQualityTABPAGE"
-        Me.DatabaseInfoItemQualityTABPAGE.Size = New System.Drawing.Size(522, 296)
+        Me.DatabaseInfoItemQualityTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoItemQualityTABPAGE.TabIndex = 6
         Me.DatabaseInfoItemQualityTABPAGE.Text = "Item Quality"
         Me.DatabaseInfoItemQualityTABPAGE.UseVisualStyleBackColor = True
@@ -314,7 +314,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoRunesTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoRunesTABPAGE.Name = "DatabaseInfoRunesTABPAGE"
-        Me.DatabaseInfoRunesTABPAGE.Size = New System.Drawing.Size(522, 296)
+        Me.DatabaseInfoRunesTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoRunesTABPAGE.TabIndex = 5
         Me.DatabaseInfoRunesTABPAGE.Text = "Runes"
         Me.DatabaseInfoRunesTABPAGE.UseVisualStyleBackColor = True
@@ -323,7 +323,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoMulesTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoMulesTABPAGE.Name = "DatabaseInfoMulesTABPAGE"
-        Me.DatabaseInfoMulesTABPAGE.Size = New System.Drawing.Size(522, 296)
+        Me.DatabaseInfoMulesTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoMulesTABPAGE.TabIndex = 2
         Me.DatabaseInfoMulesTABPAGE.Text = "Mules"
         Me.DatabaseInfoMulesTABPAGE.UseVisualStyleBackColor = True
@@ -332,7 +332,7 @@ Partial Class DatabaseInfo
         '
         Me.DatabaseInfoAccountsTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoAccountsTABPAGE.Name = "DatabaseInfoAccountsTABPAGE"
-        Me.DatabaseInfoAccountsTABPAGE.Size = New System.Drawing.Size(522, 296)
+        Me.DatabaseInfoAccountsTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoAccountsTABPAGE.TabIndex = 3
         Me.DatabaseInfoAccountsTABPAGE.Text = "Accounts"
         Me.DatabaseInfoAccountsTABPAGE.UseVisualStyleBackColor = True
@@ -342,19 +342,19 @@ Partial Class DatabaseInfo
         Me.DatabaseInfoRealmsTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoRealmsTABPAGE.Name = "DatabaseInfoRealmsTABPAGE"
         Me.DatabaseInfoRealmsTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(522, 296)
+        Me.DatabaseInfoRealmsTABPAGE.Size = New System.Drawing.Size(522, 277)
         Me.DatabaseInfoRealmsTABPAGE.TabIndex = 1
         Me.DatabaseInfoRealmsTABPAGE.Text = "Realms"
         Me.DatabaseInfoRealmsTABPAGE.UseVisualStyleBackColor = True
         '
-        'DatabaseInfoDatabaseTABPAGE
+        'DatabaseInfoFileTABPAGE
         '
-        Me.DatabaseInfoDatabaseTABPAGE.Location = New System.Drawing.Point(4, 22)
-        Me.DatabaseInfoDatabaseTABPAGE.Name = "DatabaseInfoDatabaseTABPAGE"
-        Me.DatabaseInfoDatabaseTABPAGE.Size = New System.Drawing.Size(522, 296)
-        Me.DatabaseInfoDatabaseTABPAGE.TabIndex = 4
-        Me.DatabaseInfoDatabaseTABPAGE.Text = "Database"
-        Me.DatabaseInfoDatabaseTABPAGE.UseVisualStyleBackColor = True
+        Me.DatabaseInfoFileTABPAGE.Location = New System.Drawing.Point(4, 22)
+        Me.DatabaseInfoFileTABPAGE.Name = "DatabaseInfoFileTABPAGE"
+        Me.DatabaseInfoFileTABPAGE.Size = New System.Drawing.Size(522, 277)
+        Me.DatabaseInfoFileTABPAGE.TabIndex = 4
+        Me.DatabaseInfoFileTABPAGE.Text = "Database"
+        Me.DatabaseInfoFileTABPAGE.UseVisualStyleBackColor = True
         '
         'DatabaseInfoCloseBUTTON
         '
@@ -662,7 +662,7 @@ Partial Class DatabaseInfo
         Me.Controls.Add(Me.Label122)
         Me.Controls.Add(Me.Label123)
         Me.Controls.Add(Me.DatabaseInfoSelectedTEXTBOX)
-        Me.MaximumSize = New System.Drawing.Size(870, 1036)
+        Me.MaximumSize = New System.Drawing.Size(870, 1236)
         Me.MinimumSize = New System.Drawing.Size(627, 330)
         Me.Name = "DatabaseInfo"
         Me.ShowIcon = False
@@ -694,7 +694,7 @@ Partial Class DatabaseInfo
     Friend WithEvents DatabaseInfoRealmsTABPAGE As TabPage
     Friend WithEvents DatabaseInfoMulesTABPAGE As TabPage
     Friend WithEvents DatabaseInfoAccountsTABPAGE As TabPage
-    Friend WithEvents DatabaseInfoDatabaseTABPAGE As TabPage
+    Friend WithEvents DatabaseInfoFileTABPAGE As TabPage
     Friend WithEvents DatabaseInfoCloseBUTTON As Button
     Friend WithEvents DatabaseInfoRefreshBUTTON As Button
     Friend WithEvents DatabaseInfoOpenContainingBUTTON As Button

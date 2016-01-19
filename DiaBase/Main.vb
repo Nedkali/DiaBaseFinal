@@ -22,11 +22,10 @@ Public Class Main
     Public WithEvents ImportTimer As New System.Windows.Forms.Timer()
     Public WithEvents ButtonFlashTimer As New System.Windows.Forms.Timer()
 
-
-
-
-
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'For catching receiving messages from the autologin dll
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
 
         Select Case m.Msg
@@ -176,14 +175,12 @@ Public Class Main
         'Position and Size Main Form Using co-ordinates saved on closing last session
         Me.Height = AppSettings.XSize
         Me.Width = AppSettings.YSize
-
         Me.Location = New Point(AppSettings.XPos, AppSettings.YPos)
 
-
-
-
-
-
+        'Position and Size Database Information Form Using co-ordinates saved on closing last session
+        DatabaseInfo.Height = AppSettings.XSizeInfo
+        DatabaseInfo.Width = AppSettings.YSizeInfo
+        DatabaseInfo.Location = New Point(AppSettings.XPosInfo, AppSettings.YPosInfo)
 
         'Set foucus on the main listbox
         AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
@@ -220,6 +217,10 @@ Public Class Main
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - RD Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - BE Mode"
+
+        If AppSettings.MngrOpen = True Then DatabaseManager.Show()
+        If AppSettings.InfoOpen = True Then DatabaseInfo.Show()
+        Me.Focus()
 
         'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
         StartTimer()
@@ -265,7 +266,7 @@ Public Class Main
 
                 'ItemBase
 
-                Dim Matched As Integer = 0
+                Dim Matched As Integer = -1
                 Dim Count As Integer = 0
 
                 For Each item In ItemBaseGroups
@@ -274,7 +275,7 @@ Public Class Main
                     Count = Count + 1
                 Next
 
-                If Matched > 0 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
+                If Matched > -1 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
                 DatabaseInfo.DatabaseInfoDATAGRIDVIEW.FirstDisplayedScrollingRowIndex = Matched
 
 
@@ -484,12 +485,12 @@ Public Class Main
     End Sub
 
 
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - EXIT APP FUNCTION - Closes App On Demand    - Is Thrown only after the exit Event begins
     '                                                       - Shows The Exit Confirmation Windows to display a confirmation and save and or backup message
     '                                                       - Eiter Cancels The Exit Application Event OR Allows it to Continue Depending on the Yes / No Dialog Returned
     '                                                       - Save and Backup Options Branch From The Exit Application Code Before runtime Returns Here
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         If AutoLoggerRunning = False Then ' Check The Autologger Is Inactive Before Displaying Confirmation Dialog
@@ -505,20 +506,21 @@ Public Class Main
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
 
+                '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                'Save settings file to update x,y position of Main, Manager and Info forms, as well as menu list check states and both save on exit check states
+                '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                'Save settings file to update x,y position as well as menu list check states and both save on exit check states
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then AppSettings.SaveOnExit = True Else AppSettings.SaveOnExit = False
                 If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then AppSettings.BackupOnExit = True Else AppSettings.BackupOnExit = False
                 If HideDupesMENUITEM.Checked = True Then AppSettings.HideDupes = True Else AppSettings.HideDupes = False
                 If DisplayLineBreaksMENUITEM.Checked = True Then AppSettings.DisplayLineBreaks = True Else AppSettings.DisplayLineBreaks = False
 
+                'Save Info And Manager Display State for save to settings file
+                If DatabaseManager.Visible = True Then AppSettings.MngrOpen = True Else AppSettings.MngrOpen = False
+                If DatabaseManager.Visible = True Then AppSettings.InfoOpen = True Else AppSettings.InfoOpen = False
+
+
                 DatabaseManagmentFunctions.SaveSettingsFile()
-
-
-
-
-
-
 
             End If
         Else
@@ -1902,5 +1904,15 @@ Public Class Main
             End If
         End If
 
+    End Sub
+
+    Private Sub DatabaseInforomationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseInforomationToolStripMenuItem.Click
+
+
+        DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
+        DatabaseInfo.GetItemTotal()
+        DatabaseInfo.GetItemBases()
+
+        DatabaseInfo.Show()
     End Sub
 End Class

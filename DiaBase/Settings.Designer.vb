@@ -594,7 +594,7 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(511, 484)
+        Me.ClientSize = New System.Drawing.Size(511, 483)
         Me.ControlBox = False
         Me.Controls.Add(Me.BackupOnExit)
         Me.Controls.Add(Me.SaveOnExit)

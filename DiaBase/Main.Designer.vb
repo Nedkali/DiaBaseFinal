@@ -61,6 +61,7 @@ Partial Class Main
         Me.SelectEtalPathDIALOG = New System.Windows.Forms.FolderBrowserDialog()
         Me.AutoLoggerTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.DatabaseMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseInforomationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.RestoreBackupMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
@@ -259,19 +260,19 @@ Partial Class Main
         'DatabaseManagerMENUITEM
         '
         Me.DatabaseManagerMENUITEM.Name = "DatabaseManagerMENUITEM"
-        Me.DatabaseManagerMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.DatabaseManagerMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.DatabaseManagerMENUITEM.Text = "Database Manager"
         '
         'BackupDatabaseMENUITEM
         '
         Me.BackupDatabaseMENUITEM.Name = "BackupDatabaseMENUITEM"
-        Me.BackupDatabaseMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.BackupDatabaseMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.BackupDatabaseMENUITEM.Text = "Backup"
         '
         'ExitApplicarionMENUITEM
         '
         Me.ExitApplicarionMENUITEM.Name = "ExitApplicarionMENUITEM"
-        Me.ExitApplicarionMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.ExitApplicarionMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.ExitApplicarionMENUITEM.Text = "Exit"
         '
         'SettingsMenuMENUGROUP
@@ -386,7 +387,7 @@ Partial Class Main
         'SaveDatabaseMENUITEM
         '
         Me.SaveDatabaseMENUITEM.Name = "SaveDatabaseMENUITEM"
-        Me.SaveDatabaseMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.SaveDatabaseMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.SaveDatabaseMENUITEM.Text = "Save"
         '
         'ItemsMenuMENUGROUP
@@ -472,7 +473,7 @@ Partial Class Main
         'DatabaseMenuMENUGROUP
         '
         Me.DatabaseMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.DatabaseMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseManagerMENUITEM, Me.SaveDatabaseMENUITEM, Me.ToolStripSeparator5, Me.BackupDatabaseMENUITEM, Me.RestoreBackupMENUITEM, Me.ToolStripSeparator6, Me.ExitApplicarionMENUITEM})
+        Me.DatabaseMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseManagerMENUITEM, Me.DatabaseInforomationToolStripMenuItem, Me.SaveDatabaseMENUITEM, Me.ToolStripSeparator5, Me.BackupDatabaseMENUITEM, Me.RestoreBackupMENUITEM, Me.ToolStripSeparator6, Me.ExitApplicarionMENUITEM})
         Me.DatabaseMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DatabaseMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.DatabaseMenuMENUGROUP.Name = "DatabaseMenuMENUGROUP"
@@ -480,21 +481,27 @@ Partial Class Main
         Me.DatabaseMenuMENUGROUP.Text = "Database"
         Me.DatabaseMenuMENUGROUP.ToolTipText = "Open, Save, And BAckup Database"
         '
+        'DatabaseInforomationToolStripMenuItem
+        '
+        Me.DatabaseInforomationToolStripMenuItem.Name = "DatabaseInforomationToolStripMenuItem"
+        Me.DatabaseInforomationToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.DatabaseInforomationToolStripMenuItem.Text = "Database Inforomation"
+        '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(174, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(199, 6)
         '
         'RestoreBackupMENUITEM
         '
         Me.RestoreBackupMENUITEM.Name = "RestoreBackupMENUITEM"
-        Me.RestoreBackupMENUITEM.Size = New System.Drawing.Size(177, 22)
+        Me.RestoreBackupMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.RestoreBackupMENUITEM.Text = "Restore Backup"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(174, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(199, 6)
         '
         'Label8
         '
@@ -1950,7 +1957,7 @@ Partial Class Main
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.MainFormMENUBAR)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(810, 1036)
+        Me.MaximumSize = New System.Drawing.Size(810, 1236)
         Me.MinimumSize = New System.Drawing.Size(810, 703)
         Me.Name = "Main"
         Me.Text = "VER AND REV DISPLAYED AT RUNTIME - PLEASE SET THEM IN THE GLOBALVARS MODULE BEFOR" &
@@ -2160,4 +2167,5 @@ Partial Class Main
     Friend WithEvents RebuildDefaultDatabaseMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DatabaseInforomationToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -27,10 +27,21 @@ Module DatabaseManagmentFunctions
                 AppSettings.HideDupes = ReadFile.ReadLine       'Stat display spaceing 
                 AppSettings.SaveOnExit = ReadFile.ReadLine              'Save current database as app closes operator
                 AppSettings.BackupOnExit = ReadFile.ReadLine            'Backup current database as app closes operator
-                AppSettings.XSize = ReadFile.ReadLine
+
+                AppSettings.XSize = ReadFile.ReadLine                   'Size And Position Vars For Main Form
                 AppSettings.YSize = ReadFile.ReadLine
                 AppSettings.XPos = ReadFile.ReadLine
                 AppSettings.YPos = ReadFile.ReadLine
+                AppSettings.XSizeMngr = ReadFile.ReadLine               'Size And Position Vars For Database Manager Form
+                AppSettings.YSizeMngr = ReadFile.ReadLine
+                AppSettings.XPosMngr = ReadFile.ReadLine
+                AppSettings.YPosMngr = ReadFile.ReadLine
+                AppSettings.XSizeInfo = ReadFile.ReadLine                'Size And Position Vars For Database Information Form
+                AppSettings.YSizeInfo = ReadFile.ReadLine
+                AppSettings.XPosInfo = ReadFile.ReadLine
+                AppSettings.YPosInfo = ReadFile.ReadLine
+                AppSettings.MngrOpen = ReadFile.ReadLine
+                AppSettings.InfoOpen = ReadFile.ReadLine
                 ReadFile.Close()
             Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler - pass to error handler
             End If
@@ -65,15 +76,20 @@ Module DatabaseManagmentFunctions
             'Check for valid entrys (avoid potential crash with null entries) and swap app runstate values (where nessicary) to settings class variables
             If AppSettings.DefaultDatabase = Nothing Then AppSettings.DefaultDatabase = AppSettings.InstallPath & "\Databases\Default.TXT"
 
-            'applys the menu option checkstate to its partnered settings clas variable
+            'Applys the menu option checkstate to its partnered settings class variable
             AppSettings.DisplayLineBreaks = Main.DisplayLineBreaksMENUITEM.CheckState
 
-            'Applys Size and position from form state to appSettings vars
+            'Applys Size and position for Main Form state to appSettings vars
             AppSettings.XPos = Main.Location.X : AppSettings.YPos = Main.Location.Y
             AppSettings.XSize = Main.Height : AppSettings.YSize = Main.Width
 
-            'Applys SaveAndBackup On Exit Bool Operators to AppSettings Vars
+            'Applys Size and position for Database Manager Form state to appSettings vars
+            AppSettings.XPosMngr = DatabaseManager.Location.X : AppSettings.YPosMngr = DatabaseManager.Location.Y
+            AppSettings.XSizeMngr = DatabaseManager.Height : AppSettings.YSizeMngr = DatabaseManager.Width
 
+            'Applys Size and position for Database Manager Form state to appSettings vars
+            AppSettings.XPosInfo = DatabaseInfo.Location.X : AppSettings.YPosInfo = DatabaseInfo.Location.Y
+            AppSettings.XSizeInfo = DatabaseInfo.Height : AppSettings.YSizeInfo = DatabaseInfo.Width
 
             'Writes the settings to file Settings.CFG Assumes no null entries exist at this point or lines will be skipped during save will crash when attempting to read it later
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
@@ -96,14 +112,21 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.YSize)
             WriteFile.WriteLine(AppSettings.XPos)
             WriteFile.WriteLine(AppSettings.YPos)
-
-
-            'Add Exit App Backup and Save Vars
-            'Add Form1 X,Y size and X,Y location 
+            WriteFile.WriteLine(AppSettings.XSizeMngr)
+            WriteFile.WriteLine(AppSettings.YSizeMngr)
+            WriteFile.WriteLine(AppSettings.XPosMngr)
+            WriteFile.WriteLine(AppSettings.YPosMngr)
+            WriteFile.WriteLine(AppSettings.XSizeInfo)
+            WriteFile.WriteLine(AppSettings.YSizeInfo)
+            WriteFile.WriteLine(AppSettings.XPosInfo)
+            WriteFile.WriteLine(AppSettings.YPosInfo)
+            WriteFile.WriteLine(AppSettings.MngrOpen)
+            WriteFile.WriteLine(AppSettings.InfoOpen)
 
             WriteFile.Close()
-        Catch ex As Exception
+
             'Branch to error handler with unique code and system error code if save fails for whatever reason
+        Catch ex As Exception
             Main.ErrorHandler(301, ex, 0, 0)
         End Try
 
@@ -119,7 +142,8 @@ Module DatabaseManagmentFunctions
     '                       -
     '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub OpenDatabase(DatabaseFilePath)
-        'cleanup everything before reading file
+
+        'Cleanup everything before reading file
         Main.AllItemsLISTBOX.SelectedIndex = -1
         ItemObjects.Clear()
         Main.AllItemsLISTBOX.Items.Clear()
@@ -131,8 +155,7 @@ Module DatabaseManagmentFunctions
         UnDoCount.Clear()
         UnDoPos.Clear()
 
-        'end of cleanup
-
+        'Open And Read Database File...
         Dim OpenDatabase As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(DatabaseFilePath)
         AppSettings.CurrentDatabase = DatabaseFilePath
         Dim CheckSpacerFlag As String = "--------------------"
@@ -301,6 +324,8 @@ Module DatabaseManagmentFunctions
 
         Catch ex As Exception
             'ymessages = "File Write Error" : MyMessageBox()
+
+            ' This should be in the error handler like WriteToFile Sub Below <--------------------------------------------------------------------- A Note to myself dont forget to fix this
         End Try
 
     End Sub
@@ -394,7 +419,7 @@ Module DatabaseManagmentFunctions
         'Setup User Input Form For Use With Rename Database Function
         UserInput.Text = "Rename Selected Database"
         UserInput.UserInputHeaderLABEL.Text = "ENTER NEW DATABASE NAME"
-        UserInput.UserInputMessageLABEL.Text = "Please type a new file name into the text box below to continue."
+        UserInput.UserInputMessageLABEL.Text = "Please enter a unique new file name into the text box below to continue."
         UserInput.UserInputNoBUTTON.Text = "Cancel"
         UserInput.UserInputYesBUTTON.Text = "Rename"
         UserInput.UserInputTEXTBOX.Text = DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem
