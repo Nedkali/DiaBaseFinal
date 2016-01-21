@@ -338,8 +338,8 @@ Public Class Main
 
         'Branch to UserFunction module to run sub to display stats for selected user list item
         UserListFunctions.DisplaySelectedUserListItem()
-
     End Sub
+
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'ALL ITEMS LISTBOX TAB BUTTON HANDLER - Selects Button And Displays the AllItemsLISTBOX
@@ -358,7 +358,6 @@ Public Class Main
         'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
         If AllItemsLISTBOX.SelectedIndex = -1 And AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 1 Else If AllItemsLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
         If AllItemsLISTBOX.Items.Count = 0 Then ClearItemStats()
-
     End Sub
 
 
@@ -379,10 +378,6 @@ Public Class Main
         'IF AN ITEM IS ALREADY SELECTED THEN IT WILL TRIGGER THE STATS TO REFRESH FOR THAT ITEM - THIS KEEPS THE STATS DISPLAYED ALWAYS RELEVANT TO THE CURRENTLY SELECTED LIST... SORT OF THING
         If UserLISTBOX.SelectedIndex = -1 And UserLISTBOX.Items.Count > 0 Then UserLISTBOX.SelectedIndex = 1 Else If UserLISTBOX.SelectedIndex > -1 Then UserListFunctions.DisplaySelectedUserListItem()
         If UserLISTBOX.Items.Count = 0 Then ClearItemStats()
-
-        Me.OpenDatabaseLABEL.Text = Replace(My.Computer.FileSystem.GetName(AppSettings.CurrentDatabase), ".txt", "")
-
-
     End Sub
 
 
@@ -399,16 +394,12 @@ Public Class Main
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Matches"
         DatabaseFileLABEL.Hide()
         DatabaseFileNameTEXTBOX.Hide()
-
         If SearchLISTBOX.SelectedIndex = -1 And SearchLISTBOX.Items.Count > 0 Then SearchLISTBOX.SelectedIndex = 1 Else If SearchLISTBOX.SelectedIndex > -1 Then DisplayItemStats(AllItemsLISTBOX.SelectedIndex)
         If SearchLISTBOX.Items.Count = 0 Then ClearItemStats()
         DisplaySelectedUserListItem()
-
         If SearchLISTBOX.SelectedIndex <> -1 Then AllItemsLISTBOX.SelectedIndex = -1 : AllItemsLISTBOX.SelectedIndex = SearchReferenceList(SearchLISTBOX.SelectedIndex) : DisplayItemStats(AllItemsLISTBOX.SelectedIndex) ' if an item is selected in search list then select the same item in the all items list to display that items stats
-
-        Me.OpenDatabaseLABEL.Text = Replace(My.Computer.FileSystem.GetName(AppSettings.CurrentDatabase), ".txt", "")
-
     End Sub
+
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'ROUTINE CLEANS OUT THE ITEM STATS CONTROLS FOR WHEN AN ITEM IS NOT SELECTED OR WHEN NO ITEMS EXITS IN A LIST
@@ -422,12 +413,8 @@ Public Class Main
         Me.LadderTEXTBOX.Clear()
         Me.ItemStatsRICHTEXTBOX.Clear()
         Me.ItemNameRICHTEXTBOX.Clear()
-
         Me.ItemSkinPICTUREBOX.Image = Nothing
-        Me.OpenDatabaseLABEL.Text = ""
-
     End Sub
-
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
