@@ -270,9 +270,8 @@ Public Class Main
         End If
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
 
-        'New Idea Im Testing - Focus on relevant record entry in database info form if it is open and on the currently loaded database
-        'not will also need to add something swomewhere to update databaseinfo form on database changes... if viable
 
+        'Focus on matching Database Info Form record if its open
         If DatabaseInfo.Visible = True Then
 
             If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True And DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text And a <> -1 Then
@@ -290,27 +289,6 @@ Public Class Main
 
                 If Matched > -1 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
                 DatabaseInfo.DatabaseInfoDATAGRIDVIEW.FirstDisplayedScrollingRowIndex = Matched
-
-
-                'DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Cursor()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             End If
         End If
     End Sub
@@ -402,6 +380,9 @@ Public Class Main
         If UserLISTBOX.SelectedIndex = -1 And UserLISTBOX.Items.Count > 0 Then UserLISTBOX.SelectedIndex = 1 Else If UserLISTBOX.SelectedIndex > -1 Then UserListFunctions.DisplaySelectedUserListItem()
         If UserLISTBOX.Items.Count = 0 Then ClearItemStats()
 
+        Me.OpenDatabaseLABEL.Text = Replace(My.Computer.FileSystem.GetName(AppSettings.CurrentDatabase), ".txt", "")
+
+
     End Sub
 
 
@@ -425,6 +406,7 @@ Public Class Main
 
         If SearchLISTBOX.SelectedIndex <> -1 Then AllItemsLISTBOX.SelectedIndex = -1 : AllItemsLISTBOX.SelectedIndex = SearchReferenceList(SearchLISTBOX.SelectedIndex) : DisplayItemStats(AllItemsLISTBOX.SelectedIndex) ' if an item is selected in search list then select the same item in the all items list to display that items stats
 
+        Me.OpenDatabaseLABEL.Text = Replace(My.Computer.FileSystem.GetName(AppSettings.CurrentDatabase), ".txt", "")
 
     End Sub
 
@@ -1914,8 +1896,10 @@ Public Class Main
     End Sub
 
     Private Sub DatabaseInforomationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseInforomationToolStripMenuItem.Click
-
-
+        ItemBaseList.Clear()
+        ItemBaseGroups.Clear()
+        ItemBaseValues.Clear()
+        DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows.Clear()
         DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
         DatabaseInfo.GetItemTotal()
         DatabaseInfo.GetItemBases()

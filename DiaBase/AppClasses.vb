@@ -93,12 +93,6 @@ Public Class AppSetting
 
     Public InfoOpen As Boolean = False                      'Bools to auto display Manager and info forms open from last session
     Public MngrOpen As Boolean = False
-
-
-
-
-
-
     Public EtalVersion As String = "---"                    'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public
 End Class
 
