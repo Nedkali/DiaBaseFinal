@@ -218,8 +218,21 @@ Public Class Main
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - RD Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - BE Mode"
 
-        If AppSettings.MngrOpen = True Then DatabaseManager.Show()
-        If AppSettings.InfoOpen = True Then DatabaseInfo.Show()
+        'Auto Display Database Manager
+        If AppSettings.MngrOpen = True Then
+            DatabaseManager.Show()
+            If DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.Items.Contains(Me.OpenDatabaseLABEL.Text) = True Then DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem = Me.OpenDatabaseLABEL.Text
+        End If
+
+        'Auto Display Database Info
+        If AppSettings.InfoOpen = True Then
+            DatabaseInfo.Show()
+            DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
+            DatabaseInfo.GetItemTotal()
+            DatabaseInfo.GetItemBases()
+        End If
+
+        'Set focus on main form
         Me.Focus()
 
         'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
@@ -455,8 +468,6 @@ Public Class Main
     End Sub
 
 
-
-
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'DISPLAY SETTINGS FORM - Settings Window Handles All Global Config Functions for the Entire Application
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -517,8 +528,7 @@ Public Class Main
 
                 'Save Info And Manager Display State for save to settings file
                 If DatabaseManager.Visible = True Then AppSettings.MngrOpen = True Else AppSettings.MngrOpen = False
-                If DatabaseManager.Visible = True Then AppSettings.InfoOpen = True Else AppSettings.InfoOpen = False
-
+                If DatabaseInfo.Visible = True Then AppSettings.InfoOpen = True Else AppSettings.InfoOpen = False
 
                 DatabaseManagmentFunctions.SaveSettingsFile()
 
@@ -526,9 +536,6 @@ Public Class Main
         Else
             e.Cancel = True 'Automatically cancels Exit Event If Autologger Is Running (Avoids Potential Import Errors)
         End If
-
-
-
     End Sub
 
 

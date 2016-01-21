@@ -120,9 +120,9 @@ Partial Class DatabaseManager
         Me.KeepManagerOpenCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
         Me.KeepManagerOpenCHECKBOX.Location = New System.Drawing.Point(32, 223)
         Me.KeepManagerOpenCHECKBOX.Name = "KeepManagerOpenCHECKBOX"
-        Me.KeepManagerOpenCHECKBOX.Size = New System.Drawing.Size(298, 20)
+        Me.KeepManagerOpenCHECKBOX.Size = New System.Drawing.Size(182, 20)
         Me.KeepManagerOpenCHECKBOX.TabIndex = 1036
-        Me.KeepManagerOpenCHECKBOX.Text = "Keep Manager Open After Carrying Out Action"
+        Me.KeepManagerOpenCHECKBOX.Text = "Keep Manager Open After"
         Me.KeepManagerOpenCHECKBOX.UseVisualStyleBackColor = False
         '
         'ManagerRefreshBUTTON
@@ -134,7 +134,7 @@ Partial Class DatabaseManager
         Me.ManagerRefreshBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerRefreshBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerRefreshBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ManagerRefreshBUTTON.Location = New System.Drawing.Point(460, 194)
+        Me.ManagerRefreshBUTTON.Location = New System.Drawing.Point(373, 223)
         Me.ManagerRefreshBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.ManagerRefreshBUTTON.Name = "ManagerRefreshBUTTON"
         Me.ManagerRefreshBUTTON.Size = New System.Drawing.Size(73, 25)
@@ -224,9 +224,9 @@ Partial Class DatabaseManager
         Me.ManagerSaveFirstCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
         Me.ManagerSaveFirstCHECKBOX.Location = New System.Drawing.Point(32, 197)
         Me.ManagerSaveFirstCHECKBOX.Name = "ManagerSaveFirstCHECKBOX"
-        Me.ManagerSaveFirstCHECKBOX.Size = New System.Drawing.Size(326, 20)
+        Me.ManagerSaveFirstCHECKBOX.Size = New System.Drawing.Size(195, 20)
         Me.ManagerSaveFirstCHECKBOX.TabIndex = 1030
-        Me.ManagerSaveFirstCHECKBOX.Text = "Save Current Database Before Carrying Out Action"
+        Me.ManagerSaveFirstCHECKBOX.Text = "Save Current Database First"
         Me.ManagerSaveFirstCHECKBOX.UseVisualStyleBackColor = False
         '
         'ManagerOpenBUTTON

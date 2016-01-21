@@ -111,6 +111,7 @@
             If CountItems.ReadLine = "--------------------" Then TotalItemsInSelected = TotalItemsInSelected + 1
         Loop
         CountItems.Close()
+        Me.DatabaseInfoTotalTEXTBOX.Text = TotalItemsInSelected
     End Sub
 
     '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
