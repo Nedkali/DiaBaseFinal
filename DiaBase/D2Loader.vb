@@ -83,61 +83,6 @@ Module D2Loader
 
     End Sub
 
-    Public Sub WriteLoaderFile(ByVal x)
-        If ItemObjects(x).MulePass = "Unknown" Then Return
-
-        Try
-            Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Scripts\Starter.js", False)
-
-            WriteFile.WriteLine("var ingame = false;")
-            WriteFile.WriteLine()
-            WriteFile.WriteLine(" while (ingame == false){")
-            WriteFile.WriteLine("   if(GetClientState() == 2)    {ingame = true;}")
-            WriteFile.WriteLine("   SetTitle(""DiaBase Mule"");")
-            WriteFile.WriteLine()
-            WriteFile.WriteLine("   switch(GetOOGLocation())    {")
-            WriteFile.WriteLine("       case 18:")
-            WriteFile.WriteLine("           ClickScreen(0, 10, 10);")
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("           break;")
-
-            WriteFile.WriteLine("       case 8:")
-            'WriteFile.WriteLine("           ClickScreen(0, 295, 315);") ' SinglePlayer
-            WriteFile.WriteLine("           SelectRealm(""" & ItemObjects(x).ItemRealm & """);")
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("           break;")
-
-            WriteFile.WriteLine("       case 9:")
-            WriteFile.WriteLine("           Login(""" & ItemObjects(x).MuleAccount & """,""" & ItemObjects(x).MulePass & """);")
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("           break;")
-
-            WriteFile.WriteLine("       case 12:")
-            'WriteFile.WriteLine("           SelectChar(""SugarLips"");")
-            WriteFile.WriteLine("           SelectChar(""" & ItemObjects(x).MuleName & """);")
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("           break;")
-
-
-            WriteFile.WriteLine("       case 20:")
-            WriteFile.WriteLine("           ClickScreen(0, 300, 272);") ' normal difficulty
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("           break;")
-
-            WriteFile.WriteLine("        default:")
-            WriteFile.WriteLine("           Sleep(1000);")
-            WriteFile.WriteLine("    }")
-            WriteFile.WriteLine("}")
-
-
-            WriteFile.Close()
-        Catch ex As Exception
-            Return
-        End Try
-
-        loadD2(x)
-
-    End Sub
 
     Public Sub loadD2(ByVal x)
         ErrMessage = ""
@@ -154,7 +99,8 @@ Module D2Loader
         D2Path = D2Path & "\Game.exe"
 
         ' load routine
-
+        Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateNew("DiaBaseMule", 82)
+        MemFile2(mmf, x)
 
         Dim myprocess As Process = New Process()
         myprocess.EnableRaisingEvents = True
@@ -181,23 +127,20 @@ Module D2Loader
         Catch
             Main.ImportLogRICHTEXTBOX.AppendText(" error on window fix " & address.ToString)
             myprocess.Kill()
+            mmf.Dispose()
             Return
         End Try
 
-        'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\CloBot.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
         If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\DBase.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
-        'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\D2BS.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2BS.dll")
-
 
         PInvoke.Kernel32.ResumeProcess(p)
-        p.WaitForInputIdle(10000)
-
+        p.WaitForInputIdle(5000)
+        mmf.Dispose()
 
     End Sub
 
-    Function MemFile2(ByVal x)
+    Function MemFile2(ByVal mmf, ByVal x)
         Try
-            Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateOrOpen("D2NT Profile", 82)
             Dim Stream As MemoryMappedViewStream = mmf.CreateViewStream()
             Dim writer As BinaryWriter = New BinaryWriter(Stream)
 

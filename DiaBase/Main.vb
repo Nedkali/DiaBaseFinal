@@ -1376,10 +1376,11 @@ Public Class Main
     Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadItemMuleMENUITEM.Click
         Dim Iindex = AllItemsLISTBOX.SelectedIndex
         If Iindex = -1 Then Return
-        'WriteLoaderFile(Iindex)
 
-        If MemFile2(Iindex) = True Then loadD2(Iindex)
-        'loadD2(Iindex)
+        'If MemFile2(Iindex) = True Then
+        loadD2(Iindex)
+        'End If
+
     End Sub
 
     Private Sub SetAllNonLadderMainMenu_Click(sender As Object, e As EventArgs) Handles SetAllNonLadderMENUITEM.Click
