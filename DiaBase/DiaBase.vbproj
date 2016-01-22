@@ -184,6 +184,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PInvoke.vb" />
+    <Compile Include="ScriptChecker.Designer.vb">
+      <DependentUpon>ScriptChecker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptChecker.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Search.vb" />
     <Compile Include="Settings.Designer.vb">
       <DependentUpon>Settings.vb</DependentUpon>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatabaseManager.resx">
       <DependentUpon>DatabaseManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptChecker.resx">
+      <DependentUpon>ScriptChecker.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.vb</DependentUpon>
