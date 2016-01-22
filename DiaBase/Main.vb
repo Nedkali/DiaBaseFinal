@@ -224,16 +224,24 @@ Public Class Main
             If DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.Items.Contains(Me.OpenDatabaseLABEL.Text) = True Then DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem = Me.OpenDatabaseLABEL.Text
         End If
 
-        'Auto Display Database Info
+        'Setup with current database and Auto Display Database Info form if it was open last session
         If AppSettings.InfoOpen = True Then
             DatabaseInfo.Show()
+            DatabaseInfo.DatabaseInfoTABCONTROL.SelectTab(0)
+            DatabaseInfo.ClearInfoButtons()
+            DatabaseInfo.InfoBaseBUTTON.BackgroundImage = My.Resources.ButtonBackground
+
             DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
             DatabaseInfo.GetItemTotal()
             DatabaseInfo.GetItemBases()
         End If
 
-        'Set focus on main form
-        Me.Focus()
+        'Set focus on main form and bring secondary windows to front and priority focus (if displayed)
+
+        Me.Focus()                                                              'puts focus on main form if no other forms are open
+        If DatabaseInfo.Visible = True Then DatabaseInfo.BringToFront()         'focus info form if its open
+        If DatabaseManager.Visible = True Then DatabaseManager.BringToFront()   'focus manager form if its open (gives mamager form top most priority if opened)
+
 
         'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
         StartTimer()
@@ -1882,6 +1890,7 @@ Public Class Main
 
     End Sub
 
+    'refresh database info form??? note to myself IS THIS REALLY NEEDED
     Private Sub DatabaseInforomationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseInforomationToolStripMenuItem.Click
         ItemBaseList.Clear()
         ItemBaseGroups.Clear()
@@ -1892,5 +1901,34 @@ Public Class Main
         DatabaseInfo.GetItemBases()
 
         DatabaseInfo.Show()
+    End Sub
+
+
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    'Resets all form locations and sizes to default settings - added this now ive added auto open function. If a form is moved out of bounds this will reset them so the error doesnt repeat next session
+    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    Private Sub ResetForPositionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetForPositionsToolStripMenuItem.Click
+
+        'Main Form 
+        AppSettings.XSize = 810 : AppSettings.YSize = 704
+        AppSettings.XPos = 10 : AppSettings.YPos = 10
+        Me.Height = AppSettings.XSize : Me.Width = AppSettings.YSize
+        Me.Location = New Point(AppSettings.XPos, AppSettings.YPos)
+
+        'Manager
+        AppSettings.XPosMngr = 30 : AppSettings.YPosMngr = 30
+        AppSettings.XSizeMngr = 580 : AppSettings.YSizeMngr = 327
+        DatabaseManager.Height = AppSettings.XSizeMngr : DatabaseManager.Width = AppSettings.YSizeMngr
+        DatabaseManager.Location = New Point(AppSettings.XPosMngr, AppSettings.YPosMngr)
+        If DatabaseManager.Visible = True Then DatabaseManager.BringToFront()
+
+        'Info form
+        AppSettings.XPosInfo = 50 : AppSettings.YPosInfo = 50
+        AppSettings.XSizeInfo = 627 : AppSettings.YSizeInfo = 524
+        DatabaseInfo.Height = AppSettings.XSizeInfo : DatabaseInfo.Width = AppSettings.YSizeInfo
+        DatabaseInfo.Location = New Point(AppSettings.XPosInfo, AppSettings.YPosInfo)
+        If DatabaseInfo.Visible = True Then DatabaseInfo.BringToFront()
+
     End Sub
 End Class

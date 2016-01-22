@@ -51,7 +51,7 @@ Partial Class DatabaseManager
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.Location = New System.Drawing.Point(-2, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(568, 25)
+        Me.PictureBox1.Size = New System.Drawing.Size(568, 33)
         Me.PictureBox1.TabIndex = 969
         Me.PictureBox1.TabStop = False
         '
@@ -130,7 +130,6 @@ Partial Class DatabaseManager
         Me.ManagerRefreshBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerRefreshBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerRefreshBUTTON.BackgroundImage = CType(resources.GetObject("ManagerRefreshBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerRefreshBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerRefreshBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerRefreshBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerRefreshBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -147,7 +146,6 @@ Partial Class DatabaseManager
         Me.ManagerSummaryBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerSummaryBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerSummaryBUTTON.BackgroundImage = CType(resources.GetObject("ManagerSummaryBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerSummaryBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerSummaryBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerSummaryBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerSummaryBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -164,7 +162,6 @@ Partial Class DatabaseManager
         Me.ManagerCreateBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerCreateBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerCreateBUTTON.BackgroundImage = CType(resources.GetObject("ManagerCreateBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerCreateBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerCreateBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerCreateBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerCreateBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -181,7 +178,6 @@ Partial Class DatabaseManager
         Me.ManagerRenameBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerRenameBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerRenameBUTTON.BackgroundImage = CType(resources.GetObject("ManagerRenameBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerRenameBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerRenameBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerRenameBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerRenameBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -199,7 +195,6 @@ Partial Class DatabaseManager
         Me.ManagerDeleteBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerDeleteBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerDeleteBUTTON.BackgroundImage = CType(resources.GetObject("ManagerDeleteBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerDeleteBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerDeleteBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerDeleteBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerDeleteBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -234,7 +229,6 @@ Partial Class DatabaseManager
         Me.ManagerOpenBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerOpenBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerOpenBUTTON.BackgroundImage = CType(resources.GetObject("ManagerOpenBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerOpenBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerOpenBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerOpenBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerOpenBUTTON.ForeColor = System.Drawing.Color.BurlyWood
@@ -251,7 +245,6 @@ Partial Class DatabaseManager
         Me.ManagerCancelBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ManagerCancelBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ManagerCancelBUTTON.BackgroundImage = CType(resources.GetObject("ManagerCancelBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerCancelBUTTON.FlatAppearance.BorderSize = 2
         Me.ManagerCancelBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerCancelBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerCancelBUTTON.ForeColor = System.Drawing.Color.BurlyWood

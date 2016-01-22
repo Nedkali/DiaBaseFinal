@@ -75,22 +75,18 @@ Public Class AppSetting
     Public DefaultPassword As String = "Unknown"            'variable used to replace Unknown passwords
     Public DefaultRealm As String = ""                      'variable used for setting default search realm
     Public DisplayLineBreaks As Boolean = False             'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
-
-    Public XSize As Integer = Nothing                       'X,Y size co-ordinates for main form
-    Public YSize As Integer = Nothing
-    Public XPos As Integer = Nothing                        'X,Y Position co-ordinates for main form
-    Public YPos As Integer = Nothing
-
-    Public XPosMngr As Integer = Nothing                    'X,Y Position co-ordinates for Database Manager form
-    Public YPosMngr As Integer = Nothing
-    Public XSizeMngr As Integer = Nothing                   'X,Y size co-ordinates for Database Manager form
-    Public YSizeMngr As Integer = Nothing
-
-    Public XPosInfo As Integer = Nothing                    'X,Y Position co-ordinates for Database Information form
-    Public YPosInfo As Integer = Nothing
-    Public XSizeInfo As Integer = Nothing                   'X,Y size co-ordinates for Database Information form
-    Public YSizeInfo As Integer = Nothing
-
+    Public XSize As Integer = 810                           'Default X,Y size co-ordinates for main form
+    Public YSize As Integer = 704
+    Public XPos As Integer = 10                             'Default X,Y Position co-ordinates for main form
+    Public YPos As Integer = 10
+    Public XPosMngr As Integer = 30                         'Default X,Y Position co-ordinates for Database Manager form
+    Public YPosMngr As Integer = 30
+    Public XSizeMngr As Integer = 580                       'Default X,Y size co-ordinates for Database Manager form
+    Public YSizeMngr As Integer = 327
+    Public XPosInfo As Integer = 50                         'Default X,Y Position co-ordinates for Database Information form
+    Public YPosInfo As Integer = 50
+    Public XSizeInfo As Integer = 627                       'Default X,Y size co-ordinates for Database Information form
+    Public YSizeInfo As Integer = 524
     Public InfoOpen As Boolean = False                      'Bools to auto display Manager and info forms open from last session
     Public MngrOpen As Boolean = False
     Public EtalVersion As String = "---"                    'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public

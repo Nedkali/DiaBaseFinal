@@ -36,6 +36,18 @@
             Me.DatabaseInfoCloseBUTTON.Select()
         End If
     End Sub
+    Sub ClearInfoButtons()
+        InfoBaseBUTTON.BackgroundImage = Nothing
+        InfoQualityBUTTON.BackgroundImage = Nothing
+        IntoRuneBUTTON.BackgroundImage = Nothing
+        InfoRealmBUTTON.BackgroundImage = Nothing
+        InfoMuleBUTTON.BackgroundImage = Nothing
+        InfoAccountBUTTON.BackgroundImage = Nothing
+        InfoFileBUTTON.BackgroundImage = Nothing
+    End Sub
+
+
+
 
     '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'Database Info Form Tab Control Buttons, D2 Style buttons. button press focuses on eachg tabpage
@@ -43,42 +55,56 @@
     'Item Base
     Private Sub InfoBaseBUTTON_Click(sender As Object, e As EventArgs) Handles InfoBaseBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(0)
+        ClearInfoButtons()
+        InfoBaseBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'Item Quality
     Private Sub InfoQualityBUTTON_Click(sender As Object, e As EventArgs) Handles InfoQualityBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(1)
+        ClearInfoButtons()
+        InfoQualityBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'Runes
     Private Sub IntoRuneBUTTON_Click(sender As Object, e As EventArgs) Handles IntoRuneBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(2)
+        ClearInfoButtons()
+        IntoRuneBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'Realms
     Private Sub InfoRealmBUTTON_Click(sender As Object, e As EventArgs) Handles InfoRealmBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(3)
+        ClearInfoButtons()
+        InfoRealmBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'Mules
     Private Sub InfoMuleBUTTON_Click(sender As Object, e As EventArgs) Handles InfoMuleBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(4)
+        ClearInfoButtons()
+        InfoMuleBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'Accounts
     Private Sub InfoAccountBUTTON_Click(sender As Object, e As EventArgs) Handles InfoAccountBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(5)
+        ClearInfoButtons()
+        InfoAccountBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
     'File
     Private Sub InfoFileBUTTON_Click(sender As Object, e As EventArgs) Handles InfoFileBUTTON.Click
         DatabaseInfoTABCONTROL.SelectTab(6)
+        ClearInfoButtons()
+        InfoFileBUTTON.BackgroundImage = My.Resources.ButtonBackground
         DatabaseInfoCloseBUTTON.Select()
     End Sub
 
@@ -166,5 +192,29 @@
         AppSettings.XSizeInfo = Me.Height : AppSettings.YSizeInfo = Me.Width
         AppSettings.XPosInfo = Me.Location.X : AppSettings.YPosInfo = Me.Location.Y
 
+    End Sub
+
+
+    'set d2 fonts
+    Private Sub DatabaseInfo_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        '    ListControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+
+        'tab buttons
+        InfoBaseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        InfoQualityBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        IntoRuneBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        InfoRealmBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        InfoMuleBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        InfoAccountBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        InfoFileBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+
+        'function buttons
+        DatabaseInfoCloseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        DatabaseInfoRefreshBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+
+
+        'labels
+        DatabaseInfoSelectedLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
+        DatabaseInfoTotalLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
     End Sub
 End Class

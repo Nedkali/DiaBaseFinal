@@ -208,6 +208,7 @@ Partial Class Main
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResetForPositionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -262,18 +263,21 @@ Partial Class Main
         Me.DatabaseManagerMENUITEM.Name = "DatabaseManagerMENUITEM"
         Me.DatabaseManagerMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.DatabaseManagerMENUITEM.Text = "Database Manager"
+        Me.DatabaseManagerMENUITEM.ToolTipText = "Open, delete, create, rename database files."
         '
         'BackupDatabaseMENUITEM
         '
         Me.BackupDatabaseMENUITEM.Name = "BackupDatabaseMENUITEM"
         Me.BackupDatabaseMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.BackupDatabaseMENUITEM.Text = "Backup"
+        Me.BackupDatabaseMENUITEM.ToolTipText = "Creates a duplicate of the current database in the backup directory."
         '
         'ExitApplicarionMENUITEM
         '
         Me.ExitApplicarionMENUITEM.Name = "ExitApplicarionMENUITEM"
         Me.ExitApplicarionMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.ExitApplicarionMENUITEM.Text = "Exit"
+        Me.ExitApplicarionMENUITEM.ToolTipText = "Terminate the application."
         '
         'SettingsMenuMENUGROUP
         '
@@ -291,12 +295,14 @@ Partial Class Main
         Me.DisplayLineBreaksMENUITEM.Name = "DisplayLineBreaksMENUITEM"
         Me.DisplayLineBreaksMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.DisplayLineBreaksMENUITEM.Text = "Display-Insert Blank lines"
+        Me.DisplayLineBreaksMENUITEM.ToolTipText = "Inserts blank lines between item field groups in the statistics window."
         '
         'HideDupesMENUITEM
         '
         Me.HideDupesMENUITEM.Name = "HideDupesMENUITEM"
         Me.HideDupesMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.HideDupesMENUITEM.Text = "Hide Dupes In Search List"
+        Me.HideDupesMENUITEM.ToolTipText = "Dont display duplicated item matches in the search list."
         '
         'ClearToolStripMenuItem
         '
@@ -308,26 +314,30 @@ Partial Class Main
         'ClearImportLogMENUITEM
         '
         Me.ClearImportLogMENUITEM.Name = "ClearImportLogMENUITEM"
-        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(136, 22)
+        Me.ClearImportLogMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.ClearImportLogMENUITEM.Text = "Import Log"
+        Me.ClearImportLogMENUITEM.ToolTipText = "Remove all entries for the Import Log."
         '
         'ClearSearchListMENUITEM
         '
         Me.ClearSearchListMENUITEM.Name = "ClearSearchListMENUITEM"
-        Me.ClearSearchListMENUITEM.Size = New System.Drawing.Size(136, 22)
+        Me.ClearSearchListMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.ClearSearchListMENUITEM.Text = "Search List"
+        Me.ClearSearchListMENUITEM.ToolTipText = "Remove all matches from the Search List."
         '
         'ClearTradeListMENUITEM
         '
         Me.ClearTradeListMENUITEM.Name = "ClearTradeListMENUITEM"
-        Me.ClearTradeListMENUITEM.Size = New System.Drawing.Size(136, 22)
+        Me.ClearTradeListMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.ClearTradeListMENUITEM.Text = "Trade List"
+        Me.ClearTradeListMENUITEM.ToolTipText = "Remove all items from the Trade List"
         '
         'ClearUserListMENUITEM
         '
         Me.ClearUserListMENUITEM.Name = "ClearUserListMENUITEM"
-        Me.ClearUserListMENUITEM.Size = New System.Drawing.Size(136, 22)
+        Me.ClearUserListMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.ClearUserListMENUITEM.Text = "User List"
+        Me.ClearUserListMENUITEM.ToolTipText = "Remove all items form the User List."
         '
         'ToolStripSeparator4
         '
@@ -339,6 +349,7 @@ Partial Class Main
         Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
         Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.ImportNowMENUITEM.Text = "Import Now"
+        Me.ImportNowMENUITEM.ToolTipText = "Check for import logs from Etal on demand."
         '
         'ToolStripSeparator7
         '
@@ -350,6 +361,7 @@ Partial Class Main
         Me.SettingsMENUITEM.Name = "SettingsMENUITEM"
         Me.SettingsMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.SettingsMENUITEM.Text = "Settings"
+        Me.SettingsMENUITEM.ToolTipText = "Adjust DiaBase defaults, preferences, and support paths."
         '
         'ToolStripSeparator12
         '
@@ -366,12 +378,14 @@ Partial Class Main
         Me.DeleteItemMENUITEM.Name = "DeleteItemMENUITEM"
         Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.DeleteItemMENUITEM.Text = "Delete"
+        Me.DeleteItemMENUITEM.ToolTipText = "Removes the selected item record from the current database."
         '
         'AddNewItemMENUITEM
         '
         Me.AddNewItemMENUITEM.Name = "AddNewItemMENUITEM"
         Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.AddNewItemMENUITEM.Text = "Add"
+        Me.AddNewItemMENUITEM.ToolTipText = "Manually include new items records in the current database."
         '
         'ToolStripSeparator2
         '
@@ -383,12 +397,14 @@ Partial Class Main
         Me.SortItemsMainMenu.Name = "SortItemsMainMenu"
         Me.SortItemsMainMenu.Size = New System.Drawing.Size(156, 22)
         Me.SortItemsMainMenu.Text = "Sort List A to Z"
+        Me.SortItemsMainMenu.ToolTipText = "Organises all items by name into alphabetical order."
         '
         'SaveDatabaseMENUITEM
         '
         Me.SaveDatabaseMENUITEM.Name = "SaveDatabaseMENUITEM"
         Me.SaveDatabaseMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.SaveDatabaseMENUITEM.Text = "Save"
+        Me.SaveDatabaseMENUITEM.ToolTipText = "Writes the current database to file."
         '
         'ItemsMenuMENUGROUP
         '
@@ -407,6 +423,7 @@ Partial Class Main
         Me.UndoDeleteMENUITEM.Name = "UndoDeleteMENUITEM"
         Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.UndoDeleteMENUITEM.Text = "UnDo Delete"
+        Me.UndoDeleteMENUITEM.ToolTipText = "Returns the last deleted item back to the item list."
         '
         'UndoSearchMenuItem
         '
@@ -414,18 +431,21 @@ Partial Class Main
         Me.UndoSearchMenuItem.Name = "UndoSearchMenuItem"
         Me.UndoSearchMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.UndoSearchMenuItem.Text = "Undo Search"
+        Me.UndoSearchMenuItem.ToolTipText = "Removes the last refine search action from the current list of matches."
         '
         'SelectAllMENUITEM
         '
         Me.SelectAllMENUITEM.Name = "SelectAllMENUITEM"
         Me.SelectAllMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.SelectAllMENUITEM.Text = "Select All"
+        Me.SelectAllMENUITEM.ToolTipText = "Highlights all items in currently selected list."
         '
         'EditExistingItemMENUITEM
         '
         Me.EditExistingItemMENUITEM.Name = "EditExistingItemMENUITEM"
         Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(156, 22)
         Me.EditExistingItemMENUITEM.Text = "Edit"
+        Me.EditExistingItemMENUITEM.ToolTipText = "Modify the field values of the selected item(s)"
         '
         'ToolStripStatusLabel2
         '
@@ -486,6 +506,7 @@ Partial Class Main
         Me.DatabaseInforomationToolStripMenuItem.Name = "DatabaseInforomationToolStripMenuItem"
         Me.DatabaseInforomationToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
         Me.DatabaseInforomationToolStripMenuItem.Text = "Database Inforomation"
+        Me.DatabaseInforomationToolStripMenuItem.ToolTipText = "A summary of items in the current database."
         '
         'ToolStripSeparator5
         '
@@ -497,6 +518,7 @@ Partial Class Main
         Me.RestoreBackupMENUITEM.Name = "RestoreBackupMENUITEM"
         Me.RestoreBackupMENUITEM.Size = New System.Drawing.Size(202, 22)
         Me.RestoreBackupMENUITEM.Text = "Restore Backup"
+        Me.RestoreBackupMENUITEM.ToolTipText = "Replaces the current database with its backup file (if one exists)."
         '
         'ToolStripSeparator6
         '
@@ -515,7 +537,7 @@ Partial Class Main
         'UtilitiesButtonMENUITEM
         '
         Me.UtilitiesButtonMENUITEM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13})
+        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13, Me.ResetForPositionsToolStripMenuItem})
         Me.UtilitiesButtonMENUITEM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.UtilitiesButtonMENUITEM.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.UtilitiesButtonMENUITEM.Name = "UtilitiesButtonMENUITEM"
@@ -533,14 +555,16 @@ Partial Class Main
         'SetLadderByDateMENUITEM
         '
         Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
-        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(123, 22)
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.SetLadderByDateMENUITEM.Text = "By Date"
+        Me.SetLadderByDateMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladder by verifying the reset date setting."
         '
         'SetAllNonLadderMENUITEM
         '
         Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
-        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(123, 22)
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.SetAllNonLadderMENUITEM.Text = "All Items"
+        Me.SetAllNonLadderMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladderregardless of the reset date setting."
         '
         'MulesAccsToolStripMenuItem
         '
@@ -552,25 +576,25 @@ Partial Class Main
         'USWestToolStripMenuItem
         '
         Me.USWestToolStripMenuItem.Name = "USWestToolStripMenuItem"
-        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
+        Me.USWestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.USWestToolStripMenuItem.Text = "USWest"
         '
         'USEastToolStripMenuItem
         '
         Me.USEastToolStripMenuItem.Name = "USEastToolStripMenuItem"
-        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
+        Me.USEastToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.USEastToolStripMenuItem.Text = "USEast"
         '
         'AsiaToolStripMenuItem
         '
         Me.AsiaToolStripMenuItem.Name = "AsiaToolStripMenuItem"
-        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
+        Me.AsiaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AsiaToolStripMenuItem.Text = "Asia"
         '
         'EuropeToolStripMenuItem
         '
         Me.EuropeToolStripMenuItem.Name = "EuropeToolStripMenuItem"
-        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
+        Me.EuropeToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EuropeToolStripMenuItem.Text = "Europe"
         '
         'ToolStripSeparator11
@@ -583,12 +607,15 @@ Partial Class Main
         Me.VerifyLoggingFilesToolStripMenuItem.Name = "VerifyLoggingFilesToolStripMenuItem"
         Me.VerifyLoggingFilesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.VerifyLoggingFilesToolStripMenuItem.Text = "Verify Logging Files"
+        Me.VerifyLoggingFilesToolStripMenuItem.ToolTipText = "LOL NO IDEA - CAN YOU DO THIS TOOL TIP PLS NED :)"
         '
         'RebuildDefaultDatabaseMENUITEM
         '
         Me.RebuildDefaultDatabaseMENUITEM.Name = "RebuildDefaultDatabaseMENUITEM"
         Me.RebuildDefaultDatabaseMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.RebuildDefaultDatabaseMENUITEM.Text = "Rebuild Default Database"
+        Me.RebuildDefaultDatabaseMENUITEM.ToolTipText = "Attempts to replace the current databases save file by building a new one from me" &
+    "mory."
         '
         'ToolStripSeparator9
         '
@@ -600,6 +627,7 @@ Partial Class Main
         Me.LoadItemMuleMENUITEM.Name = "LoadItemMuleMENUITEM"
         Me.LoadItemMuleMENUITEM.Size = New System.Drawing.Size(215, 22)
         Me.LoadItemMuleMENUITEM.Text = "Load Selected Item Mule"
+        Me.LoadItemMuleMENUITEM.ToolTipText = "Loads the account and mule containing the selected item into a D2 lobby. "
         '
         'ToolStripSeparator13
         '
@@ -625,6 +653,7 @@ Partial Class Main
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
+        Me.HelpToolStripMenuItem.ToolTipText = "Hypertext help page."
         '
         'UserRefControlTabBUTTON
         '
@@ -1875,6 +1904,13 @@ Partial Class Main
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.ToolStripMenuItem1.Text = "Clear"
         '
+        'ResetForPositionsToolStripMenuItem
+        '
+        Me.ResetForPositionsToolStripMenuItem.Name = "ResetForPositionsToolStripMenuItem"
+        Me.ResetForPositionsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ResetForPositionsToolStripMenuItem.Text = "Reset All Windows"
+        Me.ResetForPositionsToolStripMenuItem.ToolTipText = "Returns all window positions and dimensions to their default settings."
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2168,4 +2204,5 @@ Partial Class Main
     Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DatabaseInforomationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResetForPositionsToolStripMenuItem As ToolStripMenuItem
 End Class
