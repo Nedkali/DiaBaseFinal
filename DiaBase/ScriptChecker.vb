@@ -1,5 +1,6 @@
 ﻿Public Class ScriptChecker
     Private Sub ScriptChecker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Me.Left = Main.Left + 150 : Me.Top = Main.Top + 100
         Dim pickup As String = ""
         Dim pickupsource As String = ""
         Dim MuleLogger As String = ""

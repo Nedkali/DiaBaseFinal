@@ -125,7 +125,12 @@ Partial Class ScriptChecker
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(341, 232)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(341, 232)
         Me.Name = "ScriptChecker"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ScriptChecker"
         Me.ResumeLayout(False)
         Me.PerformLayout()

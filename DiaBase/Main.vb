@@ -1848,8 +1848,11 @@ Public Class Main
     End Sub
 
     Private Sub VerifyLoggingFilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerifyLoggingFilesToolStripMenuItem.Click
-
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
+        TimerStartPauseButton(sender, e)
         ScriptChecker.ShowDialog()
+        If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
+        TimerStartPauseButton(sender, e)
 
     End Sub
 
