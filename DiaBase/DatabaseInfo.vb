@@ -199,22 +199,26 @@
     Private Sub DatabaseInfo_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         '    ListControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
 
+
         'tab buttons
-        InfoBaseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        InfoQualityBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        IntoRuneBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        InfoRealmBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        InfoMuleBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        InfoAccountBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        InfoFileBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+        If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "/Extras/DiabloFont1.TTF") = True Then
+            InfoBaseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            InfoQualityBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            IntoRuneBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            InfoRealmBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            InfoMuleBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            InfoAccountBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            InfoFileBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
 
-        'function buttons
-        DatabaseInfoCloseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-        DatabaseInfoRefreshBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            'function buttons
+            DatabaseInfoCloseBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            DatabaseInfoRefreshBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
 
 
-        'labels
-        DatabaseInfoSelectedLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
-        DatabaseInfoTotalLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
+            'labels
+            DatabaseInfoSelectedLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
+            DatabaseInfoTotalLABEL.Font = New Font(pfc.Families(0), 11, FontStyle.Regular)
+
+        End If
     End Sub
 End Class
