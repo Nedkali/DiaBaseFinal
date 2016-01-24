@@ -1897,4 +1897,9 @@ Public Class Main
         If DatabaseInfo.Visible = True Then DatabaseInfo.BringToFront()
 
     End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        '
+        System.Diagnostics.Process.Start(Application.StartupPath & "\Help.pdf")
+    End Sub
 End Class
