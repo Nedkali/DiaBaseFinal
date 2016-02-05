@@ -30,7 +30,6 @@ Public Class DatabaseManager
             ManagerOpenBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             ManagerCancelBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             ManagerCreateBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-            ManagerSummaryBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             ManagerRefreshBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
         RefreshDatabaseList()
@@ -99,7 +98,7 @@ Public Class DatabaseManager
     'BRANCH TO DATABASE INFO FORM ON INFO BUTTON PRESS - Evaluation Routines are Within the Database Info Forms module
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub ManagerSummaryBUTTON_Click_1(sender As Object, e As EventArgs) Handles ManagerSummaryBUTTON.Click
+    Private Sub ManagerSummaryBUTTON_Click_1(sender As Object, e As EventArgs) 
         'Branch to DatabaseInfo Form & routines if a database is selected if not do nothing
         If DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
             DatabaseInfo.Show()

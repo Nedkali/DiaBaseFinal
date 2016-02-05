@@ -493,16 +493,6 @@ Public Class Main
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
 
-
-                '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                'Save settings file to update x,y position of Main, Manager and Info forms, as well as menu list check states and both save on exit check states
-                '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then AppSettings.SaveOnExit = True Else AppSettings.SaveOnExit = False
-                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then AppSettings.BackupOnExit = True Else AppSettings.BackupOnExit = False
-                If HideDupesMENUITEM.Checked = True Then AppSettings.HideDupes = True Else AppSettings.HideDupes = False
-                If DisplayLineBreaksMENUITEM.Checked = True Then AppSettings.DisplayLineBreaks = True Else AppSettings.DisplayLineBreaks = False
-
                 'Save Info And Manager Display State for save to settings file
                 If DatabaseManager.Visible = True Then AppSettings.MngrOpen = True Else AppSettings.MngrOpen = False
                 If DatabaseInfo.Visible = True Then AppSettings.InfoOpen = True Else AppSettings.InfoOpen = False
@@ -1856,18 +1846,7 @@ Public Class Main
 
     End Sub
 
-    'refresh database info form??? note to myself IS THIS REALLY NEEDED
-    Private Sub DatabaseInforomationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseInforomationToolStripMenuItem.Click
-        ItemBaseList.Clear()
-        ItemBaseGroups.Clear()
-        ItemBaseValues.Clear()
-        DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows.Clear()
-        DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
-        DatabaseInfo.GetItemTotal()
-        DatabaseInfo.GetItemBases()
 
-        DatabaseInfo.Show()
-    End Sub
 
 
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1898,8 +1877,26 @@ Public Class Main
 
     End Sub
 
-    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
-        '
-        System.Diagnostics.Process.Start(Application.StartupPath & "\Help.pdf")
+
+
+    'refresh database info form??? note to myself IS THIS REALLY NEEDED
+    Private Sub DatabaseStatisticsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseStatisticsToolStripMenuItem.Click
+        ItemBaseList.Clear()
+        ItemBaseGroups.Clear()
+        ItemBaseValues.Clear()
+        DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows.Clear()
+        DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
+        DatabaseInfo.GetItemTotal()
+        DatabaseInfo.GetItemBases()
+        DatabaseInfo.Show()
+
+    End Sub
+
+    Private Sub HelpToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem1.Click
+        Process.Start(Application.StartupPath & "\Help.pdf")
+    End Sub
+
+    Private Sub ProjectEtalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectEtalToolStripMenuItem.Click
+        Process.Start("http://www.projectetal.com")
     End Sub
 End Class

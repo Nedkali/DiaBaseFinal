@@ -31,7 +31,6 @@ Partial Class DatabaseManager
         Me.Label29 = New System.Windows.Forms.Label()
         Me.KeepManagerOpenCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.ManagerRefreshBUTTON = New System.Windows.Forms.Button()
-        Me.ManagerSummaryBUTTON = New System.Windows.Forms.Button()
         Me.ManagerCreateBUTTON = New System.Windows.Forms.Button()
         Me.ManagerRenameBUTTON = New System.Windows.Forms.Button()
         Me.ManagerDeleteBUTTON = New System.Windows.Forms.Button()
@@ -141,22 +140,6 @@ Partial Class DatabaseManager
         Me.ManagerRefreshBUTTON.Text = "Refresh"
         Me.ManagerRefreshBUTTON.UseVisualStyleBackColor = False
         '
-        'ManagerSummaryBUTTON
-        '
-        Me.ManagerSummaryBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ManagerSummaryBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.ManagerSummaryBUTTON.BackgroundImage = CType(resources.GetObject("ManagerSummaryBUTTON.BackgroundImage"), System.Drawing.Image)
-        Me.ManagerSummaryBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.ManagerSummaryBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ManagerSummaryBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ManagerSummaryBUTTON.Location = New System.Drawing.Point(460, 159)
-        Me.ManagerSummaryBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
-        Me.ManagerSummaryBUTTON.Name = "ManagerSummaryBUTTON"
-        Me.ManagerSummaryBUTTON.Size = New System.Drawing.Size(73, 25)
-        Me.ManagerSummaryBUTTON.TabIndex = 1034
-        Me.ManagerSummaryBUTTON.Text = "Info"
-        Me.ManagerSummaryBUTTON.UseVisualStyleBackColor = False
-        '
         'ManagerCreateBUTTON
         '
         Me.ManagerCreateBUTTON.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -165,7 +148,7 @@ Partial Class DatabaseManager
         Me.ManagerCreateBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerCreateBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerCreateBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ManagerCreateBUTTON.Location = New System.Drawing.Point(460, 67)
+        Me.ManagerCreateBUTTON.Location = New System.Drawing.Point(460, 73)
         Me.ManagerCreateBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.ManagerCreateBUTTON.Name = "ManagerCreateBUTTON"
         Me.ManagerCreateBUTTON.Size = New System.Drawing.Size(73, 25)
@@ -181,7 +164,7 @@ Partial Class DatabaseManager
         Me.ManagerRenameBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerRenameBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerRenameBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ManagerRenameBUTTON.Location = New System.Drawing.Point(460, 96)
+        Me.ManagerRenameBUTTON.Location = New System.Drawing.Point(460, 109)
         Me.ManagerRenameBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.ManagerRenameBUTTON.Name = "ManagerRenameBUTTON"
         Me.ManagerRenameBUTTON.Size = New System.Drawing.Size(73, 25)
@@ -198,7 +181,7 @@ Partial Class DatabaseManager
         Me.ManagerDeleteBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.ManagerDeleteBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ManagerDeleteBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ManagerDeleteBUTTON.Location = New System.Drawing.Point(460, 125)
+        Me.ManagerDeleteBUTTON.Location = New System.Drawing.Point(460, 145)
         Me.ManagerDeleteBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.ManagerDeleteBUTTON.Name = "ManagerDeleteBUTTON"
         Me.ManagerDeleteBUTTON.Size = New System.Drawing.Size(73, 25)
@@ -288,7 +271,6 @@ Partial Class DatabaseManager
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.KeepManagerOpenCHECKBOX)
         Me.Controls.Add(Me.ManagerRefreshBUTTON)
-        Me.Controls.Add(Me.ManagerSummaryBUTTON)
         Me.Controls.Add(Me.ManagerCreateBUTTON)
         Me.Controls.Add(Me.ManagerRenameBUTTON)
         Me.Controls.Add(Me.ManagerDeleteBUTTON)
@@ -316,7 +298,6 @@ Partial Class DatabaseManager
     Friend WithEvents Label29 As Label
     Friend WithEvents KeepManagerOpenCHECKBOX As CheckBox
     Friend WithEvents ManagerRefreshBUTTON As Button
-    Friend WithEvents ManagerSummaryBUTTON As Button
     Friend WithEvents ManagerCreateBUTTON As Button
     Friend WithEvents ManagerRenameBUTTON As Button
     Friend WithEvents ManagerDeleteBUTTON As Button
