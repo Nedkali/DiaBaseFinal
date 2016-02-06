@@ -7,6 +7,7 @@
 
 'Imports System.Runtime.InteropServices
 
+Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 
 Public Class Main
@@ -177,10 +178,6 @@ Public Class Main
         Me.Width = AppSettings.YSize
         Me.Location = New Point(AppSettings.XPos, AppSettings.YPos)
 
-        'Position and Size Database Information Form Using co-ordinates saved on closing last session
-        DatabaseInfo.Height = AppSettings.XSizeInfo
-        DatabaseInfo.Width = AppSettings.YSizeInfo
-        DatabaseInfo.Location = New Point(AppSettings.XPosInfo, AppSettings.YPosInfo)
 
         'Set foucus on the main listbox
         AllItemsLISTBOX.Select() : ItemTallyTEXTBOX.Text = AllItemsLISTBOX.Items.Count & " - Items"
@@ -202,6 +199,7 @@ Public Class Main
     '                               - Focus On 
     '====================================================================================================================================================================
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        Application.DoEvents() 'ensures form fully rendered ??
 
         'Verify The current Paths In Settings Are Correct - Auto Open Settings Window If Verify Fails - VERIFYS FOR BOTH PUBLIC AND NEDS ETAL VERSIONS NOW
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False And My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory")) = False Then Settings.ShowDialog()
@@ -217,31 +215,6 @@ Public Class Main
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - RD Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - BE Mode"
-
-        'Auto Display Database Manager
-        If AppSettings.MngrOpen = True Then
-            DatabaseManager.Show()
-            If DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.Items.Contains(Me.OpenDatabaseLABEL.Text) = True Then DatabaseManager.DatabaseManagerSavedDatabasesLISTBOX.SelectedItem = Me.OpenDatabaseLABEL.Text
-        End If
-
-        'Setup with current database and Auto Display Database Info form if it was open last session
-        If AppSettings.InfoOpen = True Then
-            DatabaseInfo.Show()
-            DatabaseInfo.DatabaseInfoTABCONTROL.SelectTab(0)
-            DatabaseInfo.ClearInfoButtons()
-            DatabaseInfo.InfoBaseBUTTON.BackgroundImage = My.Resources.ButtonBackground
-
-            DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
-            DatabaseInfo.GetItemTotal()
-            DatabaseInfo.GetItemBases()
-        End If
-
-        'Set focus on main form and bring secondary windows to front and priority focus (if displayed)
-
-        Me.Focus()                                                              'puts focus on main form if no other forms are open
-        If DatabaseInfo.Visible = True Then DatabaseInfo.BringToFront()         'focus info form if its open
-        If DatabaseManager.Visible = True Then DatabaseManager.BringToFront()   'focus manager form if its open (gives mamager form top most priority if opened)
-
 
         'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
         StartTimer()
@@ -278,27 +251,6 @@ Public Class Main
         End If
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
 
-
-        'Focus on matching Database Info Form record if its open
-        If DatabaseInfo.Visible = True Then
-
-            If DatabaseInfo.DatabaseInfoItemBaseTABPAGE.Visible = True And DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text And a <> -1 Then
-
-                'ItemBase
-
-                Dim Matched As Integer = -1
-                Dim Count As Integer = 0
-
-                For Each item In ItemBaseGroups
-                    If item = ItemObjects(a).ItemBase Then Matched = Count
-                    DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Count).Selected = False
-                    Count = Count + 1
-                Next
-
-                If Matched > -1 Then DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows(Matched).Selected = True
-                DatabaseInfo.DatabaseInfoDATAGRIDVIEW.FirstDisplayedScrollingRowIndex = Matched
-            End If
-        End If
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -492,10 +444,6 @@ Public Class Main
 
                 'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
                 If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
-
-                'Save Info And Manager Display State for save to settings file
-                If DatabaseManager.Visible = True Then AppSettings.MngrOpen = True Else AppSettings.MngrOpen = False
-                If DatabaseInfo.Visible = True Then AppSettings.InfoOpen = True Else AppSettings.InfoOpen = False
 
                 DatabaseManagmentFunctions.SaveSettingsFile()
 
@@ -1846,50 +1794,11 @@ Public Class Main
 
     End Sub
 
-
-
-
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'Resets all form locations and sizes to default settings - added this now ive added auto open function. If a form is moved out of bounds this will reset them so the error doesnt repeat next session
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    Private Sub ResetForPositionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetForPositionsToolStripMenuItem.Click
-
-        'Main Form 
-        AppSettings.XSize = 810 : AppSettings.YSize = 704
-        AppSettings.XPos = 10 : AppSettings.YPos = 10
-        Me.Height = AppSettings.XSize : Me.Width = AppSettings.YSize
-        Me.Location = New Point(AppSettings.XPos, AppSettings.YPos)
-
-        'Manager
-        AppSettings.XPosMngr = 30 : AppSettings.YPosMngr = 30
-        AppSettings.XSizeMngr = 580 : AppSettings.YSizeMngr = 327
-        DatabaseManager.Height = AppSettings.XSizeMngr : DatabaseManager.Width = AppSettings.YSizeMngr
-        DatabaseManager.Location = New Point(AppSettings.XPosMngr, AppSettings.YPosMngr)
-        If DatabaseManager.Visible = True Then DatabaseManager.BringToFront()
-
-        'Info form
-        AppSettings.XPosInfo = 50 : AppSettings.YPosInfo = 50
-        AppSettings.XSizeInfo = 627 : AppSettings.YSizeInfo = 524
-        DatabaseInfo.Height = AppSettings.XSizeInfo : DatabaseInfo.Width = AppSettings.YSizeInfo
-        DatabaseInfo.Location = New Point(AppSettings.XPosInfo, AppSettings.YPosInfo)
-        If DatabaseInfo.Visible = True Then DatabaseInfo.BringToFront()
-
-    End Sub
-
-
-
     'refresh database info form??? note to myself IS THIS REALLY NEEDED
     Private Sub DatabaseStatisticsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseStatisticsToolStripMenuItem.Click
-        ItemBaseList.Clear()
-        ItemBaseGroups.Clear()
-        ItemBaseValues.Clear()
-        DatabaseInfo.DatabaseInfoDATAGRIDVIEW.Rows.Clear()
-        DatabaseInfo.DatabaseInfoSelectedTEXTBOX.Text = Me.OpenDatabaseLABEL.Text
-        DatabaseInfo.GetItemTotal()
-        DatabaseInfo.GetItemBases()
-        DatabaseInfo.Show()
 
+        'DatabaseInfo.ShowDialog()
+        Statistics.ShowDialog()
     End Sub
 
     Private Sub HelpToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem1.Click
@@ -1899,4 +1808,6 @@ Public Class Main
     Private Sub ProjectEtalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectEtalToolStripMenuItem.Click
         Process.Start("http://www.projectetal.com")
     End Sub
+
+
 End Class

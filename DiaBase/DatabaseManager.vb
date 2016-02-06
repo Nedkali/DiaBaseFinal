@@ -17,11 +17,6 @@ Public Class DatabaseManager
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub DatabaseManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        '------------------------------------------------------------
-        'Update X,Y Co-ordinates and Size H,W from App Settings...
-        '------------------------------------------------------------
-        Me.Height = AppSettings.XSizeMngr : Me.Width = AppSettings.YSizeMngr
-        Me.Location = New Point(AppSettings.XPosMngr, AppSettings.YPosMngr)
 
         If My.Computer.FileSystem.FileExists(AppSettings.InstallPath + "\Extras\DiabloFont1.TTF") = True Then
             'Apply Diablo II Function Buttons Font - 9 point
@@ -94,30 +89,12 @@ Public Class DatabaseManager
             End Try
         End If
     End Sub
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'BRANCH TO DATABASE INFO FORM ON INFO BUTTON PRESS - Evaluation Routines are Within the Database Info Forms module
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub ManagerSummaryBUTTON_Click_1(sender As Object, e As EventArgs) 
-        'Branch to DatabaseInfo Form & routines if a database is selected if not do nothing
-        If DatabaseManagerSavedDatabasesLISTBOX.SelectedIndex <> -1 Then
-            DatabaseInfo.Show()
-            DatabaseInfo.ClearOldData()
-            DatabaseInfo.GetHeaderInfo()
-            DatabaseInfo.GetItemTotal() 'item total must come before header info for it to be displayed correctly
-            DatabaseInfo.GetItemBases()
-            DatabaseInfo.DatabaseInfoTABCONTROL.SelectTab(0)
-            DatabaseInfo.DatabaseInfoCloseBUTTON.Select()
-        End If
-    End Sub
 
     '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'CLOSE DATABASE MANAGER BUTTON HANDLER - Simply closes the database manager form with a dong
     '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub ManagerCancelBUTTON_Click_1(sender As Object, e As EventArgs) Handles ManagerCancelBUTTON.Click
-
-        AppSettings.XPosMngr = Me.Location.X : AppSettings.YPosMngr = Me.Location.Y
-        AppSettings.XSizeMngr = Me.Height : AppSettings.YSizeMngr = Me.Width
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
         Me.Close()
 
@@ -234,11 +211,4 @@ FileExistsErrorLoop:
     End Sub
 
 
-    '---------------------------------------------------
-    'Close Rotine to get Forms Size and Position values
-    '---------------------------------------------------
-    Private Sub DatabaseManager_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        AppSettings.XPosMngr = Me.Location.X : AppSettings.YPosMngr = Me.Location.Y
-        AppSettings.XSizeMngr = Me.Height : AppSettings.YSizeMngr = Me.Width
-    End Sub
 End Class

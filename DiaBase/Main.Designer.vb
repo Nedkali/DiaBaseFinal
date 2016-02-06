@@ -80,7 +80,6 @@ Partial Class Main
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ResetForPositionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatabaseStatisticsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -532,7 +531,7 @@ Partial Class Main
         'UtilitiesButtonMENUITEM
         '
         Me.UtilitiesButtonMENUITEM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13, Me.ResetForPositionsToolStripMenuItem})
+        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13})
         Me.UtilitiesButtonMENUITEM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.UtilitiesButtonMENUITEM.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.UtilitiesButtonMENUITEM.Name = "UtilitiesButtonMENUITEM"
@@ -628,13 +627,6 @@ Partial Class Main
         '
         Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
         Me.ToolStripSeparator13.Size = New System.Drawing.Size(212, 6)
-        '
-        'ResetForPositionsToolStripMenuItem
-        '
-        Me.ResetForPositionsToolStripMenuItem.Name = "ResetForPositionsToolStripMenuItem"
-        Me.ResetForPositionsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.ResetForPositionsToolStripMenuItem.Text = "Reset All Windows"
-        Me.ResetForPositionsToolStripMenuItem.ToolTipText = "Returns all window positions and dimensions to their default settings."
         '
         'MainFormMENUBAR
         '
@@ -942,7 +934,7 @@ Partial Class Main
         Me.SearchListControlTabBUTTON.Name = "SearchListControlTabBUTTON"
         Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.SearchListControlTabBUTTON.TabIndex = 309
-        Me.SearchListControlTabBUTTON.Text = "Search"
+        Me.SearchListControlTabBUTTON.Text = "Results"
         Me.SearchListControlTabBUTTON.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.SearchListControlTabBUTTON.UseVisualStyleBackColor = False
         '
@@ -2216,7 +2208,6 @@ Partial Class Main
     Friend WithEvents RebuildDefaultDatabaseMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator13 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ResetForPositionsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DatabaseStatisticsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProjectEtalToolStripMenuItem As ToolStripMenuItem

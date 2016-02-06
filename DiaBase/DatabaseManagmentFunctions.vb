@@ -32,16 +32,6 @@ Module DatabaseManagmentFunctions
                 AppSettings.YSize = ReadFile.ReadLine
                 AppSettings.XPos = ReadFile.ReadLine
                 AppSettings.YPos = ReadFile.ReadLine
-                AppSettings.XSizeMngr = ReadFile.ReadLine               'Size And Position Vars For Database Manager Form
-                AppSettings.YSizeMngr = ReadFile.ReadLine
-                AppSettings.XPosMngr = ReadFile.ReadLine
-                AppSettings.YPosMngr = ReadFile.ReadLine
-                AppSettings.XSizeInfo = ReadFile.ReadLine                'Size And Position Vars For Database Information Form
-                AppSettings.YSizeInfo = ReadFile.ReadLine
-                AppSettings.XPosInfo = ReadFile.ReadLine
-                AppSettings.YPosInfo = ReadFile.ReadLine
-                AppSettings.MngrOpen = ReadFile.ReadLine
-                AppSettings.InfoOpen = ReadFile.ReadLine
                 ReadFile.Close()
             Else : Main.ErrorHandler(100, 0, 0, 0)                      'Our File Not Found Error Handler - pass to error handler
             End If
@@ -83,13 +73,7 @@ Module DatabaseManagmentFunctions
             AppSettings.XPos = Main.Location.X : AppSettings.YPos = Main.Location.Y
             AppSettings.XSize = Main.Height : AppSettings.YSize = Main.Width
 
-            'Applys Size and position for Database Manager Form state to appSettings vars
-            AppSettings.XPosMngr = DatabaseManager.Location.X : AppSettings.YPosMngr = DatabaseManager.Location.Y
-            AppSettings.XSizeMngr = DatabaseManager.Height : AppSettings.YSizeMngr = DatabaseManager.Width
 
-            'Applys Size and position for Database Manager Form state to appSettings vars
-            AppSettings.XPosInfo = DatabaseInfo.Location.X : AppSettings.YPosInfo = DatabaseInfo.Location.Y
-            AppSettings.XSizeInfo = DatabaseInfo.Height : AppSettings.YSizeInfo = DatabaseInfo.Width
 
             'Writes the settings to file Settings.CFG Assumes no null entries exist at this point or lines will be skipped during save will crash when attempting to read it later
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
@@ -112,16 +96,7 @@ Module DatabaseManagmentFunctions
             WriteFile.WriteLine(AppSettings.YSize)
             WriteFile.WriteLine(AppSettings.XPos)
             WriteFile.WriteLine(AppSettings.YPos)
-            WriteFile.WriteLine(AppSettings.XSizeMngr)
-            WriteFile.WriteLine(AppSettings.YSizeMngr)
-            WriteFile.WriteLine(AppSettings.XPosMngr)
-            WriteFile.WriteLine(AppSettings.YPosMngr)
-            WriteFile.WriteLine(AppSettings.XSizeInfo)
-            WriteFile.WriteLine(AppSettings.YSizeInfo)
-            WriteFile.WriteLine(AppSettings.XPosInfo)
-            WriteFile.WriteLine(AppSettings.YPosInfo)
-            WriteFile.WriteLine(AppSettings.MngrOpen)
-            WriteFile.WriteLine(AppSettings.InfoOpen)
+
 
             WriteFile.Close()
 
@@ -143,6 +118,7 @@ Module DatabaseManagmentFunctions
     '--------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Public Sub OpenDatabase(DatabaseFilePath)
 
+        'ProgressBar.Show()
         'Cleanup everything before reading file
         Main.AllItemsLISTBOX.SelectedIndex = -1
         ItemObjects.Clear()
@@ -158,6 +134,7 @@ Module DatabaseManagmentFunctions
         'Open And Read Database File...
         Dim OpenDatabase As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(DatabaseFilePath)
         AppSettings.CurrentDatabase = DatabaseFilePath
+        'Dim totalitems As Integer = OpenDatabase.ReadLine
         Dim CheckSpacerFlag As String = "--------------------"
         Dim temp As String = "" 'using this for debugging purposes
         Dim CountRecordsForErrorEvents As Integer = 0
@@ -166,6 +143,7 @@ Module DatabaseManagmentFunctions
             Do While OpenDatabase.EndOfStream = False
                 Dim NewItem As New ItemDatabase '                           Define NewItem As A New Object for ItemDatabase Class
                 CountRecordsForErrorEvents += 1
+                'ProgressBar.ProgressBar1.Value = Int(CountRecordsForErrorEvents / totalitems) * 100
                 CheckSpacerFlag = OpenDatabase.ReadLine()
                 If CheckSpacerFlag <> "--------------------" Then Exit Do ' Check Spacer Flag Ditty
                 NewItem.ItemName = OpenDatabase.ReadLine
@@ -227,6 +205,7 @@ Module DatabaseManagmentFunctions
                 NewItem.ImportTime = OpenDatabase.ReadLine
                 NewItem.ImportDate = OpenDatabase.ReadLine
                 ItemObjects.Add(NewItem)
+
             Loop
             OpenDatabase.Close()
             If CheckSpacerFlag <> "--------------------" Then Main.ErrorHandler(502, 0, 0, 0) 'Branch to error handler if item records in file are out of sync
@@ -237,7 +216,7 @@ Module DatabaseManagmentFunctions
             OpenDatabase.Close()                                                        'Close the OpenDatabase Read File Channel
             Main.ErrorHandler(501, ex, CountRecordsForErrorEvents, My.Computer.FileSystem.GetName(DatabaseFilePath).ToString)                                                  'Branch to error handler on any other unexpected error
         End Try
-
+        'ProgressBar.Close()
         'Setup New Database On Main Form
         PopulateAllItemsLISTBOX()
         If ItemObjects.Count > 0 Then Main.AllItemsLISTBOX.SelectedIndex = 0
@@ -261,76 +240,6 @@ Module DatabaseManagmentFunctions
     End Sub
 
 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'SAVES THE CURRENT DATABASE TO FILE ROUTINE 
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Public Sub SaveDatabase(DatabaseFile)
-        Try
-            Dim LogWriter = My.Computer.FileSystem.OpenTextFileWriter(DatabaseFile, False)
-            For x = 0 To ItemObjects.Count - 1
-                LogWriter.WriteLine("--------------------")
-                LogWriter.WriteLine(ItemObjects(x).ItemName)
-                LogWriter.WriteLine(ItemObjects(x).ItemBase)
-                LogWriter.WriteLine(ItemObjects(x).ItemQuality)
-                LogWriter.WriteLine(ItemObjects(x).RequiredCharacter)
-                LogWriter.WriteLine(ItemObjects(x).EtherealItem)
-                LogWriter.WriteLine(ItemObjects(x).Sockets)
-                LogWriter.WriteLine(ItemObjects(x).RuneWord)
-                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).ThrowDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).OneHandDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMin)
-                LogWriter.WriteLine(ItemObjects(x).TwoHandDamageMax)
-                LogWriter.WriteLine(ItemObjects(x).Defense)
-                LogWriter.WriteLine(ItemObjects(x).ChanceToBlock)
-                LogWriter.WriteLine(ItemObjects(x).QuantityMin)
-                LogWriter.WriteLine(ItemObjects(x).QuantityMax)
-                LogWriter.WriteLine(ItemObjects(x).DurabilityMin)
-                LogWriter.WriteLine(ItemObjects(x).DurabilityMax)
-                LogWriter.WriteLine(ItemObjects(x).RequiredStrength)
-                LogWriter.WriteLine(ItemObjects(x).RequiredDexterity)
-                LogWriter.WriteLine(ItemObjects(x).RequiredLevel)
-                LogWriter.WriteLine(ItemObjects(x).AttackClass)
-                LogWriter.WriteLine(ItemObjects(x).AttackSpeed)
-                LogWriter.WriteLine(ItemObjects(x).Stat1)
-                LogWriter.WriteLine(ItemObjects(x).Stat2)
-                LogWriter.WriteLine(ItemObjects(x).Stat3)
-                LogWriter.WriteLine(ItemObjects(x).Stat4)
-                LogWriter.WriteLine(ItemObjects(x).Stat5)
-                LogWriter.WriteLine(ItemObjects(x).Stat6)
-                LogWriter.WriteLine(ItemObjects(x).Stat7)
-                LogWriter.WriteLine(ItemObjects(x).Stat8)
-                LogWriter.WriteLine(ItemObjects(x).Stat9)
-                LogWriter.WriteLine(ItemObjects(x).Stat10)
-                LogWriter.WriteLine(ItemObjects(x).Stat11)
-                LogWriter.WriteLine(ItemObjects(x).Stat12)
-                LogWriter.WriteLine(ItemObjects(x).Stat13)
-                LogWriter.WriteLine(ItemObjects(x).Stat14)
-                LogWriter.WriteLine(ItemObjects(x).Stat15)
-                LogWriter.WriteLine(ItemObjects(x).MuleName)
-                LogWriter.WriteLine(ItemObjects(x).MuleAccount)
-                LogWriter.WriteLine(ItemObjects(x).MulePass)
-                LogWriter.WriteLine(ItemObjects(x).PickitAccount)
-                LogWriter.WriteLine(ItemObjects(x).HardCore)
-                LogWriter.WriteLine(ItemObjects(x).Ladder)
-                LogWriter.WriteLine(ItemObjects(x).Expansion)
-                LogWriter.WriteLine(ItemObjects(x).UserField)
-                LogWriter.WriteLine(ItemObjects(x).ItemImage)
-                LogWriter.WriteLine(ItemObjects(x).ImportTime)
-                LogWriter.WriteLine(ItemObjects(x).ImportDate)
-            Next
-            LogWriter.Close()
-
-        Catch ex As Exception
-            'ymessages = "File Write Error" : MyMessageBox()
-
-            ' This should be in the error handler like WriteToFile Sub Below <--------------------------------------------------------------------- A Note to myself dont forget to fix this
-        End Try
-
-    End Sub
-
-
     '-----------------------------------------------------------------------------------------------------------------------------------------------
     ' To use call by using SaveLoggedItems(integer, name of file, Append true/false)
     '-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -340,6 +249,7 @@ Module DatabaseManagmentFunctions
 
         Try
             Dim LogWriter = My.Computer.FileSystem.OpenTextFileWriter(fName, bAppend)
+            'LogWriter.WriteLine(ItemObjects.Count - 1)
             For x = itemstart To ItemObjects.Count - 1
                 CountRecordsForErrorReports = CountRecordsForErrorReports + 1
                 LogWriter.WriteLine("--------------------")

@@ -32,7 +32,7 @@ Public Class Export
         Dim count As Integer = 0
 
         'Run a backup of current database if backup before edits Is set to true in app settings class And form
-        If AppSettings.BackupBeforeEdits = True Then DatabaseManagmentFunctions.SaveDatabase(AppSettings.InstallPath & "\Databases\Backup\" & Main.OpenDatabaseLABEL.Text & ".BAK")
+        If AppSettings.BackupBeforeEdits = True Then DatabaseManagmentFunctions.WriteToFile(0, AppSettings.InstallPath & "\Databases\Backup\" & Main.OpenDatabaseLABEL.Text & ".BAK", False)
 
         Try
             Dim LogWriter As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(Temp, True)

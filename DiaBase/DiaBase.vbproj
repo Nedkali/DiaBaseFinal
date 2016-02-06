@@ -104,12 +104,6 @@
   <ItemGroup>
     <Compile Include="AutoLogger.vb" />
     <Compile Include="D2Loader.vb" />
-    <Compile Include="DatabaseInfo.Designer.vb">
-      <DependentUpon>DatabaseInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseInfo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DatabaseManagmentFunctions.vb" />
     <Compile Include="ErrorHandlerForm.Designer.vb">
       <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
@@ -203,6 +197,12 @@
     <Compile Include="SkinSelector.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Statistics.Designer.vb">
+      <DependentUpon>Statistics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TradeList.vb" />
     <Compile Include="UserInput.Designer.vb">
       <DependentUpon>UserInput.vb</DependentUpon>
@@ -213,9 +213,6 @@
     <Compile Include="UserListFunctions.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DatabaseInfo.resx">
-      <DependentUpon>DatabaseInfo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ErrorHandlerForm.resx">
       <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +236,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -257,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SkinSelector.resx">
       <DependentUpon>SkinSelector.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics.resx">
+      <DependentUpon>Statistics.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInput.resx">
       <DependentUpon>UserInput.vb</DependentUpon>
