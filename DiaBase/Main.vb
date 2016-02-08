@@ -417,7 +417,7 @@ Public Class Main
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         TimerStartPauseButton(sender, e)
 
-        DatabaseManager.Show()
+        DatabaseManager.ShowDialog()
 
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
         TimerStartPauseButton(sender, e)
@@ -1796,9 +1796,10 @@ Public Class Main
 
     'refresh database info form??? note to myself IS THIS REALLY NEEDED
     Private Sub DatabaseStatisticsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseStatisticsToolStripMenuItem.Click
-
-        'DatabaseInfo.ShowDialog()
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
+        TimerStartPauseButton(sender, e)
         Statistics.ShowDialog()
+        TimerStartPauseButton(sender, e)
     End Sub
 
     Private Sub HelpToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem1.Click

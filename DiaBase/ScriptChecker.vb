@@ -34,14 +34,14 @@
 
         'checks pickup script
         If My.Computer.FileSystem.FileExists(pickup) = True Then
-            Dim ReadFile As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(pickup)
+            Dim ReadFile As IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(pickup)
             Dim temp = ReadFile.ReadLine()
             ReadFile.Close()
             If temp.Contains(Scriptver) = False Then My.Computer.FileSystem.CopyFile(pickupsource, pickup, True) : Label2.Text = "File Updated"
             If temp.Contains(Scriptver) = True Then Label2.Text = "Correct file in use"
         End If
         If My.Computer.FileSystem.FileExists(pickup) = False Then
-            My.Computer.FileSystem.CopyFile(pickupsource, pickup) : Label6.Text = "File Copied"
+            My.Computer.FileSystem.CopyFile(pickupsource, pickup) : Label2.Text = "File Copied"
         End If
 
         'checks MuleLogger script
@@ -53,7 +53,7 @@
             If temp.Contains(Scriptver) = True Then Label4.Text = "Correct file in use"
         End If
         If My.Computer.FileSystem.FileExists(MuleLogger) = False Then
-            My.Computer.FileSystem.CopyFile(MuleLoggersource, MuleLogger) : Label6.Text = "File Copied"
+            My.Computer.FileSystem.CopyFile(MuleLoggersource, MuleLogger) : Label4.Text = "File Copied"
         End If
 
         'entry point check and replace if necessary

@@ -98,6 +98,11 @@ Module D2Loader
         If D2Path = Nothing Then Return
         D2Path = D2Path & "\Game.exe"
 
+        If My.Computer.FileSystem.FileExists(D2Path) = False Then
+            Main.ImportLogRICHTEXTBOX.AppendText("Unable to locate Game.exe" & vbCrLf)
+            Return
+        End If
+
         ' load routine
         Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateNew("DiaBaseMule", 82)
         MemFile2(mmf, x)
@@ -121,12 +126,13 @@ Module D2Loader
         Dim newvalue() As Byte = {&HEB, &H45}
         Dim address As New IntPtr(&H6FA80000 + &HB6B0)
         Try 'a287
-            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, d2RelPath & "D2Gfx.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx")
-            If Not PInvoke.Kernel32.ReadProcessMemory(p, address, oldValue) Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to read window fix")
-            If PInvoke.Kernel32.WriteProcessMemory(p, address, newvalue) = 0 Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to write window fix")
+            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, d2RelPath & "D2Gfx.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx" & vbCrLf)
+            Threading.Thread.Sleep(200)
+            If Not PInvoke.Kernel32.ReadProcessMemory(p, address, oldValue) Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to read window fix" & vbCrLf)
+            If PInvoke.Kernel32.WriteProcessMemory(p, address, newvalue) = 0 Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to write window fix" & vbCrLf)
         Catch
-            Main.ImportLogRICHTEXTBOX.AppendText(" error on window fix " & address.ToString)
-            myprocess.Kill()
+            Main.ImportLogRICHTEXTBOX.AppendText("Error launching D2 - Memory address = " & address.ToString & vbCrLf)
+            p.Kill()
             mmf.Dispose()
             Return
         End Try

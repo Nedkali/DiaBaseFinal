@@ -556,5 +556,36 @@ Namespace PInvoke
         Public Function Compose(ByVal format As String, ByVal ParamArray args As Object()) As String
             Return [String].Format(format, args)
         End Function
+
+        <DllImport("kernel32.dll", SetLastError:=True)>
+        Public Function ReadProcessMemorya(
+     ByVal hProcess As IntPtr,
+     ByVal lpBaseAddress As IntPtr,
+     <Out()> ByVal lpBuffer As Byte(),
+     ByVal dwSize As Integer,
+     ByRef lpNumberOfBytesRead As Integer) As Boolean
+        End Function
+
+        <DllImport("kernel32.dll", SetLastError:=True)>
+        Public Function ReadProcessMemoryb(
+            ByVal hProcess As IntPtr,
+            ByVal lpBaseAddress As IntPtr,
+            <Out(), MarshalAs(UnmanagedType.AsAny)> ByVal lpBuffer As Object,
+            ByVal dwSize As Integer,
+            ByRef lpNumberOfBytesRead As Integer) As Boolean
+        End Function
+
+        <DllImport("kernel32.dll", SetLastError:=True)>
+        Public Function ReadProcessMemoryc(
+            ByVal hProcess As IntPtr,
+            ByVal lpBaseAddress As IntPtr,
+            ByVal lpBuffer As IntPtr,
+            ByVal iSize As Integer,
+            ByRef lpNumberOfBytesRead As Integer) As Boolean
+        End Function
+
+
+
+
     End Module
 End Namespace
