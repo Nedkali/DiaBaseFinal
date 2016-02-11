@@ -678,7 +678,7 @@ Partial Class Main
         Me.UserRefControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UserRefControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.UserRefControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(292, 246)
+        Me.UserRefControlTabBUTTON.Location = New System.Drawing.Point(302, 246)
         Me.UserRefControlTabBUTTON.Name = "UserRefControlTabBUTTON"
         Me.UserRefControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.UserRefControlTabBUTTON.TabIndex = 320
@@ -696,7 +696,7 @@ Partial Class Main
         Me.TradesListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.TradesListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
         Me.TradesListControlTabBUTTON.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(203, 246)
+        Me.TradesListControlTabBUTTON.Location = New System.Drawing.Point(212, 246)
         Me.TradesListControlTabBUTTON.Name = "TradesListControlTabBUTTON"
         Me.TradesListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
         Me.TradesListControlTabBUTTON.TabIndex = 310
@@ -930,9 +930,9 @@ Partial Class Main
         Me.SearchListControlTabBUTTON.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark
         Me.SearchListControlTabBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchListControlTabBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(115, 246)
+        Me.SearchListControlTabBUTTON.Location = New System.Drawing.Point(117, 246)
         Me.SearchListControlTabBUTTON.Name = "SearchListControlTabBUTTON"
-        Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(75, 25)
+        Me.SearchListControlTabBUTTON.Size = New System.Drawing.Size(80, 25)
         Me.SearchListControlTabBUTTON.TabIndex = 309
         Me.SearchListControlTabBUTTON.Text = "Results"
         Me.SearchListControlTabBUTTON.TextAlign = System.Drawing.ContentAlignment.TopCenter
