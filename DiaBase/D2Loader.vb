@@ -96,10 +96,24 @@ Module D2Loader
 
         Dim D2Path As String = key.GetValue("InstallPath").ToString()
         If D2Path = Nothing Then Return
-        D2Path = D2Path & "\Game.exe"
 
-        If My.Computer.FileSystem.FileExists(D2Path) = False Then
-            Main.ImportLogRICHTEXTBOX.AppendText("Unable to locate Game.exe" & vbCrLf)
+        If D2Path(D2Path.Length - 1) <> "\" Then
+            D2Path = D2Path + "\"
+        End If
+
+        Dim GamePath = D2Path & "Game.exe"
+        Dim gfxpath = D2Path & "D2gfx.dll"
+
+        'displayloaderror(GamePath)'debug message
+        'displayloaderror(gfxpath)'debug message
+
+        If My.Computer.FileSystem.FileExists(GamePath) = False Then
+            displayloaderror("Unable to locate Game.exe")
+            Return
+        End If
+
+        If My.Computer.FileSystem.FileExists(gfxpath) = False Then
+            displayloaderror("Unable to locate D2gfx.dll")
             Return
         End If
 
@@ -112,26 +126,29 @@ Module D2Loader
         Dim ApArgs As String = "-w"
 
         myprocess.StartInfo.Arguments = ApArgs
-        myprocess.StartInfo.FileName = D2Path
+        myprocess.StartInfo.FileName = GamePath
         myprocess.StartInfo.UseShellExecute = False
 
         Dim p As Process = New Process()
-        Dim d2RelPath = Replace(D2Path, "Game.exe", "")
-        myprocess.StartInfo.WorkingDirectory = d2RelPath
+
+        myprocess.StartInfo.WorkingDirectory = D2Path
 
         p = PInvoke.Extensions.StartSuspended(p, myprocess.StartInfo) 'loads D2 into memory
+
+        displayloaderror("Game PID = " & p.Id)
 
         'blocks 2nd instance check
         Dim oldValue(1) As Byte
         Dim newvalue() As Byte = {&HEB, &H45}
         Dim address As New IntPtr(&H6FA80000 + &HB6B0)
         Try 'a287
-            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, d2RelPath & "D2Gfx.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx" & vbCrLf)
-            Threading.Thread.Sleep(200)
+
+            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, gfxpath) Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx" & vbCrLf)
             If Not PInvoke.Kernel32.ReadProcessMemory(p, address, oldValue) Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to read window fix" & vbCrLf)
             If PInvoke.Kernel32.WriteProcessMemory(p, address, newvalue) = 0 Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to write window fix" & vbCrLf)
-        Catch
-            Main.ImportLogRICHTEXTBOX.AppendText("Error launching D2 - Memory address = " & address.ToString & vbCrLf)
+        Catch e As System.Exception
+            displayloaderror("Error applying patch - Load aborted")
+            displayloaderror(e.Message)
             p.Kill()
             mmf.Dispose()
             Return
@@ -142,6 +159,13 @@ Module D2Loader
         PInvoke.Kernel32.ResumeProcess(p)
         p.WaitForInputIdle(5000)
         mmf.Dispose()
+
+    End Sub
+
+    Public Sub displayloaderror(ByVal txt)
+
+        Main.ImportLogRICHTEXTBOX.AppendText(txt & vbCrLf)
+
 
     End Sub
 
