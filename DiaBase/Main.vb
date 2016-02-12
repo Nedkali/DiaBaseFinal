@@ -1843,5 +1843,17 @@ Public Class Main
         Process.Start("http://www.projectetal.com")
     End Sub
 
+    Private Sub CloseD2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseD2ToolStripMenuItem.Click
+        If D2pid > 0 Then
+            Dim d2app = Process.GetProcessesByName("Game")
+            For Each process In d2app
+                If process.Id = D2pid Then
+                    process.Kill()
+                    process.WaitForExit()
+                    D2pid = 0
+                End If
+            Next
+        End If
 
+    End Sub
 End Class

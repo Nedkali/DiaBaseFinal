@@ -210,6 +210,7 @@ Partial Class Main
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CloseD2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -531,7 +532,7 @@ Partial Class Main
         'UtilitiesButtonMENUITEM
         '
         Me.UtilitiesButtonMENUITEM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13})
+        Me.UtilitiesButtonMENUITEM.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetNonLadderMENUGROUP, Me.MulesAccsToolStripMenuItem, Me.ToolStripSeparator11, Me.VerifyLoggingFilesToolStripMenuItem, Me.RebuildDefaultDatabaseMENUITEM, Me.ToolStripSeparator9, Me.LoadItemMuleMENUITEM, Me.ToolStripSeparator13, Me.CloseD2ToolStripMenuItem})
         Me.UtilitiesButtonMENUITEM.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.UtilitiesButtonMENUITEM.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.UtilitiesButtonMENUITEM.Name = "UtilitiesButtonMENUITEM"
@@ -549,14 +550,14 @@ Partial Class Main
         'SetLadderByDateMENUITEM
         '
         Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
-        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(123, 22)
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.SetLadderByDateMENUITEM.Text = "By Date"
         Me.SetLadderByDateMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladder by verifying the reset date setting."
         '
         'SetAllNonLadderMENUITEM
         '
         Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
-        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(123, 22)
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
         Me.SetAllNonLadderMENUITEM.Text = "All Items"
         Me.SetAllNonLadderMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladderregardless of the reset date setting."
         '
@@ -1917,6 +1918,12 @@ Partial Class Main
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.ToolStripMenuItem1.Text = "Clear"
         '
+        'CloseD2ToolStripMenuItem
+        '
+        Me.CloseD2ToolStripMenuItem.Name = "CloseD2ToolStripMenuItem"
+        Me.CloseD2ToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.CloseD2ToolStripMenuItem.Text = "Close D2 Mule"
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2211,4 +2218,5 @@ Partial Class Main
     Friend WithEvents DatabaseStatisticsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProjectEtalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CloseD2ToolStripMenuItem As ToolStripMenuItem
 End Class

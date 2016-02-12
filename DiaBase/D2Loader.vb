@@ -85,9 +85,17 @@ Module D2Loader
 
 
     Public Sub loadD2(ByVal x)
-        ErrMessage = ""
-        Dim key As Microsoft.Win32.RegistryKey
+        If D2pid > 0 Then
+            Dim d2app = Process.GetProcessesByName("Game")
+            For Each process In d2app
+                If process.Id = D2pid Then
+                    Main.ImportLogRICHTEXTBOX.AppendText("D2 already Running" & vbCrLf)
+                    Return
+                End If
+            Next
+        End If
 
+        Dim key As Microsoft.Win32.RegistryKey
         key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")
         If key Is Nothing Then
             Main.ImportLogRICHTEXTBOX.Text = "Error reading registry"
@@ -159,6 +167,7 @@ Module D2Loader
         PInvoke.Kernel32.ResumeProcess(p)
         p.WaitForInputIdle(5000)
         mmf.Dispose()
+        D2pid = p.Id
 
     End Sub
 
