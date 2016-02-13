@@ -156,3 +156,17 @@ Friend Structure CopyData
     Public cbData As Integer
     Public lpData As IntPtr
 End Structure
+
+<StructLayout(LayoutKind.Sequential)>
+Friend Structure Profile
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=24)>
+    Public Account As String
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=12)>
+    Public AccPass As String
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=16)>
+    Public CharName As String
+    Public Realm As Char
+    Public Difficulty As Char
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=32)>
+    Public ScriptFile As String
+End Structure

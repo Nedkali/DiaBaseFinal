@@ -24,35 +24,35 @@ Public Class Main
     Public WithEvents ButtonFlashTimer As New System.Windows.Forms.Timer()
 
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'For catching receiving messages from the autologin dll
+    'For catching receiving messages from the autologin dll - for possible futer use
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+    'Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
 
-        Select Case m.Msg
-            Case WM_COPYDATA
-                Dim cds As CopyData
-                Dim nOption As Integer = Fix(m.WParam.ToInt32)
-                cds = Marshal.PtrToStructure(m.LParam, cds.GetType())
-                Dim nLength As Integer = cds.cbData
-                Dim temp As String = Marshal.PtrToStringAnsi(cds.lpData, nLength)
-                Dim y As Integer = cds.dwData
-                Dim a As Integer = m.WParam
+    '    Select Case m.Msg
+    '        Case WM_COPYDATA
+    '            Dim cds As CopyData
+    '            Dim nOption As Integer = Fix(m.WParam.ToInt32)
+    '            cds = Marshal.PtrToStructure(m.LParam, cds.GetType())
+    '            Dim nLength As Integer = cds.cbData
+    '            Dim temp As String = Marshal.PtrToStringAnsi(cds.lpData, nLength)
+    '            Dim y As Integer = cds.dwData
+    '            Dim a As Integer = m.WParam
 
-                Select Case y
-                    Case 10 'Login Error
-                        If ErrMessage = "" Then
-                            ErrMessage = temp
-                            LoginHandler.Show()
-                        End If
-                    Case Else
-                        MessageBox.Show("Int" & y & " Data" & temp)
-                End Select
+    '            Select Case y
+    '                Case 10 'Login Error
+    '                    If ErrMessage = "" Then
+    '                        ErrMessage = temp
+    '                        LoginHandler.Show()
+    '                    End If
+    '                Case Else
+    '                    MessageBox.Show("Int" & y & " Data" & temp)
+    '            End Select
 
 
-        End Select
-        MyBase.WndProc(m)
-    End Sub
+    '    End Select
+    '    MyBase.WndProc(m)
+    'End Sub
 
     Sub StartTimer()
         Timercount = 0

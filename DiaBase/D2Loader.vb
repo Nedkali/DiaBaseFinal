@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.IO.MemoryMappedFiles
+Imports System.Runtime.InteropServices
+Imports System.Runtime.Serialization.Formatters.Binary
 
 Module D2Loader
 
@@ -125,23 +127,22 @@ Module D2Loader
             Return
         End If
 
-        ' load routine
         Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateNew("DiaBaseMule", 82)
-        MemFile2(mmf, x)
+        If MemFile3(mmf, x) = False Then Return
 
-        Dim myprocess As Process = New Process()
-        myprocess.EnableRaisingEvents = True
+
+        Dim procstartinfo As ProcessStartInfo = New ProcessStartInfo()
         Dim ApArgs As String = "-w"
-
-        myprocess.StartInfo.Arguments = ApArgs
-        myprocess.StartInfo.FileName = GamePath
-        myprocess.StartInfo.UseShellExecute = False
+        procstartinfo.Arguments = ApArgs
+        procstartinfo.FileName = GamePath
+        procstartinfo.UseShellExecute = False
+        procstartinfo.WorkingDirectory = D2Path
 
         Dim p As Process = New Process()
+        p.EnableRaisingEvents = True
+        p.StartInfo = procstartinfo
 
-        myprocess.StartInfo.WorkingDirectory = D2Path
-
-        p = PInvoke.Extensions.StartSuspended(p, myprocess.StartInfo) 'loads D2 into memory
+        p = PInvoke.Extensions.StartSuspended(p, procstartinfo) 'loads D2 into memory
 
         'displayloaderror("Game PID = " & p.Id)'Debug print
 
@@ -206,9 +207,49 @@ Module D2Loader
 
             writer.Close()
         Catch ex As Exception
-            MessageBox.Show("Error mmf - ?mmf still open")
+            Main.ImportLogRICHTEXTBOX.AppendText(ex.Message & vbCrLf)
             Return False
 
+        End Try
+
+        Return True
+
+    End Function
+
+    Function MemFile3(ByVal mmf, ByVal x)
+        Dim prof As Profile
+
+        'hope to reserve zero for single player use in dll
+        Dim temp = 0
+        If ItemObjects(x).ItemRealm = "USWest" Then temp = 1
+        If ItemObjects(x).ItemRealm = "USEast" Then temp = 2
+        If ItemObjects(x).ItemRealm = "Asia" Then temp = 3
+        If ItemObjects(x).ItemRealm = "Europe" Then temp = 4
+
+        prof.Account = ItemObjects(x).MuleAccount
+        prof.AccPass = ItemObjects(x).MulePass
+        prof.CharName = ItemObjects(x).MuleName
+        prof.Difficulty = Chr(0)
+        prof.Realm = Chr(temp)
+        prof.ScriptFile = "Mulelogger.ntj"
+
+        Dim Ptr As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(prof))
+        Dim ByteArray(Marshal.SizeOf(prof) - 1) As Byte
+        Marshal.StructureToPtr(prof, Ptr, False)
+        Marshal.Copy(Ptr, ByteArray, 0, Marshal.SizeOf(prof))
+        Marshal.FreeHGlobal(Ptr)
+
+        Try
+            Dim Stream As MemoryMappedViewStream = mmf.CreateViewStream()
+            Dim writer As BinaryWriter = New BinaryWriter(Stream)
+            For index = 0 To ByteArray.Count - 1
+                writer.Write(Chr(ByteArray(index)))
+            Next
+
+            writer.Close()
+        Catch ex As Exception
+            Main.ImportLogRICHTEXTBOX.AppendText(ex.Message & vbCrLf)
+            Return False
         End Try
 
         Return True
