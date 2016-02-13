@@ -98,12 +98,12 @@ Module D2Loader
         Dim key As Microsoft.Win32.RegistryKey
         key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")
         If key Is Nothing Then
-            Main.ImportLogRICHTEXTBOX.Text = "Error reading registry"
+            Main.ImportLogRICHTEXTBOX.AppendText("Error reading registry" & vbCrLf)
             Return
         End If
 
         Dim D2Path As String = key.GetValue("InstallPath").ToString()
-        If D2Path = Nothing Then Return
+        If D2Path = Nothing Then Main.ImportLogRICHTEXTBOX.AppendText("Unable to locate Game.exe" & vbCrLf) : Return
 
         If D2Path(D2Path.Length - 1) <> "\" Then
             D2Path = D2Path + "\"
@@ -143,7 +143,7 @@ Module D2Loader
 
         p = PInvoke.Extensions.StartSuspended(p, myprocess.StartInfo) 'loads D2 into memory
 
-        displayloaderror("Game PID = " & p.Id)
+        'displayloaderror("Game PID = " & p.Id)'Debug print
 
         'blocks 2nd instance check
         Dim oldValue(1) As Byte
@@ -174,7 +174,6 @@ Module D2Loader
     Public Sub displayloaderror(ByVal txt)
 
         Main.ImportLogRICHTEXTBOX.AppendText(txt & vbCrLf)
-
 
     End Sub
 

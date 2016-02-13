@@ -99,6 +99,8 @@ Public Class Export
                 If DeleteItemsCHECKBOX.Checked = True Then
                     Main.AllItemsLISTBOX.Items.RemoveAt(x)
                     ItemObjects.RemoveAt(x)
+                    UndoSearchList.Clear()
+                    Main.UndoSearchMenuItem.Enabled = False
                 End If
                 count = count + 1
 

@@ -80,6 +80,7 @@ Partial Class Main
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.LoadItemMuleMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CloseD2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatabaseStatisticsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -210,7 +211,6 @@ Partial Class Main
         Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CloseD2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
         Me.MainFormMENUBAR.SuspendLayout()
         CType(Me.HiddenGemPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -550,14 +550,14 @@ Partial Class Main
         'SetLadderByDateMENUITEM
         '
         Me.SetLadderByDateMENUITEM.Name = "SetLadderByDateMENUITEM"
-        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetLadderByDateMENUITEM.Size = New System.Drawing.Size(123, 22)
         Me.SetLadderByDateMENUITEM.Text = "By Date"
         Me.SetLadderByDateMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladder by verifying the reset date setting."
         '
         'SetAllNonLadderMENUITEM
         '
         Me.SetAllNonLadderMENUITEM.Name = "SetAllNonLadderMENUITEM"
-        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(152, 22)
+        Me.SetAllNonLadderMENUITEM.Size = New System.Drawing.Size(123, 22)
         Me.SetAllNonLadderMENUITEM.Text = "All Items"
         Me.SetAllNonLadderMENUITEM.ToolTipText = "Set all Ladder items to Non-Ladderregardless of the reset date setting."
         '
@@ -628,6 +628,12 @@ Partial Class Main
         '
         Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
         Me.ToolStripSeparator13.Size = New System.Drawing.Size(212, 6)
+        '
+        'CloseD2ToolStripMenuItem
+        '
+        Me.CloseD2ToolStripMenuItem.Name = "CloseD2ToolStripMenuItem"
+        Me.CloseD2ToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.CloseD2ToolStripMenuItem.Text = "Close D2 Mule"
         '
         'MainFormMENUBAR
         '
@@ -1917,12 +1923,6 @@ Partial Class Main
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.ToolStripMenuItem1.Text = "Clear"
-        '
-        'CloseD2ToolStripMenuItem
-        '
-        Me.CloseD2ToolStripMenuItem.Name = "CloseD2ToolStripMenuItem"
-        Me.CloseD2ToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.CloseD2ToolStripMenuItem.Text = "Close D2 Mule"
         '
         'Main
         '
