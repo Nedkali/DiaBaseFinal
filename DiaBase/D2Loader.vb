@@ -169,6 +169,14 @@ Module D2Loader
         p.WaitForInputIdle(5000)
         mmf.Dispose()
         D2pid = p.Id
+        Try
+            PInvoke.Kernel32.SuspendProcess(p)
+            PInvoke.Kernel32.WriteProcessMemory(p, address, oldValue)
+            PInvoke.Kernel32.ResumeProcess(p)
+        Catch ex As Exception
+            displayloaderror("Error reverting d2gfx patch")
+        End Try
+
 
     End Sub
 
