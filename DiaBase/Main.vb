@@ -1235,7 +1235,11 @@ Public Class Main
         End If
 
         'Uniques - Light Gold
-        If DisplayColour = "Unique" Or ItemObjects(ItemIndex).RuneWord = True Then
+        If DisplayColour = "Unique" Then
+            ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+        End If
+        If ItemObjects(ItemIndex).RuneWord = True Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
             ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
