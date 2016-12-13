@@ -2,9 +2,12 @@
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Reflection
-
+Imports System.Security
+Imports System.Security.Principal
 
 Namespace PInvoke
+
+
     Public Enum ThreadAccessFlags As UInteger
         Terminate = &H1
         SuspendResume = &H2
@@ -190,7 +193,7 @@ Namespace PInvoke
 
         Private Declare Auto Function CloseHandle Lib "kernel32.dll" (ByVal hObject As IntPtr) As <MarshalAs(UnmanagedType.Bool)> Boolean
 
-        Private Declare Auto Function FreeLibrary Lib "kernel32.dll" (ByVal hHandle As IntPtr) As <MarshalAs(UnmanagedType.Bool)> Boolean
+        Public Declare Auto Function FreeLibrary Lib "kernel32.dll" (ByVal hHandle As IntPtr) As <MarshalAs(UnmanagedType.Bool)> Boolean
 
         Private Declare Auto Function WriteProcessMemory Lib "kernel32.dll" (ByVal hProcess As IntPtr, ByVal lpBaseAddress As IntPtr, ByVal lpBuffer As Byte(), ByVal nSize As UInteger, ByRef lpNumberOfBytesWritten As Integer) As Boolean
 
@@ -556,133 +559,8 @@ Namespace PInvoke
             Return [String].Format(format, args)
         End Function
 
-        <DllImport("kernel32.dll", SetLastError:=True)>
-        Public Function ReadProcessMemorya(
-     ByVal hProcess As IntPtr,
-     ByVal lpBaseAddress As IntPtr,
-     <Out()> ByVal lpBuffer As Byte(),
-     ByVal dwSize As Integer,
-     ByRef lpNumberOfBytesRead As Integer) As Boolean
-        End Function
-
-        <DllImport("kernel32.dll", SetLastError:=True)>
-        Public Function ReadProcessMemoryb(
-            ByVal hProcess As IntPtr,
-            ByVal lpBaseAddress As IntPtr,
-            <Out(), MarshalAs(UnmanagedType.AsAny)> ByVal lpBuffer As Object,
-            ByVal dwSize As Integer,
-            ByRef lpNumberOfBytesRead As Integer) As Boolean
-        End Function
-
-        <DllImport("kernel32.dll", SetLastError:=True)>
-        Public Function ReadProcessMemoryc(
-            ByVal hProcess As IntPtr,
-            ByVal lpBaseAddress As IntPtr,
-            ByVal lpBuffer As IntPtr,
-            ByVal iSize As Integer,
-            ByRef lpNumberOfBytesRead As Integer) As Boolean
-        End Function
-
-
-
 
     End Module
 End Namespace
 
 
-
-
-'Namespace D2Bot
-'    Friend Class Patch
-'        Private DLL As Patch.Dll
-
-'        Private Offset As Integer
-
-'        Private OldCode As Byte()
-
-'        Private NewCode As Byte()
-
-'        Private Injected As Boolean
-
-'        Public Sub New(ByVal dll As Patch.Dll, ByVal offset As Integer, ByVal bytes As Byte())
-'            MyBase.New()
-'            Me.DLL = dll
-'            Me.Offset = offset
-'            ReDim Me.OldCode(CInt(bytes.Length) - 1)
-'            Me.NewCode = bytes
-'            Me.Injected = False
-'        End Sub
-
-'        Public Shared Function GetDllOffset(ByVal p As Process, ByVal dll As Patch.Dll, ByVal offset As Integer) As System.IntPtr
-'            Dim zero As System.IntPtr
-'            Dim flag As Boolean = False
-'            Dim strArrays() As String = {"D2CLIENT.dll", "D2COMMON.dll", "D2GFX.dll", "D2LANG.dll", "D2WIN.dll", "D2NET.dll", "D2GAME.dll", "D2LAUNCH.dll", "FOG.dll", "BNCLIENT.dll", "STORM.dll", "D2CMP.dll", "D2MULTI.dll", "D2MCPCLIENT.dll", "D2CMP.dll"}
-'            Dim strArrays1 As String() = strArrays
-'            Dim intPtr As System.IntPtr = PInvoke.Kernel32.FindModuleHandle(p, strArrays1(CInt(dll)))
-'            If (intPtr = System.IntPtr.Zero) Then
-'                flag = Not PInvoke.Kernel32.LoadRemoteLibrary(p, strArrays1(CInt(dll)))
-'                If (Not flag) Then
-'                    intPtr = PInvoke.Kernel32.FindModuleHandle(p, strArrays1(CInt(dll)))
-'                End If
-'            End If
-'            If (Not flag) Then
-'                zero = System.IntPtr.Add(intPtr, offset)
-'            End If
-'            Do
-'                If (Not flag) Then
-'                    Return zero
-'                End If
-'                flag = False
-'                zero = System.IntPtr.Zero
-'            Loop While True
-'        End Function
-
-'        Public Function Install(ByVal p As Process) As Boolean
-'            Dim flag As Boolean
-'            If (Not Me.IsInstalled()) Then
-'                Dim dllOffset As IntPtr = Patch.GetDllOffset(p, Me.DLL, Me.Offset)
-'                PInvoke.Kernel32.ReadProcessMemory(p, dllOffset, Me.OldCode)
-'                PInvoke.Kernel32.WriteProcessMemory(p, dllOffset, Me.NewCode)
-'                Me.Injected = True
-'                flag = True
-'            Else
-'                flag = True
-'            End If
-'            Return flag
-'        End Function
-
-'        Public Function IsInstalled() As Boolean
-'            Return Me.Injected
-'        End Function
-
-'        Public Function Remove(ByVal p As Process) As Boolean
-'            Dim flag As Boolean
-'            If (Me.IsInstalled()) Then
-'                Dim dllOffset As IntPtr = Patch.GetDllOffset(p, Me.DLL, Me.Offset)
-'                PInvoke.Kernel32.WriteProcessMemory(p, dllOffset, Me.OldCode)
-'                Me.Injected = False
-'                flag = True
-'            Else
-'                flag = True
-'            End If
-'            Return flag
-'        End Function
-
-'        Public Enum Dll
-'            D2CLIENT
-'            D2COMMON
-'            D2GFX
-'            D2LANG
-'            D2WIN
-'            D2NET
-'            D2GAME
-'            D2LAUNCH
-'            FOG
-'            BNCLIENT
-'            STORM
-'            D2CMP
-'            D2MULTI
-'            D2MCPCLIENT
-'        End Enum
-'    End Class
-'End Namespace

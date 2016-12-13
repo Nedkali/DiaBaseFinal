@@ -28,6 +28,14 @@ Public Class Settings
             Me.DatabaseVerifyFailPICTUREBOX.Visible = True
         End If
 
+        If My.Computer.FileSystem.FileExists(MpqTBox.Text) = True Then
+            Me.MpqTBoxVerifyPICTUREBOX.Visible = True
+            Me.MpqTBoxVerifyFailPICTUREBOX.Visible = False
+
+        Else
+            Me.MpqTBoxVerifyPICTUREBOX.Visible = False
+            Me.MpqTBoxVerifyFailPICTUREBOX.Visible = True
+        End If
 
     End Sub
 
@@ -56,6 +64,7 @@ Public Class Settings
         'Apply Settings Window Control Values and Strings From Global Settings Vars
         EtalPathTEXTBOX.Text = AppSettings.EtalPath                             'Etal Path
         DefaultDatabaseTEXTBOX.Text = AppSettings.DefaultDatabase               'Startup Database
+        MpqTBox.Text = AppSettings.MpqFile
         AutoLogingDelayNUMERICUPDOWN.Value = AppSettings.AutoLoggingDelay       'Autologger delay
         AutoBackupImportsCHECKBOX.Checked = AppSettings.BackupBeforeImports     'Backup before imports bool 
         HideAccountPassCHECKBOX.Checked = AppSettings.HideMulePass
@@ -87,6 +96,7 @@ Public Class Settings
 
         If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
+        If MpqTBoxVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(203, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
 
         If DatabaseVerifyPICTUREBOX.Visible = True And EtalPathVerifyPICTUREBOX.Visible = True Then             'Exit if both current paths pass verification
             If checkdate() = False Then MessageBox.Show("Date Error") : Return
@@ -106,6 +116,8 @@ Public Class Settings
 
         If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
+        If MpqTBoxVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(203, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
+
         If checkdate() = False Then MessageBox.Show("Date Error") : Return
         'IF BOTH PATHS PASS VERIFICATION THEN CONTINUE WITH SAVE PROCEEDURE
 
@@ -114,6 +126,7 @@ Public Class Settings
             AppSettings.EtalPath = EtalPathTEXTBOX.Text
             AppSettings.DefaultDatabase = DefaultDatabaseTEXTBOX.Text
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
+            AppSettings.MpqFile = MpqTBox.Text
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
@@ -212,8 +225,26 @@ Public Class Settings
 
     End Function
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        Dim fd As OpenFileDialog = New OpenFileDialog()
 
+        fd.Title = "Locate Mpq file"
+        'fd.InitialDirectory = "C:\"
+        fd.Filter = "mpq files (*.mpq)|*.mpq|All files (*.*)|*.*"
+        fd.FilterIndex = 1
+        fd.RestoreDirectory = True
 
+        If fd.ShowDialog() = DialogResult.OK Then
+            AppSettings.MpqFile = fd.FileName
+        End If
 
+        MpqTBox.Text = AppSettings.MpqFile
+        CheckSettingsPaths()
+
+    End Sub
+
+    Private Sub MpqTBox_TextChanged(sender As Object, e As EventArgs) Handles MpqTBox.TextChanged
+        CheckSettingsPaths()
+    End Sub
 End Class

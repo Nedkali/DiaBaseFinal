@@ -1,10 +1,12 @@
 ﻿Imports System.Drawing.Text
+Imports System.Runtime.InteropServices
+
 Module GlobalVars
     'Attempt to keep globals to a minimum
     Friend Const WM_COPYDATA As Integer = &H4A
     Public D2pid As Int32 = 0 ' stores d2 process id when launched
 
-    Public VersionAndRevision As String = "DIABASE 1.0"                         'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
+    Public VersionAndRevision As String = "DIABASE 1.01"                         'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
     Public pfc As New PrivateFontCollection()                                   'Defines Custom Font Collection pfc As Global (Diablo Game Font)
 
     'DEFINE OBJECT ARRAY LISTS
@@ -99,4 +101,7 @@ Module GlobalVars
     Public ItemBaseValues As List(Of String) = New List(Of String) '   List of  tallied percentile ratios for each item base group found
     Public TotalItemsInSelected As Integer = 0 '                       Total Items Tally Var, is mainly used for header tally
 
+    <DllImport("Cloak.dll", CharSet:=CharSet.Auto, ExactSpelling:=False, SetLastError:=True, CallingConvention:=CallingConvention.Cdecl)>
+    Public Sub startUp(pid As Integer)
+    End Sub
 End Module

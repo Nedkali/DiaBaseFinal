@@ -82,6 +82,7 @@ Partial Class Main
         Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseD2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatabaseStatisticsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -244,9 +245,9 @@ Partial Class Main
         Me.OpenDatabaseLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenDatabaseLABEL.ForeColor = System.Drawing.Color.SeaShell
         Me.OpenDatabaseLABEL.Image = Global.DiaBase.My.Resources.Resources.menubar
-        Me.OpenDatabaseLABEL.Location = New System.Drawing.Point(314, 3)
+        Me.OpenDatabaseLABEL.Location = New System.Drawing.Point(421, 3)
         Me.OpenDatabaseLABEL.Name = "OpenDatabaseLABEL"
-        Me.OpenDatabaseLABEL.Size = New System.Drawing.Size(476, 18)
+        Me.OpenDatabaseLABEL.Size = New System.Drawing.Size(369, 18)
         Me.OpenDatabaseLABEL.TabIndex = 252
         Me.OpenDatabaseLABEL.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
@@ -640,12 +641,20 @@ Partial Class Main
         Me.MainFormMENUBAR.BackColor = System.Drawing.Color.BurlyWood
         Me.MainFormMENUBAR.BackgroundImage = Global.DiaBase.My.Resources.Resources.menubar
         Me.MainFormMENUBAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.MainFormMENUBAR.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseMenuMENUGROUP, Me.ItemsMenuMENUGROUP, Me.SettingsMenuMENUGROUP, Me.UtilitiesButtonMENUITEM, Me.HelpToolStripMenuItem})
+        Me.MainFormMENUBAR.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseMenuMENUGROUP, Me.ItemsMenuMENUGROUP, Me.SettingsMenuMENUGROUP, Me.UtilitiesButtonMENUITEM, Me.ToolStripMenuItem2, Me.HelpToolStripMenuItem})
         Me.MainFormMENUBAR.Location = New System.Drawing.Point(0, 0)
         Me.MainFormMENUBAR.Name = "MainFormMENUBAR"
         Me.MainFormMENUBAR.Size = New System.Drawing.Size(794, 24)
         Me.MainFormMENUBAR.TabIndex = 242
         Me.MainFormMENUBAR.Text = "MenuStrip1"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.ToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ControlLight
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(82, 20)
+        Me.ToolStripMenuItem2.Text = "Runewords"
         '
         'HelpToolStripMenuItem
         '
@@ -1486,53 +1495,53 @@ Partial Class Main
         Me.ItemListboxCONTEXTMENUSTRIP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ItemListboxCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectAllItemsCMenu, Me.AddItemItemsCMenu, Me.EditItemItemsCMenu, Me.DeleteItemsCMenu, Me.SortListItemsCMenu, Me.ToolStripSeparator3, Me.SendToTradeListItemsCMenu, Me.SendToUserListItemsCMenu})
         Me.ItemListboxCONTEXTMENUSTRIP.Name = "ItemListboxCONTEXTMENUSTRIP"
-        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(177, 164)
+        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(175, 164)
         '
         'SelectAllItemsCMenu
         '
         Me.SelectAllItemsCMenu.Name = "SelectAllItemsCMenu"
-        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SelectAllItemsCMenu.Text = "Select All"
         '
         'AddItemItemsCMenu
         '
         Me.AddItemItemsCMenu.Name = "AddItemItemsCMenu"
-        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.AddItemItemsCMenu.Text = "Add"
         '
         'EditItemItemsCMenu
         '
         Me.EditItemItemsCMenu.Name = "EditItemItemsCMenu"
-        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.EditItemItemsCMenu.Text = "Edit"
         '
         'DeleteItemsCMenu
         '
         Me.DeleteItemsCMenu.Name = "DeleteItemsCMenu"
-        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.DeleteItemsCMenu.Text = "Delete"
         '
         'SortListItemsCMenu
         '
         Me.SortListItemsCMenu.Name = "SortListItemsCMenu"
-        Me.SortListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SortListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SortListItemsCMenu.Text = "Sort List A to Z"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(171, 6)
         '
         'SendToTradeListItemsCMenu
         '
         Me.SendToTradeListItemsCMenu.Name = "SendToTradeListItemsCMenu"
-        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SendToTradeListItemsCMenu.Text = "Send To Trade List"
         '
         'SendToUserListItemsCMenu
         '
         Me.SendToUserListItemsCMenu.Name = "SendToUserListItemsCMenu"
-        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(176, 22)
+        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(174, 22)
         Me.SendToUserListItemsCMenu.Text = "Send To User List"
         '
         'EastRealmCHECKBOX
@@ -1831,27 +1840,27 @@ Partial Class Main
         '
         Me.SendToTradeListToolStripMenuItem1.Enabled = False
         Me.SendToTradeListToolStripMenuItem1.Name = "SendToTradeListToolStripMenuItem1"
-        Me.SendToTradeListToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.SendToTradeListToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.SendToTradeListToolStripMenuItem1.Text = "Send To Trade List"
         '
         'DeleteItemsToolStripMenuItem1
         '
         Me.DeleteItemsToolStripMenuItem1.Enabled = False
         Me.DeleteItemsToolStripMenuItem1.Name = "DeleteItemsToolStripMenuItem1"
-        Me.DeleteItemsToolStripMenuItem1.Size = New System.Drawing.Size(176, 22)
+        Me.DeleteItemsToolStripMenuItem1.Size = New System.Drawing.Size(174, 22)
         Me.DeleteItemsToolStripMenuItem1.Text = "Delete Items"
         '
         'ExportItemsToolStripMenuItem
         '
         Me.ExportItemsToolStripMenuItem.Enabled = False
         Me.ExportItemsToolStripMenuItem.Name = "ExportItemsToolStripMenuItem"
-        Me.ExportItemsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.ExportItemsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ExportItemsToolStripMenuItem.Text = "Export Items"
         '
         'ClearItemsToolStripMenuItem
         '
         Me.ClearItemsToolStripMenuItem.Name = "ClearItemsToolStripMenuItem"
-        Me.ClearItemsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.ClearItemsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ClearItemsToolStripMenuItem.Text = "Clear Items"
         '
         'SelectAllToolStripMenuItem2
@@ -2219,4 +2228,5 @@ Partial Class Main
     Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ProjectEtalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseD2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
 End Class

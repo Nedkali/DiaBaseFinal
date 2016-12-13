@@ -2692,6 +2692,7 @@ Partial Class ItemAdd
         Me.MaximumSize = New System.Drawing.Size(810, 668)
         Me.MinimumSize = New System.Drawing.Size(810, 640)
         Me.Name = "ItemAdd"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Manually Add New Item(s)"
         CType(Me.AddItemSocketsNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

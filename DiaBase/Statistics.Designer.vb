@@ -23,10 +23,10 @@ Partial Class Statistics
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Statistics))
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.InfoRealmBUTTON = New System.Windows.Forms.Button()
@@ -164,7 +164,7 @@ Partial Class Statistics
         Me.Label8.BackColor = System.Drawing.Color.BurlyWood
         Me.Label8.Location = New System.Drawing.Point(59, 97)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(2, 255)
+        Me.Label8.Size = New System.Drawing.Size(2, 232)
         Me.Label8.TabIndex = 2011
         '
         'Label7
@@ -172,7 +172,7 @@ Partial Class Statistics
         Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label7.Location = New System.Drawing.Point(59, 352)
+        Me.Label7.Location = New System.Drawing.Point(59, 329)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(541, 2)
         Me.Label7.TabIndex = 2010
@@ -184,7 +184,7 @@ Partial Class Statistics
         Me.Label6.BackColor = System.Drawing.Color.Moccasin
         Me.Label6.Location = New System.Drawing.Point(56, 95)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(3, 261)
+        Me.Label6.Size = New System.Drawing.Size(3, 238)
         Me.Label6.TabIndex = 2009
         '
         'Label5
@@ -194,7 +194,7 @@ Partial Class Statistics
         Me.Label5.BackColor = System.Drawing.Color.Moccasin
         Me.Label5.Location = New System.Drawing.Point(599, 95)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(3, 261)
+        Me.Label5.Size = New System.Drawing.Size(3, 238)
         Me.Label5.TabIndex = 2008
         '
         'Label4
@@ -202,7 +202,7 @@ Partial Class Statistics
         Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.BackColor = System.Drawing.Color.Moccasin
-        Me.Label4.Location = New System.Drawing.Point(56, 354)
+        Me.Label4.Location = New System.Drawing.Point(56, 331)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(546, 2)
         Me.Label4.TabIndex = 2007
@@ -224,7 +224,7 @@ Partial Class Statistics
         Me.Label2.BackColor = System.Drawing.Color.BurlyWood
         Me.Label2.Location = New System.Drawing.Point(603, 94)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(2, 265)
+        Me.Label2.Size = New System.Drawing.Size(2, 242)
         Me.Label2.TabIndex = 2005
         '
         'Label32
@@ -234,7 +234,7 @@ Partial Class Statistics
         Me.Label32.BackColor = System.Drawing.Color.BurlyWood
         Me.Label32.Location = New System.Drawing.Point(54, 94)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(2, 265)
+        Me.Label32.Size = New System.Drawing.Size(2, 242)
         Me.Label32.TabIndex = 2004
         '
         'Label1
@@ -242,7 +242,7 @@ Partial Class Statistics
         Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(54, 356)
+        Me.Label1.Location = New System.Drawing.Point(54, 333)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(551, 3)
         Me.Label1.TabIndex = 2003
@@ -256,7 +256,7 @@ Partial Class Statistics
         Me.DatabaseInfoTABCONTROL.Location = New System.Drawing.Point(54, 73)
         Me.DatabaseInfoTABCONTROL.Name = "DatabaseInfoTABCONTROL"
         Me.DatabaseInfoTABCONTROL.SelectedIndex = 0
-        Me.DatabaseInfoTABCONTROL.Size = New System.Drawing.Size(551, 286)
+        Me.DatabaseInfoTABCONTROL.Size = New System.Drawing.Size(551, 263)
         Me.DatabaseInfoTABCONTROL.TabIndex = 2001
         '
         'DatabaseInfoItemBaseTABPAGE
@@ -265,7 +265,7 @@ Partial Class Statistics
         Me.DatabaseInfoItemBaseTABPAGE.Location = New System.Drawing.Point(4, 22)
         Me.DatabaseInfoItemBaseTABPAGE.Name = "DatabaseInfoItemBaseTABPAGE"
         Me.DatabaseInfoItemBaseTABPAGE.Padding = New System.Windows.Forms.Padding(3)
-        Me.DatabaseInfoItemBaseTABPAGE.Size = New System.Drawing.Size(543, 260)
+        Me.DatabaseInfoItemBaseTABPAGE.Size = New System.Drawing.Size(543, 237)
         Me.DatabaseInfoItemBaseTABPAGE.TabIndex = 0
         Me.DatabaseInfoItemBaseTABPAGE.Text = "Item Base"
         Me.DatabaseInfoItemBaseTABPAGE.UseVisualStyleBackColor = True
@@ -274,59 +274,59 @@ Partial Class Statistics
         '
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToAddRows = False
         Me.DatabaseInfoDATAGRIDVIEW.AllowUserToDeleteRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle13.Format = "N1"
-        DataGridViewCellStyle13.NullValue = Nothing
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle1.Format = "N1"
+        DataGridViewCellStyle1.NullValue = Nothing
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DatabaseInfoDATAGRIDVIEW.BackgroundColor = System.Drawing.Color.Black
         Me.DatabaseInfoDATAGRIDVIEW.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle14.Format = "N1"
-        DataGridViewCellStyle14.NullValue = Nothing
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Goldenrod
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle2.Format = "N1"
+        DataGridViewCellStyle2.NullValue = Nothing
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Goldenrod
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DatabaseInfoDATAGRIDVIEW.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DatabaseInfoDATAGRIDVIEW.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemBaseCOLUMN, Me.TotalCOLUMN, Me.RatioCOLUMN})
         Me.DatabaseInfoDATAGRIDVIEW.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DatabaseInfoDATAGRIDVIEW.GridColor = System.Drawing.Color.Gray
         Me.DatabaseInfoDATAGRIDVIEW.Location = New System.Drawing.Point(3, 3)
         Me.DatabaseInfoDATAGRIDVIEW.Name = "DatabaseInfoDATAGRIDVIEW"
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle15.Format = "N1"
-        DataGridViewCellStyle15.NullValue = Nothing
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle3.Format = "N1"
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DatabaseInfoDATAGRIDVIEW.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DatabaseInfoDATAGRIDVIEW.RowHeadersVisible = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle16.Format = "N1"
-        DataGridViewCellStyle16.NullValue = Nothing
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.BurlyWood
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black
-        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle4.Format = "N1"
+        DataGridViewCellStyle4.NullValue = Nothing
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.DatabaseInfoDATAGRIDVIEW.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DatabaseInfoDATAGRIDVIEW.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DatabaseInfoDATAGRIDVIEW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DatabaseInfoDATAGRIDVIEW.ShowCellErrors = False
         Me.DatabaseInfoDATAGRIDVIEW.ShowCellToolTips = False
         Me.DatabaseInfoDATAGRIDVIEW.ShowEditingIcon = False
         Me.DatabaseInfoDATAGRIDVIEW.ShowRowErrors = False
-        Me.DatabaseInfoDATAGRIDVIEW.Size = New System.Drawing.Size(537, 254)
+        Me.DatabaseInfoDATAGRIDVIEW.Size = New System.Drawing.Size(537, 231)
         Me.DatabaseInfoDATAGRIDVIEW.TabIndex = 0
         '
         'ItemBaseCOLUMN
@@ -422,7 +422,7 @@ Partial Class Statistics
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.BiggerSettings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(656, 436)
+        Me.ClientSize = New System.Drawing.Size(656, 435)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label10)

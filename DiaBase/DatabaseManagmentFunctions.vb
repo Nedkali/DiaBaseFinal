@@ -14,6 +14,7 @@ Module DatabaseManagmentFunctions
                 Dim ReadFile As System.IO.StreamReader = My.Computer.FileSystem.OpenTextFileReader(AppSettings.InstallPath + "\Settings.cfg")
                 AppSettings.EtalPath = ReadFile.ReadLine                'Etal Path
                 AppSettings.DefaultDatabase = ReadFile.ReadLine         'Startup Database
+                AppSettings.MpqFile = ReadFile.ReadLine
                 AppSettings.SoundMute = ReadFile.ReadLine               'Mute Sound Setting bool
                 AppSettings.RemoveMuleDupes = ReadFile.ReadLine         'Remove mule dupe bool
                 AppSettings.HideMulePass = ReadFile.ReadLine            'Hide Password Bool
@@ -79,6 +80,7 @@ Module DatabaseManagmentFunctions
             Dim WriteFile As System.IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(AppSettings.InstallPath + "\Settings.cfg", False)
             WriteFile.WriteLine(AppSettings.EtalPath)
             WriteFile.WriteLine(AppSettings.DefaultDatabase)
+            WriteFile.WriteLine(AppSettings.MpqFile)
             WriteFile.WriteLine(AppSettings.SoundMute)
             WriteFile.WriteLine(AppSettings.RemoveMuleDupes)
             WriteFile.WriteLine(AppSettings.HideMulePass)
@@ -313,7 +315,7 @@ Module DatabaseManagmentFunctions
 
         End Try
         Main.ImportLogRICHTEXTBOX.AppendText("Items Saved = " & (ItemObjects.Count - itemstart) & vbCrLf)
-
+        Main.ImportLogRICHTEXTBOX.ScrollToCaret()
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------

@@ -105,6 +105,8 @@ Module D2Loader
         End If
 
         Dim D2Path As String = key.GetValue("InstallPath").ToString()
+
+
         If D2Path = Nothing Then Main.ImportLogRICHTEXTBOX.AppendText("Unable to locate Game.exe" & vbCrLf) : Return
 
         If D2Path(D2Path.Length - 1) <> "\" Then
@@ -112,27 +114,18 @@ Module D2Loader
         End If
 
         Dim GamePath = D2Path & "Game.exe"
-        Dim gfxpath = D2Path & "D2gfx.dll"
-
-        'displayloaderror(GamePath)'debug message
-        'displayloaderror(gfxpath)'debug message
 
         If My.Computer.FileSystem.FileExists(GamePath) = False Then
             displayloaderror("Unable to locate Game.exe")
             Return
         End If
 
-        If My.Computer.FileSystem.FileExists(gfxpath) = False Then
-            displayloaderror("Unable to locate D2gfx.dll")
-            Return
-        End If
-
-        Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateNew("DiaBaseMule", 82)
-        If MemFile3(mmf, x) = False Then Return
+        Dim mmf As MemoryMappedFile = MemoryMappedFile.CreateNew("DiaBase", 314)
+        If MemFile(mmf, x) = False Then Return
 
 
         Dim procstartinfo As ProcessStartInfo = New ProcessStartInfo()
-        Dim ApArgs As String = "-w"
+        Dim ApArgs As String = " -w"
         procstartinfo.Arguments = ApArgs
         procstartinfo.FileName = GamePath
         procstartinfo.UseShellExecute = False
@@ -141,41 +134,57 @@ Module D2Loader
         Dim p As Process = New Process()
         p.EnableRaisingEvents = True
         p.StartInfo = procstartinfo
+        Try
+            p = PInvoke.Extensions.StartSuspended(p, p.StartInfo) 'loads D2 into memory
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
+            mmf.Dispose()
+            Main.ImportLogRICHTEXTBOX.AppendText(" failed to Launch Diablo 2" & vbCrLf)
+            Main.ImportLogRICHTEXTBOX.AppendText(GamePath & vbCrLf)
+            Return
+        End Try
 
-        p = PInvoke.Extensions.StartSuspended(p, procstartinfo) 'loads D2 into memory
+        D2pid = p.Id
 
         'displayloaderror("Game PID = " & p.Id)'Debug print
 
         'blocks 2nd instance check
+        Dim address As New IntPtr(&H400000 + &HF562B)
         Dim oldValue(1) As Byte
         Dim newvalue() As Byte = {&HEB, &H45}
-        Dim address As New IntPtr(&H6FA80000 + &HB6B0)
-        Try 'a287
 
-            If Not PInvoke.Kernel32.LoadRemoteLibrary(p, gfxpath) Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load d2gfx" & vbCrLf)
+        Try 'a287
             If Not PInvoke.Kernel32.ReadProcessMemory(p, address, oldValue) Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to read window fix" & vbCrLf)
             If PInvoke.Kernel32.WriteProcessMemory(p, address, newvalue) = 0 Then Main.ImportLogRICHTEXTBOX.AppendText(" failed to write window fix" & vbCrLf)
-        Catch e As System.Exception
+        Catch ex As Exception
             displayloaderror("Error applying patch - Load aborted")
-            displayloaderror(e.Message)
+            displayloaderror(ex.Message)
             p.Kill()
             mmf.Dispose()
             Return
         End Try
 
-        If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\DBase.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll")
+        'If Not PInvoke.Kernel32.LoadRemoteLibrary(p, Application.StartupPath & "\DBase.dll") Then Main.ImportLogRICHTEXTBOX.AppendText(" Failed to load D2Etal.dll" & vbCrLf)
 
         PInvoke.Kernel32.ResumeProcess(p)
-        p.WaitForInputIdle(5000)
-        mmf.Dispose()
-        D2pid = p.Id
+
         Try
-            PInvoke.Kernel32.SuspendProcess(p)
-            PInvoke.Kernel32.WriteProcessMemory(p, address, oldValue)
-            PInvoke.Kernel32.ResumeProcess(p)
+            p.WaitForInputIdle(3000)
         Catch ex As Exception
-            displayloaderror("Error reverting d2gfx patch")
+            If (ex.Message.Contains("exited") = True) Then Main.ImportLogRICHTEXTBOX.AppendText("Exited" & vbCrLf)
+            'MessageBox.Show(ex.Message)
         End Try
+
+        Try
+            GlobalVars.startUp(p.Id)
+        Catch ex As Exception
+            MessageBox.Show("Unable to load DLL : [Code 102]", "ERROR")
+        End Try
+
+        mmf.Dispose()
+
+
+
 
 
     End Sub
@@ -186,45 +195,7 @@ Module D2Loader
 
     End Sub
 
-    Function MemFile2(ByVal mmf, ByVal x)
-        Try
-            Dim Stream As MemoryMappedViewStream = mmf.CreateViewStream()
-            Dim writer As BinaryWriter = New BinaryWriter(Stream)
-
-            For y = 0 To ItemObjects(x).MuleAccount.Length - 1 : writer.Write(ItemObjects(x).MuleAccount(y)) : Next
-            For a = writer.BaseStream.Position To 23 : writer.Write(Chr(0)) : Next
-
-            For y = 0 To ItemObjects(x).MulePass.Length - 1 : writer.Write(ItemObjects(x).MulePass(y)) : Next
-            For a = writer.BaseStream.Position To 35 : writer.Write(Chr(0)) : Next
-
-            For y = 0 To ItemObjects(x).MuleName.Length - 1 : writer.Write(ItemObjects(x).MuleName(y)) : Next
-            For a = writer.BaseStream.Position To 51 : writer.Write(Chr(0)) : Next
-
-            Dim temp = 0
-            If ItemObjects(x).ItemRealm = "USWest" Then temp = 1
-            If ItemObjects(x).ItemRealm = "USEast" Then temp = 2
-            If ItemObjects(x).ItemRealm = "Asia" Then temp = 3
-            If ItemObjects(x).ItemRealm = "Europe" Then temp = 4
-
-            writer.Write(Chr(temp))
-            writer.Write(Chr(0)) 'difficulty
-
-            Dim temp1 = "Mulelogger.ntj"
-            For y = 0 To temp1.Length - 1 : writer.Write(temp1(y)) : Next
-            For a = writer.BaseStream.Position To 84 : writer.Write("") : Next
-
-            writer.Close()
-        Catch ex As Exception
-            Main.ImportLogRICHTEXTBOX.AppendText(ex.Message & vbCrLf)
-            Return False
-
-        End Try
-
-        Return True
-
-    End Function
-
-    Function MemFile3(ByVal mmf, ByVal x)
+    Function MemFile(ByVal mmf, ByVal x)
         Dim prof As Profile
 
         'hope to reserve zero for single player use in dll
@@ -238,8 +209,18 @@ Module D2Loader
         prof.AccPass = ItemObjects(x).MulePass
         prof.CharName = ItemObjects(x).MuleName
         prof.Difficulty = Chr(0)
+        'prof.Realm = Chr(0) ' for testing on singleplayer chars
         prof.Realm = Chr(temp)
-        prof.ScriptFile = "Mulelogger.ntj"
+
+        prof.MpqFile = Right(AppSettings.MpqFile, Len(AppSettings.MpqFile) - InStrRev(AppSettings.MpqFile, "\"))
+        'MessageBox.Show(prof.MpqFile)
+        If AppSettings.EtalVersion = "NED" Then
+            prof.FilePath = AppSettings.EtalPath & "\scripts\Configs\" & ItemObjects(x).ItemRealm & "\AMS\MuleInventory\"
+        Else
+            prof.FilePath = AppSettings.EtalPath & "\scripts\AMS\MuleInventory\"
+        End If
+        prof.FilePath = prof.FilePath.Replace("\\", "\")
+        prof.FilePath = prof.FilePath.Replace("\", "/")
 
         Dim Ptr As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(prof))
         Dim ByteArray(Marshal.SizeOf(prof) - 1) As Byte

@@ -58,29 +58,30 @@ Public Class ItemDatabase
 End Class
 
 Public Class AppSetting
-    Public InstallPath As String = Application.StartupPath                                          'Applications Installation path
-    Public EtalPath As String = "C:\D2NT"                                                           'Etals Installation Path.          
-    Public SoundMute As Boolean = False                                                             'Mute Sound Setting Prefix. True = Muted   False = On
+    Public InstallPath As String = Application.StartupPath      'Applications Installation path
+    Public EtalPath As String = "C:\D2NT"                       'Etals Installation Path.          
+    Public SoundMute As Boolean = False                         'Mute Sound Setting Prefix. True = Muted   False = On
+    Public MpqFile As String = ""                               'Used for loading d2.          
     Public DefaultDatabase As String = Application.StartupPath & "\Databases\Default.txt"           'FileName (without extension) of the Database To load at startup
-    Public AutoLoggingDelay As Integer = 30                 'Delay (in minuites) between automatic attempts to import item logs
-    Public HideDupes As Boolean = False                     'Display duplicated items when diplaying search matches bool    TRUE/FALSE
-    Public RemoveMuleDupes As Boolean = True                'Prefix to remove previously logged items from later imports - used to stop duplicated items relogging
-    Public SaveOnExit As Boolean = False                    'Operator to auto save the current database as app closes       TRUE/FALSE
-    Public BackupOnExit As Boolean = False                  'Operator to auto backup (After SaveOnExit) as app closes       TRUE/FALSE
-    Public BackupBeforeImports As Boolean = False           'Backup before imprting item logs prefix        TRUE/FALSE
-    Public BackupBeforeEdits As Boolean = False             'Backup before applying edits to item fields    TRUE/FALSE
-    Public HideMulePass As Boolean = True                   'Prefix to hide the items account password      TRUE/FALSE
-    Public CurrentDatabase As String = ""                   'variable to compare current versus Default database
-    Public ResetDate As String = "26/4/2015"                'variable used for ressetting ladder to nonladder
-    Public DefaultPassword As String = "Unknown"            'variable used to replace Unknown passwords
-    Public DefaultRealm As String = ""                      'variable used for setting default search realm
-    Public DisplayLineBreaks As Boolean = False             'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
-    Public XSize As Integer = 810                           'Default X,Y size co-ordinates for main form
+    Public AutoLoggingDelay As Integer = 30                     'Delay (in minuites) between automatic attempts to import item logs
+    Public HideDupes As Boolean = False                         'Display duplicated items when diplaying search matches bool    TRUE/FALSE
+    Public RemoveMuleDupes As Boolean = True                    'Prefix to remove previously logged items from later imports - used to stop duplicated items relogging
+    Public SaveOnExit As Boolean = False                        'Operator to auto save the current database as app closes       TRUE/FALSE
+    Public BackupOnExit As Boolean = False                      'Operator to auto backup (After SaveOnExit) as app closes       TRUE/FALSE
+    Public BackupBeforeImports As Boolean = False               'Backup before imprting item logs prefix        TRUE/FALSE
+    Public BackupBeforeEdits As Boolean = False                 'Backup before applying edits to item fields    TRUE/FALSE
+    Public HideMulePass As Boolean = True                       'Prefix to hide the items account password      TRUE/FALSE
+    Public CurrentDatabase As String = ""                       'variable to compare current versus Default database
+    Public ResetDate As String = "26/4/2015"                    'variable used for ressetting ladder to nonladder
+    Public DefaultPassword As String = "Unknown"                'variable used to replace Unknown passwords
+    Public DefaultRealm As String = ""                          'variable used for setting default search realm
+    Public DisplayLineBreaks As Boolean = False                 'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
+    Public XSize As Integer = 810                               'Default X,Y size co-ordinates for main form
     Public YSize As Integer = 704
-    Public XPos As Integer = 10                             'Default X,Y Position co-ordinates for main form
+    Public XPos As Integer = 10                                 'Default X,Y Position co-ordinates for main form
     Public YPos As Integer = 10
 
-    Public EtalVersion As String = "---"                    'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public
+    Public EtalVersion As String = "---"                        'NOT TO BE SAVED - Used to hold the value of the current etal version. Routine is in the Main.ShowForm event handler            NED = Neds     PUB = Public
 End Class
 
 Public Class UserListDatabase
@@ -165,8 +166,10 @@ Friend Structure Profile
     Public AccPass As String
     <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=16)>
     Public CharName As String
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=32)>
+    Public MpqFile As String
     Public Realm As Char
     Public Difficulty As Char
-    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=32)>
-    Public ScriptFile As String
+    <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=260)>
+    Public FilePath As String
 End Structure

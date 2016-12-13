@@ -74,11 +74,22 @@ Partial Class Settings
         Me.Label24 = New System.Windows.Forms.Label()
         Me.BackupOnExit = New System.Windows.Forms.CheckBox()
         Me.SaveOnExit = New System.Windows.Forms.CheckBox()
+        Me.MpqTBoxVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.MpqTBoxVerifyPICTUREBOX = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.MpqTBox = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
         CType(Me.AutoLogingDelayNUMERICUPDOWN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MpqTBoxVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MpqTBoxVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RemoveMuleDupeCHECKBOX
@@ -86,7 +97,7 @@ Partial Class Settings
         Me.RemoveMuleDupeCHECKBOX.AutoSize = True
         Me.RemoveMuleDupeCHECKBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.RemoveMuleDupeCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.RemoveMuleDupeCHECKBOX.Location = New System.Drawing.Point(40, 201)
+        Me.RemoveMuleDupeCHECKBOX.Location = New System.Drawing.Point(40, 255)
         Me.RemoveMuleDupeCHECKBOX.MaximumSize = New System.Drawing.Size(260, 17)
         Me.RemoveMuleDupeCHECKBOX.MinimumSize = New System.Drawing.Size(260, 17)
         Me.RemoveMuleDupeCHECKBOX.Name = "RemoveMuleDupeCHECKBOX"
@@ -100,7 +111,7 @@ Partial Class Settings
         Me.AutoBackupEditsCHECKBOX.AutoSize = True
         Me.AutoBackupEditsCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.AutoBackupEditsCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AutoBackupEditsCHECKBOX.Location = New System.Drawing.Point(40, 244)
+        Me.AutoBackupEditsCHECKBOX.Location = New System.Drawing.Point(40, 298)
         Me.AutoBackupEditsCHECKBOX.Name = "AutoBackupEditsCHECKBOX"
         Me.AutoBackupEditsCHECKBOX.Size = New System.Drawing.Size(215, 17)
         Me.AutoBackupEditsCHECKBOX.TabIndex = 913
@@ -110,7 +121,7 @@ Partial Class Settings
         'Label11
         '
         Me.Label11.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label11.Location = New System.Drawing.Point(95, 319)
+        Me.Label11.Location = New System.Drawing.Point(95, 373)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(2, 21)
         Me.Label11.TabIndex = 912
@@ -118,7 +129,7 @@ Partial Class Settings
         'Label12
         '
         Me.Label12.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label12.Location = New System.Drawing.Point(40, 319)
+        Me.Label12.Location = New System.Drawing.Point(40, 373)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(2, 21)
         Me.Label12.TabIndex = 911
@@ -126,7 +137,7 @@ Partial Class Settings
         'Label13
         '
         Me.Label13.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label13.Location = New System.Drawing.Point(41, 319)
+        Me.Label13.Location = New System.Drawing.Point(41, 373)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(55, 2)
         Me.Label13.TabIndex = 910
@@ -134,7 +145,7 @@ Partial Class Settings
         'Label14
         '
         Me.Label14.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label14.Location = New System.Drawing.Point(42, 338)
+        Me.Label14.Location = New System.Drawing.Point(42, 392)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(55, 2)
         Me.Label14.TabIndex = 909
@@ -142,7 +153,7 @@ Partial Class Settings
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label7.Location = New System.Drawing.Point(351, 61)
+        Me.Label7.Location = New System.Drawing.Point(346, 61)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(2, 20)
         Me.Label7.TabIndex = 908
@@ -150,7 +161,7 @@ Partial Class Settings
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label8.Location = New System.Drawing.Point(78, 61)
+        Me.Label8.Location = New System.Drawing.Point(73, 61)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(2, 20)
         Me.Label8.TabIndex = 907
@@ -158,7 +169,7 @@ Partial Class Settings
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label9.Location = New System.Drawing.Point(78, 61)
+        Me.Label9.Location = New System.Drawing.Point(73, 61)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(275, 2)
         Me.Label9.TabIndex = 906
@@ -166,7 +177,7 @@ Partial Class Settings
         'Label10
         '
         Me.Label10.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label10.Location = New System.Drawing.Point(78, 79)
+        Me.Label10.Location = New System.Drawing.Point(73, 79)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(275, 2)
         Me.Label10.TabIndex = 905
@@ -174,7 +185,7 @@ Partial Class Settings
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label6.Location = New System.Drawing.Point(351, 115)
+        Me.Label6.Location = New System.Drawing.Point(346, 115)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(2, 20)
         Me.Label6.TabIndex = 904
@@ -182,7 +193,7 @@ Partial Class Settings
         'Label15
         '
         Me.Label15.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label15.Location = New System.Drawing.Point(78, 115)
+        Me.Label15.Location = New System.Drawing.Point(73, 115)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(2, 20)
         Me.Label15.TabIndex = 903
@@ -190,7 +201,7 @@ Partial Class Settings
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(80, 115)
+        Me.Label2.Location = New System.Drawing.Point(75, 115)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(273, 2)
         Me.Label2.TabIndex = 902
@@ -198,7 +209,7 @@ Partial Class Settings
         'Label128
         '
         Me.Label128.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label128.Location = New System.Drawing.Point(78, 133)
+        Me.Label128.Location = New System.Drawing.Point(73, 133)
         Me.Label128.Name = "Label128"
         Me.Label128.Size = New System.Drawing.Size(275, 2)
         Me.Label128.TabIndex = 901
@@ -208,7 +219,7 @@ Partial Class Settings
         Me.AutoBackupImportsCHECKBOX.AutoSize = True
         Me.AutoBackupImportsCHECKBOX.BackColor = System.Drawing.Color.Black
         Me.AutoBackupImportsCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AutoBackupImportsCHECKBOX.Location = New System.Drawing.Point(40, 223)
+        Me.AutoBackupImportsCHECKBOX.Location = New System.Drawing.Point(40, 277)
         Me.AutoBackupImportsCHECKBOX.Name = "AutoBackupImportsCHECKBOX"
         Me.AutoBackupImportsCHECKBOX.Size = New System.Drawing.Size(218, 17)
         Me.AutoBackupImportsCHECKBOX.TabIndex = 900
@@ -220,7 +231,7 @@ Partial Class Settings
         Me.HideAccountPassCHECKBOX.AutoSize = True
         Me.HideAccountPassCHECKBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.HideAccountPassCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.HideAccountPassCHECKBOX.Location = New System.Drawing.Point(40, 178)
+        Me.HideAccountPassCHECKBOX.Location = New System.Drawing.Point(40, 232)
         Me.HideAccountPassCHECKBOX.Name = "HideAccountPassCHECKBOX"
         Me.HideAccountPassCHECKBOX.Size = New System.Drawing.Size(140, 17)
         Me.HideAccountPassCHECKBOX.TabIndex = 897
@@ -232,7 +243,7 @@ Partial Class Settings
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Black
         Me.Label5.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label5.Location = New System.Drawing.Point(147, 323)
+        Me.Label5.Location = New System.Drawing.Point(147, 377)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(153, 13)
         Me.Label5.TabIndex = 894
@@ -242,7 +253,7 @@ Partial Class Settings
         '
         Me.DefaultDatabaseTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.DefaultDatabaseTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.DefaultDatabaseTEXTBOX.Location = New System.Drawing.Point(78, 115)
+        Me.DefaultDatabaseTEXTBOX.Location = New System.Drawing.Point(73, 115)
         Me.DefaultDatabaseTEXTBOX.Name = "DefaultDatabaseTEXTBOX"
         Me.DefaultDatabaseTEXTBOX.Size = New System.Drawing.Size(275, 20)
         Me.DefaultDatabaseTEXTBOX.TabIndex = 888
@@ -253,7 +264,7 @@ Partial Class Settings
         Me.SettingsEtalPathLABEL.BackColor = System.Drawing.SystemColors.WindowText
         Me.SettingsEtalPathLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsEtalPathLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsEtalPathLABEL.Location = New System.Drawing.Point(75, 37)
+        Me.SettingsEtalPathLABEL.Location = New System.Drawing.Point(70, 37)
         Me.SettingsEtalPathLABEL.Name = "SettingsEtalPathLABEL"
         Me.SettingsEtalPathLABEL.Size = New System.Drawing.Size(139, 20)
         Me.SettingsEtalPathLABEL.TabIndex = 887
@@ -263,7 +274,7 @@ Partial Class Settings
         '
         Me.EtalPathTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.EtalPathTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.EtalPathTEXTBOX.Location = New System.Drawing.Point(78, 61)
+        Me.EtalPathTEXTBOX.Location = New System.Drawing.Point(73, 61)
         Me.EtalPathTEXTBOX.Name = "EtalPathTEXTBOX"
         Me.EtalPathTEXTBOX.Size = New System.Drawing.Size(275, 20)
         Me.EtalPathTEXTBOX.TabIndex = 886
@@ -274,7 +285,7 @@ Partial Class Settings
         Me.SettingsDatabasePathLABEL.BackColor = System.Drawing.SystemColors.WindowText
         Me.SettingsDatabasePathLABEL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsDatabasePathLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsDatabasePathLABEL.Location = New System.Drawing.Point(75, 91)
+        Me.SettingsDatabasePathLABEL.Location = New System.Drawing.Point(70, 91)
         Me.SettingsDatabasePathLABEL.Name = "SettingsDatabasePathLABEL"
         Me.SettingsDatabasePathLABEL.Size = New System.Drawing.Size(193, 20)
         Me.SettingsDatabasePathLABEL.TabIndex = 895
@@ -284,7 +295,7 @@ Partial Class Settings
         '
         Me.AutoLogingDelayNUMERICUPDOWN.BackColor = System.Drawing.Color.Black
         Me.AutoLogingDelayNUMERICUPDOWN.ForeColor = System.Drawing.Color.White
-        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(41, 320)
+        Me.AutoLogingDelayNUMERICUPDOWN.Location = New System.Drawing.Point(41, 374)
         Me.AutoLogingDelayNUMERICUPDOWN.Minimum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.AutoLogingDelayNUMERICUPDOWN.Name = "AutoLogingDelayNUMERICUPDOWN"
         Me.AutoLogingDelayNUMERICUPDOWN.Size = New System.Drawing.Size(56, 20)
@@ -295,7 +306,7 @@ Partial Class Settings
         '
         Me.DatabaseVerifyPICTUREBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.DatabaseVerifyPICTUREBOX.Image = CType(resources.GetObject("DatabaseVerifyPICTUREBOX.Image"), System.Drawing.Image)
-        Me.DatabaseVerifyPICTUREBOX.Location = New System.Drawing.Point(50, 117)
+        Me.DatabaseVerifyPICTUREBOX.Location = New System.Drawing.Point(45, 117)
         Me.DatabaseVerifyPICTUREBOX.Name = "DatabaseVerifyPICTUREBOX"
         Me.DatabaseVerifyPICTUREBOX.Size = New System.Drawing.Size(23, 24)
         Me.DatabaseVerifyPICTUREBOX.TabIndex = 899
@@ -306,7 +317,7 @@ Partial Class Settings
         '
         Me.EtalPathVerifyPICTUREBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.EtalPathVerifyPICTUREBOX.Image = CType(resources.GetObject("EtalPathVerifyPICTUREBOX.Image"), System.Drawing.Image)
-        Me.EtalPathVerifyPICTUREBOX.Location = New System.Drawing.Point(50, 63)
+        Me.EtalPathVerifyPICTUREBOX.Location = New System.Drawing.Point(45, 63)
         Me.EtalPathVerifyPICTUREBOX.Name = "EtalPathVerifyPICTUREBOX"
         Me.EtalPathVerifyPICTUREBOX.Size = New System.Drawing.Size(23, 24)
         Me.EtalPathVerifyPICTUREBOX.TabIndex = 898
@@ -320,7 +331,7 @@ Partial Class Settings
         Me.SettingsSaveBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsSaveBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsSaveBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(401, 368)
+        Me.SettingsSaveBUTTON.Location = New System.Drawing.Point(401, 422)
         Me.SettingsSaveBUTTON.Name = "SettingsSaveBUTTON"
         Me.SettingsSaveBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsSaveBUTTON.TabIndex = 892
@@ -334,7 +345,7 @@ Partial Class Settings
         Me.DefaultDatabaseBrowseBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.DefaultDatabaseBrowseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DefaultDatabaseBrowseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DefaultDatabaseBrowseBUTTON.Location = New System.Drawing.Point(398, 113)
+        Me.DefaultDatabaseBrowseBUTTON.Location = New System.Drawing.Point(393, 113)
         Me.DefaultDatabaseBrowseBUTTON.Name = "DefaultDatabaseBrowseBUTTON"
         Me.DefaultDatabaseBrowseBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.DefaultDatabaseBrowseBUTTON.TabIndex = 891
@@ -348,7 +359,7 @@ Partial Class Settings
         Me.EtalPathBrowseBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.EtalPathBrowseBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.EtalPathBrowseBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.EtalPathBrowseBUTTON.Location = New System.Drawing.Point(398, 60)
+        Me.EtalPathBrowseBUTTON.Location = New System.Drawing.Point(393, 60)
         Me.EtalPathBrowseBUTTON.Name = "EtalPathBrowseBUTTON"
         Me.EtalPathBrowseBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.EtalPathBrowseBUTTON.TabIndex = 890
@@ -362,7 +373,7 @@ Partial Class Settings
         Me.SettingsCancelBUTTON.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
         Me.SettingsCancelBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsCancelBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(401, 410)
+        Me.SettingsCancelBUTTON.Location = New System.Drawing.Point(401, 464)
         Me.SettingsCancelBUTTON.Name = "SettingsCancelBUTTON"
         Me.SettingsCancelBUTTON.Size = New System.Drawing.Size(75, 23)
         Me.SettingsCancelBUTTON.TabIndex = 889
@@ -374,7 +385,7 @@ Partial Class Settings
         Me.SoundMuteCHECKBOX.AutoSize = True
         Me.SoundMuteCHECKBOX.BackColor = System.Drawing.SystemColors.WindowText
         Me.SoundMuteCHECKBOX.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SoundMuteCHECKBOX.Location = New System.Drawing.Point(40, 153)
+        Me.SoundMuteCHECKBOX.Location = New System.Drawing.Point(40, 207)
         Me.SoundMuteCHECKBOX.Name = "SoundMuteCHECKBOX"
         Me.SoundMuteCHECKBOX.Size = New System.Drawing.Size(89, 17)
         Me.SoundMuteCHECKBOX.TabIndex = 915
@@ -386,7 +397,7 @@ Partial Class Settings
         Me.DatabaseVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
         Me.DatabaseVerifyFailPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.CrossGraphic
         Me.DatabaseVerifyFailPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.DatabaseVerifyFailPICTUREBOX.Location = New System.Drawing.Point(50, 116)
+        Me.DatabaseVerifyFailPICTUREBOX.Location = New System.Drawing.Point(45, 116)
         Me.DatabaseVerifyFailPICTUREBOX.Name = "DatabaseVerifyFailPICTUREBOX"
         Me.DatabaseVerifyFailPICTUREBOX.Size = New System.Drawing.Size(18, 18)
         Me.DatabaseVerifyFailPICTUREBOX.TabIndex = 916
@@ -397,7 +408,7 @@ Partial Class Settings
         Me.EtalPathVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
         Me.EtalPathVerifyFailPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.CrossGraphic
         Me.EtalPathVerifyFailPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EtalPathVerifyFailPICTUREBOX.Location = New System.Drawing.Point(50, 62)
+        Me.EtalPathVerifyFailPICTUREBOX.Location = New System.Drawing.Point(45, 62)
         Me.EtalPathVerifyFailPICTUREBOX.Name = "EtalPathVerifyFailPICTUREBOX"
         Me.EtalPathVerifyFailPICTUREBOX.Size = New System.Drawing.Size(18, 18)
         Me.EtalPathVerifyFailPICTUREBOX.TabIndex = 917
@@ -407,7 +418,7 @@ Partial Class Settings
         '
         Me.ResetDateTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.ResetDateTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.ResetDateTEXTBOX.Location = New System.Drawing.Point(38, 415)
+        Me.ResetDateTEXTBOX.Location = New System.Drawing.Point(38, 469)
         Me.ResetDateTEXTBOX.Name = "ResetDateTEXTBOX"
         Me.ResetDateTEXTBOX.Size = New System.Drawing.Size(100, 20)
         Me.ResetDateTEXTBOX.TabIndex = 918
@@ -417,7 +428,7 @@ Partial Class Settings
         Me.ResetDateLABEL.AutoSize = True
         Me.ResetDateLABEL.BackColor = System.Drawing.Color.Black
         Me.ResetDateLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ResetDateLABEL.Location = New System.Drawing.Point(147, 418)
+        Me.ResetDateLABEL.Location = New System.Drawing.Point(147, 472)
         Me.ResetDateLABEL.Name = "ResetDateLABEL"
         Me.ResetDateLABEL.Size = New System.Drawing.Size(169, 13)
         Me.ResetDateLABEL.TabIndex = 919
@@ -427,7 +438,7 @@ Partial Class Settings
         '
         Me.DefaultPasswordTEXTBOX.BackColor = System.Drawing.Color.Black
         Me.DefaultPasswordTEXTBOX.ForeColor = System.Drawing.Color.White
-        Me.DefaultPasswordTEXTBOX.Location = New System.Drawing.Point(38, 384)
+        Me.DefaultPasswordTEXTBOX.Location = New System.Drawing.Point(38, 438)
         Me.DefaultPasswordTEXTBOX.MaxLength = 12
         Me.DefaultPasswordTEXTBOX.Name = "DefaultPasswordTEXTBOX"
         Me.DefaultPasswordTEXTBOX.Size = New System.Drawing.Size(100, 20)
@@ -438,7 +449,7 @@ Partial Class Settings
         Me.DefaultPasswordLABEL.AutoSize = True
         Me.DefaultPasswordLABEL.BackColor = System.Drawing.Color.Black
         Me.DefaultPasswordLABEL.ForeColor = System.Drawing.Color.BurlyWood
-        Me.DefaultPasswordLABEL.Location = New System.Drawing.Point(147, 387)
+        Me.DefaultPasswordLABEL.Location = New System.Drawing.Point(147, 441)
         Me.DefaultPasswordLABEL.Name = "DefaultPasswordLABEL"
         Me.DefaultPasswordLABEL.Size = New System.Drawing.Size(174, 13)
         Me.DefaultPasswordLABEL.TabIndex = 922
@@ -447,7 +458,7 @@ Partial Class Settings
         'Label16
         '
         Me.Label16.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label16.Location = New System.Drawing.Point(136, 386)
+        Me.Label16.Location = New System.Drawing.Point(136, 440)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(2, 15)
         Me.Label16.TabIndex = 923
@@ -455,7 +466,7 @@ Partial Class Settings
         'Label17
         '
         Me.Label17.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label17.Location = New System.Drawing.Point(38, 386)
+        Me.Label17.Location = New System.Drawing.Point(38, 440)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(2, 15)
         Me.Label17.TabIndex = 924
@@ -463,7 +474,7 @@ Partial Class Settings
         'Label18
         '
         Me.Label18.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label18.Location = New System.Drawing.Point(38, 418)
+        Me.Label18.Location = New System.Drawing.Point(38, 472)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(2, 15)
         Me.Label18.TabIndex = 925
@@ -471,7 +482,7 @@ Partial Class Settings
         'Label19
         '
         Me.Label19.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label19.Location = New System.Drawing.Point(136, 417)
+        Me.Label19.Location = New System.Drawing.Point(136, 471)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(2, 15)
         Me.Label19.TabIndex = 926
@@ -479,7 +490,7 @@ Partial Class Settings
         'Label20
         '
         Me.Label20.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label20.Location = New System.Drawing.Point(40, 384)
+        Me.Label20.Location = New System.Drawing.Point(40, 438)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(97, 2)
         Me.Label20.TabIndex = 927
@@ -487,7 +498,7 @@ Partial Class Settings
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label21.Location = New System.Drawing.Point(40, 402)
+        Me.Label21.Location = New System.Drawing.Point(40, 456)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(97, 2)
         Me.Label21.TabIndex = 928
@@ -495,7 +506,7 @@ Partial Class Settings
         'Label22
         '
         Me.Label22.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label22.Location = New System.Drawing.Point(40, 415)
+        Me.Label22.Location = New System.Drawing.Point(40, 469)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(97, 2)
         Me.Label22.TabIndex = 929
@@ -503,7 +514,7 @@ Partial Class Settings
         'Label23
         '
         Me.Label23.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label23.Location = New System.Drawing.Point(40, 433)
+        Me.Label23.Location = New System.Drawing.Point(40, 487)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(97, 2)
         Me.Label23.TabIndex = 930
@@ -513,7 +524,7 @@ Partial Class Settings
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Black
         Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(147, 356)
+        Me.Label1.Location = New System.Drawing.Point(147, 410)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(111, 13)
         Me.Label1.TabIndex = 932
@@ -522,7 +533,7 @@ Partial Class Settings
         'Label26
         '
         Me.Label26.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label26.Location = New System.Drawing.Point(38, 352)
+        Me.Label26.Location = New System.Drawing.Point(38, 406)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(2, 22)
         Me.Label26.TabIndex = 936
@@ -530,7 +541,7 @@ Partial Class Settings
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label3.Location = New System.Drawing.Point(39, 372)
+        Me.Label3.Location = New System.Drawing.Point(39, 426)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(99, 2)
         Me.Label3.TabIndex = 935
@@ -538,7 +549,7 @@ Partial Class Settings
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label4.Location = New System.Drawing.Point(39, 352)
+        Me.Label4.Location = New System.Drawing.Point(39, 406)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 2)
         Me.Label4.TabIndex = 934
@@ -551,7 +562,7 @@ Partial Class Settings
         Me.SearchRealmCBOX.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SearchRealmCBOX.FormattingEnabled = True
         Me.SearchRealmCBOX.Items.AddRange(New Object() {"USWest", "USEast", "Asia", "Europe"})
-        Me.SearchRealmCBOX.Location = New System.Drawing.Point(39, 353)
+        Me.SearchRealmCBOX.Location = New System.Drawing.Point(39, 407)
         Me.SearchRealmCBOX.Name = "SearchRealmCBOX"
         Me.SearchRealmCBOX.Size = New System.Drawing.Size(98, 21)
         Me.SearchRealmCBOX.TabIndex = 937
@@ -559,7 +570,7 @@ Partial Class Settings
         'Label24
         '
         Me.Label24.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label24.Location = New System.Drawing.Point(136, 352)
+        Me.Label24.Location = New System.Drawing.Point(136, 406)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(3, 22)
         Me.Label24.TabIndex = 938
@@ -569,7 +580,7 @@ Partial Class Settings
         Me.BackupOnExit.AutoSize = True
         Me.BackupOnExit.BackColor = System.Drawing.Color.Black
         Me.BackupOnExit.ForeColor = System.Drawing.Color.BurlyWood
-        Me.BackupOnExit.Location = New System.Drawing.Point(39, 288)
+        Me.BackupOnExit.Location = New System.Drawing.Point(39, 342)
         Me.BackupOnExit.Name = "BackupOnExit"
         Me.BackupOnExit.Size = New System.Drawing.Size(152, 17)
         Me.BackupOnExit.TabIndex = 940
@@ -581,12 +592,103 @@ Partial Class Settings
         Me.SaveOnExit.AutoSize = True
         Me.SaveOnExit.BackColor = System.Drawing.Color.Black
         Me.SaveOnExit.ForeColor = System.Drawing.Color.BurlyWood
-        Me.SaveOnExit.Location = New System.Drawing.Point(39, 267)
+        Me.SaveOnExit.Location = New System.Drawing.Point(39, 321)
         Me.SaveOnExit.Name = "SaveOnExit"
         Me.SaveOnExit.Size = New System.Drawing.Size(140, 17)
         Me.SaveOnExit.TabIndex = 939
         Me.SaveOnExit.Text = "Save on exit Application"
         Me.SaveOnExit.UseVisualStyleBackColor = False
+        '
+        'MpqTBoxVerifyFailPICTUREBOX
+        '
+        Me.MpqTBoxVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
+        Me.MpqTBoxVerifyFailPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.CrossGraphic
+        Me.MpqTBoxVerifyFailPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.MpqTBoxVerifyFailPICTUREBOX.Location = New System.Drawing.Point(44, 174)
+        Me.MpqTBoxVerifyFailPICTUREBOX.Name = "MpqTBoxVerifyFailPICTUREBOX"
+        Me.MpqTBoxVerifyFailPICTUREBOX.Size = New System.Drawing.Size(18, 18)
+        Me.MpqTBoxVerifyFailPICTUREBOX.TabIndex = 949
+        Me.MpqTBoxVerifyFailPICTUREBOX.TabStop = False
+        '
+        'Label25
+        '
+        Me.Label25.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label25.Location = New System.Drawing.Point(345, 173)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(2, 20)
+        Me.Label25.TabIndex = 948
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label27.Location = New System.Drawing.Point(72, 173)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(2, 20)
+        Me.Label27.TabIndex = 947
+        '
+        'Label28
+        '
+        Me.Label28.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label28.Location = New System.Drawing.Point(74, 173)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(273, 2)
+        Me.Label28.TabIndex = 946
+        '
+        'Label29
+        '
+        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
+        Me.Label29.Location = New System.Drawing.Point(72, 191)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(275, 2)
+        Me.Label29.TabIndex = 945
+        '
+        'MpqTBoxVerifyPICTUREBOX
+        '
+        Me.MpqTBoxVerifyPICTUREBOX.BackColor = System.Drawing.SystemColors.WindowText
+        Me.MpqTBoxVerifyPICTUREBOX.Image = CType(resources.GetObject("MpqTBoxVerifyPICTUREBOX.Image"), System.Drawing.Image)
+        Me.MpqTBoxVerifyPICTUREBOX.Location = New System.Drawing.Point(44, 175)
+        Me.MpqTBoxVerifyPICTUREBOX.Name = "MpqTBoxVerifyPICTUREBOX"
+        Me.MpqTBoxVerifyPICTUREBOX.Size = New System.Drawing.Size(23, 24)
+        Me.MpqTBoxVerifyPICTUREBOX.TabIndex = 944
+        Me.MpqTBoxVerifyPICTUREBOX.TabStop = False
+        Me.MpqTBoxVerifyPICTUREBOX.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Button1.Location = New System.Drawing.Point(392, 171)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 942
+        Me.Button1.Text = "Browse"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'MpqTBox
+        '
+        Me.MpqTBox.BackColor = System.Drawing.Color.Black
+        Me.MpqTBox.ForeColor = System.Drawing.Color.White
+        Me.MpqTBox.Location = New System.Drawing.Point(72, 173)
+        Me.MpqTBox.MaximumSize = New System.Drawing.Size(275, 20)
+        Me.MpqTBox.MinimumSize = New System.Drawing.Size(275, 20)
+        Me.MpqTBox.Name = "MpqTBox"
+        Me.MpqTBox.Size = New System.Drawing.Size(275, 20)
+        Me.MpqTBox.TabIndex = 941
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.BackColor = System.Drawing.SystemColors.WindowText
+        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.BurlyWood
+        Me.Label30.Location = New System.Drawing.Point(69, 149)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(77, 20)
+        Me.Label30.TabIndex = 943
+        Me.Label30.Text = "Mpq File"
         '
         'Settings
         '
@@ -594,8 +696,17 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.Setting
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(511, 483)
+        Me.ClientSize = New System.Drawing.Size(511, 532)
         Me.ControlBox = False
+        Me.Controls.Add(Me.MpqTBoxVerifyFailPICTUREBOX)
+        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.Label28)
+        Me.Controls.Add(Me.Label29)
+        Me.Controls.Add(Me.MpqTBoxVerifyPICTUREBOX)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.MpqTBox)
+        Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.BackupOnExit)
         Me.Controls.Add(Me.SaveOnExit)
         Me.Controls.Add(Me.Label24)
@@ -647,7 +758,6 @@ Partial Class Settings
         Me.Controls.Add(Me.EtalPathTEXTBOX)
         Me.Controls.Add(Me.SettingsDatabasePathLABEL)
         Me.Controls.Add(Me.AutoLogingDelayNUMERICUPDOWN)
-        Me.MaximumSize = New System.Drawing.Size(527, 522)
         Me.MinimumSize = New System.Drawing.Size(527, 522)
         Me.Name = "Settings"
         Me.ShowIcon = False
@@ -658,6 +768,8 @@ Partial Class Settings
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EtalPathVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MpqTBoxVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MpqTBoxVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -713,4 +825,13 @@ Partial Class Settings
     Friend WithEvents Label24 As Label
     Friend WithEvents BackupOnExit As CheckBox
     Friend WithEvents SaveOnExit As CheckBox
+    Friend WithEvents MpqTBoxVerifyFailPICTUREBOX As PictureBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents MpqTBoxVerifyPICTUREBOX As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents MpqTBox As TextBox
+    Friend WithEvents Label30 As Label
 End Class

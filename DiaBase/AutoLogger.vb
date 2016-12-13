@@ -14,6 +14,8 @@ Module AutoLogger
             RealmPath = "\scripts\Configs\USWest\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "West") : GetLogs(RealmPath, relog)
             RealmPath = "\scripts\Configs\Asia\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Asia") : GetLogs(RealmPath, relog)
             RealmPath = "\scripts\Configs\Europe\AMS\" : Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Europe") : GetLogs(RealmPath, relog)
+            Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf)
+            Main.ImportLogRICHTEXTBOX.ScrollToCaret()
             Return
         End If
         RealmPath = "\scripts\AMS"
@@ -33,7 +35,7 @@ Module AutoLogger
         GetLogFiles()
         If LogFilesList.Count = 0 Then
             If AppSettings.EtalVersion = "NED" Then Main.ImportLogRICHTEXTBOX.AppendText(" Realm Has No Logs Ready.") : Main.ImportLogRICHTEXTBOX.ScrollToCaret() : Return 'If There Are no Log Files - exit
-            Main.ImportLogRICHTEXTBOX.AppendText("No Logs Ready.") : Main.ImportLogRICHTEXTBOX.ScrollToCaret() : Return
+            Main.ImportLogRICHTEXTBOX.AppendText("No Logs Ready.") : Return
         End If
 
             'Backup the database
@@ -205,12 +207,14 @@ Module AutoLogger
                         NewObject.ImportTime = ThislogTime
                         NewObject.ImportDate = ThislogDate
 
-                        For x = 0 To 4 '     just in case of extra blank lines
-                            If LogFile.EndOfStream = True Then Exit Do
-                            temp = LogFile.ReadLine()
-                            If temp <> "" Then Exit For
-                        Next
-                        NewObject.ItemName = temp 'these 5 lines should exist for each item
+                    For x = 0 To 4 '     just in case of extra blank lines
+                        If LogFile.EndOfStream = True Then Exit Do
+                        temp = LogFile.ReadLine()
+                        If temp <> "" Then Exit For
+                    Next
+
+                    Dim ItemName = temp
+                    NewObject.ItemName = temp 'these 5 lines should exist for each item
                         temp = LogFile.ReadLine()
                         NewObject.Itemlevel = temp.Replace("Item Level ", "")
                         temp = LogFile.ReadLine()
@@ -223,12 +227,17 @@ Module AutoLogger
 
 
                         While LogFile.EndOfStream = False   'attempt to read item added information and exit if end of stream/file
-                            temp = LogFile.ReadLine()
+                        temp = LogFile.ReadLine()
 
-                            If temp = Nothing Then Exit While 'breaks while loop if we find blank line then move onto next item
-                            myarray = Split(temp, ": ", 0)  ' gathers most basic stats
 
-                            Select Case myarray(0) + ":"
+                        If temp = Nothing Then Exit While 'breaks while loop if we find blank line then move onto next item
+
+                        'below probably not needed - added to dll
+                        'If LCase(ItemName).Contains(LCase(temp)) = True Then Continue While ' Hack for dll created files
+
+                        myarray = Split(temp, ": ", 0)  ' gathers most basic stats
+
+                        Select Case myarray(0) + ":"
                                 Case "Throw Damage:"
                                     Dim temp1 = myarray(myarray.Length - 1)
                                     temp1 = Replace(temp1, "to ", "")
@@ -297,14 +306,13 @@ Module AutoLogger
                                     NewObject.AttackClass = NewObject.ItemBase
                                 End If
 
-                                If temp.IndexOf("Socketed") <> -1 Then
-                                    myarray = Split(temp, "Socketed (", 0)
-                                    Dim temp1 = myarray(myarray.Length - 1)
-                                    myarray = Split(temp1, ")", 0)
-                                    NewObject.Sockets = myarray(0)
-                                End If
+                            If temp.IndexOf("Socketed") <> -1 And temp.IndexOf("(") <> -1 Then
+                                Dim splitStrings() As String
+                                splitStrings = temp.Split(New String() {"(", ")"}, StringSplitOptions.None)
+                                NewObject.Sockets = Integer.Parse(splitStrings(1))
+                            End If
 
-                                If temp.IndexOf("Ethereal") <> -1 Then
+                            If temp.IndexOf("Ethereal") <> -1 Then
                                     NewObject.EtherealItem = True
                                 End If
 
@@ -650,4 +658,5 @@ Module AutoLogger
         If gemstats = "" Then gemstats = "18, Weapons: N/A, Armor: N/A, Helms: N/A, Shields: N/A"
         Return gemstats
     End Function
+
 End Module

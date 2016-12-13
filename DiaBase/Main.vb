@@ -6,9 +6,11 @@
 '******************************************************************************
 
 'Imports System.Runtime.InteropServices
-
+Imports System.Security
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
+Imports System.Reflection
+Imports DiaBase.Derivatives
 
 Public Class Main
     'Trial - Setup Select All Function and support vars
@@ -27,32 +29,49 @@ Public Class Main
     'For catching receiving messages from the autologin dll - for possible futer use
     '----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    'Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
 
-    '    Select Case m.Msg
-    '        Case WM_COPYDATA
-    '            Dim cds As CopyData
-    '            Dim nOption As Integer = Fix(m.WParam.ToInt32)
-    '            cds = Marshal.PtrToStructure(m.LParam, cds.GetType())
-    '            Dim nLength As Integer = cds.cbData
-    '            Dim temp As String = Marshal.PtrToStringAnsi(cds.lpData, nLength)
-    '            Dim y As Integer = cds.dwData
-    '            Dim a As Integer = m.WParam
+        Select Case m.Msg
+            Case WM_COPYDATA
+                Dim cds As CopyData
+                Dim nOption As Integer = Fix(m.WParam.ToInt32)
+                cds = Marshal.PtrToStructure(m.LParam, cds.GetType())
+                Dim nLength As Integer = cds.cbData
+                Dim temp As String = Marshal.PtrToStringAnsi(cds.lpData, nLength)
+                Dim y As Integer = cds.dwData
+                Dim a As Integer = m.WParam
 
-    '            Select Case y
-    '                Case 10 'Login Error
-    '                    If ErrMessage = "" Then
-    '                        ErrMessage = temp
-    '                        LoginHandler.Show()
-    '                    End If
-    '                Case Else
-    '                    MessageBox.Show("Int" & y & " Data" & temp)
-    '            End Select
+                Select Case y
+                    Case 10 'Login Error
+                        If ErrMessage = "" Then
+                            ErrMessage = temp
+                            LoginHandler.Show()
+                        End If
+                    Case 122 'New log notify
+                        AutoLoggerRunning = True
+                        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
+                        ListboxTABCONTROL.SelectTab(0)
+                        UnDo.Clear()
+                        UnDoCount.Clear()
+                        UndoSearchList.Clear()
+                        UndoSearchMenuItem.Enabled = False
+                        UndoDeleteMENUITEM.Enabled = False
+                        RefineSearchReferenceList.Clear()
+                        SearchReferenceList.Clear()
+                        SearchLISTBOX.Items.Clear()
+                        ImportLogFiles(False)
+                        Timercount = 0
+                        AutoLoggerRunning = False
+                        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
+                        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
+                    Case Else
+        MessageBox.Show("Int" & y & " Data" & Temp)
+        End Select
 
 
-    '    End Select
-    '    MyBase.WndProc(m)
-    'End Sub
+        End Select
+        MyBase.WndProc(m)
+    End Sub
 
     Sub StartTimer()
         Timercount = 0
@@ -184,6 +203,13 @@ Public Class Main
 
         'Play the introduction laugh
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.BigDLaugh, AudioPlayMode.Background)
+
+        Try
+            'Extract & Load Etal Manager.dll
+            EDC.EED("Cloak.dll", My.Resources.Cloak, True)
+        Catch ex As Exception
+            MessageBox.Show("Unable to load DLL : [Code 101]", "ERROR")
+        End Try
 
     End Sub
 
@@ -993,7 +1019,9 @@ Public Class Main
             Case 202 'FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - DEFAULT DATABASE PATH IN SETTINGS IS INCORRECT ERROR -
                 MessageBox.Show("FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - DEFAULT DATABASE PATH IN SETTINGS IS INCORRECT ERROR -")
             'End
-
+            Case 203 'FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - DEFAULT DATABASE PATH IN SETTINGS IS INCORRECT ERROR -
+                MessageBox.Show("FROM SETTINGS WINDOW SAVE AND CANCEL BUTTON HANDLERS      - DEFAULT MPQ FILE IS INCORRECT ERROR -")
+            'End
             Case 301 'FROM SETTINGS SAVE CONFIG FILE ROUTINE IN SAVE BUTTON HANDLER     - ERROR WHILE TRYING TO UPDATE SETTINGS FILE -
                 MessageBox.Show("FROM SETTINGS SAVE CONFIG FILE ROUTINE IN SAVE BUTTON HANDLER     - ERROR WHILE TRYING TO UPDATE SETTINGS FILE -")
                 End
@@ -1209,7 +1237,7 @@ Public Class Main
         'Uniques - Light Gold
         If DisplayColour = "Unique" Or ItemObjects(ItemIndex).RuneWord = True Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
-            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
 
         ItemNameRICHTEXTBOX.SelectAll() : ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
@@ -1692,7 +1720,7 @@ Public Class Main
     End Sub
 
     Private Sub AddItemItemsCMenu_Click(sender As Object, e As EventArgs) Handles AddItemItemsCMenu.Click
-
+        AddNewItemMainMenu_Click(sender, e)
     End Sub
 
     Private Sub UserLISTBOX_MouseDown(sender As Object, e As MouseEventArgs) Handles UserLISTBOX.MouseDown
@@ -1744,6 +1772,27 @@ Public Class Main
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles HiddenGemPICTUREBOX.Click
         My.Computer.Audio.Play(My.Resources.DiabloTaunt, AudioPlayMode.Background)
         HiddenGemPICTUREBOX.Hide()
+
+        ' Shake Screen
+        Dim a As Integer 'Declaring integer "a"
+
+        While a < 10 'Starting a "while loop"
+
+            'Setting our form's X position to 10 'pixels to right from it's current position.            
+            Me.Location = New Point(Me.Location.X + 10, Me.Location.Y + 10)
+            System.Threading.Thread.Sleep(50)
+            Me.Location = New Point(Me.Location.X - 10, Me.Location.Y - 10)
+            System.Threading.Thread.Sleep(50)
+            Me.Location = New Point(Me.Location.X + 10, Me.Location.Y - 10)
+            System.Threading.Thread.Sleep(50)
+            Me.Location = New Point(Me.Location.X - 10, Me.Location.Y + 10)
+            System.Threading.Thread.Sleep(50)
+
+            a += 1 'Increasing integer "a" by 1 after each loop
+
+        End While
+        HiddenGemPICTUREBOX.Show()
+
     End Sub
 
     'CLEARS OUT ALL TEST IN THE IMPORT LOG - Also Refeshes Session Start String At Top Of Log
@@ -1836,7 +1885,11 @@ Public Class Main
     End Sub
 
     Private Sub HelpToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem1.Click
-        Process.Start(Application.StartupPath & "\Help.pdf")
+
+        Dim path As String = Application.StartupPath
+        path = path & "\Help.pdf"
+        path = path.Replace("\\", "\")
+        Process.Start(path)
     End Sub
 
     Private Sub ProjectEtalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectEtalToolStripMenuItem.Click
@@ -1855,5 +1908,16 @@ Public Class Main
             Next
         End If
 
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        RuneWord.ShowDialog()
+    End Sub
+
+    Private Sub SearchWordCOMBOBOX_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SearchWordCOMBOBOX.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
+            SearchBUTTON_Click(sender, e)
+            e.Handled = True
+        End If
     End Sub
 End Class
