@@ -62,7 +62,8 @@ Public Class Main
                         ImportLogFiles(False)
                         Timercount = 0
                         AutoLoggerRunning = False
-                        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
+                        AllItemsLISTBOX.SelectedItems.Clear()
+                        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SetSelected(AllItemsLISTBOX.Items.Count - 1, True) : DisplayItemStats(AllItemsLISTBOX.Items.Count - 1)
                         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
                     Case Else
         MessageBox.Show("Int" & y & " Data" & Temp)
@@ -110,7 +111,7 @@ Public Class Main
 
         Dim Timerprogress As Integer = Math.Round((Timercount / TimerSeconds) * 100)
         ToolStripProgressBar1.Value = Timerprogress
-        ToolStripStatusLabel2.Text = "< " & Math.Ceiling((TimerSeconds - Timercount) / 60) & " Minuites"
+        ToolStripStatusLabel2.Text = "< " & Math.Ceiling((TimerSeconds - Timercount) / 60) & " Minutes"
     End Sub
 
     'TIMER BUTTON pause & restart routine
@@ -499,7 +500,7 @@ Public Class Main
         ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
         ImportLogFiles(False)
         AutoLoggerRunning = False
-        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = 0
+        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = AllItemsLISTBOX.Items.Count - 1
         ListboxTABCONTROL.SelectTab(0)
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
     End Sub
@@ -1195,6 +1196,8 @@ Public Class Main
             If ItemObjects(ItemIndex).ItemBase = "Rune" Then
                 ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
                 ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+                ItemStatsRICHTEXTBOX.SelectionColor = Color.White
+                ItemStatsRICHTEXTBOX.SelectedText = "Can be Inserted into Socketed Items" & vbCrLf
             End If
 
             'Quest and Special Items - Orange
@@ -1923,5 +1926,23 @@ Public Class Main
             SearchBUTTON_Click(sender, e)
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
+        Dim resumetimer = False
+        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
+        SearchLISTBOX.Items.Clear()
+        RefineSearchReferenceList.Clear()
+        SearchReferenceList.Clear()
+        ItemTallyTEXTBOX.Text = ("Sorting by Date)")
+        'ItemObjects.Sort(Function(x, y) DateTime.ParseExact(x.ImportDate, "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture).CompareTo(DateTime.ParseExact(y.ImportDate, "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture)))
+        ItemObjects.Sort(Function(x, y) x.LastLogDate.CompareTo(y.LastLogDate))
+        PopulateAllItemsLISTBOX()
+        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+    End Sub
+
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        ToolStripMenuItem3_Click(sender, e)
     End Sub
 End Class

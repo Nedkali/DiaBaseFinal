@@ -140,13 +140,19 @@ Module DatabaseManagmentFunctions
         Dim CheckSpacerFlag As String = "--------------------"
         Dim temp As String = "" 'using this for debugging purposes
         Dim CountRecordsForErrorEvents As Integer = 0
+        Dim PreviousLine As String = ""
 
         Try
             Do While OpenDatabase.EndOfStream = False
                 Dim NewItem As New ItemDatabase '                           Define NewItem As A New Object for ItemDatabase Class
                 CountRecordsForErrorEvents += 1
                 'ProgressBar.ProgressBar1.Value = Int(CountRecordsForErrorEvents / totalitems) * 100
-                CheckSpacerFlag = OpenDatabase.ReadLine()
+                If PreviousLine = "--------------------" Then
+                    CheckSpacerFlag = PreviousLine
+                Else
+                    CheckSpacerFlag = OpenDatabase.ReadLine()
+                End If
+
                 If CheckSpacerFlag <> "--------------------" Then Exit Do ' Check Spacer Flag Ditty
                 NewItem.ItemName = OpenDatabase.ReadLine
                 NewItem.Itemlevel = OpenDatabase.ReadLine
@@ -206,6 +212,15 @@ Module DatabaseManagmentFunctions
                 NewItem.ItemImage = OpenDatabase.ReadLine
                 NewItem.ImportTime = OpenDatabase.ReadLine
                 NewItem.ImportDate = OpenDatabase.ReadLine
+                If OpenDatabase.EndOfStream = False Then
+                    PreviousLine = OpenDatabase.ReadLine
+                End If
+                If PreviousLine = "--------------------" Then
+                    NewItem.LastLogDate = Date.ParseExact(NewItem.ImportDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
+                Else
+                    NewItem.LastLogDate = PreviousLine
+                    PreviousLine = ""
+                End If
                 ItemObjects.Add(NewItem)
 
             Loop
@@ -307,6 +322,7 @@ Module DatabaseManagmentFunctions
                 LogWriter.WriteLine(ItemObjects(x).ItemImage)
                 LogWriter.WriteLine(ItemObjects(x).ImportTime)
                 LogWriter.WriteLine(ItemObjects(x).ImportDate)
+                LogWriter.WriteLine(ItemObjects(x).LastLogDate)
             Next
             LogWriter.Close()
 

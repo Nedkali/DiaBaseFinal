@@ -55,6 +55,8 @@ Public Class ItemDatabase
     Public ItemImage As Integer
     Public ImportDate As String
     Public ImportTime As String
+    Public LastLogDate As Date
+
 End Class
 
 Public Class AppSetting
@@ -72,7 +74,7 @@ Public Class AppSetting
     Public BackupBeforeEdits As Boolean = False                 'Backup before applying edits to item fields    TRUE/FALSE
     Public HideMulePass As Boolean = True                       'Prefix to hide the items account password      TRUE/FALSE
     Public CurrentDatabase As String = ""                       'variable to compare current versus Default database
-    Public ResetDate As String = "26/4/2015"                    'variable used for ressetting ladder to nonladder
+    Public ResetDate As String = "24/11/2016"                    'variable used for ressetting ladder to nonladder
     Public DefaultPassword As String = "Unknown"                'variable used to replace Unknown passwords
     Public DefaultRealm As String = ""                          'variable used for setting default search realm
     Public DisplayLineBreaks As Boolean = False                 'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)
@@ -139,7 +141,7 @@ Public Class UserListDatabase
     Public ItemImage As Integer
     Public ImportDate As String
     Public ImportTime As String
-
+    Public LastLogDate As Date
     'note from ned - why not just add this to the other class? we can just leave it out during file read and write I dont think it will matter
 
     'answer from rob -  Good idea if we could. It must have its own class sorry so the user list will work with multiple databases in mind.

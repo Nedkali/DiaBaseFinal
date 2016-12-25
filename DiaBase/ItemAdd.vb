@@ -27,8 +27,6 @@
         AddItemMuleAccountCOMBOBOX.Items.Clear()
         AddItemMuleNameCOMBOBOX.Items.Clear()
         AddItemMulePassCOMBOBOX.Items.Clear()
-        AddItemBaseCOMBOBOX.Items.Clear()
-        AddItemQualityCOMBOBOX.Items.Clear()
         AddItemAttackClassCOMBOBOX.Items.Clear()
         AddItemPickitBotCOMBOBOX.Items.Clear()
 
@@ -45,12 +43,6 @@
             End If
             If ItemObjectItem.AttackClass <> "" Then
                 If AddItemAttackClassCOMBOBOX.Items.Contains(ItemObjectItem.AttackClass) = False Then AddItemAttackClassCOMBOBOX.Items.Add(ItemObjectItem.AttackClass)
-            End If
-            If ItemObjectItem.ItemBase <> "" Then
-                If AddItemBaseCOMBOBOX.Items.Contains(ItemObjectItem.ItemBase) = False Then AddItemBaseCOMBOBOX.Items.Add(ItemObjectItem.ItemBase)
-            End If
-            If ItemObjectItem.ItemQuality <> "" Then
-                If AddItemQualityCOMBOBOX.Items.Contains(ItemObjectItem.ItemQuality) = False Then AddItemQualityCOMBOBOX.Items.Add(ItemObjectItem.ItemQuality)
             End If
             If ItemObjectItem.PickitAccount <> "" Then
                 If AddItemPickitBotCOMBOBOX.Items.Contains(ItemObjectItem.PickitAccount) = False Then AddItemPickitBotCOMBOBOX.Items.Add(ItemObjectItem.PickitAccount)
@@ -113,25 +105,17 @@
         AddItemMuleNameCOMBOBOX.Text = Nothing
         AddItemMuleAccountCOMBOBOX.Text = Nothing
         AddItemPickitBotCOMBOBOX.Text = Nothing
-        AddItemMulePassCOMBOBOX.Text = Nothing
+        AddItemMulePassCOMBOBOX.Text = AppSettings.DefaultPassword
         AddItemCoreTypeCOMBOBOX.Text = "SoftCore"
-        AddItemRealmCOMBOBOX.Text = Nothing
+        AddItemRealmCOMBOBOX.Text = AppSettings.DefaultRealm
         AddItemLadderCheckBox.Checked = True
         AddItemImportTimeTEXTBOX.Text = Nothing
         AddItemImportDateTEXTBOX.Text = Nothing
 
-        'Wheres the hide pass routine lol?
-        'If AppSettings.HideMulePass = True Then AddItemMulePassCOMBOBOX.Text = HidePassRoutine(ItemObjects(ItemIndexNumber).MulePass) Else AddItemMulePassCOMBOBOX.Text =  ""(ItemIndexNumber).MulePass
-
-
-
-
-
-
 
     End Sub
     '-------------------------------------------------------------------------------------------------------------------------------------------
-    'SAVES THE NEWLY CRETED ITEM TO DATABASE AND ADDS IT TO THE ALL ITEMS LIST
+    'SAVES THE NEWLY CREATED ITEM TO DATABASE AND ADDS IT TO THE ALL ITEMS LIST
     '-------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub AddItemSaveChangesBUTTON_Click(sender As Object, e As EventArgs) Handles AddItemSaveChangesBUTTON.Click
 
@@ -209,11 +193,10 @@
 
     End Sub
 
-    'CLEAR ALL FIELDS BUTTON _ RESETS ALL ENTRSY IN ALL FIELDS
+    'CLEAR ALL FIELDS BUTTON _ RESETS ALL ENTRY IN ALL FIELDS
     Private Sub InitalizeFieldsBUTTON_Click(sender As Object, e As EventArgs) Handles InitalizeFieldsBUTTON.Click
         InitializeItemFields()
     End Sub
-
 
 
 End Class

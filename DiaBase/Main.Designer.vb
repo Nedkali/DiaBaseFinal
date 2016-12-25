@@ -52,6 +52,7 @@ Partial Class Main
         Me.ItemsMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoDeleteMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.UndoSearchMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditExistingItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -174,6 +175,7 @@ Partial Class Main
         Me.EditItemItemsCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemsCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.SortListItemsCMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.SendToTradeListItemsCMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.SendToUserListItemsCMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -374,31 +376,31 @@ Partial Class Main
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(153, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(189, 6)
         '
         'DeleteItemMENUITEM
         '
         Me.DeleteItemMENUITEM.Name = "DeleteItemMENUITEM"
-        Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(156, 22)
+        Me.DeleteItemMENUITEM.Size = New System.Drawing.Size(192, 22)
         Me.DeleteItemMENUITEM.Text = "Delete"
         Me.DeleteItemMENUITEM.ToolTipText = "Removes the selected item record from the current database."
         '
         'AddNewItemMENUITEM
         '
         Me.AddNewItemMENUITEM.Name = "AddNewItemMENUITEM"
-        Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(156, 22)
+        Me.AddNewItemMENUITEM.Size = New System.Drawing.Size(192, 22)
         Me.AddNewItemMENUITEM.Text = "Add"
         Me.AddNewItemMENUITEM.ToolTipText = "Manually include new items records in the current database."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(153, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(189, 6)
         '
         'SortItemsMainMenu
         '
         Me.SortItemsMainMenu.Name = "SortItemsMainMenu"
-        Me.SortItemsMainMenu.Size = New System.Drawing.Size(156, 22)
+        Me.SortItemsMainMenu.Size = New System.Drawing.Size(192, 22)
         Me.SortItemsMainMenu.Text = "Sort List A to Z"
         Me.SortItemsMainMenu.ToolTipText = "Organises all items by name into alphabetical order."
         '
@@ -412,7 +414,7 @@ Partial Class Main
         'ItemsMenuMENUGROUP
         '
         Me.ItemsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ItemsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMENUITEM, Me.UndoSearchMenuItem, Me.SortItemsMainMenu, Me.ToolStripSeparator2, Me.SelectAllMENUITEM, Me.EditExistingItemMENUITEM, Me.AddNewItemMENUITEM, Me.DeleteItemMENUITEM, Me.ToolStripSeparator1})
+        Me.ItemsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoDeleteMENUITEM, Me.UndoSearchMenuItem, Me.SortItemsMainMenu, Me.ToolStripMenuItem3, Me.ToolStripSeparator2, Me.SelectAllMENUITEM, Me.EditExistingItemMENUITEM, Me.AddNewItemMENUITEM, Me.DeleteItemMENUITEM, Me.ToolStripSeparator1})
         Me.ItemsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ItemsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ItemsMenuMENUGROUP.Name = "ItemsMenuMENUGROUP"
@@ -424,7 +426,7 @@ Partial Class Main
         '
         Me.UndoDeleteMENUITEM.Enabled = False
         Me.UndoDeleteMENUITEM.Name = "UndoDeleteMENUITEM"
-        Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(156, 22)
+        Me.UndoDeleteMENUITEM.Size = New System.Drawing.Size(192, 22)
         Me.UndoDeleteMENUITEM.Text = "UnDo Delete"
         Me.UndoDeleteMENUITEM.ToolTipText = "Returns the last deleted item back to the item list."
         '
@@ -432,21 +434,27 @@ Partial Class Main
         '
         Me.UndoSearchMenuItem.Enabled = False
         Me.UndoSearchMenuItem.Name = "UndoSearchMenuItem"
-        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.UndoSearchMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.UndoSearchMenuItem.Text = "Undo Search"
         Me.UndoSearchMenuItem.ToolTipText = "Removes the last refine search action from the current list of item matches."
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(192, 22)
+        Me.ToolStripMenuItem3.Text = "Sort by Last Log Date"
         '
         'SelectAllMENUITEM
         '
         Me.SelectAllMENUITEM.Name = "SelectAllMENUITEM"
-        Me.SelectAllMENUITEM.Size = New System.Drawing.Size(156, 22)
+        Me.SelectAllMENUITEM.Size = New System.Drawing.Size(192, 22)
         Me.SelectAllMENUITEM.Text = "Select All"
         Me.SelectAllMENUITEM.ToolTipText = "Highlights all items in currently selected list."
         '
         'EditExistingItemMENUITEM
         '
         Me.EditExistingItemMENUITEM.Name = "EditExistingItemMENUITEM"
-        Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(156, 22)
+        Me.EditExistingItemMENUITEM.Size = New System.Drawing.Size(192, 22)
         Me.EditExistingItemMENUITEM.Text = "Edit"
         Me.EditExistingItemMENUITEM.ToolTipText = "Modify the field values of the selected item(s)"
         '
@@ -1493,55 +1501,61 @@ Partial Class Main
         'ItemListboxCONTEXTMENUSTRIP
         '
         Me.ItemListboxCONTEXTMENUSTRIP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.ItemListboxCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectAllItemsCMenu, Me.AddItemItemsCMenu, Me.EditItemItemsCMenu, Me.DeleteItemsCMenu, Me.SortListItemsCMenu, Me.ToolStripSeparator3, Me.SendToTradeListItemsCMenu, Me.SendToUserListItemsCMenu})
+        Me.ItemListboxCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectAllItemsCMenu, Me.AddItemItemsCMenu, Me.EditItemItemsCMenu, Me.DeleteItemsCMenu, Me.SortListItemsCMenu, Me.ToolStripMenuItem4, Me.ToolStripSeparator3, Me.SendToTradeListItemsCMenu, Me.SendToUserListItemsCMenu})
         Me.ItemListboxCONTEXTMENUSTRIP.Name = "ItemListboxCONTEXTMENUSTRIP"
-        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(175, 164)
+        Me.ItemListboxCONTEXTMENUSTRIP.Size = New System.Drawing.Size(193, 186)
         '
         'SelectAllItemsCMenu
         '
         Me.SelectAllItemsCMenu.Name = "SelectAllItemsCMenu"
-        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.SelectAllItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.SelectAllItemsCMenu.Text = "Select All"
         '
         'AddItemItemsCMenu
         '
         Me.AddItemItemsCMenu.Name = "AddItemItemsCMenu"
-        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.AddItemItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.AddItemItemsCMenu.Text = "Add"
         '
         'EditItemItemsCMenu
         '
         Me.EditItemItemsCMenu.Name = "EditItemItemsCMenu"
-        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.EditItemItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.EditItemItemsCMenu.Text = "Edit"
         '
         'DeleteItemsCMenu
         '
         Me.DeleteItemsCMenu.Name = "DeleteItemsCMenu"
-        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.DeleteItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.DeleteItemsCMenu.Text = "Delete"
         '
         'SortListItemsCMenu
         '
         Me.SortListItemsCMenu.Name = "SortListItemsCMenu"
-        Me.SortListItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.SortListItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.SortListItemsCMenu.Text = "Sort List A to Z"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(192, 22)
+        Me.ToolStripMenuItem4.Text = "Sort by Last Log Date"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(189, 6)
         '
         'SendToTradeListItemsCMenu
         '
         Me.SendToTradeListItemsCMenu.Name = "SendToTradeListItemsCMenu"
-        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.SendToTradeListItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.SendToTradeListItemsCMenu.Text = "Send To Trade List"
         '
         'SendToUserListItemsCMenu
         '
         Me.SendToUserListItemsCMenu.Name = "SendToUserListItemsCMenu"
-        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(174, 22)
+        Me.SendToUserListItemsCMenu.Size = New System.Drawing.Size(192, 22)
         Me.SendToUserListItemsCMenu.Text = "Send To User List"
         '
         'EastRealmCHECKBOX
@@ -2229,4 +2243,6 @@ Partial Class Main
     Friend WithEvents ProjectEtalToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CloseD2ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
 End Class

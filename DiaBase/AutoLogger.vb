@@ -195,18 +195,18 @@ Module AutoLogger
                 '------------------------------------------------------------------------------------------------------------------------------------------------
 
                 Do
-                        Dim NewObject As New ItemDatabase
-                        NewObject.PickitAccount = thispickbot
-                        NewObject.MuleAccount = thislogmuleacc
-                        NewObject.MuleName = thislogmulename
-                        NewObject.MulePass = thislogpass
-                        NewObject.ItemRealm = ThislogRealm
-                        NewObject.HardCore = ThislogCore
-                        NewObject.Ladder = ThislogLadder
-                        NewObject.Expansion = Thislogexpansion
-                        NewObject.ImportTime = ThislogTime
-                        NewObject.ImportDate = ThislogDate
-
+                    Dim NewObject As New ItemDatabase
+                    NewObject.PickitAccount = thispickbot
+                    NewObject.MuleAccount = thislogmuleacc
+                    NewObject.MuleName = thislogmulename
+                    NewObject.MulePass = thislogpass
+                    NewObject.ItemRealm = ThislogRealm
+                    NewObject.HardCore = ThislogCore
+                    NewObject.Ladder = ThislogLadder
+                    NewObject.Expansion = Thislogexpansion
+                    NewObject.ImportTime = ThislogTime
+                    NewObject.ImportDate = ThislogDate
+                    NewObject.LastLogDate = Date.Now()
                     For x = 0 To 4 '     just in case of extra blank lines
                         If LogFile.EndOfStream = True Then Exit Do
                         temp = LogFile.ReadLine()
@@ -306,10 +306,9 @@ Module AutoLogger
                                     NewObject.AttackClass = NewObject.ItemBase
                                 End If
 
-                            If temp.IndexOf("Socketed") <> -1 And temp.IndexOf("(") <> -1 Then
-                                Dim splitStrings() As String
-                                splitStrings = temp.Split(New String() {"(", ")"}, StringSplitOptions.None)
-                                NewObject.Sockets = Integer.Parse(splitStrings(1))
+                            If temp.IndexOf("Socketed (") <> -1 Then
+                                Dim sock As Integer = temp.IndexOf("Socketed (")
+                                NewObject.Sockets = Integer.Parse(temp.Substring(sock + 10, 1))
                             End If
 
                             If temp.IndexOf("Ethereal") <> -1 Then
