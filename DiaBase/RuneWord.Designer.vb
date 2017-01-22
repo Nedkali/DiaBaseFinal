@@ -46,6 +46,8 @@ Partial Class RuneWord
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CoreCBox = New System.Windows.Forms.CheckBox()
+        Me.LadderCBox = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,7 +56,7 @@ Partial Class RuneWord
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label1.Location = New System.Drawing.Point(34, 65)
+        Me.Label1.Location = New System.Drawing.Point(34, 96)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 13)
         Me.Label1.TabIndex = 4
@@ -65,7 +67,7 @@ Partial Class RuneWord
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label2.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label2.Location = New System.Drawing.Point(225, 65)
+        Me.Label2.Location = New System.Drawing.Point(225, 96)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(95, 13)
         Me.Label2.TabIndex = 5
@@ -77,7 +79,7 @@ Partial Class RuneWord
         Me.Label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label3.Location = New System.Drawing.Point(194, 157)
+        Me.Label3.Location = New System.Drawing.Point(194, 178)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(126, 24)
         Me.Label3.TabIndex = 6
@@ -138,7 +140,7 @@ Partial Class RuneWord
         'Label26
         '
         Me.Label26.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label26.Location = New System.Drawing.Point(36, 82)
+        Me.Label26.Location = New System.Drawing.Point(36, 113)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(2, 22)
         Me.Label26.TabIndex = 306
@@ -146,7 +148,7 @@ Partial Class RuneWord
         'Label23
         '
         Me.Label23.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label23.Location = New System.Drawing.Point(178, 82)
+        Me.Label23.Location = New System.Drawing.Point(178, 113)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(2, 22)
         Me.Label23.TabIndex = 304
@@ -154,7 +156,7 @@ Partial Class RuneWord
         'Label22
         '
         Me.Label22.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label22.Location = New System.Drawing.Point(37, 102)
+        Me.Label22.Location = New System.Drawing.Point(37, 133)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(143, 2)
         Me.Label22.TabIndex = 305
@@ -162,7 +164,7 @@ Partial Class RuneWord
         'Label21
         '
         Me.Label21.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label21.Location = New System.Drawing.Point(37, 82)
+        Me.Label21.Location = New System.Drawing.Point(37, 113)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(143, 2)
         Me.Label21.TabIndex = 303
@@ -175,7 +177,7 @@ Partial Class RuneWord
         Me.ItemTypeCBOX.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ItemTypeCBOX.FormattingEnabled = True
         Me.ItemTypeCBOX.Items.AddRange(New Object() {"Weapon", "Armor", "Shield"})
-        Me.ItemTypeCBOX.Location = New System.Drawing.Point(37, 83)
+        Me.ItemTypeCBOX.Location = New System.Drawing.Point(37, 114)
         Me.ItemTypeCBOX.Name = "ItemTypeCBOX"
         Me.ItemTypeCBOX.Size = New System.Drawing.Size(143, 21)
         Me.ItemTypeCBOX.TabIndex = 307
@@ -183,7 +185,7 @@ Partial Class RuneWord
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label4.Location = New System.Drawing.Point(244, 82)
+        Me.Label4.Location = New System.Drawing.Point(244, 113)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(2, 22)
         Me.Label4.TabIndex = 311
@@ -191,7 +193,7 @@ Partial Class RuneWord
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label5.Location = New System.Drawing.Point(418, 82)
+        Me.Label5.Location = New System.Drawing.Point(418, 113)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(2, 22)
         Me.Label5.TabIndex = 309
@@ -199,7 +201,7 @@ Partial Class RuneWord
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label6.Location = New System.Drawing.Point(245, 102)
+        Me.Label6.Location = New System.Drawing.Point(245, 133)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(173, 2)
         Me.Label6.TabIndex = 310
@@ -207,7 +209,7 @@ Partial Class RuneWord
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label7.Location = New System.Drawing.Point(245, 82)
+        Me.Label7.Location = New System.Drawing.Point(245, 113)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(173, 2)
         Me.Label7.TabIndex = 308
@@ -219,7 +221,7 @@ Partial Class RuneWord
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(245, 83)
+        Me.ComboBox1.Location = New System.Drawing.Point(245, 114)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(173, 21)
         Me.ComboBox1.TabIndex = 312
@@ -232,7 +234,7 @@ Partial Class RuneWord
         Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Button1.Location = New System.Drawing.Point(499, 80)
+        Me.Button1.Location = New System.Drawing.Point(499, 111)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(150, 24)
         Me.Button1.TabIndex = 313
@@ -262,7 +264,7 @@ Partial Class RuneWord
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DataGridView1.Location = New System.Drawing.Point(37, 210)
+        Me.DataGridView1.Location = New System.Drawing.Point(37, 231)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(625, 377)
@@ -292,6 +294,34 @@ Partial Class RuneWord
         Me.Column3.ReadOnly = True
         Me.Column3.Width = 235
         '
+        'CoreCBox
+        '
+        Me.CoreCBox.AutoSize = True
+        Me.CoreCBox.BackColor = System.Drawing.Color.Black
+        Me.CoreCBox.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
+        Me.CoreCBox.ForeColor = System.Drawing.Color.BurlyWood
+        Me.CoreCBox.Location = New System.Drawing.Point(343, 67)
+        Me.CoreCBox.Name = "CoreCBox"
+        Me.CoreCBox.Size = New System.Drawing.Size(74, 17)
+        Me.CoreCBox.TabIndex = 338
+        Me.CoreCBox.Text = "Hard Core"
+        Me.CoreCBox.UseVisualStyleBackColor = False
+        '
+        'LadderCBox
+        '
+        Me.LadderCBox.AutoSize = True
+        Me.LadderCBox.BackColor = System.Drawing.Color.Black
+        Me.LadderCBox.Checked = True
+        Me.LadderCBox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.LadderCBox.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
+        Me.LadderCBox.ForeColor = System.Drawing.Color.BurlyWood
+        Me.LadderCBox.Location = New System.Drawing.Point(245, 67)
+        Me.LadderCBox.Name = "LadderCBox"
+        Me.LadderCBox.Size = New System.Drawing.Size(59, 17)
+        Me.LadderCBox.TabIndex = 337
+        Me.LadderCBox.Text = "Ladder"
+        Me.LadderCBox.UseVisualStyleBackColor = False
+        '
         'RuneWord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -299,7 +329,9 @@ Partial Class RuneWord
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.DiaBase.My.Resources.Resources.BiggerSettings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(699, 620)
+        Me.ClientSize = New System.Drawing.Size(699, 645)
+        Me.Controls.Add(Me.CoreCBox)
+        Me.Controls.Add(Me.LadderCBox)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.EuropeRealmCHECKBOX)
         Me.Controls.Add(Me.Button1)
@@ -319,6 +351,8 @@ Partial Class RuneWord
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.MaximumSize = New System.Drawing.Size(715, 684)
+        Me.MinimumSize = New System.Drawing.Size(715, 684)
         Me.Name = "RuneWord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "RuneWord"
@@ -349,4 +383,6 @@ Partial Class RuneWord
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents CoreCBox As CheckBox
+    Friend WithEvents LadderCBox As CheckBox
 End Class

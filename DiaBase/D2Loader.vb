@@ -97,17 +97,20 @@ Module D2Loader
             Next
         End If
 
-        Dim key As Microsoft.Win32.RegistryKey
-        key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")
+
+        Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software\Blizzard Entertainment\Diablo II")
         If key Is Nothing Then
             Main.ImportLogRICHTEXTBOX.AppendText("Error reading registry" & vbCrLf)
             Return
         End If
 
-        Dim D2Path As String = key.GetValue("InstallPath").ToString()
-
-
-        If D2Path = Nothing Then Main.ImportLogRICHTEXTBOX.AppendText("Unable to locate Game.exe" & vbCrLf) : Return
+        Dim D2Path As String = ""
+        If key.GetValue("InstallPath") Is Nothing Then
+            Main.ImportLogRICHTEXTBOX.AppendText("Error reading registry" & vbCrLf)
+            Return
+        Else
+            D2Path = key.GetValue("InstallPath").ToString()
+        End If
 
         If D2Path(D2Path.Length - 1) <> "\" Then
             D2Path = D2Path + "\"

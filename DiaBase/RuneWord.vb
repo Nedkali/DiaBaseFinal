@@ -315,6 +315,12 @@
         For index = 0 To ItemObjects.Count - 1
             If ItemObjects(index).ItemRealm <> sRealm Then Continue For
 
+            If LadderCBox.Checked = True And ItemObjects(index).Ladder = False Then Continue For
+            If LadderCBox.Checked = False And ItemObjects(index).Ladder = True Then Continue For
+
+            If CoreCBox.Checked = True And ItemObjects(index).HardCore = False Then Continue For
+            If CoreCBox.Checked = False And ItemObjects(index).HardCore = True Then Continue For
+
             'If itemstr.Contains(ItemObjects(index).ItemBase) = True Then
 
             ' End If
