@@ -9,7 +9,9 @@ Public Class Settings
     Private Sub CheckSettingsPaths()
         Me.EtalPathVerifyPICTUREBOX.Visible = False
         DatabaseVerifyPICTUREBOX.Visible = False
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Or (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\AMS\MuleInventory"))) = True Then
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Or
+            (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\Scripts\AMS\MuleInventory"))) = True Or
+            (My.Computer.FileSystem.DirectoryExists(String.Concat(Me.EtalPathTEXTBOX.Text, "\d2bs\kolbot\MuleInventory"))) = True Then
             Me.EtalPathVerifyPICTUREBOX.Visible = True
             Me.EtalPathVerifyFailPICTUREBOX.Visible = False
 
@@ -28,14 +30,6 @@ Public Class Settings
             Me.DatabaseVerifyFailPICTUREBOX.Visible = True
         End If
 
-        If My.Computer.FileSystem.FileExists(MpqTBox.Text) = True Then
-            Me.MpqTBoxVerifyPICTUREBOX.Visible = True
-            Me.MpqTBoxVerifyFailPICTUREBOX.Visible = False
-
-        Else
-            Me.MpqTBoxVerifyPICTUREBOX.Visible = False
-            Me.MpqTBoxVerifyFailPICTUREBOX.Visible = True
-        End If
 
     End Sub
 
@@ -64,7 +58,6 @@ Public Class Settings
         'Apply Settings Window Control Values and Strings From Global Settings Vars
         EtalPathTEXTBOX.Text = AppSettings.EtalPath                             'Etal Path
         DefaultDatabaseTEXTBOX.Text = AppSettings.DefaultDatabase               'Startup Database
-        MpqTBox.Text = AppSettings.MpqFile
         AutoLogingDelayNUMERICUPDOWN.Value = AppSettings.AutoLoggingDelay       'Autologger delay
         AutoBackupImportsCHECKBOX.Checked = AppSettings.BackupBeforeImports     'Backup before imports bool 
         HideAccountPassCHECKBOX.Checked = AppSettings.HideMulePass
@@ -94,14 +87,15 @@ Public Class Settings
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub CancelDefaultsBUTTON_Click(sender As Object, e As EventArgs) Handles SettingsCancelBUTTON.Click
 
-        If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
-        If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
-        If MpqTBoxVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(203, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
+        ''If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
+        ''If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
 
-        If DatabaseVerifyPICTUREBOX.Visible = True And EtalPathVerifyPICTUREBOX.Visible = True Then             'Exit if both current paths pass verification
-            If checkdate() = False Then MessageBox.Show("Date Error") : Return
-            Me.Close()
-        End If
+        ''If DatabaseVerifyPICTUREBOX.Visible = True And EtalPathVerifyPICTUREBOX.Visible = True Then             'Exit if both current paths pass verification
+        ''    If checkdate() = False Then MessageBox.Show("Date Error") : Return
+        ''    Me.Close()
+        ''End If
+        DialogResult = Windows.Forms.DialogResult.No
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -116,7 +110,6 @@ Public Class Settings
 
         If EtalPathVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(201, 0, 0, 0) 'Check Etal Path Verification flag and Branch to Error Handler If Verify Failed
         If DatabaseVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(202, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
-        If MpqTBoxVerifyFailPICTUREBOX.Visible = True Then Main.ErrorHandler(203, 0, 0, 0) 'Check Database Path Verification flag and Branch to Error Handler If Verify Failed
 
         If checkdate() = False Then MessageBox.Show("Date Error") : Return
         'IF BOTH PATHS PASS VERIFICATION THEN CONTINUE WITH SAVE PROCEEDURE
@@ -126,7 +119,6 @@ Public Class Settings
             AppSettings.EtalPath = EtalPathTEXTBOX.Text
             AppSettings.DefaultDatabase = DefaultDatabaseTEXTBOX.Text
             AppSettings.SoundMute = SoundMuteCHECKBOX.CheckState
-            AppSettings.MpqFile = MpqTBox.Text
             AppSettings.RemoveMuleDupes = RemoveMuleDupeCHECKBOX.CheckState
             AppSettings.HideMulePass = HideAccountPassCHECKBOX.CheckState
             AppSettings.BackupBeforeImports = AutoBackupImportsCHECKBOX.CheckState
@@ -152,8 +144,10 @@ Public Class Settings
             'Update etal version info..
             If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
             If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
+            If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\d2bs\kolbot\MuleInventory"))) = True Then AppSettings.EtalVersion = "KOL"
             If AppSettings.EtalVersion = "NED" Then Main.Text = VersionAndRevision & " - RD Mode"
             If AppSettings.EtalVersion = "PUB" Then Main.Text = VersionAndRevision & " - BE Mode"
+            If AppSettings.EtalVersion = "KOL" Then Main.Text = VersionAndRevision & " - Kolbot Mode"
 
             SaveSettingsFile()
             Me.Close()
@@ -225,7 +219,7 @@ Public Class Settings
 
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
 
         Dim fd As OpenFileDialog = New OpenFileDialog()
 
@@ -239,12 +233,11 @@ Public Class Settings
             AppSettings.MpqFile = fd.FileName
         End If
 
-        MpqTBox.Text = AppSettings.MpqFile
         CheckSettingsPaths()
 
     End Sub
 
-    Private Sub MpqTBox_TextChanged(sender As Object, e As EventArgs) Handles MpqTBox.TextChanged
+    Private Sub MpqTBox_TextChanged(sender As Object, e As EventArgs) 
         CheckSettingsPaths()
     End Sub
 End Class

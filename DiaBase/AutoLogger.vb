@@ -18,6 +18,12 @@ Module AutoLogger
             Main.ImportLogRICHTEXTBOX.ScrollToCaret()
             Return
         End If
+        If AppSettings.EtalVersion = "KOL" Then
+            Main.ImportLogRICHTEXTBOX.AppendText(vbCrLf & "Kolbot ")
+            RealmPath = "\d2bs\kolbot"
+            GetLogs(RealmPath, relog)
+            Return
+        End If
         RealmPath = "\scripts\AMS"
         GetLogs(RealmPath, relog)
 
@@ -74,11 +80,13 @@ Module AutoLogger
     Sub GetmuleaccountFiles()
         Dim Tally As Integer = 0
         PassFiles.Clear()
-        Dim AllFiles As String() = (Directory.GetFiles(MuleDataPath, "*")).Select(Function(p) Path.GetFileName(p)).ToArray() ' gets file and crops path
-        For Each item In AllFiles
-            If AllFiles(Tally).IndexOf("_muleaccount.txt") > -1 Then PassFiles.Add(AllFiles(Tally))
-            Tally = Tally + 1
-        Next
+        If (My.Computer.FileSystem.DirectoryExists(MuleDataPath)) = True Then
+            Dim AllFiles As String() = (Directory.GetFiles(MuleDataPath, "*")).Select(Function(p) Path.GetFileName(p)).ToArray() ' gets file and crops path
+            For Each item In AllFiles
+                If AllFiles(Tally).IndexOf("_muleaccount.txt") > -1 Then PassFiles.Add(AllFiles(Tally))
+                Tally = Tally + 1
+            Next
+        End If
 
     End Sub
 

@@ -74,7 +74,7 @@ Public Class AppSetting
     Public BackupBeforeEdits As Boolean = False                 'Backup before applying edits to item fields    TRUE/FALSE
     Public HideMulePass As Boolean = True                       'Prefix to hide the items account password      TRUE/FALSE
     Public CurrentDatabase As String = ""                       'variable to compare current versus Default database
-    Public ResetDate As String = "24/11/2016"                    'variable used for ressetting ladder to nonladder
+    Public ResetDate As String = "12/12/2017"                    'variable used for ressetting ladder to nonladder
     Public DefaultPassword As String = "Unknown"                'variable used to replace Unknown passwords
     Public DefaultRealm As String = ""                          'variable used for setting default search realm
     Public DisplayLineBreaks As Boolean = False                 'puts spacing lines in the items stats display to spread listout into sections (looks neater but less efficent and takes up more room)

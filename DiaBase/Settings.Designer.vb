@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Settings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Settings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Settings))
         Me.RemoveMuleDupeCHECKBOX = New System.Windows.Forms.CheckBox()
@@ -74,22 +74,11 @@ Partial Class Settings
         Me.Label24 = New System.Windows.Forms.Label()
         Me.BackupOnExit = New System.Windows.Forms.CheckBox()
         Me.SaveOnExit = New System.Windows.Forms.CheckBox()
-        Me.MpqTBoxVerifyFailPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.MpqTBoxVerifyPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.MpqTBox = New System.Windows.Forms.TextBox()
-        Me.Label30 = New System.Windows.Forms.Label()
         CType(Me.AutoLogingDelayNUMERICUPDOWN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtalPathVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MpqTBoxVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MpqTBoxVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RemoveMuleDupeCHECKBOX
@@ -599,97 +588,6 @@ Partial Class Settings
         Me.SaveOnExit.Text = "Save on exit Application"
         Me.SaveOnExit.UseVisualStyleBackColor = False
         '
-        'MpqTBoxVerifyFailPICTUREBOX
-        '
-        Me.MpqTBoxVerifyFailPICTUREBOX.BackColor = System.Drawing.Color.Black
-        Me.MpqTBoxVerifyFailPICTUREBOX.BackgroundImage = Global.DiaBase.My.Resources.Resources.CrossGraphic
-        Me.MpqTBoxVerifyFailPICTUREBOX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.MpqTBoxVerifyFailPICTUREBOX.Location = New System.Drawing.Point(44, 174)
-        Me.MpqTBoxVerifyFailPICTUREBOX.Name = "MpqTBoxVerifyFailPICTUREBOX"
-        Me.MpqTBoxVerifyFailPICTUREBOX.Size = New System.Drawing.Size(18, 18)
-        Me.MpqTBoxVerifyFailPICTUREBOX.TabIndex = 949
-        Me.MpqTBoxVerifyFailPICTUREBOX.TabStop = False
-        '
-        'Label25
-        '
-        Me.Label25.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label25.Location = New System.Drawing.Point(345, 173)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(2, 20)
-        Me.Label25.TabIndex = 948
-        '
-        'Label27
-        '
-        Me.Label27.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label27.Location = New System.Drawing.Point(72, 173)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(2, 20)
-        Me.Label27.TabIndex = 947
-        '
-        'Label28
-        '
-        Me.Label28.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label28.Location = New System.Drawing.Point(74, 173)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(273, 2)
-        Me.Label28.TabIndex = 946
-        '
-        'Label29
-        '
-        Me.Label29.BackColor = System.Drawing.Color.BurlyWood
-        Me.Label29.Location = New System.Drawing.Point(72, 191)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(275, 2)
-        Me.Label29.TabIndex = 945
-        '
-        'MpqTBoxVerifyPICTUREBOX
-        '
-        Me.MpqTBoxVerifyPICTUREBOX.BackColor = System.Drawing.SystemColors.WindowText
-        Me.MpqTBoxVerifyPICTUREBOX.Image = CType(resources.GetObject("MpqTBoxVerifyPICTUREBOX.Image"), System.Drawing.Image)
-        Me.MpqTBoxVerifyPICTUREBOX.Location = New System.Drawing.Point(44, 175)
-        Me.MpqTBoxVerifyPICTUREBOX.Name = "MpqTBoxVerifyPICTUREBOX"
-        Me.MpqTBoxVerifyPICTUREBOX.Size = New System.Drawing.Size(23, 24)
-        Me.MpqTBoxVerifyPICTUREBOX.TabIndex = 944
-        Me.MpqTBoxVerifyPICTUREBOX.TabStop = False
-        Me.MpqTBoxVerifyPICTUREBOX.Visible = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.BurlyWood
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Button1.Location = New System.Drawing.Point(392, 171)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 942
-        Me.Button1.Text = "Browse"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'MpqTBox
-        '
-        Me.MpqTBox.BackColor = System.Drawing.Color.Black
-        Me.MpqTBox.ForeColor = System.Drawing.Color.White
-        Me.MpqTBox.Location = New System.Drawing.Point(72, 173)
-        Me.MpqTBox.MaximumSize = New System.Drawing.Size(275, 20)
-        Me.MpqTBox.MinimumSize = New System.Drawing.Size(275, 20)
-        Me.MpqTBox.Name = "MpqTBox"
-        Me.MpqTBox.Size = New System.Drawing.Size(275, 20)
-        Me.MpqTBox.TabIndex = 941
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.BackColor = System.Drawing.SystemColors.WindowText
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.ForeColor = System.Drawing.Color.BurlyWood
-        Me.Label30.Location = New System.Drawing.Point(69, 149)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(77, 20)
-        Me.Label30.TabIndex = 943
-        Me.Label30.Text = "Mpq File"
-        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -698,15 +596,6 @@ Partial Class Settings
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(511, 532)
         Me.ControlBox = False
-        Me.Controls.Add(Me.MpqTBoxVerifyFailPICTUREBOX)
-        Me.Controls.Add(Me.Label25)
-        Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.Label28)
-        Me.Controls.Add(Me.Label29)
-        Me.Controls.Add(Me.MpqTBoxVerifyPICTUREBOX)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MpqTBox)
-        Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.BackupOnExit)
         Me.Controls.Add(Me.SaveOnExit)
         Me.Controls.Add(Me.Label24)
@@ -768,8 +657,6 @@ Partial Class Settings
         CType(Me.EtalPathVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EtalPathVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MpqTBoxVerifyFailPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MpqTBoxVerifyPICTUREBOX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -825,13 +712,4 @@ Partial Class Settings
     Friend WithEvents Label24 As Label
     Friend WithEvents BackupOnExit As CheckBox
     Friend WithEvents SaveOnExit As CheckBox
-    Friend WithEvents MpqTBoxVerifyFailPICTUREBOX As PictureBox
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label27 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents MpqTBoxVerifyPICTUREBOX As PictureBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents MpqTBox As TextBox
-    Friend WithEvents Label30 As Label
 End Class

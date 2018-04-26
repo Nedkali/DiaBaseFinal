@@ -2,11 +2,12 @@
 Imports System.Runtime.InteropServices
 
 Module GlobalVars
+    Public ForceClose As Boolean = False
     'Attempt to keep globals to a minimum
     Friend Const WM_COPYDATA As Integer = &H4A
     Public D2pid As Int32 = 0 ' stores d2 process id when launched
 
-    Public VersionAndRevision As String = "DIABASE 1.01"                         'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
+    Public VersionAndRevision As String = "DIABASE 1.02"                         'Public Displayed Version And Revision Var PLEASE ADJUST BEFORE UPDATING REPO
     Public pfc As New PrivateFontCollection()                                   'Defines Custom Font Collection pfc As Global (Diablo Game Font)
 
     'DEFINE OBJECT ARRAY LISTS

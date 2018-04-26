@@ -1,6 +1,142 @@
 ﻿Public Class RuneWord
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim RWRunes = Label3.Text
+        RWRunes.Replace("Rune Order = ", "")
+
+        RWSearch("", RWRunes)
+
+    End Sub
+
+
+
+
+    Private Sub RuneWord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ItemTypeCBOX.SelectedIndex = 0
+        Label3.Visible = False
+        If AppSettings.DefaultRealm = "USEast" Then EastRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "USWest" Then WestRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "Asia" Then AsiaRealmCHECKBOX.Checked = True
+        If AppSettings.DefaultRealm = "Europe" Then EuropeRealmCHECKBOX.Checked = True
+        DataGridView1.Rows.Clear()
+        getruneorder()
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ItemTypeCBOX.SelectedIndexChanged
+        If ItemTypeCBOX.Text = "Weapon" Then
+            ComboBox1.Items.Clear()
+            Dim installs() As String = New String() {"Beast", "Brand", "Breath of The Dying", "Call To Arms", "Chaos",
+                "Cresent Moon", "Death", "Destruction", "Doom", "Edge", "Faith", "Famine", "Fortitude", "Fury", "Grief",
+                "Hand of Justice", "Harmony", "Heart of the Oak", "Ice", "Infinity", "Insight", "Kingslayer", "Last Wish",
+                "Lawbringer", "Memory", "Oath", "Obedience", "Passion", "Phoenix", "Pride", "Rift", "Silence", "Spirit",
+                "Voice of Reason", "White", "Wrath"}
+            ComboBox1.Items.AddRange(installs)
+            ComboBox1.SelectedIndex = 0
+            Return
+        End If
+        If ItemTypeCBOX.Text = "Armor" Then
+            ComboBox1.Items.Clear()
+            Dim installs() As String = New String() {"Bone", "Bramble", "Chains of Honor", "Dragon", "Duress", "Enigma",
+                "Enlightenment", "Fortitude", "Lore", "Myth", "Peace", "Principle", "Prudence", "Rain", "Stealth", "Stone", "Treachery", "Wealth"}
+            ComboBox1.Items.AddRange(installs)
+            ComboBox1.SelectedIndex = 0
+            Return
+        End If
+        If ItemTypeCBOX.Text = "Shield" Then
+            ComboBox1.Items.Clear()
+            Dim installs() As String = New String() {"Ancients Pledge", "Dragon", "Dream", "Exile", "Phoenix", "Rhyme", "Sanctuary", "Spirit", "Splendor"}
+            ComboBox1.Items.AddRange(installs)
+            ComboBox1.SelectedIndex = 0
+        End If
+
+    End Sub
+
+    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
+        If EastRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+        End If
+    End Sub
+
+    Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged
+        If WestRealmCHECKBOX.Checked = True Then
+            EastRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+        End If
+    End Sub
+
+    Private Sub AsiaRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles AsiaRealmCHECKBOX.CheckedChanged
+        If AsiaRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            EastRealmCHECKBOX.Checked = False
+            EuropeRealmCHECKBOX.Checked = False
+        End If
+    End Sub
+
+    Private Sub EuropeRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EuropeRealmCHECKBOX.CheckedChanged
+        If EuropeRealmCHECKBOX.Checked = True Then
+            WestRealmCHECKBOX.Checked = False
+            EastRealmCHECKBOX.Checked = False
+            AsiaRealmCHECKBOX.Checked = False
+        End If
+    End Sub
+
+    Private Sub RWSearch(ByVal base As String, ByVal runes As String)
+        If ItemObjects.Count = 0 Then Return
+        DataGridView1.Rows.Clear()
+
+        Dim sRealm As String = ""
+        If WestRealmCHECKBOX.Checked = True Then sRealm = "USWest"
+        If EastRealmCHECKBOX.Checked = True Then sRealm = "USEast"
+        If AsiaRealmCHECKBOX.Checked = True Then sRealm = "Asia"
+        If EuropeRealmCHECKBOX.Checked = True Then sRealm = "Europe"
+
+        Dim itemstr As String = ""
+        Dim temp = base.Split(",")
+
+        Dim runestr As String = ""
+        Dim temp2 = runes.Split(",")
+        Dim soc = temp2.Count
+
+        For index = 0 To temp.Count - 1
+            itemstr = itemstr & temp(index)
+        Next
+
+
+        For index = 0 To temp2.Count - 1
+            runestr = runestr & temp2(index) & " Rune "
+        Next
+
+        For index = 0 To ItemObjects.Count - 1
+            If ItemObjects(index).ItemRealm <> sRealm Then Continue For
+
+            If LadderCBox.Checked = True And ItemObjects(index).Ladder = False Then Continue For
+            If LadderCBox.Checked = False And ItemObjects(index).Ladder = True Then Continue For
+
+            If CoreCBox.Checked = True And ItemObjects(index).HardCore = False Then Continue For
+            If CoreCBox.Checked = False And ItemObjects(index).HardCore = True Then Continue For
+
+            'If itemstr.Contains(ItemObjects(index).ItemBase) = True Then
+
+            ' End If
+
+            If runestr.Contains(ItemObjects(index).ItemName) = True Then
+                DataGridView1.Rows.Add(ItemObjects(index).ItemName, ItemObjects(index).MuleAccount, ItemObjects(index).MuleName)
+            End If
+        Next
+
+        DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        getruneorder()
+    End Sub
+
+    Private Sub getruneorder()
         Dim RWRunes As String = ""
         Dim RWBase As String = ""
         Select Case ItemTypeCBOX.Text
@@ -146,6 +282,9 @@
                     Case "Fortitude"
                         RWRunes = "El, Sol, Dol, Lo"
                         RWBase = ""
+                    Case "Lore"
+                        RWRunes = "Ort, Sol"
+                        RWBase = ""
                     Case "Myth"
                         RWRunes = "Hel, Amn, Nef"
                         RWBase = ""
@@ -160,6 +299,9 @@
                         RWBase = ""
                     Case "Rain"
                         RWRunes = "Ort, Mal, Ith"
+                        RWBase = ""
+                    Case "Stealth"
+                        RWRunes = "Tal, Eth"
                         RWBase = ""
                     Case "Stone"
                         RWRunes = "Shael, Um, Pul, Um"
@@ -176,6 +318,9 @@
 
             Case "Shield"
                 Select Case ComboBox1.Text
+                    Case "Ancients Pledge"
+                        RWRunes = "Ral, Ort, Tal"
+                        RWBase = ""
                     Case "Dragon"
                         RWRunes = "Sur, Lo, Sol"
                         RWBase = ""
@@ -207,130 +352,8 @@
             Case Else
                 Return
         End Select
-
         Label3.Text = "Rune Order = " & RWRunes
         Label3.Visible = True
-        RWSearch(RWBase, RWRunes)
-
-    End Sub
-
-
-    Private Sub RuneWord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ItemTypeCBOX.SelectedIndex = 0
-        Label3.Visible = False
-        If AppSettings.DefaultRealm = "USEast" Then EastRealmCHECKBOX.Checked = True
-        If AppSettings.DefaultRealm = "USWest" Then WestRealmCHECKBOX.Checked = True
-        If AppSettings.DefaultRealm = "Asia" Then AsiaRealmCHECKBOX.Checked = True
-        If AppSettings.DefaultRealm = "Europe" Then EuropeRealmCHECKBOX.Checked = True
-        DataGridView1.Rows.Clear()
-    End Sub
-
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ItemTypeCBOX.SelectedIndexChanged
-        If ItemTypeCBOX.Text = "Weapon" Then
-            ComboBox1.Items.Clear()
-            Dim installs() As String = New String() {"Beast", "Brand", "Breath of The Dying", "Call To Arms", "Chaos",
-                "Cresent Moon", "Death", "Destruction", "Doom", "Edge", "Faith", "Famine", "Fortitude", "Fury", "Grief",
-                "Hand of Justice", "Harmony", "Heart of the Oak", "Ice", "Infinity", "Insight", "Kingslayer", "Last Wish",
-                "Lawbringer", "Memory", "Oath", "Obedience", "Passion", "Phoenix", "Pride", "Rift", "Silence", "Spirit",
-                "Voice of Reason", "White", "Wrath"}
-            ComboBox1.Items.AddRange(installs)
-            ComboBox1.SelectedIndex = 0
-            Return
-        End If
-        If ItemTypeCBOX.Text = "Armor" Then
-            ComboBox1.Items.Clear()
-            Dim installs() As String = New String() {"Bone", "Bramble", "Chains of Honor", "Dragon", "Duress", "Enigma",
-                "Enlightenment", "Fortitude", "Myth", "Peace", "Principle", "Prudence", "Rain", "Stone", "Treachery", "Wealth"}
-            ComboBox1.Items.AddRange(installs)
-            ComboBox1.SelectedIndex = 0
-            Return
-        End If
-        If ItemTypeCBOX.Text = "Shield" Then
-            ComboBox1.Items.Clear()
-            Dim installs() As String = New String() {"Dragon", "Dream", "Exile", "Phoenix", "Rhyme", "Sanctuary", "Spirit", "Splendor"}
-            ComboBox1.Items.AddRange(installs)
-            ComboBox1.SelectedIndex = 0
-        End If
-
-    End Sub
-
-    Private Sub EastRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EastRealmCHECKBOX.CheckedChanged
-        If EastRealmCHECKBOX.Checked = True Then
-            WestRealmCHECKBOX.Checked = False
-            EuropeRealmCHECKBOX.Checked = False
-            AsiaRealmCHECKBOX.Checked = False
-        End If
-    End Sub
-
-    Private Sub WestRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles WestRealmCHECKBOX.CheckedChanged
-        If WestRealmCHECKBOX.Checked = True Then
-            EastRealmCHECKBOX.Checked = False
-            EuropeRealmCHECKBOX.Checked = False
-            AsiaRealmCHECKBOX.Checked = False
-        End If
-    End Sub
-
-    Private Sub AsiaRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles AsiaRealmCHECKBOX.CheckedChanged
-        If AsiaRealmCHECKBOX.Checked = True Then
-            WestRealmCHECKBOX.Checked = False
-            EastRealmCHECKBOX.Checked = False
-            EuropeRealmCHECKBOX.Checked = False
-        End If
-    End Sub
-
-    Private Sub EuropeRealmCHECKBOX_CheckedChanged(sender As Object, e As EventArgs) Handles EuropeRealmCHECKBOX.CheckedChanged
-        If EuropeRealmCHECKBOX.Checked = True Then
-            WestRealmCHECKBOX.Checked = False
-            EastRealmCHECKBOX.Checked = False
-            AsiaRealmCHECKBOX.Checked = False
-        End If
-    End Sub
-
-    Private Sub RWSearch(ByVal base As String, ByVal runes As String)
-        If ItemObjects.Count = 0 Then Return
-        DataGridView1.Rows.Clear()
-
-        Dim sRealm As String = ""
-        If WestRealmCHECKBOX.Checked = True Then sRealm = "USWest"
-        If EastRealmCHECKBOX.Checked = True Then sRealm = "USEast"
-        If AsiaRealmCHECKBOX.Checked = True Then sRealm = "Asia"
-        If EuropeRealmCHECKBOX.Checked = True Then sRealm = "Europe"
-
-        Dim itemstr As String = ""
-        Dim temp = base.Split(",")
-
-        Dim runestr As String = ""
-        Dim temp2 = runes.Split(",")
-        Dim soc = temp2.Count
-
-        For index = 0 To temp.Count - 1
-            itemstr = itemstr & temp(index)
-        Next
-
-
-        For index = 0 To temp2.Count - 1
-            runestr = runestr & temp2(index) & " Rune "
-        Next
-
-        For index = 0 To ItemObjects.Count - 1
-            If ItemObjects(index).ItemRealm <> sRealm Then Continue For
-
-            If LadderCBox.Checked = True And ItemObjects(index).Ladder = False Then Continue For
-            If LadderCBox.Checked = False And ItemObjects(index).Ladder = True Then Continue For
-
-            If CoreCBox.Checked = True And ItemObjects(index).HardCore = False Then Continue For
-            If CoreCBox.Checked = False And ItemObjects(index).HardCore = True Then Continue For
-
-            'If itemstr.Contains(ItemObjects(index).ItemBase) = True Then
-
-            ' End If
-
-            If runestr.Contains(ItemObjects(index).ItemName) = True Then
-                DataGridView1.Rows.Add(ItemObjects(index).ItemName, ItemObjects(index).MuleAccount, ItemObjects(index).MuleName)
-            End If
-        Next
-
-        DataGridView1.Sort(DataGridView1.Columns(2), System.ComponentModel.ListSortDirection.Ascending)
 
     End Sub
 End Class

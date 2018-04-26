@@ -39,7 +39,6 @@ Partial Class Main
         Me.ClearTradeListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearUserListMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ImportNowMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SettingsMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
@@ -57,10 +56,7 @@ Partial Class Main
         Me.EditExistingItemMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MainFormSTATUSSTRIP = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.SelectEtalPathDIALOG = New System.Windows.Forms.FolderBrowserDialog()
-        Me.AutoLoggerTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.DatabaseMenuMENUGROUP = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.RestoreBackupMENUITEM = New System.Windows.Forms.ToolStripMenuItem()
@@ -127,7 +123,7 @@ Partial Class Main
         Me.RefineSearchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.StringSearchLABEEL = New System.Windows.Forms.Label()
         Me.HiddenGemPICTUREBOX = New System.Windows.Forms.PictureBox()
-        Me.AutologgingTimerBUTTON = New System.Windows.Forms.Button()
+        Me.ImportNowBUTTON = New System.Windows.Forms.Button()
         Me.ExactMatchCHECKBOX = New System.Windows.Forms.CheckBox()
         Me.SearchValueLABEL = New System.Windows.Forms.Label()
         Me.SearchOperatorLABEL = New System.Windows.Forms.Label()
@@ -211,7 +207,6 @@ Partial Class Main
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.ButtonTIMER = New System.Windows.Forms.Timer(Me.components)
         Me.ItemNameRICHTEXTBOX = New System.Windows.Forms.RichTextBox()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormSTATUSSTRIP.SuspendLayout()
@@ -287,7 +282,7 @@ Partial Class Main
         'SettingsMenuMENUGROUP
         '
         Me.SettingsMenuMENUGROUP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ClearToolStripMenuItem, Me.ToolStripSeparator4, Me.ImportNowMENUITEM, Me.ToolStripSeparator7, Me.SettingsMENUITEM, Me.ToolStripSeparator12})
+        Me.SettingsMenuMENUGROUP.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisplayLineBreaksMENUITEM, Me.HideDupesMENUITEM, Me.ClearToolStripMenuItem, Me.ToolStripSeparator4, Me.ToolStripSeparator7, Me.SettingsMENUITEM, Me.ToolStripSeparator12})
         Me.SettingsMenuMENUGROUP.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.SettingsMenuMENUGROUP.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.SettingsMenuMENUGROUP.Name = "SettingsMenuMENUGROUP"
@@ -348,13 +343,6 @@ Partial Class Main
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
-        '
-        'ImportNowMENUITEM
-        '
-        Me.ImportNowMENUITEM.Name = "ImportNowMENUITEM"
-        Me.ImportNowMENUITEM.Size = New System.Drawing.Size(215, 22)
-        Me.ImportNowMENUITEM.Text = "Import Now"
-        Me.ImportNowMENUITEM.ToolTipText = "Check for import logs from Etal on demand."
         '
         'ToolStripSeparator7
         '
@@ -463,7 +451,7 @@ Partial Class Main
         Me.ToolStripStatusLabel2.BackColor = System.Drawing.Color.Transparent
         Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.BurlyWood
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(15, 19)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(15, 17)
         Me.ToolStripStatusLabel2.Text = "<"
         '
         'MainFormSTATUSSTRIP
@@ -471,35 +459,12 @@ Partial Class Main
         Me.MainFormSTATUSSTRIP.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.MainFormSTATUSSTRIP.BackgroundImage = Global.DiaBase.My.Resources.Resources.menubar
         Me.MainFormSTATUSSTRIP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.MainFormSTATUSSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripProgressBar1, Me.ToolStripStatusLabel2})
-        Me.MainFormSTATUSSTRIP.Location = New System.Drawing.Point(0, 641)
+        Me.MainFormSTATUSSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel2})
+        Me.MainFormSTATUSSTRIP.Location = New System.Drawing.Point(0, 643)
         Me.MainFormSTATUSSTRIP.Name = "MainFormSTATUSSTRIP"
-        Me.MainFormSTATUSSTRIP.Size = New System.Drawing.Size(794, 24)
+        Me.MainFormSTATUSSTRIP.Size = New System.Drawing.Size(794, 22)
         Me.MainFormSTATUSSTRIP.TabIndex = 244
         Me.MainFormSTATUSSTRIP.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ToolStripStatusLabel1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(283, 19)
-        Me.ToolStripStatusLabel1.Text = "Time remaining untill next automated import"
-        Me.ToolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'ToolStripProgressBar1
-        '
-        Me.ToolStripProgressBar1.BackColor = System.Drawing.Color.DimGray
-        Me.ToolStripProgressBar1.ForeColor = System.Drawing.Color.BurlyWood
-        Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
-        Me.ToolStripProgressBar1.Size = New System.Drawing.Size(150, 18)
-        Me.ToolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous
-        '
-        'AutoLoggerTIMER
-        '
-        Me.AutoLoggerTIMER.Enabled = True
-        Me.AutoLoggerTIMER.Interval = 1000
         '
         'DatabaseMenuMENUGROUP
         '
@@ -1069,21 +1034,21 @@ Partial Class Main
         Me.HiddenGemPICTUREBOX.TabIndex = 313
         Me.HiddenGemPICTUREBOX.TabStop = False
         '
-        'AutologgingTimerBUTTON
+        'ImportNowBUTTON
         '
-        Me.AutologgingTimerBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.AutologgingTimerBUTTON.BackgroundImage = Global.DiaBase.My.Resources.Resources.ButtonBackground
-        Me.AutologgingTimerBUTTON.FlatAppearance.BorderSize = 2
-        Me.AutologgingTimerBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.AutologgingTimerBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AutologgingTimerBUTTON.ForeColor = System.Drawing.Color.BurlyWood
-        Me.AutologgingTimerBUTTON.Location = New System.Drawing.Point(610, 28)
-        Me.AutologgingTimerBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
-        Me.AutologgingTimerBUTTON.Name = "AutologgingTimerBUTTON"
-        Me.AutologgingTimerBUTTON.Size = New System.Drawing.Size(161, 25)
-        Me.AutologgingTimerBUTTON.TabIndex = 311
-        Me.AutologgingTimerBUTTON.Text = "Pause AutoLogger"
-        Me.AutologgingTimerBUTTON.UseVisualStyleBackColor = False
+        Me.ImportNowBUTTON.BackColor = System.Drawing.SystemColors.WindowFrame
+        Me.ImportNowBUTTON.BackgroundImage = Global.DiaBase.My.Resources.Resources.ButtonBackground
+        Me.ImportNowBUTTON.FlatAppearance.BorderSize = 2
+        Me.ImportNowBUTTON.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.ImportNowBUTTON.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ImportNowBUTTON.ForeColor = System.Drawing.Color.BurlyWood
+        Me.ImportNowBUTTON.Location = New System.Drawing.Point(610, 28)
+        Me.ImportNowBUTTON.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
+        Me.ImportNowBUTTON.Name = "ImportNowBUTTON"
+        Me.ImportNowBUTTON.Size = New System.Drawing.Size(161, 25)
+        Me.ImportNowBUTTON.TabIndex = 311
+        Me.ImportNowBUTTON.Text = "Import Now"
+        Me.ImportNowBUTTON.UseVisualStyleBackColor = False
         '
         'ExactMatchCHECKBOX
         '
@@ -1478,7 +1443,7 @@ Partial Class Main
         Me.AutoLoggingLABEL.Name = "AutoLoggingLABEL"
         Me.AutoLoggingLABEL.Size = New System.Drawing.Size(180, 26)
         Me.AutoLoggingLABEL.TabIndex = 281
-        Me.AutoLoggingLABEL.Text = "Import Log"
+        Me.AutoLoggingLABEL.Text = "Action Log"
         '
         'SelectDefaultDatabaseDIALOG
         '
@@ -1924,11 +1889,6 @@ Partial Class Main
         Me.Label32.Size = New System.Drawing.Size(2, 119)
         Me.Label32.TabIndex = 427
         '
-        'ButtonTIMER
-        '
-        Me.ButtonTIMER.Enabled = True
-        Me.ButtonTIMER.Interval = 25
-        '
         'ItemNameRICHTEXTBOX
         '
         Me.ItemNameRICHTEXTBOX.BackColor = System.Drawing.Color.Black
@@ -2003,7 +1963,7 @@ Partial Class Main
         Me.Controls.Add(Me.RefineSearchCHECKBOX)
         Me.Controls.Add(Me.StringSearchLABEEL)
         Me.Controls.Add(Me.HiddenGemPICTUREBOX)
-        Me.Controls.Add(Me.AutologgingTimerBUTTON)
+        Me.Controls.Add(Me.ImportNowBUTTON)
         Me.Controls.Add(Me.ExactMatchCHECKBOX)
         Me.Controls.Add(Me.SearchValueLABEL)
         Me.Controls.Add(Me.SearchOperatorLABEL)
@@ -2072,10 +2032,7 @@ Partial Class Main
     Friend WithEvents EditExistingItemMENUITEM As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents MainFormSTATUSSTRIP As System.Windows.Forms.StatusStrip
-    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents SelectEtalPathDIALOG As System.Windows.Forms.FolderBrowserDialog
-    Friend WithEvents AutoLoggerTIMER As System.Windows.Forms.Timer
     Friend WithEvents DatabaseMenuMENUGROUP As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RestoreBackupMENUITEM As System.Windows.Forms.ToolStripMenuItem
@@ -2122,7 +2079,7 @@ Partial Class Main
     Friend WithEvents RefineSearchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents StringSearchLABEEL As System.Windows.Forms.Label
     Friend WithEvents HiddenGemPICTUREBOX As System.Windows.Forms.PictureBox
-    Friend WithEvents AutologgingTimerBUTTON As System.Windows.Forms.Button
+    Friend WithEvents ImportNowBUTTON As System.Windows.Forms.Button
     Friend WithEvents ExactMatchCHECKBOX As System.Windows.Forms.CheckBox
     Friend WithEvents SearchValueLABEL As System.Windows.Forms.Label
     Friend WithEvents SearchOperatorLABEL As System.Windows.Forms.Label
@@ -2206,7 +2163,6 @@ Partial Class Main
     Friend WithEvents Label30 As Label
     Friend WithEvents Label31 As Label
     Friend WithEvents Label32 As Label
-    Friend WithEvents ButtonTIMER As Timer
     Friend WithEvents ItemNameRICHTEXTBOX As RichTextBox
     Friend WithEvents UndoSearchMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
@@ -2224,7 +2180,6 @@ Partial Class Main
     Friend WithEvents DisplayLineBreaksMENUITEM As ToolStripMenuItem
     Friend WithEvents HideDupesMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
-    Friend WithEvents ImportNowMENUITEM As ToolStripMenuItem
     Friend WithEvents SettingsMENUITEM As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents ClearToolStripMenuItem As ToolStripMenuItem

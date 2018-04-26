@@ -1,5 +1,5 @@
 ﻿'******************************************************************************
-'**                   D I A B A S E    V E R S I O N    1 0                  **
+'**                   D I A B A S E    V E R S I O N    1                    **
 '**                                                                          **
 '**      W R I T T E N    B Y    A U S S I E H A C K    A N D    N E D       **
 '**                                                                          **
@@ -74,67 +74,6 @@ Public Class Main
         MyBase.WndProc(m)
     End Sub
 
-    Sub StartTimer()
-        Timercount = 0
-        TimerSeconds = AppSettings.AutoLoggingDelay * 60
-        ToolStripProgressBar1.Maximum = 100
-        ImportTimer.Interval = 1000
-        ImportTimer.Start()
-        ImportLogRICHTEXTBOX.Text = Date.Today & " @ " & TimeOfDay & " - Session Start, AutoLogger Ready." & vbCrLf
-    End Sub
-
-
-    'Button flashing text effect for when autologger is paused
-    Private Sub ButtonTIMER_Tick(sender As Object, e As EventArgs) Handles ButtonTIMER.Tick
-        If AutologgingTimerBUTTON.Text <> "Pause AutoLogger" = True Then ButtonFlashCount = ButtonFlashCount + 1
-
-        If ButtonFlashCount = 1 Then AutologgingTimerBUTTON.Text = Nothing
-        If ButtonFlashCount = 5 Then AutologgingTimerBUTTON.Text = "Start AutoLogger"
-        If ButtonFlashCount = 30 Then ButtonFlashCount = 0
-
-    End Sub
-
-
-
-    'IMPORT DELAY COUNTER - HANDLES IMPORT DLEAY AUTOLOGGING SYSTEM - BRANCES TO IMPORT ROUTINE WHEN DELAY IS UP
-    Private Sub TimerEventProcessor(ByVal myObject As Object, ByVal MyEventArgs As EventArgs) Handles ImportTimer.Tick
-        Timercount = Timercount + 1
-        If Timercount > TimerSeconds Then
-            Timercount = 0
-            ImportTimer.Stop()
-            ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
-            AutoLoggerRunning = True
-            ImportLogFiles(False)
-            AutoLoggerRunning = False
-            ImportTimer.Start()
-        End If
-
-        Dim Timerprogress As Integer = Math.Round((Timercount / TimerSeconds) * 100)
-        ToolStripProgressBar1.Value = Timerprogress
-        ToolStripStatusLabel2.Text = "< " & Math.Ceiling((TimerSeconds - Timercount) / 60) & " Minutes"
-    End Sub
-
-    'TIMER BUTTON pause & restart routine
-    Private Sub TimerStartPauseButton(sender As Object, e As EventArgs) Handles AutologgingTimerBUTTON.Click
-        If AutoLoggerReady = False Then
-            ImportTimer.Stop()
-            TimerRestart = True
-            AutoLoggerReady = True
-            ButtonFlashCount = 0
-            ButtonFlashTimer.Start()
-            AutologgingTimerBUTTON.Text = "Start AutoLogger"
-            Return
-        End If
-
-        If AutoLoggerReady = True Then
-            AutoLoggerReady = False
-            ButtonFlashTimer.Stop()
-            ImportTimer.Start()
-            AutologgingTimerBUTTON.Text = "Pause AutoLogger"
-
-        End If
-    End Sub
-
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'LOAD EVENT HANDLER     - Installs app on first run by setting up required directories and files. Also checks files still exist on each subsequent resart
@@ -190,7 +129,7 @@ Public Class Main
             UserRefControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             TradesListControlTabBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
             SearchBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
-            AutologgingTimerBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
+            ImportNowBUTTON.Font = New Font(pfc.Families(0), 9, FontStyle.Regular)
         End If
 
         'Position and Size Main Form Using co-ordinates saved on closing last session
@@ -229,7 +168,16 @@ Public Class Main
         Application.DoEvents() 'ensures form fully rendered ??
 
         'Verify The current Paths In Settings Are Correct - Auto Open Settings Window If Verify Fails - VERIFYS FOR BOTH PUBLIC AND NEDS ETAL VERSIONS NOW
-        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False And My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory")) = False Then Settings.ShowDialog()
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = False And
+            My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory")) = False And
+            My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\d2bs\kolbot\MuleInventory")) = False Then
+            Settings.ShowDialog()
+            If Settings.DialogResult = Windows.Forms.DialogResult.No Then
+                ' close application
+                ForceClose = True
+                Me.Close()
+            End If
+        End If
 
         'Verify the default database Path is validated
         If My.Computer.FileSystem.FileExists(AppSettings.DefaultDatabase) = False Then Settings.ShowDialog()
@@ -240,12 +188,37 @@ Public Class Main
         'THIS DETERMINES WHICH ETAL IS CURRENTLY BEING USED (PUBLIC OR NEDS) AND SETS THE NEW AppSettings.EtalVersion var to either "NED" or "PUB" (not to be confused with ned at the pub :)
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\Configs\USWest\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "NED"
         If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\Scripts\AMS\MuleInventory"))) = True Then AppSettings.EtalVersion = "PUB"
+        If (My.Computer.FileSystem.DirectoryExists(String.Concat(AppSettings.EtalPath, "\d2bs\kolbot\MuleInventory"))) = True Then AppSettings.EtalVersion = "KOL"
         If AppSettings.EtalVersion = "NED" Then Me.Text = VersionAndRevision & " - RD Mode"
         If AppSettings.EtalVersion = "PUB" Then Me.Text = VersionAndRevision & " - BE Mode"
+        If AppSettings.EtalVersion = "KOL" Then Me.Text = VersionAndRevision & " - Kolbot Mode"
 
-        'Start The Import Timer, Focus The Search Field Textbox And Then Pass Control Back To The Main Form. App Startup is completed..
-        StartTimer()
         SearchFieldCOMBOBOX.Select()
+    End Sub
+
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : e.Cancel = True : Return
+        If ForceClose = False Then
+            ExitApplication.ShowDialog()
+
+            If ExitApplication.DialogResult = Windows.Forms.DialogResult.No Then
+                e.Cancel = True
+            End If
+
+            If ExitApplication.DialogResult = Windows.Forms.DialogResult.Yes Then
+                'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
+                If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
+
+                'Check The Automated Backup On Exit Checkbox And Branch To Backup Sub If Nessicary
+                If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Then CreateBackup(AppSettings.CurrentDatabase)
+
+            End If
+        End If
+
+
+
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -429,10 +402,9 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SettingsMainMenu_Click(sender As Object, e As EventArgs) Handles SettingsMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        TimerStartPauseButton(sender, e)
         Settings.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        TimerStartPauseButton(sender, e)
+
 
     End Sub
 
@@ -443,43 +415,12 @@ Public Class Main
     Private Sub OpenDBManagerMainMenu_Click(sender As Object, e As EventArgs) Handles DatabaseManagerMENUITEM.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         DatabaseManager.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        If resumetimer = True Then TimerStartPauseButton(sender, e)
-
-    End Sub
-
-
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'MENU BAR - EXIT APP FUNCTION - Closes App On Demand    - Is Thrown only after the exit Event begins
-    '                                                       - Shows The Exit Confirmation Windows to display a confirmation and save and or backup message
-    '                                                       - Eiter Cancels The Exit Application Event OR Allows it to Continue Depending on the Yes / No Dialog Returned
-    '                                                       - Save and Backup Options Branch From The Exit Application Code Before runtime Returns Here
-    '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
-        If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : e.Cancel = True : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
-
-        ExitApplication.ShowDialog()
-        If ExitApplication.DialogResult = Windows.Forms.DialogResult.Yes Then
-
-            'Check The Automated Backup On Exit Checkbox And Branch To Backup Sub If Nessicary
-            If ExitApplication.ExitApplicationBackupDatabaseCHECKBOX.Checked = True Or AppSettings.BackupOnExit = True Then CreateBackup(AppSettings.CurrentDatabase)
-
-            'Check The Automated Save On Exit Checkbox - used to save overwrite whole database
-            If ExitApplication.ExitApplicationSaveDatabaseCHECKBOX.Checked = True Or AppSettings.SaveOnExit = True Then WriteToFile(0, AppSettings.CurrentDatabase, False)
-
-            DatabaseManagmentFunctions.SaveSettingsFile()
-        Else
-            e.Cancel = True : If resumetimer = True Then TimerStartPauseButton(sender, e) 'Automatically cancels Exit Event If Autologger Is Running (Avoids Potential Import Errors)
-        End If
 
 
     End Sub
+
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -491,29 +432,13 @@ Public Class Main
 
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    'MENU BAR - IMPORT NOW FUNCTION - Activated the autologger on demand as opposed to waiting for the delay to time out
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Private Sub ImportNowMainMenu_Click_1(sender As Object, e As EventArgs) Handles ImportNowMENUITEM.Click
-
-        AutoLoggerRunning = True
-        Timercount = 0
-        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
-        ImportLogFiles(False)
-        AutoLoggerRunning = False
-        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = AllItemsLISTBOX.Items.Count - 1
-        ListboxTABCONTROL.SelectTab(0)
-        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
-    End Sub
-
-
-    '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     'MENU BAR - SAVE DATABASE FUNCTION - branches to save routine to save the current database 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub SaveMainMenu_Click(sender As Object, e As EventArgs) Handles SaveDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        TimerStartPauseButton(sender, e)
+
         WriteToFile(0, AppSettings.CurrentDatabase, False)
-        TimerStartPauseButton(sender, e)
+
     End Sub
 
 
@@ -522,7 +447,7 @@ Public Class Main
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Private Sub BackupMainMenu_Click(sender As Object, e As EventArgs) Handles BackupDatabaseMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        TimerStartPauseButton(sender, e)
+
 
         'Setup User Input Form For Use With The Menu BarBackup Current Database Function
         UserInput.Text = "Database Backup System"
@@ -550,7 +475,7 @@ Public Class Main
             If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
 
         End If
-        TimerStartPauseButton(sender, e)
+
 
     End Sub
 
@@ -561,7 +486,7 @@ Public Class Main
 
     Private Sub RestoreBackupMainMenu_Click(sender As Object, e As EventArgs) Handles RestoreBackupMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        TimerStartPauseButton(sender, e)
+
         'Setup User Input Form For Use With The Menu Bar Restore Backup Function
         UserInput.Text = "Database Backup System"
         UserInput.UserInputHeaderLABEL.Text = "RESTORE DATABASE FROM BACKUP"
@@ -600,7 +525,7 @@ Public Class Main
             End If
             If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background) 'confirmatory sound bite
         End If
-        TimerStartPauseButton(sender, e)
+
     End Sub
 
 
@@ -612,11 +537,9 @@ Public Class Main
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         iEdit = AllItemsLISTBOX.SelectedIndex
         If iEdit = -1 Then ErrorHandler(2, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         ItemEdit.ShowDialog()
         DisplayItemStats(iEdit) 'update item display
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -626,15 +549,13 @@ Public Class Main
     Private Sub SortItemsMainMenu_Click(sender As Object, e As EventArgs) Handles SortItemsMainMenu.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         SearchLISTBOX.Items.Clear()
         RefineSearchReferenceList.Clear()
         SearchReferenceList.Clear()
         ItemTallyTEXTBOX.Text = ("Sorting A to Z)")
         ItemObjects.Sort(Function(x, y) x.ItemName.CompareTo(y.ItemName))
         PopulateAllItemsLISTBOX()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -646,7 +567,6 @@ Public Class Main
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         If AllItemsLISTBOX.SelectedIndices.Count > 0 Then
             Dim a As Integer = 0
@@ -681,7 +601,7 @@ Public Class Main
         Next
         If TradeItemCounter = 0 Then TradeItemCounter = 1
         ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -703,9 +623,7 @@ Public Class Main
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         ItemAdd.ShowDialog()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
 
     End Sub
 
@@ -715,7 +633,6 @@ Public Class Main
     Private Sub DeleteItemMainMenu_Click(sender As Object, e As EventArgs) Handles DeleteItemMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         Dim FocusOnExit As Integer = AllItemsLISTBOX.SelectedIndex
 
@@ -755,7 +672,7 @@ Public Class Main
 
         End If
 
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -766,11 +683,10 @@ Public Class Main
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         SearchLISTBOX.Items.Clear()
         SearchReferenceList.Clear()
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Items"
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -780,9 +696,8 @@ Public Class Main
     Private Sub ClearTradeListMainMenu_Click(sender As Object, e As EventArgs) Handles ClearTradeListMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         TradeListRICHTEXTBOX.Clear()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
     End Sub
 
     '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -792,9 +707,9 @@ Public Class Main
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
+
         UserLISTBOX.Items.Clear()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -833,11 +748,9 @@ Public Class Main
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         ImportLogRICHTEXTBOX.Text = "Checking for New Logs" & vbCrLf
         ImportLogFiles(True)
         PopulateAllItemsLISTBOX()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
 
     End Sub
 
@@ -917,7 +830,7 @@ Public Class Main
 
         If EastRealmCHECKBOX.Checked = False And AsiaRealmCHECKBOX.Checked = False And WestRealmCHECKBOX.Checked = False And EuropeRealmCHECKBOX.Checked = False Then Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
+
 
         UndoSearchList.Clear()
         For Each item In SearchReferenceList
@@ -942,7 +855,7 @@ Public Class Main
         If UndoSearchList.Count > 0 Then
             UndoSearchMenuItem.Enabled = True
         End If
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
     End Sub
 
     'UNDO LAST SEARCH
@@ -1193,7 +1106,7 @@ Public Class Main
 
         'Normal And Superior - White
         If (DisplayColour = "Normal" Or DisplayColour = "Superior") And ItemObjects(ItemIndex).RuneWord = False Then
-            If ItemObjects(ItemIndex).ItemBase = "Rune" Then
+            If ItemObjects(ItemIndex).ItemBase = "Rune" Or ItemObjects(ItemIndex).ItemBase = "74" Then
                 ItemNameRICHTEXTBOX.SelectionColor = Color.Orange
                 ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
                 ItemStatsRICHTEXTBOX.SelectionColor = Color.White
@@ -1357,6 +1270,7 @@ Public Class Main
     End Sub
 
     Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadItemMuleMENUITEM.Click
+        Return
         Dim Iindex = AllItemsLISTBOX.SelectedIndex
         If Iindex = -1 Then Return
 
@@ -1369,7 +1283,6 @@ Public Class Main
     Private Sub SetAllNonLadderMainMenu_Click(sender As Object, e As EventArgs) Handles SetAllNonLadderMENUITEM.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
         Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         'Setup User Input Form For user warning
         UserInput.Text = "ALERT ALERT"
@@ -1399,15 +1312,13 @@ Public Class Main
                 ItemObjects(index).Ladder = False
             Next
         End If
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
     End Sub
 
     'sub to set to nonladder based on mule logged date
     Private Sub SetLadderByDateMainMenu_Click(sender As Object, e As EventArgs) Handles SetLadderByDateMENUITEM.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         Dim temp As Date
         Dim resetdate As Date = Date.ParseExact(AppSettings.ResetDate, "d/M/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo)
@@ -1417,15 +1328,13 @@ Public Class Main
             If temp < resetdate Then ItemObjects(index).Ladder = False : Continue For
             ItemObjects(index).Ladder = True
         Next
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
     Private Sub SendToTradeListSearchMenu_Click(sender As Object, e As EventArgs) Handles SendToTradeListSearchMenu.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         If SearchLISTBOX.SelectedIndices.Count > 0 Then
             Dim a As Integer = 0
@@ -1451,15 +1360,12 @@ Public Class Main
 
 
         ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Entries" ' simpler way to indicate count
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
     Private Sub ClearItemSearchCMenu_Click(sender As Object, e As EventArgs) Handles ClearItemSearchCMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
 
         Dim FocusOnExit As Integer = SearchLISTBOX.SelectedIndex
         Dim a As Integer
@@ -1476,7 +1382,6 @@ Public Class Main
         If SearchLISTBOX.Items.Count = 0 Then FocusOnExit = -1
         SearchLISTBOX.SelectedIndex = FocusOnExit
         ItemTallyTEXTBOX.Text = SearchLISTBOX.Items.Count & " - Total Items"
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
 
     End Sub
 
@@ -1683,9 +1588,6 @@ Public Class Main
     Private Sub SendAllToTradeListSearchMenu_Click(sender As Object, e As EventArgs) Handles SendAllToTradeListSearchMenu.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
 
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
-
         If SearchLISTBOX.Items.Count > 0 Then
             Dim a As Integer = 0
             Dim count As Integer = 0
@@ -1709,7 +1611,7 @@ Public Class Main
         'SET TRADELIST HIGHLIGHT AND SELECT TRADE LIST TAB
         ListboxTABCONTROL.SelectTab(2)
         ItemTallyTEXTBOX.Text = SearchReferenceList.Count & " - Entries" ' simpler way to indicate count
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -1746,11 +1648,10 @@ Public Class Main
     Private Sub ExportItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportItemsToolStripMenuItem.Click, EportToolStripMenuItem.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
+
         Export.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -1840,8 +1741,7 @@ Public Class Main
     Private Sub MuleListing(ByVal str)
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(Nothing, Nothing) : resumetimer = True ' pause timer
+
         TradeListRICHTEXTBOX.Clear()
         Dim temp As String = ""
         For index = 0 To ItemObjects.Count - 1
@@ -1865,18 +1765,16 @@ Public Class Main
         Next
         If TradeItemCounter = 0 Then TradeItemCounter = 1
         ItemTallyTEXTBOX.Text = (TradeItemCounter - 1) & " - Entries"
-        If resumetimer = True Then TimerStartPauseButton(Nothing, Nothing) ' resume timer
+
 
     End Sub
 
     Private Sub VerifyLoggingFilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerifyLoggingFilesToolStripMenuItem.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         ScriptChecker.ShowDialog()
         If AppSettings.SoundMute = False Then My.Computer.Audio.Play(My.Resources.d2Dong, AudioPlayMode.Background)
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
 
     End Sub
 
@@ -1884,10 +1782,7 @@ Public Class Main
     Private Sub DatabaseStatisticsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatabaseStatisticsToolStripMenuItem.Click
 
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         Statistics.ShowDialog()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
 
     End Sub
 
@@ -1930,8 +1825,6 @@ Public Class Main
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         If AutoLoggerRunning = True Then ErrorHandler(1, 0, 0, 0) : Return
-        Dim resumetimer = False
-        If AutoLoggerReady = False Then TimerStartPauseButton(sender, e) : resumetimer = True ' pause timer
         SearchLISTBOX.Items.Clear()
         RefineSearchReferenceList.Clear()
         SearchReferenceList.Clear()
@@ -1939,10 +1832,20 @@ Public Class Main
         'ItemObjects.Sort(Function(x, y) DateTime.ParseExact(x.ImportDate, "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture).CompareTo(DateTime.ParseExact(y.ImportDate, "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture)))
         ItemObjects.Sort(Function(x, y) x.LastLogDate.CompareTo(y.LastLogDate))
         PopulateAllItemsLISTBOX()
-        If resumetimer = True Then TimerStartPauseButton(sender, e) ' resume timer
+
     End Sub
 
     Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
         ToolStripMenuItem3_Click(sender, e)
+    End Sub
+
+    Private Sub ImportNowBUTTON_Click(sender As Object, e As EventArgs) Handles ImportNowBUTTON.Click
+        AutoLoggerRunning = True
+        ImportLogRICHTEXTBOX.AppendText(vbCrLf & "-------------------------------------------------------------------------------------------------" & vbCrLf & vbCrLf & "AutoLogger Running - " & Date.Today & " @ " & TimeOfDay & vbCrLf & vbCrLf & "Checking For New Log Files..." & vbCrLf)
+        ImportLogFiles(False)
+        AutoLoggerRunning = False
+        If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = AllItemsLISTBOX.Items.Count - 1
+        ListboxTABCONTROL.SelectTab(0)
+        ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
     End Sub
 End Class
