@@ -102,8 +102,20 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="AutoLogger.vb" />
+    <Compile Include="CubingInformation.Designer.vb">
+      <DependentUpon>CubingInformation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CubingInformation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="D2Loader.vb" />
     <Compile Include="DatabaseManagmentFunctions.vb" />
     <Compile Include="ErrorHandlerForm.Designer.vb">
@@ -221,6 +233,12 @@
     <Compile Include="UserListFunctions.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CubingInformation.resx">
+      <DependentUpon>CubingInformation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorHandlerForm.resx">
       <DependentUpon>ErrorHandlerForm.vb</DependentUpon>
     </EmbeddedResource>

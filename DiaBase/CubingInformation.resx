@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>3 El Runes -&gt; 1 Eld Rune
+3 Eld Runes  -&gt; 1 Tir Rune
+3 Tir Runes -&gt; 1 Nef Rune
+3 Nef Runes -&gt; 1 Eth Rune
+3 Eth Runes -&gt; 1 Ith Rune
+3 Ith Runes -&gt; 1 Tal Rune
+3 Tal Runes -&gt; 1 Ral Rune
+3 Ral Runes -&gt; 1 Ort Rune
+3 Ort Runes -&gt; 1 Thul Rune
+3 Thul Runes + 1 Chipped Topaz -&gt; Amn Rune
+3 Amn Runes + 1 Chipped Amethyst -&gt; Sol Rune
+3 Sol Runes + 1 Chipped Sapphire -&gt; Shael Rune
+3 Shael Runes + 1 Chipped Ruby -&gt; Dol Rune
+3 Dol Runes + 1 Chipped Emerald -&gt; Hel Rune
+3 Hel Runes + 1 Chipped Diamond -&gt; Io Rune
+3 Io Runes + 1 Flawed Topaz -&gt; Lum Rune
+3 Lum Runes + 1 Flawed Amethyst -&gt; Ko Rune
+3 Ko Runes + 1 Flawed Sapphire -&gt; Fal Rune
+3 Fal Runes + 1 Flawed Ruby -&gt; Lem Rune
+3 Lem Runes + 1 Flawed Emerald -&gt; Pul Rune
+2 Pul Runes + 1 Flawed Diamond -&gt; Um Rune
+2 Um Runes + 1 Topaz -&gt; Mal Rune
+2 Mal Runes + 1 Amethyst -&gt; Ist Rune
+2 Ist Runes + 1 Sapphire -&gt; Gul Rune
+2 Gul Runes + 1 Ruby -&gt; Vex Rune
+2 Vex Runes + 1 Emerald -&gt; Ohm Rune
+2 Ohm Runes + 1 Diamond -&gt; Lo Rune
+2 Lo Runes + 1 Flawless Topaz -&gt; Sur Rune
+2 Sur Runes + 1 Flawless Amethyst -&gt; Ber Rune
+2 Ber Runes + 1 Flawless Sapphire -&gt; Jah Rune
+2 Jah Runes + 1 Flawless Ruby -&gt; Cham Rune
+2 Cham Runes + 1 Flawless Emerald  -&gt; Zod
+
+
+1 Tal Rune + 1 Shael Rune + 1 Perfect Diamond + Magefist
+1 Ko Rune + 1 Lem Rune + 1 Perfect Diamond + Exceptional Unique Armor
+
+1 Tal Rune + 1 Amn Rune + 1 Perfect Ruby + Normal Shield = Socketed Shield of same type
+
+1 Tal Rune + 1 Thul Rune + 1 Perfect Topaz + Normal Body Armor = Socketed Body Armor of same type
+
+1 Ral Rune + 1 Amn Rune + 1 Perfect Amethyst + Normal Weapon = Socketed Weapon of same type
+
+Twisted Essence of Suffering - Andariel and Duriel
+Charged Essence of Hatred - Mephisto)
+Burning Essence of Terror - Diablo
+Festering Essence of Destruction - Baal.
+
+
+
+countess
+Normal: El (r01) - Ral (r08).
+Nightmare: El (r01) - Io/Ko (r18); above Io (r16) is much rarer.
+Hell: El (r01) - Ist/Lo (r28); above Ist (r26) is much rarer.
+
+Hellforge
+Normal: El (r01) - Amn (r11).
+Nightmare: Sol (r12) - Um (r22).
+Hell: Hel (r15) - Gul (r25).
+
+Chests
+Act 1 Normal: No Runes from Chests
+Act 2 Normal: El/Eld/Tir/Nef (r01-r04)
+Act 3 Normal: Eth/Ith/Tal/Ral (r05-r08)
+Act 4 Normal: Ort/Thul/Amn/Sol (r09-r12)
+Act 5 Normal: Shael/Dol (r13-r14)
+Act 1 Nightmare: Hel/Io (r15-r16)
+Act 2 Nightmare: Lum/Ko (r17-r18)
+Act 3 Nightmare: Fal/Lem (r19-r20)
+Act 4 Nightmare: Pul/Um (r21-r22)
+Act 5 Nightmare: Mal/Ist (r23-r24)
+Act 1 Hell: Gul/Vex (r25-r26)
+Act 2 Hell: Ohm/Lo (r27-r28)
+Act 3 Hell: Sur/Ber (r29-r30)
+Act 4 Hell: Jah/Cham (r31-r32)
+Act 5 Hell: Zod (r33)
+</value>
+  </data>
+</root>

@@ -80,10 +80,13 @@ Partial Class Main
         Me.CloseD2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainFormMENUBAR = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RuneWordsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CubingInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatabaseStatisticsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjectEtalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserRefControlTabBUTTON = New System.Windows.Forms.Button()
         Me.TradesListControlTabBUTTON = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -623,15 +626,28 @@ Partial Class Main
         '
         'ToolStripMenuItem2
         '
+        Me.ToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RuneWordsToolStripMenuItem, Me.CubingInfoToolStripMenuItem})
         Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ToolStripMenuItem2.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(82, 20)
-        Me.ToolStripMenuItem2.Text = "Runewords"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(86, 20)
+        Me.ToolStripMenuItem2.Text = "Information"
+        '
+        'RuneWordsToolStripMenuItem
+        '
+        Me.RuneWordsToolStripMenuItem.Name = "RuneWordsToolStripMenuItem"
+        Me.RuneWordsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RuneWordsToolStripMenuItem.Text = "RuneWords"
+        '
+        'CubingInfoToolStripMenuItem
+        '
+        Me.CubingInfoToolStripMenuItem.Name = "CubingInfoToolStripMenuItem"
+        Me.CubingInfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CubingInfoToolStripMenuItem.Text = "Cubing Info"
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseStatisticsToolStripMenuItem, Me.HelpToolStripMenuItem1, Me.ProjectEtalToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatabaseStatisticsToolStripMenuItem, Me.HelpToolStripMenuItem1, Me.ProjectEtalToolStripMenuItem, Me.ToolStripMenuItem5})
         Me.HelpToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HelpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
@@ -656,6 +672,12 @@ Partial Class Main
         Me.ProjectEtalToolStripMenuItem.Name = "ProjectEtalToolStripMenuItem"
         Me.ProjectEtalToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ProjectEtalToolStripMenuItem.Text = "Project Etal"
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(178, 22)
+        Me.ToolStripMenuItem5.Text = "About"
         '
         'UserRefControlTabBUTTON
         '
@@ -1296,58 +1318,58 @@ Partial Class Main
         '
         Me.SearchListCONTEXTMENUSTRIP.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SendToTradeListSearchMenu, Me.SendAllToTradeListSearchMenu, Me.SendAllItemsToUserListSearchMenu, Me.ToolStripSeparator8, Me.ClearItemSearchCMenu, Me.DeleteItemSearchCMenu, Me.SelectAllSearchCMenu, Me.ToolStripSeparator10, Me.EportToolStripMenuItem})
         Me.SearchListCONTEXTMENUSTRIP.Name = "SearchListContextMenuStrip1"
-        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(186, 170)
+        Me.SearchListCONTEXTMENUSTRIP.Size = New System.Drawing.Size(187, 170)
         '
         'SendToTradeListSearchMenu
         '
         Me.SendToTradeListSearchMenu.Name = "SendToTradeListSearchMenu"
-        Me.SendToTradeListSearchMenu.Size = New System.Drawing.Size(185, 22)
+        Me.SendToTradeListSearchMenu.Size = New System.Drawing.Size(186, 22)
         Me.SendToTradeListSearchMenu.Text = "Send to TradeList"
         '
         'SendAllToTradeListSearchMenu
         '
         Me.SendAllToTradeListSearchMenu.Name = "SendAllToTradeListSearchMenu"
-        Me.SendAllToTradeListSearchMenu.Size = New System.Drawing.Size(185, 22)
+        Me.SendAllToTradeListSearchMenu.Size = New System.Drawing.Size(186, 22)
         Me.SendAllToTradeListSearchMenu.Text = "Send All to TradeList"
         '
         'SendAllItemsToUserListSearchMenu
         '
         Me.SendAllItemsToUserListSearchMenu.Name = "SendAllItemsToUserListSearchMenu"
-        Me.SendAllItemsToUserListSearchMenu.Size = New System.Drawing.Size(185, 22)
+        Me.SendAllItemsToUserListSearchMenu.Size = New System.Drawing.Size(186, 22)
         Me.SendAllItemsToUserListSearchMenu.Text = "Send To User List"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(182, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(183, 6)
         '
         'ClearItemSearchCMenu
         '
         Me.ClearItemSearchCMenu.Name = "ClearItemSearchCMenu"
-        Me.ClearItemSearchCMenu.Size = New System.Drawing.Size(185, 22)
+        Me.ClearItemSearchCMenu.Size = New System.Drawing.Size(186, 22)
         Me.ClearItemSearchCMenu.Text = "Clear"
         '
         'DeleteItemSearchCMenu
         '
         Me.DeleteItemSearchCMenu.Name = "DeleteItemSearchCMenu"
-        Me.DeleteItemSearchCMenu.Size = New System.Drawing.Size(185, 22)
+        Me.DeleteItemSearchCMenu.Size = New System.Drawing.Size(186, 22)
         Me.DeleteItemSearchCMenu.Text = "Delete Selected"
         '
         'SelectAllSearchCMenu
         '
         Me.SelectAllSearchCMenu.Name = "SelectAllSearchCMenu"
-        Me.SelectAllSearchCMenu.Size = New System.Drawing.Size(185, 22)
+        Me.SelectAllSearchCMenu.Size = New System.Drawing.Size(186, 22)
         Me.SelectAllSearchCMenu.Text = "Select All"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(182, 6)
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(183, 6)
         '
         'EportToolStripMenuItem
         '
         Me.EportToolStripMenuItem.Name = "EportToolStripMenuItem"
-        Me.EportToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.EportToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.EportToolStripMenuItem.Text = "Export selected Items"
         '
         'TradeListTABPAGE
@@ -2200,4 +2222,7 @@ Partial Class Main
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents RuneWordsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CubingInfoToolStripMenuItem As ToolStripMenuItem
 End Class

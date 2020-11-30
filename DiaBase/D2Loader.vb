@@ -217,13 +217,22 @@ Module D2Loader
 
         prof.MpqFile = Right(AppSettings.MpqFile, Len(AppSettings.MpqFile) - InStrRev(AppSettings.MpqFile, "\"))
         'MessageBox.Show(prof.MpqFile)
+        'MessageBox.Show(AppSettings.EtalPath)
+
+        If AppSettings.EtalVersion = "KOL" Then
+            prof.FilePath = AppSettings.EtalPath & "\d2bs\kolbot\MuleInventory\"
+        End If
         If AppSettings.EtalVersion = "NED" Then
             prof.FilePath = AppSettings.EtalPath & "\scripts\Configs\" & ItemObjects(x).ItemRealm & "\AMS\MuleInventory\"
-        Else
+        End If
+        If AppSettings.EtalVersion = "PUB" Then
             prof.FilePath = AppSettings.EtalPath & "\scripts\AMS\MuleInventory\"
         End If
+
         prof.FilePath = prof.FilePath.Replace("\\", "\")
         prof.FilePath = prof.FilePath.Replace("\", "/")
+        'MessageBox.Show(prof.FilePath)
+
 
         Dim Ptr As IntPtr = Marshal.AllocHGlobal(Marshal.SizeOf(prof))
         Dim ByteArray(Marshal.SizeOf(prof) - 1) As Byte

@@ -1135,7 +1135,7 @@ Public Class Main
         'Rares - Yellow
         If DisplayColour = "Rare" Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.Yellow
-            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
 
         'Crafted - Gold
@@ -1147,17 +1147,17 @@ Public Class Main
         'Set Items - Green
         If DisplayColour = "Set" Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.Green
-            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
 
         'Uniques - Light Gold
         If DisplayColour = "Unique" Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
-            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
         End If
         If ItemObjects(ItemIndex).RuneWord = True Then
             ItemNameRICHTEXTBOX.SelectionColor = Color.BurlyWood
-            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf
+            ItemNameRICHTEXTBOX.SelectedText = ItemObjects(ItemIndex).ItemName & vbCrLf & ItemObjects(ItemIndex).Stat1 & vbCrLf & ItemObjects(ItemIndex).Stat2 & vbCrLf
         End If
 
         ItemNameRICHTEXTBOX.SelectAll() : ItemNameRICHTEXTBOX.SelectionAlignment = HorizontalAlignment.Center
@@ -1213,8 +1213,14 @@ Public Class Main
         ItemStatsRICHTEXTBOX.SelectionColor = Color.White
 
         'Unique Attributes Block as Default Blue (No need to colour these as they are blue by default)
-        If ItemObjects(ItemIndex).Stat1 <> Nothing And ItemObjects(ItemIndex).RuneWord = False Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat1 & vbCrLf)
-        If ItemObjects(ItemIndex).Stat2 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat2 & vbCrLf)
+        If ItemObjects(ItemIndex).Stat1 <> Nothing Then
+            If ItemObjects(ItemIndex).RuneWord = False And ItemObjects(ItemIndex).ItemQuality <> "Set" And ItemObjects(ItemIndex).ItemQuality <> "Unique" And ItemObjects(ItemIndex).ItemQuality <> "Rare" Then
+                ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat1 & vbCrLf)
+            End If
+
+        End If
+
+        If ItemObjects(ItemIndex).Stat2 <> Nothing And ItemObjects(ItemIndex).RuneWord = False Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat2 & vbCrLf)
         If ItemObjects(ItemIndex).Stat3 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat3 & vbCrLf)
         If ItemObjects(ItemIndex).Stat4 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat4 & vbCrLf)
         If ItemObjects(ItemIndex).Stat5 <> Nothing Then ItemStatsRICHTEXTBOX.AppendText(ItemObjects(ItemIndex).Stat5 & vbCrLf)
@@ -1270,7 +1276,7 @@ Public Class Main
     End Sub
 
     Private Sub LoadMuleMainMenu_Click(sender As Object, e As EventArgs) Handles LoadItemMuleMENUITEM.Click
-        Return
+        'Return
         Dim Iindex = AllItemsLISTBOX.SelectedIndex
         If Iindex = -1 Then Return
 
@@ -1812,10 +1818,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        RuneWord.ShowDialog()
-    End Sub
-
     Private Sub SearchWordCOMBOBOX_KeyPress(sender As Object, e As KeyPressEventArgs) Handles SearchWordCOMBOBOX.KeyPress
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             SearchBUTTON_Click(sender, e)
@@ -1847,5 +1849,17 @@ Public Class Main
         If AllItemsLISTBOX.Items.Count > 0 Then AllItemsLISTBOX.SelectedIndex = AllItemsLISTBOX.Items.Count - 1
         ListboxTABCONTROL.SelectTab(0)
         ItemTallyTEXTBOX.Text = ItemObjects.Count & " - Items"
+    End Sub
+
+    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
+        About.ShowDialog()
+    End Sub
+
+    Private Sub RuneWordsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RuneWordsToolStripMenuItem.Click
+        RuneWord.ShowDialog()
+    End Sub
+
+    Private Sub CubingInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CubingInfoToolStripMenuItem.Click
+        CubingInformation.ShowDialog()
     End Sub
 End Class
